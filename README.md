@@ -4,7 +4,7 @@
 放課後等デイサイト（児童発達支援／放課後等デイサービス）のトップページ。
 
 - 実体は `index.html` 1枚のみ。ビルド不要でそのまま開ける。
-- 公開先: https://k-matsumoto527.github.io/kaminote-day/
+- 公開先: https://k-matsumoto527.github.io/kaminote-day-design/
 - 対になる保育園サイト: `~/kaminote-design` / https://k-matsumoto527.github.io/kaminote-design/
 
 ## 構成
