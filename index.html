@@ -236,6 +236,11 @@ section{scroll-margin-top:76px}
 .doc .meta{display:block; font-size:.76rem; color:var(--ink-soft); font-weight:500}
 .doc .pdf{font-family:'Baloo 2',sans-serif; font-size:.74rem; font-weight:700; color:#fff;
   background:var(--pg-dark); padding:6px 13px; border-radius:40px; white-space:nowrap}
+/* 支援プログラムはKIDS・SMILE共通で1本なので、2カラムの上に横長で置く */
+.doc-wide{margin-bottom:28px}
+/* 現行サイトに見当たらない分。リンクにせず、抜けとして見せる */
+.doc-todo{background:var(--accent-soft); cursor:default; grid-template-columns:minmax(0,1fr)}
+.doc-todo b{color:var(--accent-dark)}
 .disc-note{margin-top:26px; background:var(--accent-soft); border-radius:20px; padding:20px 24px;
   font-size:.9rem; line-height:1.85}
 .disc-note b{color:var(--accent-dark)}
@@ -313,7 +318,7 @@ section{scroll-margin-top:76px}
 <body>
 
 <div class="demobar">
-  <b>デザイン案</b>　放課後等デイサイトのトップページです。写真は雰囲気をつかむための<b>イメージ写真</b>、文章・電話番号・公表日なども<b>すべて仮</b>で、これから取材・撮影して差し替えます。
+  <b>デザイン案</b>　放課後等デイサイトのトップページです。写真は雰囲気をつかむための<b>イメージ写真</b>、事業所情報は現行サイトからの引用です。文章と写真は差し替えます。
 </div>
 
 <header class="head">
@@ -345,7 +350,7 @@ section{scroll-margin-top:76px}
       得意なことを入口にして、毎日のくらしの中で少しずつ育てていきます。
     </p>
     <div class="hero-tags">
-      <span class="tag">未就学から高校生まで</span>
+      <span class="tag">未就学〜18歳（必要時20歳まで）</span>
       <span class="tag">2つの事業所</span>
       <span class="tag">多言語対応</span>
     </div>
@@ -426,12 +431,13 @@ section{scroll-margin-top:76px}
           <span class="sec-label">🌏 かみのての強み</span>
           <h2>ことばのちがいで、<br>支援をあきらめない。</h2>
           <p>
-            外国にルーツのあるご家庭が、制度の説明も、日々の連絡も、母語で受け取れるようにしています。
+            可児市・美濃加茂市には外国にルーツを持つ方が多く暮らしています。
+            かみのてには<strong>通訳スタッフ</strong>がいて、制度の説明も日々の連絡も母語でお伝えできます。
             受給者証の申請や学校とのやりとりも、分かるところまでいっしょに進めます。
-            グループで外国人材の支援事業を行ってきた経験が、そのまま活きている部分です。
+            法人が特定技能の登録支援機関として外国人材を支えてきた経験が、そのまま活きている部分です。
           </p>
           <div class="langs">
-            <span>やさしい日本語</span><span>English</span><span>Português</span><span>Tagalog</span>
+            <span>英語</span><span>タガログ語</span><span>ビサヤ語</span><span>ポルトガル語</span>
           </div>
         </div>
         <figure class="photo">
@@ -461,9 +467,10 @@ section{scroll-margin-top:76px}
           <h3>かみのてKIDS</h3>
           <span class="kind">児童発達支援／放課後等デイサービス</span>
           <dl>
-            <dt>所在地</dt><dd>取材時に確認</dd>
-            <dt>対象</dt><dd>取材時に確認</dd>
-            <dt>営業時間</dt><dd>取材時に確認</dd>
+            <dt>所在地</dt><dd>岐阜県可児市土田2569-2</dd>
+            <dt>電話</dt><dd>0574-66-3513</dd>
+            <dt>定員</dt><dd>10名</dd>
+            <dt>利用時間</dt><dd>9:00−18:00（月〜金）<br>10:00−16:00（土）</dd>
           </dl>
           <a class="link-more" href="#">この事業所について見る</a>
         </div>
@@ -477,9 +484,10 @@ section{scroll-margin-top:76px}
           <h3>かみのてSMILE</h3>
           <span class="kind">児童発達支援／放課後等デイサービス</span>
           <dl>
-            <dt>所在地</dt><dd>取材時に確認</dd>
-            <dt>対象</dt><dd>取材時に確認</dd>
-            <dt>営業時間</dt><dd>取材時に確認</dd>
+            <dt>所在地</dt><dd>岐阜県可児市今渡2452-1</dd>
+            <dt>電話</dt><dd>0574-66-3513</dd>
+            <dt>定員</dt><dd>10名</dd>
+            <dt>利用時間</dt><dd>9:00−18:00（月〜金）</dd>
           </dl>
           <a class="link-more" href="#">この事業所について見る</a>
         </div>
@@ -524,47 +532,53 @@ section{scroll-margin-top:76px}
     </div>
     <p class="disc-lead reveal">
       児童発達支援・放課後等デイサービスの事業者に義務づけられている公表です。
-      事業所ごとに、支援プログラム／事業所による自己評価／保護者のみなさまへのアンケート結果を掲載しています。
+      支援プログラムはかみのてKIDS・かみのてSMILE共通、自己評価と保護者評価は
+      <strong>児童発達支援と放課後等デイサービスに分けて</strong>掲載しています。
     </p>
+
+    <a class="doc doc-wide reveal" href="#">
+      <span><b>支援プログラム</b><span class="meta">かみのてKIDS・かみのてSMILE 共通</span></span>
+      <span class="pdf">PDF</span>
+    </a>
+
     <div class="discs reveal">
       <div class="disc">
-        <h3>かみのてKIDS <span class="kind">事業所番号 000000</span></h3>
+        <h3>自己評価結果 <span class="kind">事業所による評価</span></h3>
         <div class="docs">
           <a class="doc" href="#">
-            <span><b>支援プログラム</b><span class="meta">公表日 2026.04.01（仮）</span></span>
+            <span><b>かみのてKIDS ／ 児童発達支援</b><span class="meta">令和6年度</span></span>
             <span class="pdf">PDF</span>
           </a>
           <a class="doc" href="#">
-            <span><b>自己評価結果</b><span class="meta">2025年度分 ／ 公表日 2026.03.31（仮）</span></span>
+            <span><b>かみのてKIDS ／ 放課後等デイサービス</b><span class="meta">令和6年度</span></span>
             <span class="pdf">PDF</span>
           </a>
-          <a class="doc" href="#">
-            <span><b>保護者向けアンケート結果</b><span class="meta">2025年度分 ／ 公表日 2026.03.31（仮）</span></span>
-            <span class="pdf">PDF</span>
-          </a>
+          <span class="doc doc-todo">
+            <span><b>かみのてSMILE ／ 児童発達支援・放課後等デイサービス</b><span class="meta">現行サイトに掲載がありません。要確認</span></span>
+          </span>
         </div>
       </div>
       <div class="disc">
-        <h3>かみのてSMILE <span class="kind">事業所番号 000000</span></h3>
+        <h3>保護者評価 <span class="kind">アンケート結果</span></h3>
         <div class="docs">
           <a class="doc" href="#">
-            <span><b>支援プログラム</b><span class="meta">公表日 2026.04.01（仮）</span></span>
+            <span><b>かみのてKIDS ／ 児童発達支援</b><span class="meta">令和6年度</span></span>
             <span class="pdf">PDF</span>
           </a>
           <a class="doc" href="#">
-            <span><b>自己評価結果</b><span class="meta">2025年度分 ／ 公表日 2026.03.31（仮）</span></span>
+            <span><b>かみのてKIDS ／ 放課後等デイサービス</b><span class="meta">令和6年度</span></span>
             <span class="pdf">PDF</span>
           </a>
-          <a class="doc" href="#">
-            <span><b>保護者向けアンケート結果</b><span class="meta">2025年度分 ／ 公表日 2026.03.31（仮）</span></span>
-            <span class="pdf">PDF</span>
-          </a>
+          <span class="doc doc-todo">
+            <span><b>かみのてSMILE ／ 児童発達支援・放課後等デイサービス</b><span class="meta">現行サイトに掲載がありません。要確認</span></span>
+          </span>
         </div>
       </div>
     </div>
+
     <p class="disc-note reveal">
-      <b>更新について。</b>自己評価結果と保護者向けアンケート結果は<strong>年1回（3月）</strong>に更新します。
-      御社で作成いただいたデータをお預かりし、こちらで差し替えて公表日を更新します。
+      <b>更新について。</b>自己評価結果と保護者評価は<strong>年1回（3月）</strong>に更新します。
+      御社で作成いただいたデータをお預かりし、こちらでPDFを差し替えて年度表示を更新します。
       支援プログラムは、内容を変更されたときに随時差し替えます。
     </p>
   </div>
@@ -612,8 +626,8 @@ section{scroll-margin-top:76px}
       </div>
       <div class="tel">
         <span>お電話でのご相談</span>
-        <b>000-000-0000</b>
-        <small>平日 9:00 − 18:00 ／ 番号は仮です</small>
+        <b>0574-66-3513</b>
+        <small>かみのてKIDS・かみのてSMILE 共通</small>
       </div>
     </div>
   </div>
@@ -629,8 +643,8 @@ section{scroll-margin-top:76px}
         </div>
         <div class="foot-org">
           運営：株式会社 A and K<br>
-          所在地（取材時に確認）<br>
-          TEL 000-000-0000
+          〒509-0207 岐阜県可児市今渡3-11<br>
+          TEL 0574-66-3511
         </div>
       </div>
       <div>
