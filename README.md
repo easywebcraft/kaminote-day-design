@@ -7,14 +7,28 @@
 
 | ファイル | 方向性 | 公開URL |
 | --- | --- | --- |
-| `plan-a.html` | 写真を主役に（白ヘッダー＋アイコンメニュー＋明朝の見出し） | [/plan-a.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-a.html) |
-| `plan-b.html` | やわらかい曲線（まるい写真＋波線＋丸ゴシック） | [/plan-b.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-b.html) |
-| `plan-c.html` | 縦書きと全画面写真（ヘッダーを置かない） | [/plan-c.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-c.html) |
+| `plan-a.html` | 写真を主役に（白ヘッダー＋アイコンメニュー＋明朝の見出し）／`hero-a.jpg` | [/plan-a.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-a.html) |
+| `plan-b.html` | やわらかい曲線（まるい写真＋波線＋丸ゴシック）／`hero-b.jpg` | [/plan-b.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-b.html) |
+| `plan-c.html` | 縦書きと全画面写真（ヘッダーを置かない）／`hero-c.jpg` | [/plan-c.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-c.html) |
 | `index.html` | 最初に作った1案（パステルグリーン）。3案には含めない | [/](https://k-matsumoto527.github.io/kaminote-day-design/) |
 
 **ルートURL（`/`）が開くのは `index.html`＝3案に含めない最初の1案**。案A・B・Cを見てもらうときは
-`plan-a.html` 等のURLを直接渡すこと。トップのイラストだけは4ファイルとも共通にしてある
-（ルートを開いた人が古い画面を見て「変わっていない」と思わないようにするため）。
+`plan-a.html` 等のURLを直接渡すこと（ルートを見て「変わっていない」と誤解された実例あり）。
+index.html のトップは案Aと同じ `hero-a.jpg` にして、ルートだけ古く見えないようにしてある。
+
+## トップ写真
+
+**トップ写真は3案それぞれ別**にしている（案ごとの見え方の違いが出るように）。出所は Unsplash、
+いずれも**顔が特定できないカット**（後ろ姿・俯瞰・遠景）を選んでいる。撮影後に実写へ差し替える前提。
+
+| ファイル | 内容 | Unsplash ID |
+| --- | --- | --- |
+| `hero-a.jpg` | 草原で手をつなぐ3人の後ろ姿。**上半分が淡い空**なのでそこにコピーが乗る | `97Rpu-UmCaY` |
+| `hero-b.jpg` | 文字つみきであそぶ真上からの一枚。まるい切り抜きに収まる | `Cq9slNxV8YU` |
+| `hero-c.jpg` | 霧の木立でボール遊び。暗く沈ませても崩れず白い縦書きが映える | `tvc5imO5pXk` |
+
+**白／暗のかぶせは写真ごとに調整が要る。**同じ数値を使い回すと必ずどこかで文字が読めなくなる。
+とくに案Aのリード文は草地にかかるので、中間（48%地点）を濃いめにしてある。
 
 **3案は保育園サイトの案A・B・Cと1対1で対**になっている（同じ案を選べば2サイトが揃う）。
 **11ブロックの構成と文言は3案とも `index.html` と同一**。変えているのは色・書体・レイアウトだけなので、

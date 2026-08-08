@@ -65,11 +65,9 @@ section{scroll-margin-top:24px}
   clip-path:polygon(0 0,100% 0,100% 88%,50% 100%,0 88%)}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
-/* 白い文字を重ねるための暗いかぶせ。ヒーローが明るいイラストになったので
-   写真だった頃（.44/.18/.32）では足りないが、濃くしすぎると絵が灰色に
-   沈んでこどもらしさが消える。上（ロゴとメニュー）だけ濃く、下は控えめに。
-   足りないコントラストは見出し側の影で補っている。 */
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,32,27,.5) 0%,rgba(28,32,27,.3) 38%,rgba(28,32,27,.26) 100%)}
+/* 白い文字を重ねるための暗いかぶせ。この写真はもともと霧がかって明るいので
+   上（ロゴとメニュー）を濃いめに、下は写真の奥行きを残すため控えめに。 */
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,30,24,.52) 0%,rgba(24,30,24,.34) 38%,rgba(24,30,24,.34) 100%)}
 
 /* ---- ロゴとメニュー（写真の上に浮かせる） ---- */
 .topbar{position:relative;z-index:5;padding:46px 24px 0;color:#fff}
@@ -279,15 +277,15 @@ section{scroll-margin-top:24px}
 </head>
 <body>
 
-<div class="note">これは<b>デザイン案C</b>です。トップの<b>イラスト</b>と本文の<b>イメージ写真</b>はどちらも仮のもの、事業所の情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+<div class="note">これは<b>デザイン案C</b>です。写真は雰囲気をつかむための<b>イメージ写真</b>、事業所の情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
 
 <!-- ============ ヒーロー ============ -->
 <section class="hero">
-  <div class="hero-bg"><img src="img/hero-kids.svg" alt="こどもたちが草原であそんでいるイラスト"></div>
+  <div class="hero-bg"><img src="img/hero-c.jpg" alt="イメージ写真（木立でボール遊びをするこどもたち）"></div>
 
   <div class="side-copy">COPYRIGHT © A AND K CO., LTD. ALL RIGHTS RESERVED.</div>
   <!-- くの字の切り抜きに食われない高さに置く（位置はCSSの .hero-mark 側） -->
-  <span class="stockmark hero-mark">イメージイラスト</span>
+  <span class="stockmark hero-mark">イメージ写真</span>
 
   <div class="side-tabs">
     <a class="tab-dark" href="#offices"><svg viewBox="0 0 24 24"><path d="M4 16h16M6 16v-4l2-4h8l2 4v4"/><circle cx="8" cy="18" r="1.6"/><circle cx="16" cy="18" r="1.6"/></svg>アクセス</a>
