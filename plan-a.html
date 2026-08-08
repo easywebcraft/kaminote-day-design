@@ -91,10 +91,13 @@ section{scroll-margin-top:84px}
 .hero{position:relative;min-height:min(84vh,740px);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#e7efe9}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
-/* 見出しは濃い文字を写真に重ねるので、白のかぶせは薄くしすぎないこと。
-   ヒーロー写真（芽ばえ）は暗く細かいため、.4 程度だと本文が読めなくなる。 */
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.7) 45%,rgba(255,255,255,.86) 100%)}
-.hero-copy{position:relative;z-index:2;text-align:center;padding:92px 24px;overflow:hidden}
+/* 濃い文字を重ねるための白のかぶせ。ヒーローが明るいパステルのイラストに
+   なったので、写真だった頃（.88/.7/.86）ほど強くすると絵が飛んでしまう。 */
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.34) 45%,rgba(255,255,255,.6) 100%)}
+/* 下の余白が大きいのは、コピー全体を上へ寄せるため。
+   ヒーローが中央そろえなので、これが無いとボタンがイラストのこどもの顔に
+   ちょうど重なる（地面に立つ人物は必ずこの高さに来る）。 */
+.hero-copy{position:relative;z-index:2;text-align:center;padding:64px 24px 232px;overflow:hidden}
 .hero-eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--ink);background:rgba(255,255,255,.84);
   border-radius:999px;padding:7px 18px;margin-bottom:26px}
 .hero-copy h1{font-size:clamp(28px,4.9vw,58px);line-height:1.55;letter-spacing:.04em;font-weight:500;text-shadow:0 2px 18px rgba(255,255,255,.72)}
@@ -276,7 +279,7 @@ section{scroll-margin-top:84px}
 </head>
 <body>
 
-<div class="note">これは<b>デザイン案A</b>です。写真は雰囲気をつかむための<b>イメージ写真</b>、事業所の情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+<div class="note">これは<b>デザイン案A</b>です。トップの<b>イラスト</b>と本文の<b>イメージ写真</b>はどちらも仮のもの、事業所の情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
 
 <!-- ============ ヘッダー ============ -->
 <header class="head">
@@ -314,7 +317,7 @@ section{scroll-margin-top:84px}
 
 <!-- ============ ヒーロー ============ -->
 <section class="hero">
-  <div class="hero-bg"><img src="img/hero-seedling.jpg" alt="イメージ写真"></div>
+  <div class="hero-bg"><img src="img/hero-kids.svg" alt="こどもたちが草原であそんでいるイラスト"></div>
 
   <!-- 右上の飾り群 -->
   <svg class="hero-cluster" viewBox="0 0 200 200" aria-hidden="true">
@@ -345,7 +348,7 @@ section{scroll-margin-top:84px}
       <a class="btn btn-sub" href="#support">支援の内容を見る</a>
     </div>
   </div>
-  <span class="stockmark">イメージ写真</span>
+  <span class="stockmark">イメージイラスト</span>
 </section>
 
 <!-- ============ 数字の帯 ============ -->
