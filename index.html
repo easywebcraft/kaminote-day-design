@@ -94,10 +94,14 @@ section{scroll-margin-top:76px}
 .burger span::before{top:-6px} .burger span::after{top:6px}
 
 /* ---------- ヒーロー ---------- */
-.hero{position:relative; overflow:hidden; padding:104px 24px 120px;
+/* 下の余白が大きいのは、絵のこどもの居場所をあけるため。
+   ここを削るとボタンがちょうど顔に重なる（地面に立つ人物は必ずこの高さに来る）。
+   背景を bottom 寄せにしているのも同じ理由で、center だとこどもが切り落とされる。
+   白のかぶせは、暗い写真のときの .86/.68/.86 では明るい絵が飛んでしまう。 */
+.hero{position:relative; overflow:hidden; padding:96px 24px 260px;
   background:
-    linear-gradient(rgba(247,251,248,.86) 0%, rgba(247,251,248,.68) 55%, rgba(247,251,248,.86) 100%),
-    url('img/hero-seedling.jpg') center/cover no-repeat;
+    linear-gradient(rgba(247,251,248,.66) 0%, rgba(247,251,248,.4) 55%, rgba(247,251,248,.6) 100%),
+    url('img/hero-kids.svg') center bottom/cover no-repeat;
 }
 .hero-inner{max-width:880px; margin:0 auto; text-align:center; position:relative; z-index:2;
   text-shadow:0 1px 10px rgba(247,251,248,.78)}
@@ -300,7 +304,8 @@ section{scroll-margin-top:76px}
   .sec{padding:58px 0}
   .sec-head{margin-bottom:34px}
   .head-cta{display:none}
-  .hero{padding:60px 20px 74px}
+  /* 下余白はPCと同じ理由。ボタンが縦2段になるぶん、こどもの居場所を広めにとる */
+  .hero{padding:56px 20px 236px}
   .hero-actions .btn{flex:1 1 100%; justify-content:center}
   .strip-item{flex:1 1 100%; min-width:0}
   .cases,.offices,.use,.discs{grid-template-columns:minmax(0,1fr)}
@@ -318,7 +323,7 @@ section{scroll-margin-top:76px}
 <body>
 
 <div class="demobar">
-  <b>デザイン案</b>　放課後等デイサイトのトップページです。写真は雰囲気をつかむための<b>イメージ写真</b>、事業所情報は現行サイトからの引用です。文章と写真は差し替えます。
+  <b>デザイン案</b>　放課後等デイサイトのトップページです。トップの<b>イラスト</b>と本文の<b>イメージ写真</b>はどちらも仮のもの、事業所情報は現行サイトからの引用です。文章と写真は差し替えます。
 </div>
 
 <header class="head">
@@ -359,7 +364,7 @@ section{scroll-margin-top:76px}
       <a class="btn btn-ghost" href="#support">支援の内容を見る</a>
     </div>
   </div>
-  <span class="stock">イメージ写真</span>
+  <span class="stock">イメージイラスト</span>
 </section>
 <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path fill="#e9f4ed" d="M0,40 C240,70 480,10 720,30 C960,50 1200,15 1440,35 L1440,60 L0,60 Z"></path></svg>
 
