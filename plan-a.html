@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>デザイン案A｜かみのてKIDS・SMILE</title>
+<meta property="og:title" content="デザイン案A｜かみのてKIDS・SMILE">
+<meta property="og:description" content="写真を主役に、彩りのある装飾を重ねた案です。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%238ecfa5'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   デザイン案A「写真を主役に、彩りを添える」
+   保育園サイトの案Aと対になる、放課後等デイ版。
+   ・白い横長ヘッダー＋メニューの上に小さな色アイコン
+   ・写真いっぱいのヒーローに、明朝の大きな見出しを重ねる
+   ・見出しの文字の間に、色のついた小さな飾りを散らす
+   ・左端に縦書きの細いレール（お知らせ / Instagram）
+   主色はご要望のパステルグリーン。そこに卵色・空色・すみれを
+   少量ずつ足し、白地で軽く見せる。CTAのオレンジはグループ共通。
+   =========================================================== */
+*{box-sizing:border-box}
+:root{
+  --pg:#8ecfa5;        /* 主色：パステルグリーン（面に使う） */
+  --pg-d:#4e9c72;      /* 文字に使う濃さ */
+  --pg-deep:#3d7d5b;
+  --pg-soft:#e8f5ec;
+  --coral:#f5a25a;     /* CTA：グループ共通のオレンジ */
+  --coral-d:#ef8f3e;
+  --coral-soft:#fdead6;
+  --sun:#f7c948;       /* 副：たまご色 */
+  --sky:#7fb8cd;       /* 副：空 */
+  --violet:#a99bd4;    /* 副：すみれ */
+  --ink:#3f4a43;
+  --ink-soft:#77857c;
+  --line:#e4eae6;
+  --cream:#f8fbf9;
+  --white:#fff;
+  --wrap:1120px;
+  --rail:56px;         /* 左レールの幅（PCのみ） */
+}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{font-family:'Zen Kaku Gothic New',"Hiragino Sans","Yu Gothic UI",sans-serif;
+  color:var(--ink);background:var(--white);line-height:1.9;font-size:16px;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul,dl{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{scroll-margin-top:84px}
+.mincho{font-family:'Zen Old Mincho',"Hiragino Mincho ProN","Yu Mincho",serif}
+
+/* ---- 見本であることの注記（納品時は消す） ---- */
+.note{background:#3f4a43;color:#fff;font-size:13px;padding:9px 24px;text-align:center;line-height:1.7}
+.note b{color:var(--sun)}
+
+/* ---- ヘッダー ---- */
+.head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.head-in{max-width:1280px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:24px}
+/* 事業所名は letter-spacing が広いので、狭い画面では縮められるようにしておく
+   （flex:none のままだと押し広げて横スクロールが出る） */
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand .tx{min-width:0;line-height:1.25}
+.brand .corp,.brand .name,.brand .en{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brand .mark{width:46px;height:46px;flex:none}
+.brand .corp{font-size:10px;letter-spacing:.14em;color:var(--ink-soft)}
+.brand .name{font-size:19px;font-weight:700;letter-spacing:.16em}
+.brand .en{font-size:9px;letter-spacing:.26em;color:var(--ink-soft);font-family:'Baloo 2',sans-serif}
+.gnav{display:flex;gap:24px;margin-left:auto}
+.gnav a{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:13.5px;font-weight:500;white-space:nowrap}
+.gnav a:hover{color:var(--pg-d)}
+.gnav svg{width:22px;height:22px}
+.cta-pill{flex:none;display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:999px;
+  background:linear-gradient(100deg,#f8b478,#f19a4d);color:#fff;font-weight:700;font-size:14.5px;letter-spacing:.04em;
+  box-shadow:0 6px 16px rgba(245,162,90,.34)}
+.cta-pill:hover{filter:brightness(1.05)}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:14px;cursor:pointer;font-family:inherit}
+
+/* ---- 左の縦レール ---- */
+.rail{position:fixed;left:18px;top:52%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;align-items:center;gap:18px}
+.rail::before,.rail::after{content:"";width:1px;height:54px;background:var(--ink);opacity:.35}
+.rail a{writing-mode:vertical-rl;font-size:12px;letter-spacing:.22em;display:flex;align-items:center;gap:8px}
+.rail a:hover{color:var(--pg-d)}
+.rail svg{width:15px;height:15px}
+
+/* ---- ヒーロー ---- */
+.hero{position:relative;min-height:min(84vh,740px);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#e7efe9}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+/* 見出しは濃い文字を写真に重ねるので、白のかぶせは薄くしすぎないこと。
+   ヒーロー写真（芽ばえ）は暗く細かいため、.4 程度だと本文が読めなくなる。 */
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.7) 45%,rgba(255,255,255,.86) 100%)}
+.hero-copy{position:relative;z-index:2;text-align:center;padding:92px 24px;overflow:hidden}
+.hero-eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--ink);background:rgba(255,255,255,.84);
+  border-radius:999px;padding:7px 18px;margin-bottom:26px}
+.hero-copy h1{font-size:clamp(28px,4.9vw,58px);line-height:1.55;letter-spacing:.04em;font-weight:500;text-shadow:0 2px 18px rgba(255,255,255,.72)}
+/* 見出しの飾りは行から食み出す位置に置くので、行側で切って横スクロールを防ぐ */
+.hero-copy h1 .ln{display:block;position:relative}
+.deco{position:absolute;pointer-events:none}
+.hero-lead{margin-top:26px;font-size:clamp(13px,1.6vw,16px);line-height:2.1;text-shadow:0 1px 10px rgba(255,255,255,.88)}
+.hero-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.hero-tags span{background:rgba(255,255,255,.92);border-radius:999px;padding:6px 15px;font-size:12.5px;font-weight:500}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:999px;font-weight:700;font-size:15px}
+.btn-main{background:linear-gradient(100deg,#f8b478,#f19a4d);color:#fff;box-shadow:0 8px 20px rgba(245,162,90,.3)}
+.btn-sub{background:rgba(255,255,255,.94);color:var(--ink);box-shadow:0 4px 14px rgba(63,74,67,.09)}
+.btn:hover{transform:translateY(-1px)}
+/* 右上の飾り群 */
+.hero-cluster{position:absolute;right:4%;top:12%;width:min(190px,22vw);opacity:.95;z-index:2}
+.stockmark{position:absolute;left:16px;bottom:14px;z-index:3;background:rgba(63,74,67,.6);color:#fff;
+  font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;line-height:1.6}
+
+/* ---- 数字の帯 ---- */
+.stats{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-top:26px;padding-bottom:26px;text-align:center}
+.stats .n{font-family:'Baloo 2',sans-serif;font-size:clamp(24px,3.4vw,34px);font-weight:700;line-height:1.2}
+.stats .n.c1{color:var(--pg-d)}.stats .n.c2{color:var(--sky)}.stats .n.c3{color:var(--violet)}
+.stats .l{font-size:12px;color:var(--ink-soft);line-height:1.7}
+
+/* ---- セクション共通 ---- */
+.sec{padding:84px 0}
+.sec.tint{background:var(--cream)}
+.sec-head{text-align:center;margin-bottom:46px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:12px}
+.eyebrow svg{width:18px;height:18px}
+.sec-head h2{font-size:clamp(23px,3.5vw,33px);line-height:1.6;letter-spacing:.04em;font-weight:500}
+.sec-head .en{display:block;font-family:'Baloo 2',sans-serif;font-size:12px;letter-spacing:.3em;color:var(--ink-soft);margin-top:8px}
+.sec-head p{margin-top:16px;color:var(--ink-soft);font-size:14.5px;line-height:2}
+.ph{border-radius:22px;overflow:hidden;background:#eee;position:relative}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .stockmark{left:12px;bottom:auto;top:12px;font-size:10.5px}
+
+/* ---- こんなお子さま・ご家庭へ ---- */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.case{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px 24px;
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+.case .ic{width:30px;height:30px;flex:none}
+.case p{font-size:14.5px;line-height:1.85}
+.cases-note{margin-top:26px;text-align:center;color:var(--ink-soft);font-size:14.5px}
+.cases-note strong{color:var(--pg-d)}
+
+/* ---- 支援の内容 ---- */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:52px;align-items:center}
+.split .ph{aspect-ratio:4/3}
+.split h2{font-size:clamp(22px,3.2vw,30px);line-height:1.65;font-weight:500;margin-bottom:16px}
+.split h2 .g{color:var(--pg-d)}
+.split .lead{color:var(--ink-soft);font-size:14.5px;line-height:2.05;margin-bottom:22px}
+.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:24px}
+.areas li{background:var(--pg-soft);color:var(--pg-deep);font-weight:700;font-size:13.5px;
+  padding:11px 16px;border-radius:14px;text-align:center;line-height:1.5}
+.marks{display:grid;gap:16px}
+.marks li{display:flex;gap:14px;align-items:flex-start}
+.marks .dot{width:34px;height:34px;flex:none}
+.marks b{display:block;font-size:15.5px;margin-bottom:3px}
+.marks span{font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+
+/* ---- 多言語での支援 ---- */
+.multi{background:linear-gradient(180deg,#eef7f1,#fff);border:1px solid #d9ece1;border-radius:26px;overflow:hidden}
+.multi .split{gap:0;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+.multi .ph{border-radius:0;aspect-ratio:auto;height:100%;min-height:300px}
+.multi-body{padding:44px 40px}
+.multi-body h2{font-size:clamp(21px,3vw,28px);line-height:1.6;font-weight:500;margin-bottom:16px}
+.multi-body p{font-size:14.5px;color:#4b5f56;line-height:2}
+.multi-body strong{color:var(--pg-deep)}
+.langs{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.langs span{font-size:12.5px;font-weight:700;background:var(--white);color:var(--pg-deep);
+  padding:7px 16px;border-radius:999px;box-shadow:0 3px 10px rgba(63,74,67,.07)}
+
+/* ---- 2つの事業所 ---- */
+.offices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.office{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.office .ph{border-radius:0;aspect-ratio:16/10}
+.office-body{padding:26px 24px 24px;flex:1;display:flex;flex-direction:column}
+.office h3{font-size:19px;font-weight:700}
+/* .office-body は flex column なので、align-self を指定しないと全幅に伸びる */
+.office .kind{font-size:11.5px;color:#fff;background:var(--pg-d);font-weight:700;
+  padding:4px 12px;border-radius:999px;align-self:flex-start;margin:8px 0 14px}
+.office dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:13.5px;margin-bottom:20px}
+.office dt{color:var(--ink-soft);white-space:nowrap}
+.office dd{margin:0}
+.link-a{margin-top:auto;font-weight:700;font-size:14px;color:var(--coral-d);display:inline-flex;align-items:center;gap:6px}
+
+/* ---- ご利用案内 ---- */
+.use{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-bottom:30px}
+.use-card{border:1px solid var(--line);border-radius:22px;padding:32px 28px;background:var(--white)}
+.use-card h3{font-size:17.5px;font-weight:700;margin-bottom:12px}
+.use-card p{font-size:14px;color:var(--ink-soft);line-height:2}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.flow li{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px 14px;text-align:center}
+.flow .n{display:block;font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:700;color:var(--pg);line-height:1.3}
+.flow b{font-size:13.5px;font-weight:700;line-height:1.6}
+
+/* ---- 情報公表 ---- */
+.disc-lead{max-width:760px;margin:0 auto 34px;text-align:center;color:var(--ink-soft);font-size:14.5px;line-height:2}
+.disc-lead strong{color:var(--pg-d)}
+.discs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.disc{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:30px 26px}
+.disc h3{font-size:17px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.disc h3 .kind{font-size:11px;color:#fff;background:var(--pg-d);font-weight:700;padding:3px 11px;border-radius:999px;white-space:nowrap}
+.docs{display:grid;gap:11px}
+.doc{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;
+  background:var(--pg-soft);border-radius:14px;padding:14px 16px}
+.doc b{display:block;font-size:14px;font-weight:700;line-height:1.6}
+.doc .meta{display:block;font-size:12px;color:var(--ink-soft);font-weight:400}
+.doc .pdf{font-family:'Baloo 2',sans-serif;font-size:11.5px;font-weight:700;color:#fff;
+  background:var(--pg-d);padding:6px 13px;border-radius:999px;white-space:nowrap}
+/* 支援プログラムはKIDS・SMILE共通で1本なので、2カラムの上に横長で置く */
+.doc-wide{margin-bottom:26px}
+/* 現行サイトに見当たらない分。リンクにせず、抜けとして見せる */
+.doc-todo{background:var(--coral-soft);grid-template-columns:minmax(0,1fr)}
+.doc-todo b{color:var(--coral-d)}
+.disc-note{margin-top:26px;background:var(--coral-soft);border:1px solid #f3ddbf;border-radius:16px;padding:20px 24px;font-size:13.5px;line-height:2}
+.disc-note b{display:block;margin-bottom:4px;color:var(--coral-d)}
+
+/* ---- 採用 ---- */
+.recruit{background:var(--ink);color:#fff;border-radius:26px;padding:52px 44px}
+.recruit h2{font-size:clamp(22px,3.2vw,30px);font-weight:500;line-height:1.6;margin-bottom:16px}
+.recruit p{color:#d3ddd7;font-size:14.5px;line-height:2}
+.rnums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:32px}
+.rnums div{background:rgba(255,255,255,.09);border-radius:16px;padding:18px 10px;text-align:center}
+.rnums .n{font-family:'Baloo 2',sans-serif;font-size:24px;font-weight:700;color:var(--pg)}
+.rnums .l{font-size:11.5px;color:#bcc7c0}
+
+/* ---- お問い合わせ ---- */
+.contact{background:linear-gradient(150deg,#fff4e9,#ffe9d6);border-radius:26px;padding:56px 40px;text-align:center}
+.contact h2{font-size:clamp(23px,3.4vw,32px);font-weight:500;line-height:1.6;margin-bottom:16px}
+.contact p{color:#7d6350;font-size:14.5px;line-height:2}
+.tel{margin-top:28px;font-family:'Baloo 2',sans-serif;font-size:clamp(26px,4vw,36px);font-weight:700;color:var(--coral-d)}
+.tel small{display:block;font-family:inherit;font-size:12px;color:#8f7462;font-weight:400;letter-spacing:.08em}
+
+/* ---- フッター ---- */
+.foot{background:var(--ink);color:#cfd8d2;padding:56px 0 28px;margin-top:84px;font-size:13.5px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr));gap:36px}
+.foot h4{color:#fff;font-size:13px;letter-spacing:.1em;margin-bottom:12px}
+.foot li{margin-bottom:8px}
+.foot li small{display:block;font-size:11.5px;color:#98a49d;line-height:1.7}
+.foot a:hover{color:#fff}
+.foot .brand .name{color:#fff}
+.foot .brand .corp,.foot .brand .en{color:#98a49d}
+.foot-addr{margin-top:16px;line-height:2;color:#98a49d;font-size:12.5px}
+.copy{border-top:1px solid #4b564f;margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#8b968f}
+
+/* ---- ナビが入らない幅で畳む ---- */
+@media (max-width:1080px){
+  .gnav,.rail{display:none}
+  .burger{display:block}
+}
+/* ---- スマホ ---- */
+@media (max-width:900px){
+  .head-in .cta-pill{display:none}
+  .split,.offices,.use,.cases,.discs,.foot-grid{grid-template-columns:minmax(0,1fr)}
+  .multi .split{grid-template-columns:minmax(0,1fr)}
+  .multi-body{padding:32px 24px}
+  .areas{grid-template-columns:minmax(0,1fr)}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rnums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sec{padding:60px 0}
+  .recruit,.contact{padding:38px 24px;border-radius:20px}
+  .hero-cluster{width:110px;right:3%;top:8%}
+  .hero-copy{padding:64px 20px}
+  /* スマホでは事業所名を1行に詰め、ハンバーガーの分の幅を確保する */
+  .brand .mark{width:38px;height:38px}
+  .brand .name{font-size:15px;letter-spacing:.08em}
+  .brand .corp{font-size:9px}
+  .head-in{gap:12px;padding:10px 16px}
+}
+@media (max-width:560px){
+  .flow{grid-template-columns:minmax(0,1fr)}
+  .flow li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;text-align:left;align-items:center;padding:14px 18px}
+}
+</style>
+</head>
+<body>
+
+<div class="note">これは<b>デザイン案A</b>です。写真は雰囲気をつかむための<b>イメージ写真</b>、事業所の情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+
+<!-- ============ ヘッダー ============ -->
+<header class="head">
+  <div class="head-in">
+    <a class="brand" href="#">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M50 4 78 18 92 46 78 74 50 88 22 74 8 46 22 18Z" fill="#8ecfa5"/>
+        <circle cx="34" cy="40" r="6" fill="#fff"/><circle cx="66" cy="40" r="6" fill="#fff"/>
+        <path d="M36 58q14 14 28 0" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <span class="tx">
+        <span class="corp">株式会社 A and K　児童発達支援・放課後等デイサービス</span>
+        <span class="name">かみのてKIDS・SMILE</span>
+        <span class="en">KAMINOTE KIDS &amp; SMILE</span>
+      </span>
+    </a>
+    <nav class="gnav">
+      <a href="#cases"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#8ecfa5"/></svg>こんな方へ</a>
+      <a href="#support"><svg viewBox="0 0 24 24"><path d="M12 4c4 3 6 6 6 9a6 6 0 1 1-12 0c0-3 2-6 6-9Z" fill="#f5a25a"/></svg>支援の内容</a>
+      <a href="#offices"><svg viewBox="0 0 24 24"><path d="M4 20V11l8-6 8 6v9" stroke="#7fb8cd" stroke-width="2" fill="none" stroke-linejoin="round"/></svg>事業所案内</a>
+      <a href="#use"><svg viewBox="0 0 24 24"><path d="M12 3c4 6 6 8 6 11a6 6 0 1 1-12 0c0-3 2-5 6-11Z" fill="#a99bd4"/></svg>ご利用案内</a>
+      <a href="#disclosure"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" stroke="#f7c948" stroke-width="2" fill="none"/><path d="M9 8h6M9 12h6M9 16h4" stroke="#f7c948" stroke-width="2" stroke-linecap="round"/></svg>情報公表</a>
+      <a href="#recruit"><svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M6 6l12 12M18 6 6 18" stroke="#b3bfb7" stroke-width="2" stroke-linecap="round"/></svg>採用情報</a>
+    </nav>
+    <a class="cta-pill" href="#contact">見学・ご相談</a>
+    <button class="burger" type="button" aria-label="メニュー">☰</button>
+  </div>
+</header>
+
+<!-- ============ 左の縦レール ============ -->
+<div class="rail">
+  <a href="#disclosure"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 9h8M8 13h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>情報公表</a>
+  <a href="#"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="17" cy="7" r="1.3" fill="currentColor"/></svg>Instagram</a>
+</div>
+
+<!-- ============ ヒーロー ============ -->
+<section class="hero">
+  <div class="hero-bg"><img src="img/hero-seedling.jpg" alt="イメージ写真"></div>
+
+  <!-- 右上の飾り群 -->
+  <svg class="hero-cluster" viewBox="0 0 200 200" aria-hidden="true">
+    <g opacity=".9">
+      <circle cx="60" cy="38" r="15" fill="#8ecfa5"/><circle cx="104" cy="30" r="9" fill="#f5a25a"/>
+      <circle cx="142" cy="52" r="13" fill="#a99bd4"/><circle cx="46" cy="82" r="10" fill="#7fb8cd"/>
+      <circle cx="92" cy="74" r="17" fill="#cbe8d6"/><circle cx="136" cy="98" r="8" fill="#f7c948"/>
+      <circle cx="66" cy="122" r="12" fill="#a9dcc0"/><circle cx="110" cy="128" r="9" fill="#f5a25a"/>
+      <circle cx="150" cy="140" r="6" fill="#a99bd4"/><circle cx="88" cy="164" r="7" fill="#f7c948"/>
+    </g>
+  </svg>
+
+  <div class="hero-copy">
+    <span class="hero-eyebrow">児童発達支援 ・ 放課後等デイサービス</span>
+    <h1 class="mincho">
+      <span class="ln">その子のペースで、
+        <svg class="deco" style="right:5%;top:-14%;width:38px" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c5 7 8 10 8 14a8 8 0 1 1-16 0c0-4 3-7 8-14Z" fill="#a99bd4" opacity=".9"/></svg>
+      </span>
+      <span class="ln">「できた」をふやす。
+        <svg class="deco" style="left:10%;bottom:-6%;width:46px" viewBox="0 0 60 30" aria-hidden="true"><path d="M4 20q8-12 16 0t16 0 16 0" stroke="#f7c948" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+        <svg class="deco" style="right:8%;top:-10%;width:28px" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="#8ecfa5" opacity=".85"/></svg>
+      </span>
+    </h1>
+    <p class="hero-lead">ことばも、からだの使い方も、人との関わり方も。<br>得意なことを入口にして、毎日のくらしの中で少しずつ育てていきます。</p>
+    <div class="hero-tags"><span>未就学〜18歳（必要時20歳まで）</span><span>2つの事業所</span><span>多言語対応</span></div>
+    <div class="hero-actions">
+      <a class="btn btn-main" href="#contact">見学・ご相談はこちら</a>
+      <a class="btn btn-sub" href="#support">支援の内容を見る</a>
+    </div>
+  </div>
+  <span class="stockmark">イメージ写真</span>
+</section>
+
+<!-- ============ 数字の帯 ============ -->
+<div class="stats">
+  <div class="wrap">
+    <div><div class="n c1">2</div><div class="l">KIDS・SMILEの2事業所</div></div>
+    <div><div class="n c2">4</div><div class="l">対応している言語</div></div>
+    <div><div class="n c3">5</div><div class="l">支援の5領域すべてに対応</div></div>
+  </div>
+</div>
+
+<!-- ============ こんなお子さま・ご家庭へ ============ -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#8ecfa5"/></svg>こんなお子さま・ご家庭へ</span>
+      <h2>こんなこと、ありませんか<span class="en">FOR YOU</span></h2>
+    </div>
+    <div class="cases">
+      <div class="case"><svg class="ic" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e8f5ec"/><path d="M13 20.5l5 5 9-10" stroke="#4e9c72" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>ことばがゆっくりで、まわりのお子さんとの差が気になる</p></div>
+      <div class="case"><svg class="ic" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e8f5ec"/><path d="M13 20.5l5 5 9-10" stroke="#4e9c72" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>気持ちの切り替えがむずかしく、集団に入りにくい</p></div>
+      <div class="case"><svg class="ic" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e8f5ec"/><path d="M13 20.5l5 5 9-10" stroke="#4e9c72" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>手先や体の使い方に不安がある</p></div>
+      <div class="case"><svg class="ic" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e8f5ec"/><path d="M13 20.5l5 5 9-10" stroke="#4e9c72" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>学校のあと、安心して過ごせる居場所がほしい</p></div>
+      <div class="case"><svg class="ic" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e8f5ec"/><path d="M13 20.5l5 5 9-10" stroke="#4e9c72" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>日本語が第一言語ではなく、どこに相談すればよいか分からない</p></div>
+      <div class="case"><svg class="ic" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e8f5ec"/><path d="M13 20.5l5 5 9-10" stroke="#4e9c72" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p>診断はまだだが、家庭だけで抱えるのが不安になってきた</p></div>
+    </div>
+    <p class="cases-note">ひとつでも当てはまれば、まずはご相談ください。<strong>受給者証をお持ちでない段階でも大丈夫です。</strong></p>
+  </div>
+</section>
+
+<!-- ============ 支援の内容 ============ -->
+<section class="sec tint" id="support">
+  <div class="wrap split">
+    <div class="ph"><span class="stockmark">イメージ写真</span><img src="img/support.jpg" alt="積み木を積むこどもの手" loading="lazy"></div>
+    <div>
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><path d="M12 5v14M12 9c0-3 3-5 6-4-1 4-3 5-6 4Z" stroke="#4e9c72" stroke-width="2" fill="none"/></svg>支援の内容</span>
+      <h2 class="mincho">5つの領域を、<br><span class="g">あそびと生活の中で。</span></h2>
+      <p class="lead">国が定める5つの領域すべてを見ながら、そのお子さまに必要なところを厚く支援します。訓練の時間をつくるのではなく、あそびと毎日の生活の中に組み込んでいくのが基本です。</p>
+      <ul class="areas">
+        <li>健康・生活</li>
+        <li>運動・感覚</li>
+        <li>認知・行動</li>
+        <li>言語・コミュニケーション</li>
+        <li>人間関係・社会性</li>
+      </ul>
+      <ul class="marks">
+        <li><svg class="dot" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e8f5ec"/><circle cx="20" cy="20" r="7" fill="#4e9c72"/></svg>
+          <div><b>個別支援。</b><span>個別支援計画にもとづき、その子だけの目標に取り組みます。</span></div></li>
+        <li><svg class="dot" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#fdead6"/><circle cx="15" cy="18" r="5" fill="#f5a25a"/><circle cx="25" cy="18" r="5" fill="#f8c79b"/></svg>
+          <div><b>集団支援。</b><span>友だちとのやりとりの中で、順番や折り合いのつけ方を学びます。</span></div></li>
+        <li><svg class="dot" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#e4f0f5"/><path d="M12 22l8-7 8 7v7h-16Z" fill="#7fb8cd"/></svg>
+          <div><b>家族支援。</b><span>ご家庭での関わり方をいっしょに考え、送迎時や面談でお伝えします。</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 多言語での支援 ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="multi">
+      <div class="split">
+        <div class="multi-body">
+          <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke="#4e9c72" stroke-width="2" fill="none"/><path d="M4 12h16M12 4c3 4 3 12 0 16M12 4c-3 4-3 12 0 16" stroke="#4e9c72" stroke-width="1.6" fill="none"/></svg>かみのての強み</span>
+          <h2 class="mincho">ことばのちがいで、<br>支援をあきらめない。</h2>
+          <p>可児市・美濃加茂市には外国にルーツを持つ方が多く暮らしています。かみのてには<strong>通訳スタッフ</strong>がいて、制度の説明も日々の連絡も母語でお伝えできます。受給者証の申請や学校とのやりとりも、分かるところまでいっしょに進めます。法人が特定技能の登録支援機関として外国人材を支えてきた経験が、そのまま活きている部分です。</p>
+          <div class="langs"><span>英語</span><span>タガログ語</span><span>ビサヤ語</span><span>ポルトガル語</span></div>
+        </div>
+        <div class="ph"><span class="stockmark">イメージ写真</span><img src="img/multi.jpg" alt="さまざまなルーツのこどもたち" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2つの事業所 ============ -->
+<section class="sec tint" id="offices">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#7fb8cd"/></svg>事業所のご案内</span>
+      <h2>2つの事業所があります<span class="en">OUR OFFICES</span></h2>
+      <p>どちらも見学・体験を受け付けています。</p>
+    </div>
+    <div class="offices">
+      <article class="office">
+        <div class="ph"><span class="stockmark">イメージ写真</span><img src="img/office-1.jpg" alt="制作あそびのようす" loading="lazy"></div>
+        <div class="office-body">
+          <h3>かみのてKIDS</h3>
+          <span class="kind">児童発達支援／放課後等デイサービス</span>
+          <dl>
+            <dt>所在地</dt><dd>岐阜県可児市土田2569-2</dd>
+            <dt>電話</dt><dd>0574-66-3513</dd>
+            <dt>定員</dt><dd>10名</dd>
+            <dt>利用時間</dt><dd>9:00−18:00（月〜金）<br>10:00−16:00（土）</dd>
+          </dl>
+          <a class="link-a" href="#">この事業所について見る →</a>
+        </div>
+      </article>
+      <article class="office">
+        <div class="ph"><span class="stockmark">イメージ写真</span><img src="img/office-2.jpg" alt="学習に取り組むこども" loading="lazy"></div>
+        <div class="office-body">
+          <h3>かみのてSMILE</h3>
+          <span class="kind">児童発達支援／放課後等デイサービス</span>
+          <dl>
+            <dt>所在地</dt><dd>岐阜県可児市今渡2452-1</dd>
+            <dt>電話</dt><dd>0574-66-3513</dd>
+            <dt>定員</dt><dd>10名</dd>
+            <dt>利用時間</dt><dd>9:00−18:00（月〜金）</dd>
+          </dl>
+          <a class="link-a" href="#">この事業所について見る →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ご利用案内 ============ -->
+<section class="sec" id="use">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><path d="M12 3c4 6 6 8 6 11a6 6 0 1 1-12 0c0-3 2-5 6-11Z" fill="#a99bd4"/></svg>ご利用案内</span>
+      <h2>ご利用の流れと費用<span class="en">HOW TO USE</span></h2>
+    </div>
+    <div class="use">
+      <div class="use-card">
+        <h3>受給者証について</h3>
+        <p>ご利用にはお住まいの市町村が発行する「通所受給者証」が必要です。お持ちでない場合も、申請の進め方からご案内しますのでご安心ください。</p>
+      </div>
+      <div class="use-card">
+        <h3>ご利用料金</h3>
+        <p>費用の大部分は自治体の給付でまかなわれ、ご負担は原則1割です。世帯の所得に応じて月ごとの上限額が決まっているため、上限を超えるお支払いは発生しません。</p>
+      </div>
+    </div>
+    <ul class="flow">
+      <li><span class="n">1</span><b>ご相談・お問い合わせ</b></li>
+      <li><span class="n">2</span><b>見学・体験</b></li>
+      <li><span class="n">3</span><b>受給者証の申請</b></li>
+      <li><span class="n">4</span><b>契約・個別支援計画</b></li>
+      <li><span class="n">5</span><b>ご利用開始</b></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 情報公表 ============ -->
+<section class="sec tint" id="disclosure">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" stroke="#f7c948" stroke-width="2" fill="none"/><path d="M9 8h6M9 12h6" stroke="#f7c948" stroke-width="2" stroke-linecap="round"/></svg>情報公表</span>
+      <h2>支援プログラム・自己評価結果等の公表<span class="en">DISCLOSURE</span></h2>
+    </div>
+    <p class="disc-lead">児童発達支援・放課後等デイサービスの事業者に義務づけられている公表です。支援プログラムはかみのてKIDS・かみのてSMILE共通、自己評価と保護者評価は<strong>児童発達支援と放課後等デイサービスに分けて</strong>掲載しています。</p>
+
+    <a class="doc doc-wide" href="#">
+      <span><b>支援プログラム</b><span class="meta">かみのてKIDS・かみのてSMILE 共通</span></span>
+      <span class="pdf">PDF</span>
+    </a>
+
+    <div class="discs">
+      <div class="disc">
+        <h3>自己評価結果 <span class="kind">事業所による評価</span></h3>
+        <div class="docs">
+          <a class="doc" href="#"><span><b>かみのてKIDS ／ 児童発達支援</b><span class="meta">令和6年度</span></span><span class="pdf">PDF</span></a>
+          <a class="doc" href="#"><span><b>かみのてKIDS ／ 放課後等デイサービス</b><span class="meta">令和6年度</span></span><span class="pdf">PDF</span></a>
+          <span class="doc doc-todo"><span><b>かみのてSMILE ／ 児童発達支援・放課後等デイサービス</b><span class="meta">現行サイトに掲載がありません。要確認</span></span></span>
+        </div>
+      </div>
+      <div class="disc">
+        <h3>保護者評価 <span class="kind">アンケート結果</span></h3>
+        <div class="docs">
+          <a class="doc" href="#"><span><b>かみのてKIDS ／ 児童発達支援</b><span class="meta">令和6年度</span></span><span class="pdf">PDF</span></a>
+          <a class="doc" href="#"><span><b>かみのてKIDS ／ 放課後等デイサービス</b><span class="meta">令和6年度</span></span><span class="pdf">PDF</span></a>
+          <span class="doc doc-todo"><span><b>かみのてSMILE ／ 児童発達支援・放課後等デイサービス</b><span class="meta">現行サイトに掲載がありません。要確認</span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <p class="disc-note"><b>更新について。</b>自己評価結果と保護者評価は年1回（3月）に更新します。御社で作成いただいたデータをお預かりし、こちらでPDFを差し替えて年度表示を更新します。支援プログラムは、内容を変更されたときに随時差し替えます。</p>
+  </div>
+</section>
+
+<!-- ============ 採用 ============ -->
+<section class="sec" id="recruit">
+  <div class="wrap">
+    <div class="recruit">
+      <span class="eyebrow" style="color:#bcc7c0"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#8ecfa5"/></svg>採用情報</span>
+      <h2 class="mincho">かみのてで働く人</h2>
+      <p>児童指導員、保育士、そして多言語の支援を担うスタッフ。ちがう強みを持った人が集まることで、支援の幅が広がっています。一日の仕事の流れや、職員へのインタビューをまとめました。</p>
+      <div class="rnums">
+        <div><div class="n">120日+</div><div class="l">年間休日</div></div>
+        <div><div class="n">4</div><div class="l">職員の対応言語</div></div>
+        <div><div class="n">2</div><div class="l">はたらく事業所</div></div>
+        <div><div class="n">5</div><div class="l">支援の領域</div></div>
+      </div>
+      <p style="margin-top:26px"><a class="btn btn-main" href="#">採用情報を見る</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 見学・ご相談 ============ -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#8ecfa5"/></svg>見学・ご相談</span>
+      <h2 class="mincho">まずは、見にきてください</h2>
+      <p>どんな場所で、どんなふうに過ごすのか。見ていただくのがいちばん分かりやすいです。<br>受給者証をお持ちでなくても、診断がまだでも、ご相談だけでかまいません。</p>
+      <div class="hero-actions" style="margin-top:26px">
+        <a class="btn btn-main" href="#">見学・体験を申し込む</a>
+        <a class="btn btn-sub" href="#">メールで相談する</a>
+      </div>
+      <div class="tel">0574-66-3513<small>かみのてKIDS・かみのてSMILE 共通</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ フッター ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M50 4 78 18 92 46 78 74 50 88 22 74 8 46 22 18Z" fill="#8ecfa5"/>
+            <circle cx="34" cy="40" r="6" fill="#3f4a43"/><circle cx="66" cy="40" r="6" fill="#3f4a43"/>
+            <path d="M36 58q14 14 28 0" stroke="#3f4a43" stroke-width="6" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span class="tx"><span class="name">かみのてKIDS・SMILE</span><span class="en">KAMINOTE KIDS &amp; SMILE</span></span>
+        </div>
+        <div class="foot-addr">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
+      </div>
+      <div>
+        <h4>サービスについて</h4>
+        <ul>
+          <li><a href="#cases">こんなお子さま・ご家庭へ</a></li>
+          <li><a href="#support">支援の内容</a></li>
+          <li><a href="#offices">事業所のご案内</a></li>
+          <li><a href="#use">ご利用案内</a></li>
+          <li><a href="#disclosure">情報公表</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>グループの事業</h4>
+        <ul>
+          <li><a href="#">かみのて保育園<small>かみのて保育園・かみのて今渡保育園</small></a></li>
+          <li><a href="#recruit">採用情報</a></li>
+          <li><a href="https://www.aandkcorp.com/">会社案内</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#">プライバシーポリシー</a></div>
+  </div>
+</footer>
+
+</body>
+</html>

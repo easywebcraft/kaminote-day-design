@@ -3,9 +3,21 @@
 株式会社 A and K さま向け。**2サイト案**に決定したことを受けて作った、
 放課後等デイサイト（児童発達支援／放課後等デイサービス）のトップページ。
 
-- 実体は `index.html` 1枚のみ。ビルド不要でそのまま開ける。
-- 公開先: https://k-matsumoto527.github.io/kaminote-day-design/
+ビルド不要。どのファイルもそのまま開ける。
+
+| ファイル | 方向性 | 公開URL |
+| --- | --- | --- |
+| `plan-a.html` | 写真を主役に（白ヘッダー＋アイコンメニュー＋明朝の見出し） | [/plan-a.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-a.html) |
+| `plan-b.html` | やわらかい曲線（まるい写真＋波線＋丸ゴシック） | [/plan-b.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-b.html) |
+| `plan-c.html` | 縦書きと全画面写真（ヘッダーを置かない） | [/plan-c.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-c.html) |
+| `index.html` | 最初に作った1案（パステルグリーン）。3案には含めない | [/](https://k-matsumoto527.github.io/kaminote-day-design/) |
+
+**3案は保育園サイトの案A・B・Cと1対1で対**になっている（同じ案を選べば2サイトが揃う）。
+**11ブロックの構成と文言は3案とも `index.html` と同一**。変えているのは色・書体・レイアウトだけなので、
+文言を直すときは3案とも直すこと。主色のパステルグリーンは顧客のご要望なのでどの案でも外さない。
+
 - 対になる保育園サイト: `~/kaminote-design` / https://k-matsumoto527.github.io/kaminote-design/
+- 提案資料側のカード: `~/kaminote-proposal/src/design-kaminote.html` の01節（プレビュー画像 `img/preview-day-{a,b,c}.jpg`）
 
 ## 構成
 
