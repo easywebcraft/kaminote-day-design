@@ -55,7 +55,7 @@ section{scroll-margin-top:84px}
   font-size:10.5px;font-weight:700;padding:4px 12px;border-radius:999px;line-height:1.6}
 
 /* ---- ヘッダー ---- */
-.head{position:sticky;top:0;z-index:50;background:rgba(251,250,245,.95);backdrop-filter:blur(6px)}
+.head{position:sticky;top:0;z-index:50;background:rgba(251,250,245,.95)}
 .head-in{max-width:1200px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:20px}
 .brand{display:flex;align-items:center;gap:11px;min-width:0}
 .brand .mark{width:46px;height:46px;flex:none}
@@ -293,7 +293,7 @@ section{scroll-margin-top:84px}
     </div>
     <div class="hero-photo">
       <!-- 注記は blob の外に出す。まるい切り抜きの内側に置くと角が削られて消える -->
-      <div class="blob"><img src="img/hero-b.jpg" alt="イメージ写真（クレヨンと、それぞれの色で描かれた線）"></div>
+      <div class="blob"><img fetchpriority="high" decoding="async" src="img/hero-b.jpg" alt="イメージ写真（クレヨンと、それぞれの色で描かれた線）"></div>
       <span class="stockmark" style="top:11%;left:33%">イメージ写真</span>
       <svg class="il" style="left:-4%;top:6%;width:76px" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#f7c948" opacity=".9"/></svg>
       <svg class="il" style="right:-2%;bottom:8%;width:64px" viewBox="0 0 80 60" aria-hidden="true"><path d="M8 42q10-16 20 0t20 0 24 0" stroke="#8ec9dd" stroke-width="7" fill="none" stroke-linecap="round"/></svg>

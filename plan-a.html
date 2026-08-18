@@ -59,7 +59,7 @@ section{scroll-margin-top:84px}
 .note b{color:var(--sun)}
 
 /* ---- ヘッダー ---- */
-.head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
 .head-in{max-width:1280px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:24px}
 /* 事業所名は letter-spacing が広いので、狭い画面では縮められるようにしておく
    （flex:none のままだと押し広げて横スクロールが出る） */
@@ -316,7 +316,7 @@ section{scroll-margin-top:84px}
 
 <!-- ============ ヒーロー ============ -->
 <section class="hero">
-  <div class="hero-bg"><img src="img/hero-a.jpg" alt="イメージ写真（クレヨンと、それぞれの色で描かれた線）"></div>
+  <div class="hero-bg"><img fetchpriority="high" decoding="async" src="img/hero-a.jpg" alt="イメージ写真（クレヨンと、それぞれの色で描かれた線）"></div>
 
   <!-- 右上の飾り群 -->
   <svg class="hero-cluster" viewBox="0 0 200 200" aria-hidden="true">
