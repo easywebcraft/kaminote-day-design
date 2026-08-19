@@ -155,6 +155,12 @@ section{scroll-margin-top:84px}
 .office .ph-round{border-radius:0;aspect-ratio:16/10}
 .office-body{padding:26px;flex:1;display:flex;flex-direction:column}
 .office h3{font-size:19px;font-weight:700}
+/* ---- 事業所のロゴ（クライアント支給） ---- */
+/* 横長で細い線を含む絵なので、小さくしすぎると顔や曲線が消える。
+   カードの幅いっぱいまでは伸ばさず、220px前後で置く。 */
+.office-logo{display:block;width:100%;max-width:220px;height:auto;margin:0 0 10px}
+@media (max-width:700px){.office-logo{max-width:190px}}
+
 /* .office-body は flex column なので、align-self を指定しないと全幅に伸びる */
 .office .kind{background:var(--pg-soft);color:var(--pg-d);border-radius:999px;padding:4px 12px;
   font-size:12px;align-self:flex-start;margin:8px 0 16px}
@@ -456,6 +462,7 @@ section{scroll-margin-top:84px}
       <article class="office">
         <div class="ph-round"><span class="stockmark">イメージ写真</span><img src="img/office-1.jpg" alt="制作あそびのようす" loading="lazy"></div>
         <div class="office-body">
+          <img class="office-logo" src="img/logo-kids.png" alt="かみのてKIDS ロゴ" width="520" height="327" loading="lazy" decoding="async">
           <h3>かみのてKIDS</h3>
           <span class="kind">児童発達支援／放課後等デイサービス</span>
           <dl>
@@ -470,6 +477,7 @@ section{scroll-margin-top:84px}
       <article class="office">
         <div class="ph-round"><span class="stockmark">イメージ写真</span><img src="img/office-2.jpg" alt="学習に取り組むこども" loading="lazy"></div>
         <div class="office-body">
+          <img class="office-logo" src="img/logo-smile.png" alt="かみのてSMILE ロゴ" width="520" height="327" loading="lazy" decoding="async">
           <h3>かみのてSMILE</h3>
           <span class="kind">児童発達支援／放課後等デイサービス</span>
           <dl>
