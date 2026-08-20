@@ -66,7 +66,10 @@ section{scroll-margin-top:84px}
 .brand{display:flex;align-items:center;gap:12px;min-width:0}
 .brand .tx{min-width:0;line-height:1.25}
 .brand .corp,.brand .name,.brand .en{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.brand .mark{width:46px;height:46px;flex:none}
+/* ヘッダーのマークは、いただいたロゴから文字（かみのて／KIDS）を外した絵の部分。
+   2枚のロゴは絵柄が同一なので、これならKIDSにもSMILEにも寄らない。
+   横長なので高さで指定する（幅で指定すると縦に潰れる）。 */
+.brand .mark{width:auto;height:52px;flex:none}
 .brand .corp{font-size:10px;letter-spacing:.14em;color:var(--ink-soft)}
 .brand .name{font-size:19px;font-weight:700;letter-spacing:.16em}
 .brand .en{font-size:9px;letter-spacing:.26em;color:var(--ink-soft);font-family:'Baloo 2',sans-serif}
@@ -262,7 +265,9 @@ section{scroll-margin-top:84px}
 .copy{border-top:1px solid #4b564f;margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#8b968f}
 
 /* ---- ナビが入らない幅で畳む ---- */
-@media (max-width:1080px){
+/* ナビを一列に保てる下限。ヘッダーのマークを実ロゴ（横長）にしたぶん
+   ブランド側が広くなったので、1080px では採用情報がCTAに重なる。 */
+@media (max-width:1140px){
   .gnav,.rail{display:none}
   .burger{display:block}
 }
@@ -280,7 +285,7 @@ section{scroll-margin-top:84px}
   .hero-cluster{width:110px;right:3%;top:8%}
   .hero-copy{padding:64px 20px}
   /* スマホでは事業所名を1行に詰め、ハンバーガーの分の幅を確保する */
-  .brand .mark{width:38px;height:38px}
+  .brand .mark{height:38px}
   .brand .name{font-size:15px;letter-spacing:.08em}
   .brand .corp{font-size:9px}
   .head-in{gap:12px;padding:10px 16px}
@@ -368,11 +373,7 @@ section{scroll-margin-top:84px}
 <header class="head">
   <div class="head-in">
     <a class="brand" href="#">
-      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
-        <path d="M50 4 78 18 92 46 78 74 50 88 22 74 8 46 22 18Z" fill="#8ecfa5"/>
-        <circle cx="34" cy="40" r="6" fill="#fff"/><circle cx="66" cy="40" r="6" fill="#fff"/>
-        <path d="M36 58q14 14 28 0" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
-      </svg>
+      <img class="mark" src="img/logo-mark.png" alt="" width="516" height="276" decoding="async">
       <span class="tx">
         <span class="corp">株式会社 A and K　児童発達支援・放課後等デイサービス</span>
         <span class="name">かみのてKIDS・SMILE</span>
@@ -664,11 +665,6 @@ section{scroll-margin-top:84px}
     <div class="foot-grid">
       <div>
         <div class="brand">
-          <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
-            <path d="M50 4 78 18 92 46 78 74 50 88 22 74 8 46 22 18Z" fill="#8ecfa5"/>
-            <circle cx="34" cy="40" r="6" fill="#3f4a43"/><circle cx="66" cy="40" r="6" fill="#3f4a43"/>
-            <path d="M36 58q14 14 28 0" stroke="#3f4a43" stroke-width="6" fill="none" stroke-linecap="round"/>
-          </svg>
           <span class="tx"><span class="name">かみのてKIDS・SMILE</span><span class="en">KAMINOTE KIDS &amp; SMILE</span></span>
         </div>
         <div class="foot-addr">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
