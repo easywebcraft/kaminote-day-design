@@ -74,17 +74,17 @@ section{scroll-margin-top:24px}
    寄せてクレヨンで埋まった今は濁らず深い色になる。
    上下を濃くしているのは、ロゴ・メニューとボタンが乗るため。 */
 .hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(28,30,26,.54) 0%,rgba(28,30,26,.47) 32%,rgba(28,30,26,.45) 62%,rgba(28,30,26,.52) 100%)}
+  background:linear-gradient(180deg,rgba(28,30,26,.44) 0%,rgba(28,30,26,.3) 32%,rgba(28,30,26,.28) 62%,rgba(28,30,26,.4) 100%)}
 
 /* ---- ロゴとメニュー（写真の上に浮かせる） ---- */
 .topbar{position:relative;z-index:5;padding:46px 24px 0;color:#fff}
 .topline{display:flex;align-items:flex-start;justify-content:center;gap:clamp(18px,3.4vw,48px)}
 .mnav{display:flex;gap:clamp(16px,2.6vw,40px);align-items:flex-start;padding-top:34px}
 .mnav a{display:flex;flex-direction:column;align-items:center;gap:9px;font-size:13.5px;font-weight:500;
-  letter-spacing:.06em;white-space:nowrap;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+  letter-spacing:.06em;white-space:nowrap;text-shadow:0 1px 6px rgba(0,0,0,.55),0 0 18px rgba(0,0,0,.4)}
 .mnav svg{width:38px;height:38px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .mnav a:hover{opacity:.75}
-.logo{flex:none;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.35)}
+.logo{flex:none;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.55),0 0 26px rgba(0,0,0,.4)}
 .logo svg{width:clamp(50px,5.4vw,66px);height:auto;margin:0 auto 12px;display:block;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .logo .nm{font-size:clamp(20px,2.4vw,28px);font-weight:700;letter-spacing:.08em;line-height:1.3}
 .logo .en{font-size:10.5px;letter-spacing:.22em;font-family:'Baloo 2',sans-serif;opacity:.92}
@@ -98,11 +98,13 @@ section{scroll-margin-top:24px}
   padding:26px 24px 180px}
 /* 白い帯（短冊）に置いていたことがあるが、写真の上に四角い紙が浮いて見えた。
    帯はやめ、写真そのものを暗く沈めて白文字を直接のせている。 */
+/* かぶせを薄くして写真を明るく保つぶん、読みやすさは文字のまわりの影で稼ぐ。
+   にじみを2枚重ねると、縁の出る帯を置かずに局所のコントラストだけ上げられる。 */
 .vtext{writing-mode:vertical-rl;text-orientation:upright;color:#fff;
   font-size:clamp(21px,2.6vw,30px);letter-spacing:.24em;line-height:1.85;
-  text-shadow:0 2px 14px rgba(0,0,0,.45);max-height:100%}
-.vsub{writing-mode:vertical-rl;color:rgba(255,255,255,.92);font-size:13px;letter-spacing:.2em;
-  margin-right:22px;text-shadow:0 1px 8px rgba(0,0,0,.4);align-self:center}
+  text-shadow:0 2px 12px rgba(0,0,0,.62),0 0 34px rgba(0,0,0,.5);max-height:100%}
+.vsub{writing-mode:vertical-rl;color:rgba(255,255,255,.94);font-size:13px;letter-spacing:.2em;
+  margin-right:22px;text-shadow:0 1px 8px rgba(0,0,0,.6),0 0 22px rgba(0,0,0,.45);align-self:center}
 
 /* ---- 左端のコピーライト（縦） ---- */
 .side-copy{position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:6;
