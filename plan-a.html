@@ -117,6 +117,15 @@ section{scroll-margin-top:84px}
   font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;line-height:1.6}
 
 /* ---- 数字の帯 ---- */
+/* ---- 2つの事業所のロゴ（ヒーロー直下） ---- */
+/* 地色ではなく白に置いている。ロゴの手のひらのハートが透過で抜けているため、
+   色の面に乗せると地色が透けてハートが色づいてしまう。 */
+.logos{background:var(--white);padding:34px 0 4px}
+.logos-lead{text-align:center;font-size:13px;letter-spacing:.08em;color:var(--ink-soft);margin-bottom:16px}
+.logos-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:clamp(18px,5vw,64px);align-items:center;justify-items:center}
+.logos-row img{width:100%;max-width:250px;height:auto}
+@media (max-width:700px){.logos-row img{max-width:158px}.logos{padding-top:26px}}
 .stats{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .stats .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-top:26px;padding-bottom:26px;text-align:center}
 .stats .n{font-family:'Baloo 2',sans-serif;font-size:clamp(24px,3.4vw,34px);font-weight:700;line-height:1.2}
@@ -426,6 +435,17 @@ section{scroll-margin-top:84px}
 </section>
 
 <!-- ============ 数字の帯 ============ -->
+<!-- ============ 2つの事業所のロゴ ============ -->
+<div class="logos">
+  <div class="wrap">
+    <p class="logos-lead">2つの事業所があります</p>
+    <div class="logos-row">
+      <a href="#offices"><img src="img/logo-kids.png" alt="かみのてKIDS ロゴ" width="520" height="327" decoding="async"></a>
+      <a href="#offices"><img src="img/logo-smile.png" alt="かみのてSMILE ロゴ" width="520" height="327" decoding="async"></a>
+    </div>
+  </div>
+</div>
+
 <div class="stats">
   <div class="wrap">
     <div><div class="n c1">2</div><div class="l">KIDS・SMILEの2事業所</div></div>
