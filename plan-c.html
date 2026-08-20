@@ -64,14 +64,17 @@ section{scroll-margin-top:24px}
   /* 下端をくの字に切り抜き、白い本文へつなぐ */
   clip-path:polygon(0 0,100% 0,100% 88%,50% 100%,0 88%)}
 .hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
-/* 濃い文字を重ねるための白いかぶせ。以前は白文字だったので写真を暗く
-   沈めていたが、白い紙が主のこの写真では全体が暗い印象になった。
-   文字を濃色に反転し、写真は明るいまま使う。
-   上を濃くかけているのは、ロゴとメニューがクレヨンの派手な色に乗るため。
-   中央から下は薄くして、クレヨンの発色を残す。 */
+/* 案Aとまったく同じ写真を使っているので、Cは大きく寄せてトリミングで差をつける。
+   引きの構図（案A）と寄りの構図（案C）で、並べたときの第一印象を分ける。
+   ★寄せる倍率を変えたら、下の zoomOut キーフレームの数値も合わせること。 */
+.hero-bg img{--z:1.55;width:100%;height:100%;object-fit:cover;
+  transform:scale(var(--z));transform-origin:50% 44%}
+/* 白いかぶせ。以前は全体に .46〜.88 でかけていたが、それだと案Aの
+   「淡く飛ばした写真」と見分けがつかなくなった。
+   ロゴとメニューが乗る上端だけ濃くかけ、真ん中から下はクレヨンの色を残す。
+   下端をわずかに戻しているのは、白いボタンの輪郭が消えないようにするため。 */
 .hero-bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.82) 16%,rgba(255,255,255,.52) 38%,rgba(255,255,255,.46) 100%)}
+  background:linear-gradient(180deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.74) 13%,rgba(255,255,255,.3) 30%,rgba(255,255,255,.16) 62%,rgba(255,255,255,.3) 100%)}
 
 /* ---- ロゴとメニュー（写真の上に浮かせる） ---- */
 .topbar{position:relative;z-index:5;padding:46px 24px 0;color:var(--ink)}
@@ -94,13 +97,16 @@ section{scroll-margin-top:24px}
 .hero-copy{position:relative;z-index:5;flex:1;display:flex;align-items:center;justify-content:center;
   /* 下の余白は、写真に重ねたボタンの居場所。ここを削ると縦書きの末尾がボタンに隠れる。 */
   padding:26px 24px 180px}
+/* 写真の色を残すと、文字のまわりを白く抜くだけでは読めない。
+   短冊のような白い帯を敷いて、その上に縦書きを置く。
+   （帯にしたことで .vtext / .vsub の白いにじみ影は不要になった） */
+.vband{display:flex;align-items:center;padding:46px 34px;
+  background:rgba(255,255,255,.9);border-radius:3px;
+  box-shadow:0 14px 46px rgba(58,65,57,.2);max-height:100%}
 .vtext{writing-mode:vertical-rl;text-orientation:upright;color:var(--ink);
-  font-size:clamp(21px,2.6vw,30px);letter-spacing:.24em;line-height:1.85;
-  /* 濃いクレヨンの上に文字が乗る箇所があるので、写真を暗くする代わりに
-     文字のまわりだけ白く抜く。近い影を重ねると輪郭がはっきり出る。 */
-  text-shadow:0 0 8px rgba(255,255,255,1),0 0 16px rgba(255,255,255,.98),0 0 38px rgba(255,255,255,.85);max-height:100%}
+  font-size:clamp(21px,2.6vw,30px);letter-spacing:.24em;line-height:1.85;max-height:100%}
 .vsub{writing-mode:vertical-rl;color:var(--ink-soft);font-size:13px;letter-spacing:.2em;
-  margin-right:22px;text-shadow:0 0 7px rgba(255,255,255,1),0 0 14px rgba(255,255,255,.9);align-self:center}
+  margin-right:22px;align-self:center}
 
 /* ---- 左端のコピーライト（縦） ---- */
 .side-copy{position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:6;
@@ -272,7 +278,15 @@ section{scroll-margin-top:24px}
   /* スマホはボタンが2段になるぶん高さを食う。12vh のままだとイラストの
      こどもの顔にちょうど重なるので、上げたうえで見出し側の余白も広げる。 */
   .hero-copy{padding-bottom:205px}
+  /* スマホは画面が狭いぶん、同じ写真でも元から寄った絵になる。
+     PCと同じ倍率をかけると色の塊しか映らないので弱める。 */
+  .hero-bg img{--z:1.2}
+  .vband{padding:32px 20px}
   .vtext{font-size:20px}
+  .vsub{font-size:12px;letter-spacing:.14em}
+  /* left:50% のまま絶対配置すると、幅が「画面の半分」までしか取れず
+     ボタンの文字が途中で折り返す。スマホでは画面幅いっぱいに置く。 */
+  .hero-actions.on-photo{left:0;right:0;transform:none;padding:0 20px}
   .hero-actions.on-photo{bottom:19vh}
   .hero-mark{bottom:3%;left:14px}
   .split,.offices,.use,.cases,.discs,.foot-grid{grid-template-columns:minmax(0,1fr)}
@@ -298,7 +312,11 @@ section{scroll-margin-top:24px}
                        to   { opacity: 1; transform: none; } }
   @keyframes riseSp  { from { opacity: 0; transform: translateY(9px); }
                        to   { opacity: 1; transform: none; } }
-  @keyframes zoomOut { from { transform: scale(1.06); } to { transform: none; } }
+  /* ★ヒーロー写真は寄せて使っているので、素の倍率（--z）が到達点。
+     ここを transform:none に戻すと、動きの終わりで引きの構図に戻ってしまう。
+     倍率はスマホで変わるので、数値ではなく --z を参照する。 */
+  @keyframes zoomOut { from { transform: scale(calc(var(--z) * 1.07)); }
+                       to   { transform: scale(var(--z)); } }
   @keyframes popIn   { from { opacity: 0; transform: scale(.94); }
                        to   { opacity: .95; transform: none; } }
 
@@ -399,8 +417,13 @@ section{scroll-margin-top:24px}
   </div>
 
   <div class="hero-copy">
-    <div class="vtext mincho">その子のペースで、<br>「できた」をふやす。</div>
-    <div class="vsub">岐阜県可児市　かみのてKIDS・かみのてSMILE</div>
+    <div class="vband">
+      <div class="vtext mincho">その子のペースで、<br>「できた」をふやす。</div>
+      <!-- 縦書きの添え文は1列が長いほど背が高くなる。24字を1列で流すと
+           スマホで帯からはみ出して切れるので、<br> で2列に割っている。
+           事業所名はすぐ上のロゴにあるので、ここはサービスの種類を出す。 -->
+      <div class="vsub">岐阜県可児市<br>児童発達支援・放課後等デイサービス</div>
+    </div>
   </div>
 
   <div class="hero-actions on-photo">
