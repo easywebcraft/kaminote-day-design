@@ -99,18 +99,24 @@ section{scroll-margin-top:24px}
 .hero-zone{background:var(--pg-soft);padding-bottom:clamp(28px,4.6vw,60px)}
 /* 高さは svh で持つ。vh はスマホでアドレスバーが隠れると値が変わり、
    高さが変わるたびに cover の切り取りが変わって、スクロール中に写真が揺れる。
-   svh は「バーが見えている状態」の高さで固定なので揺れない（1行目は未対応ブラウザ用）。 */
-.hero{position:relative;height:clamp(430px,74vh,700px);height:clamp(430px,74svh,700px);overflow:hidden;background:#efeae2;contain:paint;
-  border-bottom-left-radius:52% 132px;border-bottom-right-radius:52% 132px}
+   svh は「バーが見えている状態」の高さで固定なので揺れない（1行目は未対応ブラウザ用）。
+
+   ★下端の弧を border-radius で「切り抜く」のはやめた。四角でない切り抜きは
+     合成のたびにマスクがかかり、スクロール中ずっと重い。いまは四角のまま置いて、
+     下に薄い緑のSVG（.arc）をかぶせて同じ形に見せている。塗るだけなので軽い。 */
+.hero{position:relative;height:clamp(430px,74vh,700px);height:clamp(430px,74svh,700px);overflow:hidden;background:#efeae2;contain:paint}
+/* 弧のかぶせ。viewBox の高さ132＝PCでの弧の深さ。中央で下端に達し、左右で最も厚い。 */
+.arc{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:132px;z-index:4;pointer-events:none;display:block}
+.arc path{fill:var(--pg-soft)}
 .hero-bg{position:absolute;inset:0}
 /* 案Aとまったく同じ写真なので、Cは少し寄せてトリミングで差をつける。
    ★寄せる倍率を変えたら、下の zoomOut キーフレームの数値も合わせること。 */
-/* ★スクロールのカクつき対策: 弧の切り抜き（overflow:hidden ＋ 大きな border-radius）の
-   中にある大きな画像に filter と scale がかかっていると、同じ層に居るぶんスクロールの
-   たびに描き直しになる。translateZ(0) で独立した層に上げ、
-   1度だけ焼き付けてあとは合成だけで済ませる。 */
+/* ★CSS の filter:brightness() は使わない。描き直すたびに効くので、スクロール中ずっと
+   計算が走ってカクつく。明るさは画像ファイル自体に焼き込んである
+   （hero-c.jpg・`bash ~/kmtools/brighten.sh` で ×1.05）。
+   案A・案Bは hero-a/b.jpg を使っているので、あちらの見え方は変わらない。 */
 .hero-bg img{--z:1.2;width:100%;height:100%;object-fit:cover;
-  transform:scale(var(--z)) translateZ(0);transform-origin:50% 44%;filter:brightness(1.05);
+  transform:scale(var(--z)) translateZ(0);transform-origin:50% 44%;
   backface-visibility:hidden}
 /* 見出しは右下に置くので、そちら側だけ濃くする。全体を均一に暗くすると写真が沈む。
    薄くしたぶんは見出しの text-shadow の2枚重ねで稼ぐ＝帯を置かずに
@@ -311,8 +317,10 @@ section{scroll-margin-top:24px}
 @media (max-width:900px){
   /* 弧は幅が狭いほど浅くする。深いままだと写真の左右が大きく削られ、
      下に置いたボタンの端が弧に切り取られる。 */
-  .hero{height:clamp(400px,66vh,520px);height:clamp(400px,66svh,520px);
-    border-bottom-left-radius:52% 40px;border-bottom-right-radius:52% 40px}
+  .hero{height:clamp(400px,66vh,520px);height:clamp(400px,66svh,520px)}
+  /* 弧は幅が狭いほど浅くする。深いままだと写真の左右が大きく削られ、
+     下に置いたボタンの端が弧にかかる。 */
+  .arc{height:40px}
   /* スマホは画面が狭いぶん、同じ写真でも元から寄った絵になる。
      PCと同じ倍率をかけると色の塊しか映らないので弱める。 */
   .hero-bg img{--z:1.05}
@@ -458,6 +466,11 @@ section{scroll-margin-top:24px}
 
   <!-- 白い帯の下端。半円を並べて写真にかぶせている（CSSの .scallop 参照） -->
   <div class="scallop"></div>
+
+  <!-- 下端の弧。border-radius で切り抜くとスクロールが重いので、塗りでかぶせている -->
+  <svg class="arc" viewBox="0 0 1440 132" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0 Q720 264 1440 0 V132 H0 Z"/>
+  </svg>
 
   <span class="stockmark hero-mark">イメージ写真</span>
 
