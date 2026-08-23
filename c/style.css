@@ -390,6 +390,28 @@ html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
   .lang button{font-size:11px;padding:6px 8px;border-width:1.2px}
 }
 
+/* ---- スマホのメニュー（ハンバーガーを押したとき） ----
+   ★2026-08-24まで、ボタンは置いてあるだけで押しても何も起きなかった。
+   畳む幅は案ごとに違う（案A 1100 / 案B 1000 / 案C 1180 ほか）ので、
+   media query の中ではなく「開いているときだけ」の指定として書く。
+   ボタンは畳まれた幅でしか出ないので、PCで開いた状態になることはない
+   （幅を広げたときは下のJSが open を外す）。 */
+.head.open .gnav{
+  display:flex;position:absolute;left:0;right:0;top:100%;
+  flex-direction:column;align-items:stretch;gap:0;margin:0;
+  background:var(--white,#fff);border-top:1px solid rgba(0,0,0,.08);
+  box-shadow:0 14px 30px rgba(0,0,0,.14);padding:6px 0;z-index:60;
+}
+.head.open .gnav a{
+  display:flex;flex-direction:row;align-items:center;justify-content:flex-start;
+  gap:10px;padding:14px 24px;font-size:15px;white-space:nowrap;text-align:left;
+}
+.head.open .gnav a + a{border-top:1px solid rgba(0,0,0,.06)}
+.head.open .gnav svg{width:20px;height:20px;flex:none}
+/* 開いているあいだ、項目のあいだの飾り（案Cのきらきら）は邪魔なので出さない */
+.head.open .gnav .spark{display:none}
+.burger[aria-expanded="true"]{background:rgba(0,0,0,.06)}
+
 
 
   @keyframes rise    { from { opacity: 0; transform: translateY(14px); }
