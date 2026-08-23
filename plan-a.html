@@ -287,6 +287,26 @@ section{scroll-margin-top:84px}
   .brand .corp{font-size:9px}
   .head-in{gap:12px;padding:10px 16px}
 }
+/* 横長の写真を縦長の画面いっぱいに敷くと、object-fit:cover が高さに合わせて拡大するため
+   横幅の3割ほどしか写らない（1600×1065 の写真・高さ740px で34%）。文字の高さぶん
+   ヒーローが伸びるので、後ろに敷いたままではどうやっても寄った絵になる。
+   ★スマホでは写真を上の帯に切り出し、文字は地色の上に置く。帯の高さ300pxなら
+     横幅の8割が写り、写真が何なのか分かるようになる。 */
+@media (max-width:700px){
+  .hero{min-height:0;display:block;background:var(--pg-soft)}
+  .hero-bg{position:relative;height:clamp(230px,38vh,320px)}
+  /* 帯にしたので、文字を読ませるための白かぶせは要らない。上だけ軽く白を残して
+     ヘッダーとの境目をやわらげる */
+  .hero-bg::after{background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,0) 55%)}
+  .hero-copy{padding:30px 20px 46px;text-align:center}
+  /* 地色の上に置くので、白の光彩はいらない（かえって文字がぼやける） */
+  .hero-copy h1{color:var(--ink);text-shadow:none;font-size:clamp(26px,7.4vw,34px)}
+  .hero-lead{color:var(--ink-soft);text-shadow:none}
+  .hero-eyebrow{background:var(--white);color:var(--pg-deep)}
+  /* 飾りの粒と注記は写真の帯の中に収める */
+  .hero-cluster{width:96px;right:4%;top:14px}
+  .stockmark{bottom:auto;top:14px;left:14px}
+}
 @media (max-width:560px){
   .flow{grid-template-columns:minmax(0,1fr)}
   .flow li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;text-align:left;align-items:center;padding:14px 18px}

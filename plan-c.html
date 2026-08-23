@@ -97,13 +97,21 @@ section{scroll-margin-top:24px}
 /* ============ ヒーロー：帯の下に写真を敷き、下端を弧で切る ============ */
 /* 弧の外側に見える色。ここを白にすると帯とつながって弧が見えなくなる */
 .hero-zone{background:var(--pg-soft);padding-bottom:clamp(28px,4.6vw,60px)}
-.hero{position:relative;height:clamp(430px,74vh,700px);overflow:hidden;background:#efeae2;
+/* 高さは svh で持つ。vh はスマホでアドレスバーが隠れると値が変わり、
+   高さが変わるたびに cover の切り取りが変わって、スクロール中に写真が揺れる。
+   svh は「バーが見えている状態」の高さで固定なので揺れない（1行目は未対応ブラウザ用）。 */
+.hero{position:relative;height:clamp(430px,74vh,700px);height:clamp(430px,74svh,700px);overflow:hidden;background:#efeae2;contain:paint;
   border-bottom-left-radius:52% 132px;border-bottom-right-radius:52% 132px}
 .hero-bg{position:absolute;inset:0}
 /* 案Aとまったく同じ写真なので、Cは少し寄せてトリミングで差をつける。
    ★寄せる倍率を変えたら、下の zoomOut キーフレームの数値も合わせること。 */
+/* ★スクロールのカクつき対策: 弧の切り抜き（overflow:hidden ＋ 大きな border-radius）の
+   中にある大きな画像に filter と scale がかかっていると、同じ層に居るぶんスクロールの
+   たびに描き直しになる。translateZ(0) で独立した層に上げ、
+   1度だけ焼き付けてあとは合成だけで済ませる。 */
 .hero-bg img{--z:1.2;width:100%;height:100%;object-fit:cover;
-  transform:scale(var(--z));transform-origin:50% 44%;filter:brightness(1.05)}
+  transform:scale(var(--z)) translateZ(0);transform-origin:50% 44%;filter:brightness(1.05);
+  backface-visibility:hidden}
 /* 見出しは右下に置くので、そちら側だけ濃くする。全体を均一に暗くすると写真が沈む。
    薄くしたぶんは見出しの text-shadow の2枚重ねで稼ぐ＝帯を置かずに
    文字のまわりだけコントラストを上げられる。 */
@@ -303,7 +311,7 @@ section{scroll-margin-top:24px}
 @media (max-width:900px){
   /* 弧は幅が狭いほど浅くする。深いままだと写真の左右が大きく削られ、
      下に置いたボタンの端が弧に切り取られる。 */
-  .hero{height:clamp(400px,66vh,520px);
+  .hero{height:clamp(400px,66vh,520px);height:clamp(400px,66svh,520px);
     border-bottom-left-radius:52% 40px;border-bottom-right-radius:52% 40px}
   /* スマホは画面が狭いぶん、同じ写真でも元から寄った絵になる。
      PCと同じ倍率をかけると色の塊しか映らないので弱める。 */
@@ -348,8 +356,8 @@ section{scroll-margin-top:24px}
   /* ★ヒーロー写真は寄せて使っているので、素の倍率（--z）が到達点。
      ここを transform:none に戻すと、動きの終わりで引きの構図に戻ってしまう。
      倍率はスマホで変わるので、数値ではなく --z を参照する。 */
-  @keyframes zoomOut { from { transform: scale(calc(var(--z) * 1.07)); }
-                       to   { transform: scale(var(--z)); } }
+  @keyframes zoomOut { from { transform: scale(calc(var(--z) * 1.07)) translateZ(0); }
+                       to   { transform: scale(var(--z)) translateZ(0); } }
   @keyframes popIn   { from { opacity: 0; transform: scale(.94); }
                        to   { opacity: .95; transform: none; } }
 
