@@ -96,17 +96,23 @@ section{scroll-margin-top:84px}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
 /* 濃い文字を重ねるための白のかぶせ。空の部分は薄くて足りるが、リード文が
    かかる草地は .5 程度だと読めないので中間を濃いめにしてある。 */
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.52) 0%,rgba(255,255,255,.6) 45%,rgba(255,255,255,.5) 100%)}
+/* 白のかぶせ。濃い文字を乗せるので、暗いクレヨンの上でも読める濃さが要る。
+   ★測って決めた値：.52/.6/.5 では見出しの最悪コントラストが 3.51、リード文が 4.13 しか
+   出ず、リード文が基準（4.5）に届いていなかった。文字色も一段濃くして両方を満たす。
+   （白文字は不可。この写真では最悪 1.26 まで落ちる＝ほぼ見えない） */
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.66) 0%,rgba(255,255,255,.72) 45%,rgba(255,255,255,.62) 100%)}
 /* 下の余白が大きいのは、コピー全体を上へ寄せて写真のこどもを見せるため。
    この写真は上半分が空いているので、そこにコピーを乗せる作りにしている。 */
 .hero-copy{position:relative;z-index:2;text-align:center;padding:64px 24px 190px;overflow:hidden}
 .hero-eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--ink);background:rgba(255,255,255,.84);
   border-radius:999px;padding:7px 18px;margin-bottom:26px}
-.hero-copy h1{font-size:clamp(28px,4.9vw,58px);line-height:1.55;letter-spacing:.04em;font-weight:500;text-shadow:0 2px 18px rgba(255,255,255,.72)}
+.hero-copy h1{font-size:clamp(28px,4.9vw,58px);line-height:1.55;letter-spacing:.04em;font-weight:500;
+  color:#2b332d;text-shadow:0 1px 4px rgba(255,255,255,.95),0 2px 20px rgba(255,255,255,.8)}
 /* 見出しの飾りは行から食み出す位置に置くので、行側で切って横スクロールを防ぐ */
 .hero-copy h1 .ln{display:block;position:relative}
 .deco{position:absolute;pointer-events:none}
-.hero-lead{margin-top:26px;font-size:clamp(13px,1.6vw,16px);line-height:2.1;text-shadow:0 1px 10px rgba(255,255,255,.88)}
+.hero-lead{margin-top:26px;font-size:clamp(13px,1.6vw,16px);line-height:2.1;color:#2b332d;
+  text-shadow:0 1px 3px rgba(255,255,255,.98),0 1px 12px rgba(255,255,255,.9)}
 .hero-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
 .hero-tags span{background:rgba(255,255,255,.92);border-radius:999px;padding:6px 15px;font-size:12.5px;font-weight:500}
 .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
