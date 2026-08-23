@@ -1,0 +1,449 @@
+
+/* ===========================================================
+   デザイン案A「写真を主役に、彩りを添える」
+   保育園サイトの案Aと対になる、放課後等デイ版。
+   ・白い横長ヘッダー＋メニューの上に小さな色アイコン
+   ・写真いっぱいのヒーローに、明朝の大きな見出しを重ねる
+   ・見出しの文字の間に、色のついた小さな飾りを散らす
+   ・左端に縦書きの細いレール（お知らせ / Instagram）
+   主色はご要望のパステルグリーン。そこに卵色・空色・すみれを
+   少量ずつ足し、白地で軽く見せる。CTAのオレンジはグループ共通。
+   =========================================================== */
+*{box-sizing:border-box}
+:root{
+  --pg:#8ecfa5;        /* 主色：パステルグリーン（面に使う） */
+  --pg-d:#4e9c72;      /* 文字に使う濃さ */
+  --pg-deep:#3d7d5b;
+  --pg-soft:#e8f5ec;
+  --coral:#f5a25a;     /* CTA：グループ共通のオレンジ */
+  --coral-d:#ef8f3e;
+  --coral-soft:#fdead6;
+  --sun:#f7c948;       /* 副：たまご色 */
+  --sky:#7fb8cd;       /* 副：空 */
+  --violet:#a99bd4;    /* 副：すみれ */
+  --ink:#3f4a43;
+  --ink-soft:#77857c;
+  --line:#e4eae6;
+  --cream:#f8fbf9;
+  --white:#fff;
+  --wrap:1120px;
+  --rail:56px;         /* 左レールの幅（PCのみ） */
+}
+html{scroll-behavior:smooth}
+html,body{margin:0;padding:0}
+body{font-family:'Zen Kaku Gothic New',"Hiragino Sans","Yu Gothic UI",sans-serif;
+  color:var(--ink);background:var(--white);line-height:1.9;font-size:16px;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul,dl{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{scroll-margin-top:84px}
+.mincho{font-family:'Zen Old Mincho',"Hiragino Mincho ProN","Yu Mincho",serif}
+
+/* ---- 見本であることの注記（納品時は消す） ---- */
+.note{background:#3f4a43;color:#fff;font-size:13px;padding:9px 24px;text-align:center;line-height:1.7}
+.note b{color:var(--sun)}
+
+/* ---- ヘッダー ---- */
+.head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+.head-in{max-width:1280px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:24px}
+/* 事業所名は letter-spacing が広いので、狭い画面では縮められるようにしておく
+   （flex:none のままだと押し広げて横スクロールが出る） */
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand .tx{min-width:0;line-height:1.25}
+.brand .corp,.brand .name,.brand .en{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* ヘッダーのマークは、いただいたロゴから文字（かみのて／KIDS）を外した絵の部分。
+   2枚のロゴは絵柄が同一なので、これならKIDSにもSMILEにも寄らない。
+   横長なので高さで指定する（幅で指定すると縦に潰れる）。 */
+.brand .mark{width:auto;height:52px;flex:none}
+.brand .corp{font-size:10px;letter-spacing:.14em;color:var(--ink-soft)}
+.brand .name{font-size:19px;font-weight:700;letter-spacing:.16em}
+.brand .en{font-size:9px;letter-spacing:.26em;color:var(--ink-soft);font-family:'Baloo 2',sans-serif}
+.gnav{display:flex;gap:24px;margin-left:auto}
+.gnav a{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:13.5px;font-weight:500;white-space:nowrap}
+.gnav a:hover{color:var(--pg-d)}
+.gnav svg{width:22px;height:22px}
+.cta-pill{flex:none;display:inline-flex;align-items:center;justify-content:center;padding:14px 28px;border-radius:999px;
+  background:linear-gradient(100deg,#f8b478,#f19a4d);color:#fff;font-weight:700;font-size:14.5px;letter-spacing:.04em;
+  box-shadow:0 6px 16px rgba(245,162,90,.34)}
+.cta-pill:hover{filter:brightness(1.05)}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:14px;cursor:pointer;font-family:inherit}
+
+/* ---- 左の縦レール ---- */
+.rail{position:fixed;left:18px;top:52%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;align-items:center;gap:18px}
+.rail::before,.rail::after{content:"";width:1px;height:54px;background:var(--ink);opacity:.35}
+.rail a{writing-mode:vertical-rl;font-size:12px;letter-spacing:.22em;display:flex;align-items:center;gap:8px}
+.rail a:hover{color:var(--pg-d)}
+.rail svg{width:15px;height:15px}
+
+/* ---- ヒーロー ---- */
+.hero{position:relative;min-height:min(84vh,740px);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#e7efe9}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+/* 濃い文字を重ねるための白のかぶせ。空の部分は薄くて足りるが、リード文が
+   かかる草地は .5 程度だと読めないので中間を濃いめにしてある。 */
+/* 白のかぶせ。濃い文字を乗せるので、暗いクレヨンの上でも読める濃さが要る。
+   ★測って決めた値：.52/.6/.5 では見出しの最悪コントラストが 3.51、リード文が 4.13 しか
+   出ず、リード文が基準（4.5）に届いていなかった。文字色も一段濃くして両方を満たす。
+   （白文字は不可。この写真では最悪 1.26 まで落ちる＝ほぼ見えない） */
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.66) 0%,rgba(255,255,255,.72) 45%,rgba(255,255,255,.62) 100%)}
+/* 下の余白が大きいのは、コピー全体を上へ寄せて写真のこどもを見せるため。
+   この写真は上半分が空いているので、そこにコピーを乗せる作りにしている。 */
+.hero-copy{position:relative;z-index:2;text-align:center;padding:64px 24px 190px;overflow:hidden}
+.hero-eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--ink);background:rgba(255,255,255,.84);
+  border-radius:999px;padding:7px 18px;margin-bottom:26px}
+.hero-copy h1{font-size:clamp(28px,4.9vw,58px);line-height:1.55;letter-spacing:.04em;font-weight:500;
+  color:#2b332d;text-shadow:0 1px 4px rgba(255,255,255,.95),0 2px 20px rgba(255,255,255,.8)}
+/* 見出しの飾りは行から食み出す位置に置くので、行側で切って横スクロールを防ぐ */
+.hero-copy h1 .ln{display:block;position:relative}
+.deco{position:absolute;pointer-events:none}
+.hero-lead{margin-top:26px;font-size:clamp(13px,1.6vw,16px);line-height:2.1;color:#2b332d;
+  text-shadow:0 1px 3px rgba(255,255,255,.98),0 1px 12px rgba(255,255,255,.9)}
+.hero-tags{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.hero-tags span{background:rgba(255,255,255,.92);border-radius:999px;padding:6px 15px;font-size:12.5px;font-weight:500}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:999px;font-weight:700;font-size:15px}
+.btn-main{background:linear-gradient(100deg,#f8b478,#f19a4d);color:#fff;box-shadow:0 8px 20px rgba(245,162,90,.3)}
+.btn-sub{background:rgba(255,255,255,.94);color:var(--ink);box-shadow:0 4px 14px rgba(63,74,67,.09)}
+.btn:hover{transform:translateY(-1px)}
+/* 右上の飾り群 */
+.hero-cluster{position:absolute;right:4%;top:12%;width:min(190px,22vw);opacity:.95;z-index:2}
+.stockmark{position:absolute;left:16px;bottom:14px;z-index:3;background:rgba(63,74,67,.6);color:#fff;
+  font-size:11px;font-weight:700;padding:4px 12px;border-radius:999px;line-height:1.6}
+
+/* ---- 数字の帯 ---- */
+.stats{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding-top:26px;padding-bottom:26px;text-align:center}
+.stats .n{font-family:'Baloo 2',sans-serif;font-size:clamp(24px,3.4vw,34px);font-weight:700;line-height:1.2}
+.stats .n.c1{color:var(--pg-d)}.stats .n.c2{color:var(--sky)}.stats .n.c3{color:var(--violet)}
+.stats .l{font-size:12px;color:var(--ink-soft);line-height:1.7}
+
+/* ---- セクション共通 ---- */
+.sec{padding:84px 0}
+.sec.tint{background:var(--cream)}
+.sec-head{text-align:center;margin-bottom:46px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:12px}
+.eyebrow svg{width:18px;height:18px}
+.sec-head h2{font-size:clamp(23px,3.5vw,33px);line-height:1.6;letter-spacing:.04em;font-weight:500}
+.sec-head .en{display:block;font-family:'Baloo 2',sans-serif;font-size:12px;letter-spacing:.3em;color:var(--ink-soft);margin-top:8px}
+.sec-head p{margin-top:16px;color:var(--ink-soft);font-size:14.5px;line-height:2}
+.ph{border-radius:22px;overflow:hidden;background:#eee;position:relative}
+.ph img{width:100%;height:100%;object-fit:cover}
+.ph .stockmark{left:12px;bottom:auto;top:12px;font-size:10.5px}
+
+/* ---- こんなお子さま・ご家庭へ ---- */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.case{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px 24px;
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+.case .ic{width:30px;height:30px;flex:none}
+.case p{font-size:14.5px;line-height:1.85}
+.cases-note{margin-top:26px;text-align:center;color:var(--ink-soft);font-size:14.5px}
+.cases-note strong{color:var(--pg-d)}
+
+/* ---- 支援の内容 ---- */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:52px;align-items:center}
+.split .ph{aspect-ratio:4/3}
+.split h2{font-size:clamp(22px,3.2vw,30px);line-height:1.65;font-weight:500;margin-bottom:16px}
+.split h2 .g{color:var(--pg-d)}
+.split .lead{color:var(--ink-soft);font-size:14.5px;line-height:2.05;margin-bottom:22px}
+.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:24px}
+.areas li{background:var(--pg-soft);color:var(--pg-deep);font-weight:700;font-size:13.5px;
+  padding:11px 16px;border-radius:14px;text-align:center;line-height:1.5}
+.marks{display:grid;gap:16px}
+.marks li{display:flex;gap:14px;align-items:flex-start}
+.marks .dot{width:34px;height:34px;flex:none}
+.marks b{display:block;font-size:15.5px;margin-bottom:3px}
+.marks span{font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+
+/* ---- 多言語での支援 ---- */
+.multi{background:linear-gradient(180deg,#eef7f1,#fff);border:1px solid #d9ece1;border-radius:26px;overflow:hidden}
+.multi .split{gap:0;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
+.multi .ph{border-radius:0;aspect-ratio:auto;height:100%;min-height:300px}
+.multi-body{padding:44px 40px}
+.multi-body h2{font-size:clamp(21px,3vw,28px);line-height:1.6;font-weight:500;margin-bottom:16px}
+.multi-body p{font-size:14.5px;color:#4b5f56;line-height:2}
+.multi-body strong{color:var(--pg-deep)}
+.langs{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.langs span{font-size:12.5px;font-weight:700;background:var(--white);color:var(--pg-deep);
+  padding:7px 16px;border-radius:999px;box-shadow:0 3px 10px rgba(63,74,67,.07)}
+
+/* ---- 2つの事業所 ---- */
+.offices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.office{background:var(--white);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.office .ph{border-radius:0;aspect-ratio:16/10}
+.office-body{padding:26px 24px 24px;flex:1;display:flex;flex-direction:column}
+.office h3{font-size:19px;font-weight:700}
+/* ---- 事業所のロゴ（クライアント支給） ---- */
+/* 横長で細い線を含む絵なので、小さくしすぎると顔や曲線が消える。
+   カードの幅いっぱいまでは伸ばさず、220px前後で置く。 */
+.office-logo{display:block;width:100%;max-width:220px;height:auto;margin:0 0 10px}
+@media (max-width:700px){.office-logo{max-width:190px}}
+
+/* .office-body は flex column なので、align-self を指定しないと全幅に伸びる */
+.office .kind{font-size:11.5px;color:#fff;background:var(--pg-d);font-weight:700;
+  padding:4px 12px;border-radius:999px;align-self:flex-start;margin:8px 0 14px}
+.office dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-size:13.5px;margin-bottom:20px}
+.office dt{color:var(--ink-soft);white-space:nowrap}
+.office dd{margin:0}
+.link-a{margin-top:auto;font-weight:700;font-size:14px;color:var(--coral-d);display:inline-flex;align-items:center;gap:6px}
+
+/* ---- ご利用案内 ---- */
+.use{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-bottom:30px}
+.use-card{border:1px solid var(--line);border-radius:22px;padding:32px 28px;background:var(--white)}
+.use-card h3{font-size:17.5px;font-weight:700;margin-bottom:12px}
+.use-card p{font-size:14px;color:var(--ink-soft);line-height:2}
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.flow li{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:20px 14px;text-align:center}
+.flow .n{display:block;font-family:'Baloo 2',sans-serif;font-size:22px;font-weight:700;color:var(--pg);line-height:1.3}
+.flow b{font-size:13.5px;font-weight:700;line-height:1.6}
+
+/* ---- 情報公表 ---- */
+.disc-lead{max-width:760px;margin:0 auto 34px;text-align:center;color:var(--ink-soft);font-size:14.5px;line-height:2}
+.disc-lead strong{color:var(--pg-d)}
+.discs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.disc{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:30px 26px}
+.disc h3{font-size:17px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.disc h3 .kind{font-size:11px;color:#fff;background:var(--pg-d);font-weight:700;padding:3px 11px;border-radius:999px;white-space:nowrap}
+.docs{display:grid;gap:11px}
+.doc{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;
+  background:var(--pg-soft);border-radius:14px;padding:14px 16px}
+.doc b{display:block;font-size:14px;font-weight:700;line-height:1.6}
+.doc .meta{display:block;font-size:12px;color:var(--ink-soft);font-weight:400}
+.doc .pdf{font-family:'Baloo 2',sans-serif;font-size:11.5px;font-weight:700;color:#fff;
+  background:var(--pg-d);padding:6px 13px;border-radius:999px;white-space:nowrap}
+/* 支援プログラムはKIDS・SMILE共通で1本なので、2カラムの上に横長で置く */
+.doc-wide{margin-bottom:26px}
+/* 現行サイトに見当たらない分。リンクにせず、抜けとして見せる */
+.doc-todo{background:var(--coral-soft);grid-template-columns:minmax(0,1fr)}
+.doc-todo b{color:var(--coral-d)}
+.disc-note{margin-top:26px;background:var(--coral-soft);border:1px solid #f3ddbf;border-radius:16px;padding:20px 24px;font-size:13.5px;line-height:2}
+.disc-note b{display:block;margin-bottom:4px;color:var(--coral-d)}
+
+/* ---- 採用 ---- */
+.recruit{background:var(--ink);color:#fff;border-radius:26px;padding:52px 44px}
+.recruit h2{font-size:clamp(22px,3.2vw,30px);font-weight:500;line-height:1.6;margin-bottom:16px}
+.recruit p{color:#d3ddd7;font-size:14.5px;line-height:2}
+.rnums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:32px}
+.rnums div{background:rgba(255,255,255,.09);border-radius:16px;padding:18px 10px;text-align:center}
+.rnums .n{font-family:'Baloo 2',sans-serif;font-size:24px;font-weight:700;color:var(--pg)}
+.rnums .l{font-size:11.5px;color:#bcc7c0}
+
+/* ---- お問い合わせ ---- */
+.contact{background:linear-gradient(150deg,#fff4e9,#ffe9d6);border-radius:26px;padding:56px 40px;text-align:center}
+.contact h2{font-size:clamp(23px,3.4vw,32px);font-weight:500;line-height:1.6;margin-bottom:16px}
+.contact p{color:#7d6350;font-size:14.5px;line-height:2}
+.tel{margin-top:28px;font-family:'Baloo 2',sans-serif;font-size:clamp(26px,4vw,36px);font-weight:700;color:var(--coral-d)}
+.tel small{display:block;font-family:inherit;font-size:12px;color:#8f7462;font-weight:400;letter-spacing:.08em}
+
+/* ---- フッター ---- */
+.foot{background:var(--ink);color:#cfd8d2;padding:56px 0 28px;margin-top:84px;font-size:13.5px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr));gap:36px}
+.foot h4{color:#fff;font-size:13px;letter-spacing:.1em;margin-bottom:12px}
+.foot li{margin-bottom:8px}
+.foot li small{display:block;font-size:11.5px;color:#98a49d;line-height:1.7}
+.foot a:hover{color:#fff}
+.foot .brand .name{color:#fff}
+.foot .brand .corp,.foot .brand .en{color:#98a49d}
+.foot-addr{margin-top:16px;line-height:2;color:#98a49d;font-size:12.5px}
+.copy{border-top:1px solid #4b564f;margin-top:40px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#8b968f}
+
+/* ---- ナビが入らない幅で畳む ---- */
+/* ナビを一列に保てる下限。ヘッダーのマークを実ロゴ（横長）にしたぶん
+   ブランド側が広くなったので、1080px では採用情報がCTAに重なる。 */
+@media (max-width:1140px){
+  .gnav,.rail{display:none}
+  .burger{display:block}
+}
+/* ---- スマホ ---- */
+@media (max-width:900px){
+  .head-in .cta-pill{display:none}
+  .split,.offices,.use,.cases,.discs,.foot-grid{grid-template-columns:minmax(0,1fr)}
+  .multi .split{grid-template-columns:minmax(0,1fr)}
+  .multi-body{padding:32px 24px}
+  .areas{grid-template-columns:minmax(0,1fr)}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rnums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sec{padding:60px 0}
+  .recruit,.contact{padding:38px 24px;border-radius:20px}
+  .hero-cluster{width:110px;right:3%;top:8%}
+  .hero-copy{padding:64px 20px}
+  /* スマホでは事業所名を1行に詰め、ハンバーガーの分の幅を確保する */
+  .brand .mark{height:38px}
+  .brand .name{font-size:15px;letter-spacing:.08em}
+  .brand .corp{font-size:9px}
+  .head-in{gap:12px;padding:10px 16px}
+}
+/* 横長の写真を縦長の画面いっぱいに敷くと、object-fit:cover が高さに合わせて拡大するため
+   横幅の3割ほどしか写らない（1600×1065 の写真・高さ740px で34%）。文字の高さぶん
+   ヒーローが伸びるので、後ろに敷いたままではどうやっても寄った絵になる。
+   ★スマホでは写真を上の帯に切り出し、文字は地色の上に置く。帯の高さ300pxなら
+     横幅の8割が写り、写真が何なのか分かるようになる。 */
+@media (max-width:700px){
+  .hero{min-height:0;display:block;background:var(--pg-soft)}
+  .hero-bg{position:relative;height:clamp(230px,38vh,320px)}
+  /* 帯にしたので、文字を読ませるための白かぶせは要らない。上だけ軽く白を残して
+     ヘッダーとの境目をやわらげる */
+  .hero-bg::after{background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,0) 55%)}
+  .hero-copy{padding:30px 20px 46px;text-align:center}
+  /* 地色の上に置くので、白の光彩はいらない（かえって文字がぼやける） */
+  .hero-copy h1{color:var(--ink);text-shadow:none;font-size:clamp(26px,7.4vw,34px)}
+  .hero-lead{color:var(--ink-soft);text-shadow:none}
+  .hero-eyebrow{background:var(--white);color:var(--pg-deep)}
+  /* 飾りの粒と注記は写真の帯の中に収める */
+  .hero-cluster{width:96px;right:4%;top:14px}
+  .stockmark{bottom:auto;top:14px;left:14px}
+}
+@media (max-width:560px){
+  .flow{grid-template-columns:minmax(0,1fr)}
+  .flow li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;text-align:left;align-items:center;padding:14px 18px}
+}
+
+/* ---- 言語の切り替え（日本語／English／Português） ----
+   ヘッダーの作りは案ごとに違うが、ボタンの見た目は3案・2サイトで同じにする。
+   ★狭い画面でも必ず出す（ナビと違って畳まない）＝外国語の家庭にはここが入口なので、
+     ハンバーガーの中に隠すと見つけてもらえない。そのぶん短い表記に切り替える。 */
+/* 日本語用の広い字間のままだとラテン文字は横に伸びすぎて、
+   園名が省略記号で切れたり見出しが1行に入らなくなる。英語・ポルトガル語では詰める。 */
+html:not([lang="ja"]) .brand .name,
+html:not([lang="ja"]) .brand .nm,
+html:not([lang="ja"]) .brand .corp,
+html:not([lang="ja"]) .logo .nm{letter-spacing:.03em}
+/* ラテン文字の園名は日本語より字数が多い。字間を詰めただけでは
+   「Kaminote N…」と省略記号で切れるので、一段小さくして収める。 */
+html:not([lang="ja"]) .brand .name,
+html:not([lang="ja"]) .brand .nm{font-size:16.5px}
+/* メニューの項目もラテン文字だと長い。項目内で折り返させず、間隔を詰めて
+   ブランド名に幅を回す（詰めないと園名が省略記号で切れたままになる）。 */
+html:not([lang="ja"]) .gnav{gap:clamp(10px,1.4vw,18px)}
+html:not([lang="ja"]) .gnav a{white-space:nowrap}
+/* 園名がナビに重ならないよう、はみ出しは省略記号で止める（案Bは元から止めていない） */
+html:not([lang="ja"]) .brand .name,
+html:not([lang="ja"]) .brand .nm{overflow:hidden;text-overflow:ellipsis}
+/* ★ナビを畳む幅は言語で変える。ラテン文字は日本語より横に長いので、
+   同じ幅では園名・メニュー・ボタンが並びきらない（実際に重なった）。
+   日本語のときの畳む幅は案ごとの指定のまま。 */
+@media (max-width:1300px){
+  html:not([lang="ja"]) .gnav,
+  html:not([lang="ja"]) .rail,
+  html:not([lang="ja"]) .pill-recruit,
+  html:not([lang="ja"]) .head-in .cta-pill,
+  html:not([lang="ja"]) .head-in .cta{display:none}
+  html:not([lang="ja"]) .burger{display:block}
+}
+html:not([lang="ja"]) .hero-copy h1,
+html:not([lang="ja"]) .hero-eyebrow,
+html:not([lang="ja"]) .hero-place,
+html:not([lang="ja"]) .hero-copy .l1,
+html:not([lang="ja"]) .hero-copy .l2,
+html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
+.lang{display:flex;gap:4px;flex:none;align-items:center}
+.lang button{font-family:inherit;font-size:11.5px;font-weight:700;line-height:1;cursor:pointer;
+  padding:7px 10px;border-radius:999px;border:1.4px solid var(--line);background:transparent;
+  color:var(--pg-deep);white-space:nowrap}
+.lang button:hover{background:var(--pg-soft)}
+.lang button.on{background:var(--pg-d);border-color:var(--pg-d);color:#fff}
+.lang .sm{display:none}
+@media (max-width:900px){
+  .lang .lg{display:none}
+  .lang .sm{display:inline}
+  .lang{gap:3px}
+  .lang button{font-size:11px;padding:6px 8px;border-width:1.2px}
+}
+
+
+
+  @keyframes rise    { from { opacity: 0; transform: translateY(14px); }
+                       to   { opacity: 1; transform: none; } }
+  @keyframes riseSp  { from { opacity: 0; transform: translateY(9px); }
+                       to   { opacity: 1; transform: none; } }
+  @keyframes zoomOut { from { transform: scale(1.06); } to { transform: none; } }
+  @keyframes popIn   { from { opacity: 0; transform: scale(.94); }
+                       to   { opacity: .95; transform: none; } }
+
+  /* ヒーローはJSを使わずCSSだけで動かす。JSがクラスを付けるのを待つと、
+     待っている間に文字が見えてしまう（環境が遅いほど長く見える）。 */
+  .hero-bg img   { animation: zoomOut 1.8s cubic-bezier(.2,.7,.3,1) both; }
+  .hero-copy > * { animation: rise .7s cubic-bezier(.2,.7,.3,1) both; }
+  .hero-copy > *:nth-child(1) { animation-delay: 0.15s; }
+  .hero-copy > *:nth-child(2) { animation-delay: 0.30s; }
+  .hero-copy > *:nth-child(3) { animation-delay: 0.45s; }
+  .hero-copy > *:nth-child(4) { animation-delay: 0.60s; }
+  .hero-copy > *:nth-child(5) { animation-delay: 0.75s; }
+  .hero-cluster  { animation: popIn 1s cubic-bezier(.2,.7,.3,1) .45s both; }
+
+  /* スクロールで出てくる分だけ、JSがあるとき（.anim）に隠しておく。
+     ★ここの並びは下のJSの ANIM_SEL と必ず同じにすること
+     （食い違うと、隠れたまま出てこない要素ができてしまう） */
+  .anim .sec > .wrap > *:not(.cases):not(.offices):not(.use):not(.flow):not(.doc):not(.discs),
+  .anim .cases > *,
+  .anim .offices > *,
+  .anim .use > *,
+  .anim .flow > *,
+  .anim .doc > *,
+  .anim .discs > * { opacity: 0; }
+
+  .anim .on { animation: rise .7s cubic-bezier(.2,.7,.3,1) both; }
+
+  @media (max-width: 700px) { .anim .on { animation-name: riseSp; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim .sec > .wrap > *:not(.cases):not(.offices):not(.use):not(.flow):not(.doc):not(.discs),
+    .anim .cases > *,
+    .anim .offices > *,
+    .anim .use > *,
+    .anim .flow > *,
+    .anim .doc > *,
+    .anim .discs > * { opacity: 1; }
+    .anim .on, .hero-bg img, .hero-copy > *, .hero-cluster { animation: none; }
+  }
+  @media print {
+    .anim .sec > .wrap > *:not(.cases):not(.offices):not(.use):not(.flow):not(.doc):not(.discs),
+    .anim .cases > *,
+    .anim .offices > *,
+    .anim .use > *,
+    .anim .flow > *,
+    .anim .doc > *,
+    .anim .discs > * { opacity: 1 !important; }
+    .anim .on, .hero-bg img, .hero-copy > *, .hero-cluster { animation: none !important; }
+  }
+
+
+/* ============================================================
+   下層ページに分けた版でだけ使う部品（1枚ものには無い）
+   色は案ごとにトークン名が違うので、ここで受け皿(--x-accent)に寄せる。
+   面の色はトークンに頼らず、地色の上に薄い黒を重ねて作る＝どの配色でも成立する。
+   ============================================================ */
+:root{--x-accent:var(--pg-deep)}
+
+/* ---- パンくず（下層ページの先頭） ---- */
+.crumb{max-width:var(--wrap);margin:0 auto;padding:22px 24px 0;font-size:13px;color:var(--ink-soft)}
+.crumb a{color:var(--x-accent);font-weight:700}
+.crumb span{margin:0 .5em;opacity:.5}
+
+/* ---- トップの入口カード ---- */
+/* トップから中身を出したぶん、ここが道案内になる。3列→2列→1列。
+   高さは揃えず、リンク行だけ下端に寄せる（説明の長さがまちまちなので）。 */
+.gates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.gate{background:rgba(0,0,0,.035);border-radius:24px;padding:26px 24px;
+  display:flex;flex-direction:column;gap:10px}
+.gate:hover{background:rgba(0,0,0,.06)}
+.gate b{font-size:16.5px;font-weight:700;line-height:1.6}
+.gate span{font-size:13.5px;color:var(--ink-soft);line-height:1.95}
+.gate em{margin-top:auto;padding-top:6px;font-style:normal;font-weight:700;font-size:14px;color:var(--x-accent)}
+@media (max-width:900px){.gates{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.gates{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- トップのお知らせ（見出しだけ） ---- */
+.news-list{display:grid;gap:0;list-style:none;margin:0;padding:0}
+.news-list li{border-bottom:1px dashed rgba(0,0,0,.12)}
+.news-list li:first-child{border-top:1px dashed rgba(0,0,0,.12)}
+.news-list a{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:18px 4px;font-size:15px;line-height:1.7}
+.news-list a:hover{color:var(--x-accent)}
+.news-list .date{font-family:'Baloo 2',sans-serif;color:var(--ink-soft);font-size:13px}
+.news-list .tag{background:rgba(0,0,0,.06);border-radius:999px;padding:2px 10px;font-size:11.5px}
+@media (max-width:560px){.news-list a{padding:15px 4px;font-size:14px}}
+
+/* ---- メニューの現在地 ---- */
+.gnav a[aria-current="page"]{color:var(--x-accent);text-decoration:underline;
+  text-underline-offset:6px;text-decoration-thickness:2px}
