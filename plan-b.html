@@ -316,18 +316,24 @@ html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
    media query の中ではなく「開いているときだけ」の指定として書く。
    ボタンは畳まれた幅でしか出ないので、PCで開いた状態になることはない
    （幅を広げたときは下のJSが open を外す）。 */
+/* 画面いっぱいに広げず、ボタンの下に小さく出す。
+   幅は中身なり（min〜maxの間）。行の余白も詰めて、画面を覆わない大きさにする。 */
 .head.open .gnav{
-  display:flex;position:absolute;left:0;right:0;top:100%;
+  display:flex;position:absolute;right:12px;left:auto;top:calc(100% - 2px);
   flex-direction:column;align-items:stretch;gap:0;margin:0;
-  background:var(--white,#fff);border-top:1px solid rgba(0,0,0,.08);
-  box-shadow:0 14px 30px rgba(0,0,0,.14);padding:6px 0;z-index:60;
+  min-width:190px;max-width:min(74vw,290px);
+  background:var(--white,#fff);border:1px solid rgba(0,0,0,.10);border-radius:14px;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);padding:5px 0;z-index:60;overflow:hidden;
 }
 .head.open .gnav a{
   display:flex;flex-direction:row;align-items:center;justify-content:flex-start;
-  gap:10px;padding:14px 24px;font-size:15px;white-space:nowrap;text-align:left;
+  gap:9px;padding:10px 16px;font-size:13.5px;line-height:1.5;white-space:nowrap;text-align:left;
 }
 .head.open .gnav a + a{border-top:1px solid rgba(0,0,0,.06)}
-.head.open .gnav svg{width:20px;height:20px;flex:none}
+.head.open .gnav svg{width:17px;height:17px;flex:none}
+/* 複製した「見学・ご相談」も、行に収まる大きさに揃える */
+.head.open .gnav .cta-in-menu{padding:11px 16px;font-size:13.5px;border-radius:0;
+  box-shadow:none;justify-content:flex-start}
 /* 開いているあいだ、項目のあいだの飾り（案Cのきらきら）は邪魔なので出さない */
 .head.open .gnav .spark{display:none}
 .burger[aria-expanded="true"]{background:rgba(0,0,0,.06)}
