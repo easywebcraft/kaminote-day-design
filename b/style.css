@@ -421,3 +421,175 @@ html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
 /* ---- メニューの現在地 ---- */
 .gnav a[aria-current="page"]{color:var(--x-accent);text-decoration:underline;
   text-underline-offset:6px;text-decoration-thickness:2px}
+
+/* ---- メニューを畳む幅（分割版だけ一段広く） ----
+   独立ページを足したぶん項目が増えたので、1枚ものの指定より先に畳む。
+   1枚もの側（案A1100/案B1000/案C1180）はそのままにしてあり、この指定は
+   それを含む広いほうの範囲なので、重ねても矛盾しない。
+   ★案ごとに隠すものが違う（案A .rail と .cta-pill／案B .cta／案C .pill-recruit）ので、
+     ここでは3案ぶんまとめて指定する。無いものを指定しても害はない。 */
+
+/* ============================================================
+   独立ページ（pages/*.html）で使う部品
+   ★3案・2サイトで使い回すので、色は --x-accent と薄い黒だけで作る。
+     主色を直に書くと、どれかの案で必ず外れる。
+   ★写真は .x-ph（案Aは .ph、案B・Cは .ph-round と名前が違うため）。
+   ★改行の制御は .x-br（.br-sp は案Aにしか無い）。
+   ============================================================ */
+.x-ph{border-radius:24px;overflow:hidden;aspect-ratio:4/3;background:rgba(0,0,0,.06)}
+.x-ph img{width:100%;height:100%;object-fit:cover}
+.x-fine{margin-top:22px;font-size:12.5px;color:var(--ink-soft);line-height:1.95}
+.x-br{display:none}
+@media (max-width:560px){.x-br{display:inline}}
+
+/* ---- 写真の横に置く3点（絵は絵文字で。SVGの色は案ごとに違うので使わない） ---- */
+.x-points{display:grid;gap:18px;margin-top:4px}
+.x-points li{display:flex;gap:13px;align-items:flex-start}
+.x-points .ic{flex:none;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.06);
+  display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1}
+.x-points b{display:block;font-size:15.5px;margin-bottom:4px;line-height:1.7}
+.x-points .d{display:block;font-size:13.5px;color:var(--ink-soft);line-height:1.95}
+.x-points .link-a{display:inline-block;margin-top:8px}
+
+/* ---- 一日の流れ（年齢べつの2列＋時間の縦線） ---- */
+.day-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.day-col{background:var(--white);border:1px solid var(--line);border-radius:24px;padding:30px 28px}
+.day-h{font-size:17px;font-weight:700;line-height:1.7}
+.day-h .age{display:inline-block;background:var(--x-accent);color:#fff;border-radius:999px;
+  padding:4px 13px;font-size:12.5px;font-weight:700;margin-right:10px;white-space:nowrap}
+.day-note{margin-top:10px;font-size:13px;color:var(--ink-soft);line-height:1.95}
+/* 時間の列（46px）＋すきま（24px）＝本文は左から70px。
+   縦線と丸は、そのすきまの中に置く（左55px／左50px）。 */
+/* ol は3案とも余白を落としていない（リセットは ul だけ）ので、ここで消す */
+.tl{margin:20px 0 0;padding:0;list-style:none}
+.tl li{position:relative;display:grid;grid-template-columns:46px minmax(0,1fr);gap:24px;padding-bottom:20px}
+.tl li::before{content:"";position:absolute;left:55px;top:11px;bottom:0;width:2px;background:rgba(0,0,0,.10)}
+.tl li:last-child{padding-bottom:0}
+.tl li:last-child::before{display:none}
+.tl li::after{content:"";position:absolute;left:50px;top:6px;width:12px;height:12px;border-radius:50%;
+  background:var(--x-accent);box-shadow:0 0 0 3px var(--white)}
+.tl .t{font-family:'Baloo 2',sans-serif;font-size:14.5px;font-weight:700;color:var(--x-accent);
+  text-align:right;line-height:1.75}
+.tl b{display:block;font-size:15px;line-height:1.75}
+.tl .d{display:block;font-size:13px;color:var(--ink-soft);line-height:1.9;margin-top:2px}
+@media (max-width:900px){
+  .day-cols{grid-template-columns:minmax(0,1fr)}
+  .day-col{padding:26px 20px}
+}
+
+/* ---- 大切にしている時間（カリキュラム） ---- */
+.cur{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.cur-c{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px 24px}
+.cur-c .ic{display:block;font-size:26px;line-height:1;margin-bottom:12px}
+.cur-c b{display:block;font-size:16px;margin-bottom:8px;line-height:1.7}
+.cur-c span{font-size:13.5px;color:var(--ink-soft);line-height:1.95}
+@media (max-width:900px){.cur{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.cur{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- 年間行事 ---- */
+.monthly{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px}
+.monthly li{background:rgba(0,0,0,.055);border-radius:999px;padding:7px 15px;font-size:12.5px;font-weight:500}
+.ev{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ev-m{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:20px 18px}
+.ev-m .m{display:block;font-family:'Baloo 2',sans-serif;font-size:26px;font-weight:700;
+  color:var(--x-accent);line-height:1.2;margin-bottom:10px}
+.ev-m .m small{font-size:13px;margin-left:2px;font-family:inherit}
+.ev-m ul li{position:relative;padding-left:14px;font-size:13.5px;line-height:1.95}
+.ev-m ul li::before{content:"";position:absolute;left:0;top:.8em;width:5px;height:5px;border-radius:50%;
+  background:var(--x-accent);opacity:.55}
+.ev-ph{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+
+/* ---- 保育理念 ---- */
+/* 理念は1文しかないので、面を大きく取って1枚の板に見せる。
+   ★見出しの書体は案ごとに違う（案Aは明朝、案B・Cはまるゴシック）ので指定しない。
+     大きさと余白だけで効かせる。 */
+.creed{background:var(--white);border:1px solid var(--line);border-radius:28px;
+  padding:clamp(32px,5vw,56px);text-align:center}
+.creed-label{display:inline-block;background:var(--x-accent);color:#fff;border-radius:999px;
+  padding:5px 16px;font-size:12px;font-weight:700;letter-spacing:.1em}
+.creed-t{margin:22px 0 0;font-size:clamp(22px,3.6vw,34px);line-height:1.75;font-weight:700;
+  letter-spacing:.04em}
+.creed-d{max-width:640px;margin:20px auto 0;font-size:14px;color:var(--ink-soft);line-height:2.1}
+/* ★スマホでは板の左右の余白を削り、理念の1行目（14字）が1行に収まる大きさに落とす。
+   落とさないと「こどもの「やってみたい」／を、／まんなかに。」と「を、」だけが行に残る。 */
+@media (max-width:560px){
+  .creed{padding:28px 16px}
+  .creed-t{font-size:20px;letter-spacing:.02em}
+}
+
+/* 保育目標は4つ並ぶので2列に。3点の並び（.x-points）を流用する */
+.goals{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 32px}
+@media (max-width:760px){.goals{grid-template-columns:minmax(0,1fr)}}
+
+/* ---- 園長メッセージ ---- */
+.msg{max-width:720px;margin:0 auto;background:var(--white);border:1px solid var(--line);
+  border-radius:24px;padding:clamp(28px,4vw,44px)}
+.msg p{font-size:14.5px;line-height:2.15;color:var(--ink)}
+.msg p + p{margin-top:18px}
+.msg-sign{margin-top:26px;text-align:right;font-weight:700;font-size:14px}
+
+/* ---- 募集要項などの表（dl） ---- */
+/* 見出しの列は狭い画面では上に回す。表のまま縮めると項目名が縦に潰れる。 */
+.x-dl{display:grid;grid-template-columns:auto minmax(0,1fr);
+  background:var(--white);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:0}
+.x-dl dt{padding:15px 20px;font-size:13.5px;font-weight:700;line-height:1.8;white-space:nowrap;
+  background:rgba(0,0,0,.035);border-bottom:1px solid var(--line)}
+.x-dl dd{margin:0;padding:15px 20px;font-size:13.5px;line-height:1.95;border-bottom:1px solid var(--line)}
+.x-dl dt:nth-last-of-type(1),.x-dl dd:nth-last-of-type(1){border-bottom:0}
+@media (max-width:560px){
+  .x-dl{grid-template-columns:minmax(0,1fr)}
+  .x-dl dt{border-bottom:0;background:none;padding:14px 16px 0;color:var(--x-accent)}
+  .x-dl dd{padding:4px 16px 14px}
+}
+
+/* ---- 窓口のボタン（採用＝新卒／中途） ----
+   ふつうの丸ボタンだと、ページの主役なのに他のリンクと同じ重さに見える。
+   ★2段（見出し＋対象の説明）にして面を大きく取り、押す場所だと分かるようにする。
+   ★案Aでは <p> の中に置かれるので、grid や div で囲めない。
+     インライン要素のまま横に並べ、狭い画面では自然に折り返させる。 */
+.x-door{display:inline-flex;flex-direction:column;align-items:flex-start;gap:3px;
+  min-width:min(100%,290px);padding:18px 26px;border-radius:18px;margin:8px 14px 8px 0;
+  font-size:16px;line-height:1.6;box-shadow:0 8px 22px rgba(0,0,0,.16)}
+.x-door .t{font-size:17px;font-weight:700;letter-spacing:.02em}
+.x-door .s{font-size:12.5px;font-weight:500;opacity:.82}
+.x-door:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.22)}
+/* 白いほうも「押せる面」に見せる。線を入れないと、濃いボタンの添え物に見える */
+.x-door.btn-sub{border:2px solid var(--x-accent);color:var(--ink)}
+.x-door.btn-sub .s{color:var(--ink-soft);opacity:1}
+@media (max-width:560px){
+  .x-door{width:100%;margin:8px 0 0;padding:16px 20px}
+}
+
+/* ---- よくあるご質問（開閉は <details>。JSは足さない） ---- */
+.faq-h{font-size:16px;font-weight:700;line-height:1.7;margin:38px 0 14px;
+  padding-left:12px;border-left:4px solid var(--x-accent)}
+.faq-h:first-of-type{margin-top:0}
+.faq{display:grid;gap:12px}
+.qa{background:var(--white);border:1px solid var(--line);border-radius:18px}
+.qa > summary{display:flex;gap:12px;align-items:flex-start;cursor:pointer;list-style:none;
+  padding:17px 22px;font-size:15.5px;font-weight:700;line-height:1.8}
+.qa > summary::-webkit-details-marker{display:none}
+/* Q/A の丸。文字は Baloo 2（3案とも読み込んでいる） */
+.qa > summary::before,.qa .a::before{content:"Q";flex:none;width:26px;height:26px;border-radius:50%;
+  background:var(--x-accent);color:#fff;font-family:'Baloo 2',sans-serif;font-size:14px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;margin-top:3px}
+.qa .a::before{content:"A";background:rgba(0,0,0,.08);color:var(--ink)}
+/* 右端の山かた。開くと反転する */
+.qa > summary::after{content:"";flex:none;margin-left:auto;width:9px;height:9px;margin-top:9px;
+  border-right:2px solid var(--x-accent);border-bottom:2px solid var(--x-accent);
+  transform:rotate(45deg);transition:transform .2s}
+.qa[open] > summary::after{transform:rotate(-135deg);margin-top:13px}
+.qa > summary:hover{color:var(--x-accent)}
+.qa .a{display:flex;gap:12px;padding:0 22px 20px;font-size:14px;color:var(--ink-soft);line-height:2}
+.qa .a b{color:var(--ink)}
+.qa .a .link-a{display:inline-block;margin-top:8px}
+@media (max-width:560px){
+  .qa > summary{padding:15px 16px;font-size:14.5px;gap:10px}
+  .qa .a{padding:0 16px 18px;gap:10px;font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){.qa > summary::after{transition:none}}
+@media (max-width:1000px){.ev{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){
+  .ev{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ev-ph{grid-template-columns:minmax(0,1fr)}
+}
