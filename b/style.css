@@ -428,6 +428,14 @@ html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
    それを含む広いほうの範囲なので、重ねても矛盾しない。
    ★案ごとに隠すものが違う（案A .rail と .cta-pill／案B .cta／案C .pill-recruit）ので、
      ここでは3案ぶんまとめて指定する。無いものを指定しても害はない。 */
+@media (max-width:1273px){
+  .gnav,.rail,.pill-recruit{display:none}
+  .burger{display:block}
+  .head-in .cta-pill,.head-in .cta{display:none}
+}
+/* 9項目。間隔を詰め、頭打ちを 1200→1280px に上げる */
+.gnav{gap:16px}
+.head-in{max-width:1280px}
 
 /* ============================================================
    独立ページ（pages/*.html）で使う部品
