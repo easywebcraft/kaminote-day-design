@@ -37,7 +37,11 @@
   --ink:#3f4a43;
   --ink-soft:#77857c;
   --line:#e4eae6;
-  --cream:#f8fbf9;
+  /* ★地色のはしご。白いカードを浮かせるために、地色→帯→帯の上の面 と3段用意する。
+     ぜんぶ白に近いと、画面全体が白く見えて写真もカードも沈む（2026-08-25 に指摘を受けて調整）。 */
+  --ground:#f2f8f4;    /* 地色：ごく薄い緑 */
+  --cream:#e8f5ec;     /* 帯のセクション（もとの --pg-soft の色） */
+  --pg-panel:#d7ecdf;  /* 帯の上に置く面。帯と同色だと消えるので一段濃く */
   --white:#fff;
   --wrap:1120px;
   --rail:56px;         /* 左レールの幅（PCのみ） */
@@ -45,7 +49,7 @@
 html{scroll-behavior:smooth}
 html,body{margin:0;padding:0}
 body{font-family:'Zen Kaku Gothic New',"Hiragino Sans","Yu Gothic UI",sans-serif;
-  color:var(--ink);background:var(--white);line-height:1.9;font-size:16px;-webkit-text-size-adjust:100%}
+  color:var(--ink);background:var(--ground);line-height:1.9;font-size:16px;-webkit-text-size-adjust:100%}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
 ul,dl{margin:0;padding:0;list-style:none}
@@ -104,8 +108,8 @@ section{scroll-margin-top:84px}
 .hero-edge.t{top:-1px;height:clamp(52px,7.5vw,104px)}
 .hero-edge.b{bottom:-1px;height:clamp(52px,8vw,110px)}
 .hero-edge.t path{fill:#fff}
-/* 下の雲は「ヒーローの次に来る面」と同じ色にする。PCは数字の帯（--cream）、
-   スマホは写真が帯になり、その下が --pg-soft の地色になる。 */
+/* 下の雲は「ヒーローの次に来る面」と同じ色にする。PCは数字の帯、スマホは帯の下の面。
+   どちらも --cream にそろえてあるので、指定は1つで足りる。 */
 .hero-edge.b path{fill:var(--cream)}
 /* ---- 左下のイラスト（木） ---- */
 .hero-trees{position:absolute;left:2.5%;bottom:13%;width:min(250px,25vw);z-index:3;pointer-events:none}
@@ -128,10 +132,17 @@ section{scroll-margin-top:84px}
    ★測って決めた値：.52/.6/.5 では見出しの最悪コントラストが 3.51、リード文が 4.13 しか
    出ず、リード文が基準（4.5）に届いていなかった。文字色も一段濃くして両方を満たす。
    （白文字は不可。この写真では最悪 1.26 まで落ちる＝ほぼ見えない） */
-.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.66) 0%,rgba(255,255,255,.72) 45%,rgba(255,255,255,.62) 100%)}
+/* ★全面を白くすると写真の色が抜けて画面が白っぽくなる（2026-08-25 に指摘）。
+   全面は控えめにし、文字が乗るところだけ .hero-copy 側で白を足す。
+   数値は下の「測り方」で確かめること。 */
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.56) 45%,rgba(255,255,255,.46) 100%)}
 /* 下の余白が大きいのは、コピー全体を上へ寄せて写真のこどもを見せるため。
    この写真は上半分が空いているので、そこにコピーを乗せる作りにしている。 */
-.hero-copy{position:relative;z-index:2;text-align:center;padding:64px 24px 190px;overflow:hidden}
+/* 文字のまわりだけ白を足す。写真の四隅は明るくしないので、写真の色が残る。
+   ★測り方: .hero-copy > *{visibility:hidden} にして撮り、
+     python3 ~/kmtools/contrast.py <png> "#2b332d" <x> <y> <w> <h> */
+.hero-copy{position:relative;z-index:2;text-align:center;padding:64px 24px 190px;overflow:hidden;
+  background:radial-gradient(ellipse 64% 46% at 50% 34%,rgba(255,255,255,.55) 0%,rgba(255,255,255,.38) 52%,rgba(255,255,255,0) 78%)}
 .hero-eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;color:var(--ink);background:rgba(255,255,255,.84);
   border-radius:999px;padding:7px 18px;margin-bottom:26px}
 .hero-copy h1{font-size:clamp(28px,4.9vw,58px);line-height:1.55;letter-spacing:.04em;font-weight:500;
@@ -189,7 +200,7 @@ section{scroll-margin-top:84px}
 .split h2 .g{color:var(--pg-d)}
 .split .lead{color:var(--ink-soft);font-size:14.5px;line-height:2.05;margin-bottom:22px}
 .areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:24px}
-.areas li{background:var(--pg-soft);color:var(--pg-deep);font-weight:700;font-size:13.5px;
+.areas li{background:var(--pg-panel);color:var(--pg-deep);font-weight:700;font-size:13.5px;
   padding:11px 16px;border-radius:14px;text-align:center;line-height:1.5}
 .marks{display:grid;gap:16px}
 .marks li{display:flex;gap:14px;align-items:flex-start}
@@ -248,7 +259,7 @@ section{scroll-margin-top:84px}
 .disc h3 .kind{font-size:11px;color:#fff;background:var(--pg-d);font-weight:700;padding:3px 11px;border-radius:999px;white-space:nowrap}
 .docs{display:grid;gap:11px}
 .doc{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;
-  background:var(--pg-soft);border-radius:14px;padding:14px 16px}
+  background:var(--pg-panel);border-radius:14px;padding:14px 16px}
 .doc b{display:block;font-size:14px;font-weight:700;line-height:1.6}
 .doc .meta{display:block;font-size:12px;color:var(--ink-soft);font-weight:400}
 .doc .pdf{font-family:'Baloo 2',sans-serif;font-size:11.5px;font-weight:700;color:#fff;
@@ -322,15 +333,14 @@ section{scroll-margin-top:84px}
    ★スマホでは写真を上の帯に切り出し、文字は地色の上に置く。帯の高さ300pxなら
      横幅の8割が写り、写真が何なのか分かるようになる。 */
 @media (max-width:700px){
-  .hero{min-height:0;display:block;background:var(--pg-soft)}
+  .hero{min-height:0;display:block;background:var(--cream)}
   .hero-bg{position:relative;height:clamp(230px,38vh,320px)}
   /* 帯にしたので、文字を読ませるための白かぶせは要らない。上だけ軽く白を残して
      ヘッダーとの境目をやわらげる */
   .hero-bg::after{background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,0) 55%)}
-  /* 帯にしたので、下の雲は帯の下端に来る。その下は --pg-soft の地色 */
-  .hero-edge.b path{fill:var(--pg-soft)}
   .hero-trees{display:none}
-  .hero-copy{padding:30px 20px 46px;text-align:center}
+  /* 帯にしたので、文字のまわりの白（局所のかぶせ）は要らない */
+  .hero-copy{padding:30px 20px 46px;text-align:center;background:none}
   /* 地色の上に置くので、白の光彩はいらない（かえって文字がぼやける） */
   .hero-copy h1{color:var(--ink);text-shadow:none;font-size:clamp(26px,7.4vw,34px)}
   .hero-lead{color:var(--ink-soft);text-shadow:none}
