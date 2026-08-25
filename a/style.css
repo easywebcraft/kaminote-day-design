@@ -520,7 +520,11 @@ html:not([lang="ja"]) .gnav{gap:12px}
    （言語ボタンを戻した2026-08-25に判明。それまで分割版には言語ボタンが無く、
      その状態で測った畳む幅のままだった。）頭打ちを広げてから測り直す。 */
 .head-in{max-width:1440px}
-.lang{position:relative;flex:none}
+/* ★言語ボタンはメニューのすぐ左に置く。余白の押し出し（margin-left:auto）も
+   メニューから言語ボタンへ移すこと。nav に付いたままだと、言語ボタンだけが
+   園名の隣に取り残されて、メニューとのあいだに大きな空きができる。 */
+.lang{position:relative;flex:none;margin-left:auto}
+.gnav{margin-left:0}
 .lang-btn{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:12px;font-weight:700;
   line-height:1;cursor:pointer;padding:8px 12px;border-radius:999px;border:1.4px solid var(--line,#e2ddd5);
   background:transparent;color:inherit;white-space:nowrap}
