@@ -433,9 +433,6 @@ html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
   .burger{display:block}
   .head-in .cta-pill,.head-in .cta{display:none}
 }
-/* 9項目。間隔を詰め、頭打ちを 1200→1280px に上げる */
-.gnav{gap:16px}
-.head-in{max-width:1280px}
 
 /* ---- 日本語以外でメニューを畳む幅 ----
    ラテン文字は日本語より横に長い。項目が増えたぶん 1300px では収まらず、
@@ -458,6 +455,33 @@ html:not([lang="ja"]) .gnav{gap:12px}
   html:not([lang="ja"]) .head-in .cta-pill,
   html:not([lang="ja"]) .head-in .cta{display:none}
   html:not([lang="ja"]) .burger{display:block}
+}
+
+/* ---- スマホのヘッダー（言語ボタンと園名の取り合い） ----
+   ★言語ボタンはスマホでも隠さない（外国語のご家庭にはここが入口なので、
+     ハンバーガーの中だと見つけてもらえない）。そのぶん園名が押し出されて
+     「かみのて…」と切れていたので、英字の副題と会社名を落とし、
+     ボタンと余白を詰めて園名の幅を作る。 */
+@media (max-width:560px){
+  .head-in{gap:10px;padding:9px 12px}
+  .brand{gap:9px}
+  .brand .mark{height:34px}
+  .brand .corp,.brand .en{display:none}
+  .brand .name,.brand .nm,.logo .nm{font-size:15px;letter-spacing:.06em}
+  .lang{gap:4px}
+  .lang button{font-size:10.5px;padding:5px 7px;border-width:1.2px}
+  .burger{padding:7px 10px;font-size:13px}
+}
+
+/* 360〜375px の端末では 390px よりさらに 30px ほど足りない。もう一段詰める。 */
+@media (max-width:400px){
+  .head-in{gap:8px;padding:8px 10px}
+  .brand{gap:8px}
+  .brand .mark{height:30px}
+  .brand .name,.brand .nm,.logo .nm{font-size:13px;letter-spacing:.03em}
+  .lang{gap:3px}
+  .lang button{font-size:10px;padding:4px 6px}
+  .burger{padding:6px 9px;font-size:12px}
 }
 
 /* ============================================================
@@ -623,4 +647,24 @@ html:not([lang="ja"]) .gnav{gap:12px}
 @media (max-width:700px){
   .ev{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ev-ph{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ---- 案ごとのヘッダーの詰め（いちばん最後に置く＝上の共通指定より強くする） ---- */
+/* 9項目。間隔を詰め、頭打ちを 1200→1280px に上げる */
+.gnav{gap:16px}
+.head-in{max-width:1280px}
+
+/* 390px で言語ボタン・ロゴ・ハンバーガーを足すと、事業所名に 36px 足りない。
+   4か所から少しずつ削って作る（保育園はこの指定を入れなくても収まる）。 */
+@media (max-width:560px){
+  .brand .name,.brand .nm{font-size:13px;letter-spacing:.03em}
+  .brand .mark{height:30px}
+  .lang{gap:3px}
+  .lang button{font-size:10px;padding:4px 6px}
+  .burger{padding:6px 9px}
+}
+@media (max-width:400px){
+  .brand .name,.brand .nm{font-size:12px;letter-spacing:.02em}
+  .brand .mark{height:28px}
+  .lang button{font-size:9.5px;padding:3px 5px}
 }
