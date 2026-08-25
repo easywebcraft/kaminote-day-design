@@ -491,6 +491,29 @@ html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
 .gnav{gap:16px}
 .gnav a{font-size:13px}
 
+/* ---- 日本語以外でメニューを畳む幅 ----
+   ラテン文字は日本語より横に長い。項目が増えたぶん 1300px では収まらず、
+   ★縮められるのが園名だけなので、園名が幅ゼロまで潰れてロゴごと消えていた。
+   1枚もの側の 1300px の指定に重ねて、一段広い幅から畳む。 */
+/* ラテン文字では会社名の行（いちばん長い行）が園名の幅を決めてしまい、
+   縮められる園名のほうが先に消える。非日本語では会社名の行を出さない
+   （フッターには残っているので情報は失われない）。 */
+html:not([lang="ja"]) .brand .corp{display:none}
+/* ★ヘッダーの中身は 1280px で頭打ち。ラテン文字だと項目・言語ボタン・CTAだけで
+   ちょうど埋まり、縮められる園名が幅ゼロまで潰れてロゴだけが残っていた。
+   非日本語のときは頭打ちを 1440px まで広げ、それ未満では畳む。 */
+html:not([lang="ja"]) .head-in{max-width:1440px}
+/* 項目のあいだも、非日本語では一段詰める（放デイの事業所名が長く、これが無いと切れる） */
+html:not([lang="ja"]) .gnav{gap:12px}
+@media (max-width:1439px){
+  html:not([lang="ja"]) .gnav,
+  html:not([lang="ja"]) .rail,
+  html:not([lang="ja"]) .pill-recruit,
+  html:not([lang="ja"]) .head-in .cta-pill,
+  html:not([lang="ja"]) .head-in .cta{display:none}
+  html:not([lang="ja"]) .burger{display:block}
+}
+
 /* ============================================================
    独立ページ（pages/*.html）で使う部品
    ★3案・2サイトで使い回すので、色は --x-accent と薄い黒だけで作る。
