@@ -482,7 +482,7 @@ html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
    それを含む広いほうの範囲なので、重ねても矛盾しない。
    ★案ごとに隠すものが違う（案A .rail と .cta-pill／案B .cta／案C .pill-recruit）ので、
      ここでは3案ぶんまとめて指定する。無いものを指定しても害はない。 */
-@media (max-width:1281px){
+@media (max-width:1341px){
   .gnav,.rail,.pill-recruit{display:none}
   .burger{display:block}
   .head-in .cta-pill,.head-in .cta{display:none}
@@ -502,6 +502,7 @@ html:not([lang="ja"]) .brand .corp{display:none}
 html:not([lang="ja"]) .head-in{max-width:1440px}
 /* 項目のあいだも、非日本語では一段詰める（放デイの事業所名が長く、これが無いと切れる） */
 html:not([lang="ja"]) .gnav{gap:12px}
+/* 言語ボタンはどの言語でも「言語/Language/Idioma」の1つだけなので、幅の心配は消えた */
 @media (max-width:1439px){
   html:not([lang="ja"]) .gnav,
   html:not([lang="ja"]) .rail,
@@ -510,6 +511,37 @@ html:not([lang="ja"]) .gnav{gap:12px}
   html:not([lang="ja"]) .head-in .cta{display:none}
   html:not([lang="ja"]) .burger{display:block}
 }
+
+/* ---- 言語ボタン（押すと一覧が開く） ----
+   ★3つ並べるピル型をやめた理由: 言語が増えるほど横に伸び、スマホでは園名を押し出す。
+     ボタン1つなら言語をいくつ足しても幅は変わらない。
+   ★古いピル型の指定（.lang button{…}）が残っているので、こちらを後ろに書いて上書きする。 */
+/* ★分割版はメニューが10項目＋言語ボタン＋CTAで、1280px の頭打ちには収まらない。
+   （言語ボタンを戻した2026-08-25に判明。それまで分割版には言語ボタンが無く、
+     その状態で測った畳む幅のままだった。）頭打ちを広げてから測り直す。 */
+.head-in{max-width:1440px}
+.lang{position:relative;flex:none}
+.lang-btn{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:12px;font-weight:700;
+  line-height:1;cursor:pointer;padding:8px 12px;border-radius:999px;border:1.4px solid var(--line,#e2ddd5);
+  background:transparent;color:inherit;white-space:nowrap}
+.lang-btn svg{width:15px;height:15px;flex:none}
+.lang-btn:hover{background:rgba(0,0,0,.05)}
+.lang-btn[aria-expanded="true"]{background:rgba(0,0,0,.07)}
+.lang-menu{position:absolute;right:0;top:calc(100% + 6px);z-index:70;min-width:152px;
+  background:#fff;border:1px solid rgba(0,0,0,.10);border-radius:12px;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);padding:5px 0;overflow:hidden}
+.lang-menu[hidden]{display:none}
+.lang-menu button{display:flex;align-items:center;gap:8px;width:100%;padding:9px 14px;
+  font-family:inherit;font-size:13px;font-weight:500;line-height:1.5;text-align:left;
+  background:none;border:0;border-radius:0;cursor:pointer;color:var(--ink,#2f2a26);white-space:nowrap}
+.lang-menu button:hover{background:rgba(0,0,0,.05)}
+.lang-menu button::before{content:"";width:13px;flex:none}
+.lang-menu button[aria-current="true"]{font-weight:700;color:var(--x-accent,inherit)}
+.lang-menu button[aria-current="true"]::before{content:"✓"}
+/* ★古いピル型の指定 .lang button.on{background:主色;color:#fff} が一覧の項目にも
+   効いてしまい、選択中の行が「濃い帯に白文字」＝読めない状態になっていた。打ち消す。 */
+.lang-menu button.on{background:none;border-color:transparent;color:var(--x-accent,inherit)}
+.lang-menu button.on:hover{background:rgba(0,0,0,.05)}
 
 /* ---- スマホのヘッダー（言語ボタンと園名の取り合い） ----
    ★言語ボタンはスマホでも隠さない（外国語のご家庭にはここが入口なので、
@@ -522,8 +554,8 @@ html:not([lang="ja"]) .gnav{gap:12px}
   .brand .mark{height:34px}
   .brand .corp,.brand .en{display:none}
   .brand .name,.brand .nm,.logo .nm{font-size:15px;letter-spacing:.06em}
-  .lang{gap:4px}
-  .lang button{font-size:10.5px;padding:5px 7px;border-width:1.2px}
+  .lang-btn{font-size:11px;padding:7px 10px;gap:5px;border-width:1.2px}
+  .lang-btn svg{width:14px;height:14px}
   .burger{padding:7px 10px;font-size:13px}
 }
 
@@ -533,8 +565,7 @@ html:not([lang="ja"]) .gnav{gap:12px}
   .brand{gap:8px}
   .brand .mark{height:30px}
   .brand .name,.brand .nm,.logo .nm{font-size:13px;letter-spacing:.03em}
-  .lang{gap:3px}
-  .lang button{font-size:10px;padding:4px 6px}
+  .lang-btn{font-size:10.5px;padding:6px 9px;gap:4px}
   .burger{padding:6px 9px;font-size:12px}
 }
 
@@ -704,21 +735,20 @@ html:not([lang="ja"]) .gnav{gap:12px}
 }
 
 /* ---- 案ごとのヘッダーの詰め（いちばん最後に置く＝上の共通指定より強くする） ---- */
-/* 9項目。1280px の頭打ちに収めるため、間隔と文字の両方から詰める */
-.gnav{gap:16px}
-.gnav a{font-size:13px}
+/* 9項目＋言語ボタン。間隔と文字を詰める */
+.gnav{gap:13px}
+.gnav a{font-size:12.5px}
 
 /* 390px で言語ボタン・ロゴ・ハンバーガーを足すと、事業所名に 36px 足りない。
    4か所から少しずつ削って作る（保育園はこの指定を入れなくても収まる）。 */
 @media (max-width:560px){
   .brand .name,.brand .nm{font-size:13px;letter-spacing:.03em}
   .brand .mark{height:30px}
-  .lang{gap:3px}
-  .lang button{font-size:10px;padding:4px 6px}
+  .lang-btn{font-size:10.5px;padding:6px 9px}
   .burger{padding:6px 9px}
 }
 @media (max-width:400px){
   .brand .name,.brand .nm{font-size:12px;letter-spacing:.02em}
   .brand .mark{height:28px}
-  .lang button{font-size:9.5px;padding:3px 5px}
+  .lang-btn{font-size:10px;padding:5px 8px}
 }
