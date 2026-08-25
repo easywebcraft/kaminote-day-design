@@ -46,7 +46,9 @@ section{scroll-margin-top:84px}
 .note b{color:var(--sun)}
 
 /* ---- ヘッダー ---- */
-.head{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+/* ★保育園の案Aと同じ作り（参考イメージ＝Green House 新大阪園）:
+   ヘッダーの下に線を引かず、ヒーローの上端の白い雲形とつなげて一続きに見せる。 */
+.head{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05)}
 .head-in{max-width:1280px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:24px}
 /* 事業所名は letter-spacing が広いので、狭い画面では縮められるようにしておく
    （flex:none のままだと押し広げて横スクロールが出る） */
@@ -78,9 +80,35 @@ section{scroll-margin-top:84px}
 .rail svg{width:15px;height:15px}
 
 /* ---- ヒーロー ---- */
-.hero{position:relative;min-height:min(84vh,740px);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#e7efe9}
+.hero{position:relative;min-height:min(84vh,740px);display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--cream)}
 .hero-bg{position:absolute;inset:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
+/* ---- 写真の上下を雲形で切る ----
+   ★border-radius で「切り抜く」のではなく、同じ形の面を上にかぶせて切れて見せる。
+     大きな写真を四角でない形で切り抜くと、画面を通過するあいだ合成し直しになって
+     スクロールが重くなる（案Cで実際に踏んだ）。塗るだけなら安い。 */
+.hero-edge{position:absolute;left:0;width:100%;z-index:3;pointer-events:none;display:block}
+.hero-edge.t{top:-1px;height:clamp(52px,7.5vw,104px)}
+.hero-edge.b{bottom:-1px;height:clamp(52px,8vw,110px)}
+.hero-edge.t path{fill:#fff}
+/* 下の雲は「ヒーローの次に来る面」と同じ色にする。PCは数字の帯（--cream）、
+   スマホは写真が帯になり、その下が --pg-soft の地色になる。 */
+.hero-edge.b path{fill:var(--cream)}
+/* ---- 左下のイラスト（木） ---- */
+.hero-trees{position:absolute;left:2.5%;bottom:13%;width:min(250px,25vw);z-index:3;pointer-events:none}
+/* ---- 右端に貼りつく縦のボタン ---- */
+.side-cta{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:45;
+  display:flex;flex-direction:column;gap:8px}
+.side-cta a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  /* 5文字の見出し（見学・体験／ご利用案内）が1行に収まる幅にしてある */
+  width:86px;padding:16px 8px;border-radius:16px 0 0 16px;color:#fff;font-size:12.5px;font-weight:700;
+  line-height:1.5;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.16)}
+.side-cta a:hover{filter:brightness(1.06)}
+.side-cta .s1{background:linear-gradient(160deg,#f8b478,#ef8b4c)}
+.side-cta .s2{background:linear-gradient(160deg,#7cc49b,#4e9c72)}
+.side-cta svg{width:18px;height:18px}
+/* ★1300px を切ると本文（最大1120px＋余白）に重なるので出さない。 */
+@media (max-width:1300px){.side-cta{display:none}}
 /* 濃い文字を重ねるための白のかぶせ。空の部分は薄くて足りるが、リード文が
    かかる草地は .5 程度だと読めないので中間を濃いめにしてある。 */
 /* 白のかぶせ。濃い文字を乗せるので、暗いクレヨンの上でも読める濃さが要る。
@@ -268,6 +296,7 @@ section{scroll-margin-top:84px}
   .recruit,.contact{padding:38px 24px;border-radius:20px}
   .hero-cluster{width:110px;right:3%;top:8%}
   .hero-copy{padding:64px 20px}
+  .hero-trees{width:130px;left:1%;bottom:2%}
   /* スマホでは事業所名を1行に詰め、ハンバーガーの分の幅を確保する */
   .brand .mark{height:38px}
   .brand .name{font-size:15px;letter-spacing:.08em}
@@ -285,6 +314,9 @@ section{scroll-margin-top:84px}
   /* 帯にしたので、文字を読ませるための白かぶせは要らない。上だけ軽く白を残して
      ヘッダーとの境目をやわらげる */
   .hero-bg::after{background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,rgba(255,255,255,0) 55%)}
+  /* 帯にしたので、下の雲は帯の下端に来る。その下は --pg-soft の地色 */
+  .hero-edge.b path{fill:var(--pg-soft)}
+  .hero-trees{display:none}
   .hero-copy{padding:30px 20px 46px;text-align:center}
   /* 地色の上に置くので、白の光彩はいらない（かえって文字がぼやける） */
   .hero-copy h1{color:var(--ink);text-shadow:none;font-size:clamp(26px,7.4vw,34px)}
