@@ -7,10 +7,10 @@
 
 | ファイル | 方向性 | 公開URL |
 | --- | --- | --- |
-| `plan-a.html` | 写真を主役に（白ヘッダー＋アイコンメニュー＋明朝の見出し）／`hero-a.jpg` | [/plan-a.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-a.html) |
-| `plan-b.html` | やわらかい曲線（まるい写真＋波線＋丸ゴシック）／`hero-b.jpg` | [/plan-b.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-b.html) |
-| `plan-c.html` | 縦書きと全画面写真（ヘッダーを置かない）／`hero-c.jpg` | [/plan-c.html](https://k-matsumoto527.github.io/kaminote-day-design/plan-c.html) |
-| `index.html` | 最初に作った1案（パステルグリーン）。3案には含めない | [/](https://k-matsumoto527.github.io/kaminote-day-design/) |
+| `plan-a.html` | 写真を主役に（白ヘッダー＋アイコンメニュー＋明朝の見出し）／`hero-a.jpg` | [/plan-a.html](https://easywebcraft.github.io/kaminote-day-design/plan-a.html) |
+| `plan-b.html` | やわらかい曲線（まるい写真＋波線＋丸ゴシック）／`hero-b.jpg` | [/plan-b.html](https://easywebcraft.github.io/kaminote-day-design/plan-b.html) |
+| `plan-c.html` | 縦書きと全画面写真（ヘッダーを置かない）／`hero-c.jpg` | [/plan-c.html](https://easywebcraft.github.io/kaminote-day-design/plan-c.html) |
+| `index.html` | 最初に作った1案（パステルグリーン）。3案には含めない | [/](https://easywebcraft.github.io/kaminote-day-design/) |
 
 **ルートURL（`/`）が開くのは `index.html`＝3案に含めない最初の1案**。案A・B・Cを見てもらうときは
 `plan-a.html` 等のURLを直接渡すこと（ルートを見て「変わっていない」と誤解された実例あり）。
@@ -113,7 +113,7 @@ Unsplash の `https://unsplash.com/photos/<id>/download?force=true&w=1600` は
 **構成と文言は3案とも同一**。変えているのは色・書体・レイアウトだけなので、
 文言を直すときは3案とも直すこと。主色のパステルグリーンは顧客のご要望なのでどの案でも外さない。
 
-- 対になる保育園サイト: `~/kaminote-design` / https://k-matsumoto527.github.io/kaminote-design/
+- 対になる保育園サイト: `~/kaminote-design` / https://easywebcraft.github.io/kaminote-design/
 - 提案資料側のカード: `~/kaminote-proposal/src/design-kaminote.html` の01節（プレビュー画像 `img/preview-day-{a,b,c}.jpg`）
 
 ## 構成
@@ -298,7 +298,7 @@ Edge ヘッドレスで検証。横スクロールは 390 / 489 / 768 / 950 / 10
 「トップのボリュームが多い」という指摘を受けて、**3案すべて**をメニューごとの
 独立ページに分けた。生成は `python3 ~/kmtools/split_plan.py day <a|b|c>`。
 
-- 公開: https://k-matsumoto527.github.io/kaminote-day-design/a/ （b/ c/ も同様）
+- 公開: https://easywebcraft.github.io/kaminote-day-design/a/ （b/ c/ も同様）
 - **1枚もの `plan-*.html` には手を入れていない**が、提案資料からはもう参照していない。
 
 **トップに残したもの**: ヒーロー／数字の帯（＋案A・案Cはロゴ帯）／こんな方へ／
