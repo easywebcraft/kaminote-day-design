@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=676d3fcf">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<div class="note" data-i18n="k454">これは<b>デザイン案B</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+<div class="note design-note" data-i18n="k454">これは<b>デザイン案B</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
 
 <!-- ============ ヘッダー ============ -->
 
@@ -48,7 +48,7 @@
     </div>
   </div>
     <nav class="gnav"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a><a href="life.html" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="faq.html" aria-current="page" data-i18n="k125">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
-    <a class="cta" href="contact.html" data-i18n="k010">見学・ご相談</a>
+    <a class="cta" href="contact.html">見学・相談してみる</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
@@ -76,7 +76,8 @@
       <p data-i18n="k130">はじめてのご相談で多いことをまとめました。<br class="x-br">ここに無いことも、遠慮なくお聞きください。</p>
     </div>
 
-    <h3 class="faq-h" data-i18n="k131">ご利用の前に</h3>
+    <nav class="d2-faqnav" aria-label="質問のカテゴリ"><a href="#fc1">ご利用の前に</a><a href="#fc2">通うこと・送迎について</a><a href="#fc3">費用のこと</a><a href="#fc4">支援の内容について</a><a href="#fc5">ことば・文化について</a></nav>
+    <h3 class="faq-h" id="fc1" data-i18n="k131">ご利用の前に</h3>
     <div class="faq">
       <details class="qa">
         <summary data-i18n="k132">診断を受けていないのですが、相談できますか。</summary>
@@ -100,7 +101,7 @@
       </details>
     </div>
 
-    <h3 class="faq-h" data-i18n="k145">通うこと・送迎について</h3>
+    <h3 class="faq-h" id="fc2" data-i18n="k145">通うこと・送迎について</h3>
     <div class="faq">
       <details class="qa">
         <summary data-i18n="k146">学校まで迎えに来てもらえますか。</summary>
@@ -128,7 +129,7 @@
 
 <section class="sec white">
   <div class="wrap">
-    <h3 class="faq-h" data-i18n="k157">費用のこと</h3>
+    <h3 class="faq-h" id="fc3" data-i18n="k157">費用のこと</h3>
     <div class="faq">
       <details class="qa">
         <summary data-i18n="k158">利用料はいくらかかりますか。</summary>
@@ -140,7 +141,7 @@
       </details>
     </div>
 
-    <h3 class="faq-h" data-i18n="k163">支援の内容について</h3>
+    <h3 class="faq-h" id="fc4" data-i18n="k163">支援の内容について</h3>
     <div class="faq">
       <details class="qa">
         <summary data-i18n="k164">どんなことをして過ごすのですか。</summary>
@@ -160,7 +161,7 @@
       </details>
     </div>
 
-    <h3 class="faq-h" data-i18n="k174">ことば・文化について</h3>
+    <h3 class="faq-h" id="fc5" data-i18n="k174">ことば・文化について</h3>
     <div class="faq">
       <details class="qa">
         <summary data-i18n="k175">日本語での説明が不安です。</summary>
@@ -172,7 +173,7 @@
       </details>
     </div>
 
-    <p class="x-fine" data-i18n="k180">※ このページの答えのうち、利用時間・定員・所在地・対応言語・ご利用料金の考え方は現行サイトからの引用です。それ以外は一般的な事業所の例で書いた仮のもので、取材のときにうかがって差し替えます。</p>
+    <p class="x-fine design-note" data-i18n="k180">※ このページの答えのうち、利用時間・定員・所在地・対応言語・ご利用料金の考え方は現行サイトからの引用です。それ以外は一般的な事業所の例で書いた仮のもので、取材のときにうかがって差し替えます。</p>
   </div>
 </section>
 
@@ -181,10 +182,9 @@
     <div class="contact">
       <h2 data-i18n="k181">ここに答えが無いときは</h2>
       <p data-i18n="k182">受給者証がまだでも、診断がまだでもかまいません。<br class="x-br">ことばのご心配があれば、その旨もお書き添えください。</p>
-      <div class="tel" data-i18n="k183">0574-66-3513<small>かみのてKIDS・かみのてSMILE</small></div>
+      <a class="d2-tellink" href="tel:0574663513"><div class="tel" data-i18n="k183">0574-66-3513<small>かみのてKIDS・かみのてSMILE</small></div></a>
       <div class="hero-actions" style="justify-content:center;margin-top:24px">
-        <a class="btn btn-main" href="contact.html" data-i18n="k119">お問い合わせ</a>
-        <a class="btn btn-sub" href="contact.html" data-i18n="k104">見学・体験を申し込む</a>
+        <a class="btn btn-main d2-cta" href="contact.html">見学・相談してみる</a>
       </div>
     </div>
   </div>

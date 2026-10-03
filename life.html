@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=676d3fcf">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<div class="note" data-i18n="k454">これは<b>デザイン案B</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+<div class="note design-note" data-i18n="k454">これは<b>デザイン案B</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
 
 <!-- ============ ヘッダー ============ -->
 
@@ -48,7 +48,7 @@
     </div>
   </div>
     <nav class="gnav"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a><a href="life.html" aria-current="page" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="faq.html" data-i18n="k125">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
-    <a class="cta" href="contact.html" data-i18n="k010">見学・ご相談</a>
+    <a class="cta" href="contact.html">見学・相談してみる</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
@@ -115,8 +115,9 @@
       <p data-i18n="k207">活動の内容はその日のようすで変わります。<br class="x-br">下は目安の流れです。</p>
     </div>
 
-    <div class="day-cols">
-      <div class="day-col">
+    <div class="d2-tabs" role="tablist" aria-label="一日の流れの切り替え"><button type="button" role="tab" aria-selected="true" aria-controls="dc1" id="dt1">学校のある日</button><button type="button" role="tab" aria-selected="false" aria-controls="dc2" id="dt2">学校がお休みの日</button></div>
+    <div class="day-cols d2-daycols">
+      <div class="day-col" role="tabpanel" id="dc1" aria-labelledby="dt1">
         <h3 class="day-h"><span class="age" data-i18n="k208">学校のある日</span><span data-i18n="k209">放課後の数時間</span></h3>
         <p class="day-note" data-i18n="k210">下校時刻は学年や曜日でちがいます。時間はその日に合わせて動きます。</p>
         <ol class="tl">
@@ -130,7 +131,7 @@
         </ol>
       </div>
 
-      <div class="day-col">
+      <div class="day-col" role="tabpanel" id="dc2" aria-labelledby="dt2" hidden>
         <h3 class="day-h"><span class="age" data-i18n="k224">お休みの日</span><span data-i18n="k225">朝から一日</span></h3>
         <p class="day-note" data-i18n="k226">長期休み（夏・冬・春）と土曜日。ご自宅までお迎えに上がります。</p>
         <ol class="tl">
@@ -169,23 +170,10 @@
       <li data-i18n="k248">年2回：個別支援計画の見直し</li>
     </ul>
 
-    <ul class="ev">
-      <li class="ev-m"><span class="m" data-i18n="k249">4<small>月</small></span><ul><li data-i18n="k250">進級のお祝い</li><li data-i18n="k251">新しいお友だちを迎える</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k252">5<small>月</small></span><ul><li data-i18n="k253">こどもの日の制作</li><li data-i18n="k254">春のお出かけ</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k255">6<small>月</small></span><ul><li data-i18n="k256">雨の日のあそび</li><li data-i18n="k257">歯みがき指導</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k258">7<small>月</small></span><ul><li data-i18n="k259">七夕</li><li data-i18n="k260">夏休みプログラム開始</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k261">8<small>月</small></span><ul><li data-i18n="k262">水あそび</li><li data-i18n="k263">夏まつり</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k264">9<small>月</small></span><ul><li data-i18n="k265">防災の日の訓練</li><li data-i18n="k266">秋の制作</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k267">10<small>月</small></span><ul><li data-i18n="k268">ハロウィン</li><li data-i18n="k269">秋のお出かけ</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k270">11<small>月</small></span><ul><li data-i18n="k271">いもほり</li><li data-i18n="k272">クッキング</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k273">12<small>月</small></span><ul><li data-i18n="k274">クリスマス会</li><li data-i18n="k275">冬休みプログラム</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k276">1<small>月</small></span><ul><li data-i18n="k277">お正月あそび</li><li data-i18n="k278">書きぞめ</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k279">2<small>月</small></span><ul><li data-i18n="k280">節分</li><li data-i18n="k281">買いものの練習</li></ul></li>
-      <li class="ev-m"><span class="m" data-i18n="k282">3<small>月</small></span><ul><li data-i18n="k283">卒業・進級のお祝い</li><li data-i18n="k284">春休みプログラム</li></ul></li>
-    </ul>
+    <div class="d2-seasons"><section class="d2-season d2-s0"><h3>春<small>4月〜6月</small></h3><ul class="ev"><li class="ev-m"><span class="m" data-i18n="k249">4<small>月</small></span><ul><li data-i18n="k250">進級のお祝い</li><li data-i18n="k251">新しいお友だちを迎える</li></ul></li><li class="ev-m"><span class="m" data-i18n="k252">5<small>月</small></span><ul><li data-i18n="k253">こどもの日の制作</li><li data-i18n="k254">春のお出かけ</li></ul></li><li class="ev-m"><span class="m" data-i18n="k255">6<small>月</small></span><ul><li data-i18n="k256">雨の日のあそび</li><li data-i18n="k257">歯みがき指導</li></ul></li></ul></section><section class="d2-season d2-s1"><h3>夏<small>7月〜9月</small></h3><ul class="ev"><li class="ev-m"><span class="m" data-i18n="k258">7<small>月</small></span><ul><li data-i18n="k259">七夕</li><li data-i18n="k260">夏休みプログラム開始</li></ul></li><li class="ev-m"><span class="m" data-i18n="k261">8<small>月</small></span><ul><li data-i18n="k262">水あそび</li><li data-i18n="k263">夏まつり</li></ul></li><li class="ev-m"><span class="m" data-i18n="k264">9<small>月</small></span><ul><li data-i18n="k265">防災の日の訓練</li><li data-i18n="k266">秋の制作</li></ul></li></ul></section><section class="d2-season d2-s2"><h3>秋<small>10月〜11月</small></h3><ul class="ev"><li class="ev-m"><span class="m" data-i18n="k267">10<small>月</small></span><ul><li data-i18n="k268">ハロウィン</li><li data-i18n="k269">秋のお出かけ</li></ul></li><li class="ev-m"><span class="m" data-i18n="k270">11<small>月</small></span><ul><li data-i18n="k271">いもほり</li><li data-i18n="k272">クッキング</li></ul></li></ul></section><section class="d2-season d2-s3"><h3>冬<small>12月〜3月</small></h3><ul class="ev"><li class="ev-m"><span class="m" data-i18n="k273">12<small>月</small></span><ul><li data-i18n="k274">クリスマス会</li><li data-i18n="k275">冬休みプログラム</li></ul></li><li class="ev-m"><span class="m" data-i18n="k276">1<small>月</small></span><ul><li data-i18n="k277">お正月あそび</li><li data-i18n="k278">書きぞめ</li></ul></li><li class="ev-m"><span class="m" data-i18n="k279">2<small>月</small></span><ul><li data-i18n="k280">節分</li><li data-i18n="k281">買いものの練習</li></ul></li><li class="ev-m"><span class="m" data-i18n="k282">3<small>月</small></span><ul><li data-i18n="k283">卒業・進級のお祝い</li><li data-i18n="k284">春休みプログラム</li></ul></li></ul></section></div>
 
     <p style="text-align:center;margin-top:28px"><a class="link-a" href="support.html" data-i18n="k285">支援の内容（5つの領域）を見る →</a></p>
-    <p class="x-fine" data-i18n="k286">※ このページの流れと行事は、一般的な事業所の例をもとにした仮のものです。取材のときにうかがって、かみのてKIDS・かみのてSMILEの実際の内容に差し替えます。</p>
+    <p class="x-fine design-note" data-i18n="k286">※ このページの流れと行事は、一般的な事業所の例をもとにした仮のものです。取材のときにうかがって、かみのてKIDS・かみのてSMILEの実際の内容に差し替えます。</p>
   </div>
 </section>
 
@@ -332,5 +320,18 @@
 
 
 <script src="i18n.js"></script>
-
-
+<script>
+// 一日の流れ：学校のある日／お休みの日の切り替え（矢印キーでも切り替えられる）
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.d2-tabs [role="tab"]'));
+  function sel(t) {
+    tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { sel(t); });
+    t.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { var n = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; sel(n); n.focus(); } });
+  });
+  if (tabs[0]) sel(tabs[0]);
+})();
+</script>

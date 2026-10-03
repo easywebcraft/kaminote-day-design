@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=676d3fcf">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<div class="note" data-i18n="k454">これは<b>デザイン案B</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+<div class="note design-note" data-i18n="k454">これは<b>デザイン案B</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
 
 <!-- ============ ヘッダー ============ -->
 
@@ -48,7 +48,7 @@
     </div>
   </div>
     <nav class="gnav"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a><a href="life.html" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="faq.html" data-i18n="k125">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
-    <a class="cta" href="contact.html" data-i18n="k010">見学・ご相談</a>
+    <a class="cta" href="contact.html">見学・相談してみる</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
@@ -61,37 +61,29 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="hero-badge" data-i18n="k012">児童発達支援 ・ 放課後等デイサービス</span>
+      <span class="hero-badge"><span data-i18n="k012">児童発達支援 ・ 放課後等デイサービス</span>｜可児市</span>
       <h1><em data-i18n="k114">その子のペース</em><span data-i18n="k115">で、</span><br><span class="g" data-i18n="k014">「できた」をふやす。</span></h1>
       <p class="lead" data-i18n="k015">ことばも、からだの使い方も、人との関わり方も。<br>得意なことを入口にして、毎日のくらしの中で少しずつ育てていきます。</p>
-      <div class="hero-tags"><span data-i18n="k016">未就学〜18歳（必要時20歳まで）</span><span data-i18n="k017">2つの事業所</span><span data-i18n="k018">多言語対応</span></div>
+      <ul class="d2-badges" aria-label="対象と特徴">
+        <li><b>未就学〜18歳</b><small>必要時20歳まで</small></li>
+        <li><b>可児市に2事業所</b><small>KIDS・SMILE</small></li>
+        <li><b>日本語＋4言語対応</b><small>スタッフが対応</small></li>
+      </ul>
       <div class="hero-actions">
-        <a class="btn btn-main" href="contact.html" data-i18n="k019">見学・ご相談はこちら</a>
+        <a class="btn btn-main d2-cta" href="contact.html">見学・相談してみる</a>
         <a class="btn btn-sub" href="support.html" data-i18n="k020">支援の内容を見る</a>
       </div>
+      <p class="d2-cta-note">受給者証をお持ちでない段階でもご相談いただけます</p>
     </div>
     <div class="hero-photo">
-      <!-- 注記は blob の外に出す。まるい切り抜きの内側に置くと角が削られて消える -->
-      <div class="blob"><img fetchpriority="high" decoding="async" src="img/hero-b.jpg" alt="イメージ写真（クレヨンと、それぞれの色で描かれた線）"></div>
+      <div class="blob"><img fetchpriority="high" decoding="async" src="img/hero-b.jpg" alt="イメージ写真（クレヨンと、それぞれの色で描かれた線）" width="1600" height="1067"></div>
       <span class="stockmark" style="top:11%;left:33%" data-i18n="k021">イメージ写真</span>
       <svg class="il" style="left:-4%;top:6%;width:76px" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#f7c948" opacity=".9"/></svg>
       <svg class="il" style="right:-2%;bottom:8%;width:64px" viewBox="0 0 80 60" aria-hidden="true"><path d="M8 42q10-16 20 0t20 0 24 0" stroke="#8ec9dd" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
-      <svg class="il" style="right:6%;top:-2%;width:52px" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6c8 12 14 18 14 26a14 14 0 1 1-28 0c0-8 6-14 14-26Z" fill="#f5a25a"/></svg>
     </div>
   </div>
   <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46c180 40 360 40 540 12s360-40 540-12 240 34 360 20v34H0Z" fill="#fff"/></svg>
 </section>
-
-<!-- ============ 数字 ============ -->
-
-
-<div class="stats">
-  <div class="wrap">
-    <div><div class="n c1">2</div><div class="l" data-i18n="k022">KIDS・SMILEの2事業所</div></div>
-    <div><div class="n c2">4</div><div class="l" data-i18n="k023">対応している言語</div></div>
-    <div><div class="n c3">5</div><div class="l" data-i18n="k024">支援の5領域すべてに対応</div></div>
-  </div>
-</div>
 
 <!-- ============ こんなお子さま・ご家庭へ ============ -->
 
@@ -114,62 +106,113 @@
   </div>
 </section>
 
-<!-- ============ 支援の内容 ============ -->
-
-
-<section class="sec white" id="gates">
+<!-- ============ かみのてが大切にしていること（支援理念ページから要約） ============ -->
+<section class="sec d2-sec d2-cream" id="values">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k184">サイトのご案内</span>
-      <h2><span data-i18n="k185">知りたいことから、どうぞ</span><span class="en">CONTENTS</span></h2>
+    <div class="sec-head"><span class="eyebrow">支援理念より</span><h2><span>かみのてが大切にしていること</span><span class="en">OUR VALUES</span></h2></div>
+    <div class="d2-cards4">
+      <article class="d2-card"><span class="d2-no">01</span><h3>得意なことを、入口にする</h3><p>好きなこと・得意なことを入口にして、そこから少しずつ広げます。</p></article>
+      <article class="d2-card"><span class="d2-no">02</span><h3>その子のペースで</h3><p>ほかの子に追いつくことを目標にはしません。いまできることの、ひとつ先を積み重ねます。</p></article>
+      <article class="d2-card"><span class="d2-no">03</span><h3>ご家庭・学校と、同じ絵を見る</h3><p>事業所の中だけで完結させず、ご家庭と学校、相談支援の方と同じねらいで関わります。</p></article>
+      <article class="d2-card"><span class="d2-no">04</span><h3>ことばのちがいで、あきらめない</h3><p>日本語＋4言語で対応できるスタッフが、制度の説明も日々の連絡も母語でお伝えします。</p></article>
     </div>
-    <div class="gates">
-      <a class="gate" href="support.html">
-        <b data-i18n="k004">支援の内容</b>
-        <span data-i18n="k186">5つの領域を、あそびと生活の中で。個別支援・集団支援・家族支援。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
-      <a class="gate" href="life.html">
-        <b data-i18n="k124">一日の流れ</b>
-        <span data-i18n="k188">学校のある日と、お休みの日。送迎の時間、活動、季節の行事。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
-      <a class="gate" href="philosophy.html">
-        <b data-i18n="k123">支援理念</b>
-        <span data-i18n="k189">支援理念・支援方針・目ざす姿と、管理者からのごあいさつ。事業所の概要も。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
-      <a class="gate" href="multi.html">
-        <b data-i18n="k190">多言語での支援</b>
-        <span data-i18n="k191">ことばのちがいで、支援をあきらめない。通訳スタッフが母語でお伝えします。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
-      <a class="gate" href="offices.html">
-        <b data-i18n="k005">事業所案内</b>
-        <span data-i18n="k192">かみのてKIDS／かみのてSMILE。所在地・定員・利用時間。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
-      <a class="gate" href="use.html">
-        <b data-i18n="k006">ご利用案内</b>
-        <span data-i18n="k193">受給者証のこと、ご利用料金、ご利用開始までの流れ。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
-      <a class="gate" href="disclosure.html">
-        <b data-i18n="k007">情報公表</b>
-        <span data-i18n="k194">支援プログラム・自己評価結果・保護者評価の公表。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
-      <a class="gate" href="faq.html">
-        <b data-i18n="k125">よくあるご質問</b>
-        <span data-i18n="k195">受給者証、送迎、ご利用料金、学校との連携。よくいただくご質問にお答えします。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
-      <a class="gate" href="recruit.html">
-        <b data-i18n="k008">採用情報</b>
-        <span data-i18n="k196">かみのてで働く人。一日の仕事の流れと、職員へのインタビュー。</span>
-        <em data-i18n="k187">くわしく見る →</em>
-      </a>
+    <p class="d2-more"><a class="d2-link" href="philosophy.html">支援理念を詳しく見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ============ 5つの領域での支援 ============ -->
+<section class="sec white d2-sec" id="areas">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow" data-i18n="k004">支援の内容</span><h2><span>5つの領域を、<br class="x-br">あそびと生活の中で。</span><span class="en">SUPPORT</span></h2>
+      <p class="d2-lead">国が定める5つの領域すべてを見ながら、そのお子さまに必要なところを厚く支援します。</p></div>
+    <ul class="d2-areas">
+      <li><span class="d2-ic">🌱</span><b data-i18n="k037">健康・生活</b></li>
+      <li><span class="d2-ic">🤸</span><b data-i18n="k038">運動・感覚</b></li>
+      <li><span class="d2-ic">🧩</span><b data-i18n="k039">認知・行動</b></li>
+      <li><span class="d2-ic">💬</span><b data-i18n="k040">言語・<wbr>コミュニケーション</b></li>
+      <li><span class="d2-ic">🤝</span><b data-i18n="k041">人間関係・社会性</b></li>
+    </ul>
+    <p class="d2-more"><a class="d2-link" href="support.html">支援の内容を詳しく見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ============ 一日の流れ（学校のある日。「一日の流れ」ページから） ============ -->
+<section class="sec d2-sec d2-mint" id="day">
+  <div class="wrap d2-day">
+    <div>
+      <div class="sec-head d2-left"><span class="eyebrow" data-i18n="k124">一日の流れ</span><h2><span>学校のある日の、放課後。</span><span class="en">A DAY</span></h2></div>
+      <p class="d2-lead">下校の時間に合わせて学校へお迎えに上がり、帰りはご自宅までお送りします。</p>
+      <p class="d2-more d2-left"><a class="d2-link" href="life.html">お休みの日の流れも見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
     </div>
+    <ol class="d2-tl">
+      <li><time>14:00</time><b>学校へおむかえ</b></li>
+      <li><time>15:00</time><b>到着・手あらい・おやつ</b></li>
+      <li><time>15:30</time><b>宿題・自由あそび</b></li>
+      <li><time>16:00</time><b>きょうの活動</b></li>
+      <li><time>17:00</time><b>かたづけ・帰りの会</b></li>
+      <li><time>17:30</time><b>ご自宅へお送り</b></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 2つの事業所 ============ -->
+<section class="sec white d2-sec" id="offices">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow" data-i18n="k055">事業所のご案内</span><h2><span data-i18n="k056">2つの事業所があります</span><span class="en">OUR OFFICES</span></h2><p data-i18n="k057">どちらも見学・体験を受け付けています。</p></div>
+    <div class="d2-offices">
+      <article class="d2-office"><img class="d2-office-logo" src="img/logo-kids.png" alt="かみのてKIDS ロゴ" width="520" height="327" loading="lazy" decoding="async"><h3>かみのてKIDS</h3>
+        <dl><dt>所在地</dt><dd>岐阜県可児市土田2569-2</dd><dt>電話</dt><dd><a href="tel:0574663513">0574-66-3513</a></dd><dt>定員</dt><dd>10名</dd><dt>利用時間</dt><dd>9:00−18:00（月〜金）<br>10:00−16:00（土）</dd></dl></article>
+      <article class="d2-office"><img class="d2-office-logo" src="img/logo-smile.png" alt="かみのてSMILE ロゴ" width="520" height="327" loading="lazy" decoding="async"><h3>かみのてSMILE</h3>
+        <dl><dt>所在地</dt><dd>岐阜県可児市今渡2452-1</dd><dt>電話</dt><dd><a href="tel:0574663513">0574-66-3513</a></dd><dt>定員</dt><dd>10名</dd><dt>利用時間</dt><dd>9:00−18:00（月〜金）</dd></dl></article>
+    </div>
+    <p class="d2-more"><a class="d2-link" href="offices.html">事業所案内を詳しく見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ============ 多言語サポート ============ -->
+<section class="sec d2-sec d2-sky" id="multi">
+  <div class="wrap d2-multi">
+    <div>
+      <span class="eyebrow">MULTILINGUAL</span>
+      <h2 class="d2-h2">ことばのちがいで、<br>支援をあきらめない。</h2>
+      <p>かみのてには通訳スタッフがいて、制度の説明も日々の連絡も母語でお伝えできます。受給者証の申請や学校とのやりとりも、分かるところまでいっしょに進めます。</p>
+      <p class="d2-more d2-left"><a class="d2-link" href="multi.html">多言語での支援を詳しく見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+    </div>
+    <div class="d2-langbox">
+      <p class="d2-langbox-h">スタッフ対応言語<small>日本語＋4言語</small></p>
+      <ul class="d2-langs"><li>日本語</li><li>English<small>英語</small></li><li>Tagalog<small>タガログ語</small></li><li>Bisaya<small>ビサヤ語</small></li><li>Português<small>ポルトガル語</small></li></ul>
+      <p class="d2-langbox-n">このサイトの表示言語：日本語・English・Português</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ご利用までの流れ ============ -->
+<section class="sec white d2-sec" id="flow">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow" data-i18n="k006">ご利用案内</span><h2><span>ご利用までの流れ</span><span class="en">HOW TO USE</span></h2></div>
+    <ol class="d2-steps">
+      <li><span>STEP 01</span><b>ご相談・お問い合わせ</b></li>
+      <li><span>STEP 02</span><b>見学・体験</b></li>
+      <li class="hl"><span>STEP 03</span><b>受給者証の申請</b><small>お持ちでない場合も、申請の進め方からご案内します</small></li>
+      <li><span>STEP 04</span><b>契約・個別支援計画</b></li>
+      <li><span>STEP 05</span><b>ご利用開始</b></li>
+    </ol>
+    <p class="d2-more"><a class="d2-link" href="use.html">ご利用案内・料金を見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+  </div>
+</section>
+
+<!-- ============ よくあるご質問（「よくあるご質問」ページから） ============ -->
+<section class="sec d2-sec d2-cream" id="faq-top">
+  <div class="wrap d2-narrow">
+    <div class="sec-head"><span class="eyebrow">FAQ</span><h2><span data-i18n="k125">よくあるご質問</span><span class="en">FAQ</span></h2></div>
+    <div class="d2-faq">
+      <details class="d2-qa"><summary>診断を受けていないのですが、相談できますか。</summary><div class="d2-a">できます。診断がなくてもご相談いただけます。ご利用には受給者証が必要ですが、その申請の進め方からご案内します。</div></details>
+      <details class="d2-qa"><summary>見学や体験はできますか。</summary><div class="d2-a">できます。お子さんといっしょに来ていただいて、実際の時間に体験していただけます。保護者の方だけの見学でもかまいません。</div></details>
+      <details class="d2-qa"><summary>何歳から何歳まで利用できますか。</summary><div class="d2-a">未就学のお子さんは児童発達支援、小学生から高校生（18歳、必要なときは20歳まで）は放課後等デイサービスとしてご利用いただけます。</div></details>
+      <details class="d2-qa"><summary>学校まで迎えに来てもらえますか。</summary><div class="d2-a">はい。下校の時間に合わせて学校へお迎えに上がり、帰りはご自宅までお送りします。送迎できる範囲は事業所からの距離によりますので、一度ご相談ください。</div></details>
+      <details class="d2-qa"><summary>利用料はいくらかかりますか。</summary><div class="d2-a">費用の大部分は自治体の給付でまかなわれ、ご負担は原則1割です。世帯の所得に応じて月ごとの上限額が決まっているため、それを超えるお支払いは発生しません。</div></details>
+    </div>
+    <p class="d2-more"><a class="d2-link" href="faq.html">よくあるご質問をすべて見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
   </div>
 </section>
 
@@ -179,9 +222,8 @@
       <h2 data-i18n="k102">まずは、見にきてください</h2>
       <p data-i18n="k103">どんな場所で、どんなふうに過ごすのか。見ていただくのがいちばん分かりやすいです。<br>受給者証をお持ちでなくても、診断がまだでも、ご相談だけでかまいません。</p>
       <div class="hero-actions" style="justify-content:center;margin-top:24px">
-        <a class="btn btn-main" href="contact.html" data-i18n="k104">見学・体験を申し込む</a>
-        <a class="btn btn-sub" href="contact.html" data-i18n="k119">お問い合わせ</a>
-        <a class="btn btn-sub" href="faq.html" data-i18n="k125">よくあるご質問</a>
+        <a class="btn btn-main d2-cta" href="contact.html">見学・相談してみる</a>
+        <a class="btn btn-sub" href="tel:0574663513">電話で相談する（0574-66-3513）</a>
       </div>
     </div>
   </div>
