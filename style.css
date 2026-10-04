@@ -896,3 +896,80 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
   .hero-actions .btn{width:100%;justify-content:center}
 }
 .d2-tellink{display:block;width:max-content;max-width:100%;margin:0 auto}
+
+/* ===================================================================
+   2026-10-04 FV の仕上げ（コピー6：写真4、施設の温度感）とメニューのまとめ直し
+   =================================================================== */
+/* ---- メニュー：「かみのてについて」「ご利用について」をプルダウンに ---- */
+.gnav{gap:26px;align-items:center}
+.gnav a,.gdrop-t{font-size:14px;font-weight:500}
+.gdrop{position:relative;display:flex}
+.gdrop-t{display:flex;align-items:center;gap:4px;background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:500;color:inherit;cursor:pointer;white-space:nowrap}
+.gdrop-t svg{width:11px;height:11px;transition:transform .2s}
+.gdrop.is-cur .gdrop-t{color:var(--pg-deep)}
+.gdrop-m{position:absolute;left:50%;top:100%;transform:translateX(-50%);padding-top:14px;display:none;z-index:70}
+.gdrop-m::before{content:"";position:absolute;inset:14px 0 0;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 28px rgba(68,80,74,.14)}
+.gdrop-m a{position:relative;display:block;padding:10px 22px;white-space:nowrap}
+.gdrop-m a:first-child{margin-top:8px}
+.gdrop-m a:last-child{margin-bottom:8px}
+.gdrop-m a:hover,.gdrop-m a[aria-current="page"]{color:var(--pg-deep)}
+.gdrop:hover .gdrop-m,.gdrop:focus-within .gdrop-m,.gdrop.is-open .gdrop-m{display:block}
+.gdrop:hover .gdrop-t svg,.gdrop:focus-within .gdrop-t svg,.gdrop.is-open .gdrop-t svg{transform:rotate(180deg)}
+.gdrop-t:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+/* スマホの開いたメニューでは、プルダウンを開いて全項目を並べる */
+.head.open .gnav .gdrop{display:contents}
+.head.open .gnav .gdrop-t{display:none}
+.head.open .gnav .gdrop-m{display:contents}
+.head.open .gnav .gdrop-m::before{content:none}
+.head.open .gnav .gdrop-m a{margin:0;padding:12px 16px;border-top:1px solid rgba(0,0,0,.06)}
+.head.open .gnav > .gdrop:first-child .gdrop-m a:first-child{border-top:0}
+/* 項目が減ったので、1101px 以上なら1列に収まる */
+@media (min-width:1101px){
+  html[lang="ja"] .gnav{display:flex}
+  html[lang="ja"] .burger{display:none}
+  html[lang="ja"] .head-in .cta{display:inline-flex}
+}
+
+/* ---- FV ---- */
+.hero-grid{grid-template-columns:minmax(0,1.22fr) minmax(0,.78fr);gap:clamp(32px,5vw,72px)}
+.hero-photo{width:92%;justify-self:end}
+.hero-badge{display:inline-flex;align-items:center;flex-wrap:wrap;gap:4px 10px;background:#fff;border:1.5px solid var(--pg);
+  color:var(--pg-deep);font-size:14px;font-weight:700;padding:7px 16px;border-radius:999px;margin:0 0 18px}
+.hb-place{font-size:12.5px;color:var(--ink-soft);font-weight:500;padding-left:10px;border-left:1px solid var(--line)}
+.hero h1{font-size:clamp(28px,3.6vw,50px);line-height:1.5;letter-spacing:.03em}
+.hero h1 .l1,.hero h1 .g{display:block}
+.hero h1 .l1{color:#3a4540}
+.hero h1 .g{color:var(--pg-deep);font-size:1.08em}
+/* マーカーは「その子のペース」だけに、文字の下半分にしっかり引く */
+.hero h1 em::after{left:-.06em;right:-.06em;bottom:.06em;height:.4em;opacity:.55;border-radius:3px}
+.hero p.lead{margin-top:18px;color:#4F5D57;font-weight:500;font-size:16px;line-height:2;max-width:34em}
+.d2-badges{display:grid;grid-template-columns:repeat(3,minmax(0,max-content));gap:10px;margin-top:22px}
+.d2-badges li{display:flex;flex-direction:column;justify-content:center;padding:10px 18px;min-height:64px}
+.d2-badges b{font-size:17px;letter-spacing:.02em}
+.d2-badges small{font-size:12px;margin-top:2px}
+.hero-actions{align-items:center;gap:26px;margin-top:28px}
+.d2-textlink{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:var(--pg-deep);
+  text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:6px}
+.d2-textlink:hover{color:var(--pg-d)}
+.d2-cta-note{margin-top:18px;font-size:15px;font-weight:700;color:#3a4540}
+.d2-cta-note::before{width:20px;height:20px}
+.hero-scribble{position:absolute;left:47%;top:10%;width:90px;pointer-events:none}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .hero-photo{width:84%;justify-self:center}
+  .hero-scribble{display:none}
+}
+@media (max-width:640px){
+  .hero-badge{font-size:12.5px;padding:6px 14px}
+  .hb-place{font-size:11.5px}
+  .hero h1{font-size:clamp(26px,7.4vw,32px)}
+  .hero p.lead{font-size:14.5px}
+  .d2-badges{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .d2-badges li{padding:8px 6px;min-height:58px;text-align:center;border-radius:14px}
+  .d2-badges b{font-size:13px;letter-spacing:0}
+  .d2-badges small{font-size:10.5px}
+  .hero-actions{flex-direction:column;gap:14px}
+  .d2-cta-note{font-size:13.5px;justify-content:center}
+}
+.head.open .gnav > .gdrop + a{border-top:1px solid rgba(0,0,0,.06)}

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=676d3fcf">
+<link rel="stylesheet" href="style.css?v=ec5845f1">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -47,7 +47,7 @@
       <button type="button" data-lang="pt">Português</button>
     </div>
   </div>
-    <nav class="gnav"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a><a href="life.html" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="faq.html" data-i18n="k125">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
+    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">かみのてについて<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a></div></div><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">ご利用について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="life.html" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="faq.html" data-i18n="k125">よくあるご質問</a></div></div><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
     <a class="cta" href="contact.html">見学・相談してみる</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
@@ -320,4 +320,21 @@
 
 <script src="i18n.js"></script>
 
-
+<script>
+// メニューのプルダウン：押しても開く（タッチ端末向け）。外を押すと閉じる
+(function () {
+  var ds = [].slice.call(document.querySelectorAll('.gdrop'));
+  function shut() { ds.forEach(function (x) { x.classList.remove('is-open'); x.querySelector('.gdrop-t').setAttribute('aria-expanded', 'false'); }); }
+  ds.forEach(function (d) {
+    var b = d.querySelector('.gdrop-t');
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var on = !d.classList.contains('is-open');
+      shut();
+      d.classList.toggle('is-open', on); b.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', shut);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { shut(); } });
+})();
+</script>

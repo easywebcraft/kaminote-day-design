@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=676d3fcf">
+<link rel="stylesheet" href="style.css?v=ec5845f1">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -47,7 +47,7 @@
       <button type="button" data-lang="pt">Português</button>
     </div>
   </div>
-    <nav class="gnav"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a><a href="life.html" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="faq.html" data-i18n="k125">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
+    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">かみのてについて<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a></div></div><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">ご利用について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="life.html" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="faq.html" data-i18n="k125">よくあるご質問</a></div></div><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
     <a class="cta" href="contact.html">見学・相談してみる</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
@@ -60,28 +60,31 @@
 
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
-      <span class="hero-badge"><span data-i18n="k012">児童発達支援 ・ 放課後等デイサービス</span>｜可児市</span>
-      <h1><em data-i18n="k114">その子のペース</em><span data-i18n="k115">で、</span><br><span class="g" data-i18n="k014">「できた」をふやす。</span></h1>
-      <p class="lead" data-i18n="k015">ことばも、からだの使い方も、人との関わり方も。<br>得意なことを入口にして、毎日のくらしの中で少しずつ育てていきます。</p>
+    <div class="hero-txt">
+      <p class="hero-badge"><span data-i18n="k012">児童発達支援 ・ 放課後等デイサービス</span><span class="hb-place">岐阜県可児市</span></p>
+      <h1><span class="l1"><em data-i18n="k114">その子のペース</em><span data-i18n="k115">で、</span></span><span class="g" data-i18n="k014">「できた」をふやす。</span></h1>
+      <p class="lead" data-i18n="k015">ことばも、からだの使い方も、人との関わり方も。<br>得意なことを入口にして、<br>毎日のくらしの中で少しずつ育てていきます。</p>
       <ul class="d2-badges" aria-label="対象と特徴">
-        <li><b>未就学〜18歳</b><small>必要時20歳まで</small></li>
-        <li><b>可児市に2事業所</b><small>KIDS・SMILE</small></li>
-        <li><b>日本語＋4言語対応</b><small>スタッフが対応</small></li>
+        <li><b>未就学〜18歳</b><small>対象年齢</small></li>
+        <li><b>可児市2事業所</b><small>KIDS・SMILE</small></li>
+        <li><b>日本語＋4言語</b><small>スタッフ対応</small></li>
       </ul>
       <div class="hero-actions">
         <a class="btn btn-main d2-cta" href="contact.html">見学・相談してみる</a>
-        <a class="btn btn-sub" href="support.html" data-i18n="k020">支援の内容を見る</a>
+        <a class="d2-textlink" href="support.html"><span data-i18n="k020">支援の内容を見る</span><span aria-hidden="true">→</span></a>
       </div>
-      <p class="d2-cta-note">受給者証をお持ちでない段階でもご相談いただけます</p>
+      <p class="d2-cta-note">受給者証をお持ちでない方もご相談いただけます</p>
     </div>
     <div class="hero-photo">
-      <div class="blob"><img fetchpriority="high" decoding="async" src="img/hero-b.jpg" alt="イメージ写真（クレヨンと、それぞれの色で描かれた線）" width="1600" height="1067"></div>
-      <span class="stockmark" style="top:11%;left:33%" data-i18n="k021">イメージ写真</span>
-      <svg class="il" style="left:-4%;top:6%;width:76px" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#f7c948" opacity=".9"/></svg>
-      <svg class="il" style="right:-2%;bottom:8%;width:64px" viewBox="0 0 80 60" aria-hidden="true"><path d="M8 42q10-16 20 0t20 0 24 0" stroke="#8ec9dd" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+      <div class="blob"><img fetchpriority="high" decoding="async" src="img/hero-craft.jpg" alt="イメージ写真（色画用紙やクレヨンが並ぶ工作の机と、こどもの作品）" width="1536" height="1024"></div>
+      <span class="stockmark" style="top:9%;left:30%" data-i18n="k021">イメージ写真</span>
+      <svg class="il" style="left:-5%;top:4%;width:62px" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="34" fill="#f7c948" opacity=".85"/></svg>
+      <svg class="il" style="right:-3%;bottom:10%;width:58px" viewBox="0 0 80 60" aria-hidden="true"><path d="M8 42q10-16 20 0t20 0 24 0" stroke="#8ec9dd" stroke-width="7" fill="none" stroke-linecap="round"/></svg>
+      <svg class="il" style="right:2%;top:2%;width:30px" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="#8ecfa5" opacity=".55"/></svg>
+      <svg class="il" style="left:4%;bottom:2%;width:70px" viewBox="0 0 70 50" aria-hidden="true"><g fill="#8ecfa5" opacity=".45"><circle cx="5" cy="5" r="2.6"/><circle cx="20" cy="5" r="2.6"/><circle cx="35" cy="5" r="2.6"/><circle cx="12" cy="18" r="2.6"/><circle cx="27" cy="18" r="2.6"/><circle cx="42" cy="18" r="2.6"/><circle cx="5" cy="31" r="2.6"/><circle cx="20" cy="31" r="2.6"/><circle cx="35" cy="31" r="2.6"/></g></svg>
     </div>
   </div>
+  <svg class="il hero-scribble" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 28c14-18 24-18 30 0s18 14 26-4 22-12 30 2 16 6 26-8" fill="none" stroke="#f5a25a" stroke-width="3" stroke-linecap="round" opacity=".5"/></svg>
   <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 46c180 40 360 40 540 12s360-40 540-12 240 34 360 20v34H0Z" fill="#fff"/></svg>
 </section>
 
@@ -372,4 +375,21 @@
 
 <script src="i18n.js"></script>
 
-
+<script>
+// メニューのプルダウン：押しても開く（タッチ端末向け）。外を押すと閉じる
+(function () {
+  var ds = [].slice.call(document.querySelectorAll('.gdrop'));
+  function shut() { ds.forEach(function (x) { x.classList.remove('is-open'); x.querySelector('.gdrop-t').setAttribute('aria-expanded', 'false'); }); }
+  ds.forEach(function (d) {
+    var b = d.querySelector('.gdrop-t');
+    b.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var on = !d.classList.contains('is-open');
+      shut();
+      d.classList.toggle('is-open', on); b.setAttribute('aria-expanded', on ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', shut);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { shut(); } });
+})();
+</script>
