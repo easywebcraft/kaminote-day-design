@@ -8,8 +8,9 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='30' fill='%238ecfa5'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&family=Zen+Old+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=ec5845f1">
+<link rel="stylesheet" href="day-soft.css?v=20261015b">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -47,136 +48,14 @@
       <button type="button" data-lang="pt">Português</button>
     </div>
   </div>
-    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">かみのてについて<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a></div></div><div class="gdrop is-cur"><button class="gdrop-t" type="button" aria-expanded="false">ご利用について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="life.html" aria-current="page" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="faq.html" data-i18n="k125">よくあるご質問</a></div></div><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
-    <a class="cta" href="contact.html">見学・相談してみる</a>
+    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false"><i18n-t data-i18n="k456">かみのてについて</i18n-t><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="index.html#cases" data-i18n="k003">こんな方へ</a><a href="philosophy.html" data-i18n="k123">支援理念</a><a href="support.html" data-i18n="k004">支援の内容</a></div></div><div class="gdrop is-cur"><button class="gdrop-t" type="button" aria-expanded="false"><i18n-t data-i18n="k457">ご利用について</i18n-t><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="life.html" aria-current="page" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="faq.html" data-i18n="k125">よくあるご質問</a></div></div><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
+    <a class="cta" href="contact.html" data-i18n="k458">見学・相談してみる</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
-
-<!-- ============ ヒーロー ============ -->
-
-
-
-
-<nav class="crumb"><a href="index.html" data-i18n="k126">トップ</a><span aria-hidden="true">›</span><span data-i18n="k124">一日の流れ</span></nav>
-<!-- ============================================================
-     一日の流れ（かみのてKIDS・かみのてSMILE）
-     保育園の「園での生活」（nursery-life.html）の放デイ版。
-     ★保育園は年齢で2本に分けたが、こちらは**学校のある日／学校がお休みの日**で分ける。
-       放課後等デイは下校時刻に左右され、長期休みは朝から一日いるため、
-       この2つで流れがまったく変わる（年齢では分かれない）。
-     ★送迎が流れの中に入るのが保育園との大きなちがい。
-     ★色は --x-accent と薄い黒だけ。帯は class="sec white"。
-     ============================================================ -->
-
-<section class="sec" id="life">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k124">一日の流れ</span>
-      <h2><span data-i18n="k197">放課後と、お休みの日の過ごし方</span><span class="en">A DAY</span></h2>
-      <p data-i18n="k198">学校のある日は放課後の数時間、長期休みや土曜日は朝から一日。<br class="x-br">それぞれの過ごし方をご紹介します。</p>
-    </div>
-    <div class="split">
-      <div class="x-ph"><img loading="lazy" decoding="async" src="img/support.jpg" alt="イメージ写真（活動のようす）"></div>
-      <div>
-        <ul class="x-points">
-          <li>
-            <span class="ic" aria-hidden="true">🚐</span>
-            <div>
-              <b data-i18n="k199">学校まで、おむかえに行きます。</b>
-              <span class="d" data-i18n="k200">下校の時間に合わせて学校へお迎えに上がり、帰りはご自宅までお送りします。送迎の範囲はご相談ください。</span>
-            </div>
-          </li>
-          <li>
-            <span class="ic" aria-hidden="true">🔟</span>
-            <div>
-              <b data-i18n="k201">1日の定員は10名です。</b>
-              <span class="d" data-i18n="k202">かみのてKIDS・かみのてSMILEとも定員10名。大人数の中でしんどくなってしまう子も、落ち着いて過ごせます。</span>
-            </div>
-          </li>
-          <li>
-            <span class="ic" aria-hidden="true">📋</span>
-            <div>
-              <b data-i18n="k203">その日のようすを、おうちへおつたえします。</b>
-              <span class="d" data-i18n="k204">できたこと、むずかしかったこと。個別支援計画のねらいに沿って記録し、送迎のときにお話しします。</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec white" id="day">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k205">一日のながれ</span>
-      <h2><span data-i18n="k206">学校のある日と、お休みの日</span><span class="en">DAILY PROGRAM</span></h2>
-      <p data-i18n="k207">活動の内容はその日のようすで変わります。<br class="x-br">下は目安の流れです。</p>
-    </div>
-
-    <div class="d2-tabs" role="tablist" aria-label="一日の流れの切り替え"><button type="button" role="tab" aria-selected="true" aria-controls="dc1" id="dt1">学校のある日</button><button type="button" role="tab" aria-selected="false" aria-controls="dc2" id="dt2">学校がお休みの日</button></div>
-    <div class="day-cols d2-daycols">
-      <div class="day-col" role="tabpanel" id="dc1" aria-labelledby="dt1">
-        <h3 class="day-h"><span class="age" data-i18n="k208">学校のある日</span><span data-i18n="k209">放課後の数時間</span></h3>
-        <p class="day-note" data-i18n="k210">下校時刻は学年や曜日でちがいます。時間はその日に合わせて動きます。</p>
-        <ol class="tl">
-          <li><span class="t">14:00</span><div><b data-i18n="k211">学校へおむかえ</b><span class="d" data-i18n="k212">下校の時間に合わせて、事業所の車でお迎えに上がります。</span></div></li>
-          <li><span class="t">15:00</span><div><b data-i18n="k213">到着・手あらい・おやつ</b><span class="d" data-i18n="k214">まずはひと息。学校であったことを聞く時間でもあります。</span></div></li>
-          <li><span class="t">15:30</span><div><b data-i18n="k215">宿題・自由あそび</b><span class="d" data-i18n="k216">宿題は「やりきる」より「机に向かえる」ことから。むずかしい子には別の課題を用意します。</span></div></li>
-          <li><span class="t">16:00</span><div><b data-i18n="k217">きょうの活動</b><span class="d" data-i18n="k218">からだを使うあそび、制作、ことばのやりとり。5つの領域から、その日のねらいに合わせて選びます。</span></div></li>
-          <li><span class="t">17:00</span><div><b data-i18n="k219">かたづけ・帰りの会</b><span class="d" data-i18n="k220">できたことをみんなで確かめます。</span></div></li>
-          <li><span class="t">17:30</span><div><b data-i18n="k221">ご自宅へお送り</b><span class="d" data-i18n="k222">送迎のときに、その日のようすをおつたえします。</span></div></li>
-          <li><span class="t">18:00</span><div data-i18n="k223"><b>終了</b></div></li>
-        </ol>
-      </div>
-
-      <div class="day-col" role="tabpanel" id="dc2" aria-labelledby="dt2" hidden>
-        <h3 class="day-h"><span class="age" data-i18n="k224">お休みの日</span><span data-i18n="k225">朝から一日</span></h3>
-        <p class="day-note" data-i18n="k226">長期休み（夏・冬・春）と土曜日。ご自宅までお迎えに上がります。</p>
-        <ol class="tl">
-          <li><span class="t">9:00</span><div><b data-i18n="k227">おむかえ・到着</b><span class="d" data-i18n="k228">ご自宅までお迎えに上がります。到着したら健康チェック。</span></div></li>
-          <li><span class="t">10:00</span><div><b data-i18n="k229">朝の会・午前の活動</b><span class="d" data-i18n="k230">今日することを確かめてから始めます。見通しが立つと落ち着いて動けます。</span></div></li>
-          <li><span class="t">11:30</span><div><b data-i18n="k231">昼食</b><span class="d" data-i18n="k232">お弁当をお持ちください。食べることが苦手な子には無理をさせません。</span></div></li>
-          <li><span class="t">12:30</span><div><b data-i18n="k233">休息・自由あそび</b><span class="d" data-i18n="k234">静かに過ごせる場所も用意しています。</span></div></li>
-          <li><span class="t">13:30</span><div><b data-i18n="k235">午後の活動・お出かけ</b><span class="d" data-i18n="k236">公園、買いもの、季節の行事。外に出る日もあります。</span></div></li>
-          <li><span class="t">15:00</span><div data-i18n="k237"><b>おやつ</b></div></li>
-          <li><span class="t">16:00</span><div data-i18n="k238"><b>かたづけ・帰りの会</b></div></li>
-          <li><span class="t">16:30</span><div data-i18n="k239"><b>ご自宅へお送り</b></div></li>
-        </ol>
-      </div>
-    </div>
-
-    <div class="notice" data-i18n="k240">
-      <b>未就学のお子さん（児童発達支援）は、午前中のご利用もできます。</b>
-      幼稚園・保育園に通いながら、決まった曜日だけ来ていただくこともできます。通っている園との連携もお受けしています。
-    </div>
-    <p class="x-fine" data-i18n="k241">※ 時間はおおよその目安です。学校の下校時刻、その日の活動、お子さんのようすで前後します。</p>
-  </div>
-</section>
-
-<section class="sec" id="events">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k242">一年のながれ</span>
-      <h2><span data-i18n="k243">季節の行事もあります</span><span class="en">EVENTS</span></h2>
-      <p data-i18n="k244">行事は「参加できること」より「その子なりに関われること」を大事にしています。<br class="x-br">見ているだけの参加でもかまいません。</p>
-    </div>
-
-    <ul class="monthly">
-      <li data-i18n="k245">毎月：お誕生日のお祝い</li>
-      <li data-i18n="k246">毎月：避難訓練</li>
-      <li data-i18n="k247">随時：学校・園との連携</li>
-      <li data-i18n="k248">年2回：個別支援計画の見直し</li>
-    </ul>
-
-    <div class="d2-seasons"><section class="d2-season d2-s0"><h3>春<small>4月〜6月</small></h3><ul class="ev"><li class="ev-m"><span class="m" data-i18n="k249">4<small>月</small></span><ul><li data-i18n="k250">進級のお祝い</li><li data-i18n="k251">新しいお友だちを迎える</li></ul></li><li class="ev-m"><span class="m" data-i18n="k252">5<small>月</small></span><ul><li data-i18n="k253">こどもの日の制作</li><li data-i18n="k254">春のお出かけ</li></ul></li><li class="ev-m"><span class="m" data-i18n="k255">6<small>月</small></span><ul><li data-i18n="k256">雨の日のあそび</li><li data-i18n="k257">歯みがき指導</li></ul></li></ul></section><section class="d2-season d2-s1"><h3>夏<small>7月〜9月</small></h3><ul class="ev"><li class="ev-m"><span class="m" data-i18n="k258">7<small>月</small></span><ul><li data-i18n="k259">七夕</li><li data-i18n="k260">夏休みプログラム開始</li></ul></li><li class="ev-m"><span class="m" data-i18n="k261">8<small>月</small></span><ul><li data-i18n="k262">水あそび</li><li data-i18n="k263">夏まつり</li></ul></li><li class="ev-m"><span class="m" data-i18n="k264">9<small>月</small></span><ul><li data-i18n="k265">防災の日の訓練</li><li data-i18n="k266">秋の制作</li></ul></li></ul></section><section class="d2-season d2-s2"><h3>秋<small>10月〜11月</small></h3><ul class="ev"><li class="ev-m"><span class="m" data-i18n="k267">10<small>月</small></span><ul><li data-i18n="k268">ハロウィン</li><li data-i18n="k269">秋のお出かけ</li></ul></li><li class="ev-m"><span class="m" data-i18n="k270">11<small>月</small></span><ul><li data-i18n="k271">いもほり</li><li data-i18n="k272">クッキング</li></ul></li></ul></section><section class="d2-season d2-s3"><h3>冬<small>12月〜3月</small></h3><ul class="ev"><li class="ev-m"><span class="m" data-i18n="k273">12<small>月</small></span><ul><li data-i18n="k274">クリスマス会</li><li data-i18n="k275">冬休みプログラム</li></ul></li><li class="ev-m"><span class="m" data-i18n="k276">1<small>月</small></span><ul><li data-i18n="k277">お正月あそび</li><li data-i18n="k278">書きぞめ</li></ul></li><li class="ev-m"><span class="m" data-i18n="k279">2<small>月</small></span><ul><li data-i18n="k280">節分</li><li data-i18n="k281">買いものの練習</li></ul></li><li class="ev-m"><span class="m" data-i18n="k282">3<small>月</small></span><ul><li data-i18n="k283">卒業・進級のお祝い</li><li data-i18n="k284">春休みプログラム</li></ul></li></ul></section></div>
-
-    <p style="text-align:center;margin-top:28px"><a class="link-a" href="support.html" data-i18n="k285">支援の内容（5つの領域）を見る →</a></p>
-    <p class="x-fine design-note" data-i18n="k286">※ このページの流れと行事は、一般的な事業所の例をもとにした仮のものです。取材のときにうかがって、かみのてKIDS・かみのてSMILEの実際の内容に差し替えます。</p>
-  </div>
-</section>
-
+<main class="dw">
+<section class="dw-fv"><div class="dw-fv-photo"><img src="img/dw-toys.jpg" alt="イメージ写真（おもちゃ）" fetchpriority="high" decoding="async"><small data-i18n="k021">イメージ写真</small></div><div class="dw-fv-in"><nav class="dw-crumb" aria-label="パンくず"><a href="index.html" data-i18n="k126">トップ</a><span aria-hidden="true">›</span><span data-i18n="k124">一日の流れ</span></nav><div class="dw-fv-tx"><span class="dw-en">DAILY LIFE</span><h1 class="dw-fv-page" data-i18n="k124">一日の流れ</h1><p class="dw-fv-catch" data-i18n="k528">放課後と<br>お休みの日の過ごし方</p><p class="dw-fv-lead" data-i18n="k529">学校のある日は放課後の数時間、長期休みや土曜日は朝から一日。それぞれの過ごし方をご紹介します。</p></div></div></section><section class="dw-sec is-white"><div class="dw-wrap"><div class="dw-points is-col"><div class="dw-point"><span class="dw-circle "><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6" /><path d="M15 6v6" /><path d="M2 12h19.6" /><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" /><circle cx="7" cy="18" r="2" /><path d="M9 18h5" /><circle cx="16" cy="18" r="2" /></svg></span></span><div><h3 class="dw-h3" data-i18n="k530">学校へのおむかえ ご自宅へのお送り</h3><p data-i18n="k200">下校の時間に合わせて学校へお迎えに上がり、帰りはご自宅までお送りします。送迎の範囲はご相談ください。</p></div></div><div class="dw-point"><span class="dw-circle "><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></span></span><div><h3 class="dw-h3" data-i18n="k531">1日の定員は10名</h3><p data-i18n="k202">かみのてKIDS・かみのてSMILEとも定員10名。大人数の中でしんどくなってしまう子も、落ち着いて過ごせます。</p></div></div><div class="dw-point"><span class="dw-circle "><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg></span></span><div><h3 class="dw-h3" data-i18n="k532">その日のようすをおうちへ</h3><p data-i18n="k204">できたこと、むずかしかったこと。個別支援計画のねらいに沿って記録し、送迎のときにお話しします。</p></div></div></div></div></section><section class="dw-sec is-pale2" id="school"><div class="dw-wrap"><div class="dw-split"><div><div class="dw-head"><span class="dw-en">DAILY PROGRAM</span><h2 class="dw-h" data-i18n="k533">学校のある日の流れ</h2></div><ol class="dw-tl"><li><time>14:00</time><div><b data-i18n="k211">学校へおむかえ</b><span data-i18n="k212">下校の時間に合わせて、事業所の車でお迎えに上がります。</span></div></li><li><time>15:00</time><div><b data-i18n="k213">到着・手あらい・おやつ</b><span data-i18n="k214">まずはひと息。学校であったことを聞く時間でもあります。</span></div></li><li><time>15:30</time><div><b data-i18n="k215">宿題・自由あそび</b><span data-i18n="k216">宿題は「やりきる」より「机に向かえる」ことから。むずかしい子には別の課題を用意します。</span></div></li><li><time>16:00</time><div><b data-i18n="k217">きょうの活動</b><span data-i18n="k218">からだを使うあそび、制作、ことばのやりとり。5つの領域から、その日のねらいに合わせて選びます。</span></div></li><li><time>17:00</time><div><b data-i18n="k219">かたづけ・帰りの会</b><span data-i18n="k220">できたことをみんなで確かめます。</span></div></li><li><time>17:30</time><div><b data-i18n="k221">ご自宅へお送り</b><span data-i18n="k222">送迎のときに、その日のようすをおつたえします。</span></div></li><li><time>18:00</time><div data-i18n="k223"><b>終了</b></div></li></ol><p class="dw-note" style="margin-top:18px !important" data-i18n="k210">下校時刻は学年や曜日でちがいます。時間はその日に合わせて動きます。</p></div><div class="dw-stack"><figure class="dw-photo "><img src="img/dw-blocks.jpg" alt="イメージ写真（積み木の置かれた机）" loading="lazy" decoding="async"><span class="dw-chip" data-i18n="k534">宿題・活動の机</span></figure><figure class="dw-photo "><img src="img/dw-toys.jpg" alt="イメージ写真（おもちゃ）" loading="lazy" decoding="async"><span class="dw-chip" data-i18n="k535">あそびの時間</span></figure><figure class="dw-photo "><img src="img/dw-room.jpg" alt="イメージ写真（活動スペース）" loading="lazy" decoding="async"><span class="dw-chip" data-i18n="k536">帰りの会</span></figure></div></div></div></section><section class="dw-sec is-pale" id="holiday"><div class="dw-wrap"><div class="dw-split is-rev"><div><div class="dw-head"><span class="dw-en">HOLIDAY PROGRAM</span><h2 class="dw-h" data-i18n="k537">学校がお休みの日の流れ</h2></div><ol class="dw-tl"><li><time>9:00</time><div><b data-i18n="k227">おむかえ・到着</b><span data-i18n="k228">ご自宅までお迎えに上がります。到着したら健康チェック。</span></div></li><li><time>10:00</time><div><b data-i18n="k229">朝の会・午前の活動</b><span data-i18n="k230">今日することを確かめてから始めます。見通しが立つと落ち着いて動けます。</span></div></li><li><time>11:30</time><div><b data-i18n="k231">昼食</b><span data-i18n="k232">お弁当をお持ちください。食べることが苦手な子には無理をさせません。</span></div></li><li><time>12:30</time><div><b data-i18n="k233">休息・自由あそび</b><span data-i18n="k234">静かに過ごせる場所も用意しています。</span></div></li><li><time>13:30</time><div><b data-i18n="k235">午後の活動・お出かけ</b><span data-i18n="k236">公園、買いもの、季節の行事。外に出る日もあります。</span></div></li><li><time>15:00</time><div data-i18n="k237"><b>おやつ</b></div></li><li><time>16:00</time><div data-i18n="k238"><b>かたづけ・帰りの会</b></div></li><li><time>16:30</time><div data-i18n="k239"><b>ご自宅へお送り</b></div></li></ol><p class="dw-note" style="margin-top:18px !important" data-i18n="k226">長期休み（夏・冬・春）と土曜日。ご自宅までお迎えに上がります。</p></div><div class="dw-stack"><figure class="dw-photo "><img src="img/dw-rest.jpg" alt="イメージ写真（静かに過ごせる部屋）" loading="lazy" decoding="async"><small data-i18n="k021">イメージ写真</small></figure><div class="dw-info-box" style="background:#fff"><span class="dw-circle "><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10" /><path d="M10 20c5.5-2.5.8-6.4 3-10" /><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" /><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" /></svg></span></span><div><h3 class="dw-h3" data-i18n="k538">未就学のお子さんは 午前中のご利用もできます</h3><p data-i18n="k539">未就学のお子さん（児童発達支援）は、午前中のご利用もできます。幼稚園・保育園に通いながら、決まった曜日だけ来ていただくこともできます。通っている園との連携もお受けしています。</p></div></div></div></div></div></section><section class="dw-sec is-white" id="events"><div class="dw-wrap"><div class="dw-head is-center"><span class="dw-en">ANNUAL EVENTS</span><h2 class="dw-h" data-i18n="k243">季節の行事もあります</h2></div><div class="dw-cards" style="--n:4"><div class="dw-season spring"><div class="dw-season-top"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10" /><path d="M10 20c5.5-2.5.8-6.4 3-10" /><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z" /><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z" /></svg></span><b data-i18n="k540">春<small>4月〜6月</small></b></div><ul><li data-i18n="k541"><em>4月</em>進級のお祝い・新しいお友だちを迎える</li><li data-i18n="k542"><em>5月</em>こどもの日の制作・春のお出かけ</li><li data-i18n="k543"><em>6月</em>雨の日のあそび・歯みがき指導</li></ul></div><div class="dw-season summer"><div class="dw-season-top"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg></span><b data-i18n="k544">夏<small>7月〜9月</small></b></div><ul><li data-i18n="k545"><em>7月</em>七夕・夏休みプログラム開始</li><li data-i18n="k546"><em>8月</em>水あそび・夏まつり</li><li data-i18n="k547"><em>9月</em>防災の日の訓練・秋の制作</li></ul></div><div class="dw-season autumn"><div class="dw-season-top"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" /><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" /></svg></span><b data-i18n="k548">秋<small>10月〜11月</small></b></div><ul><li data-i18n="k549"><em>10月</em>ハロウィン・秋のお出かけ</li><li data-i18n="k550"><em>11月</em>いもほり・クッキング</li></ul></div><div class="dw-season winter"><div class="dw-season-top"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20" /><path d="M12 2v20" /><path d="m20 16-4-4 4-4" /><path d="m4 8 4 4-4 4" /><path d="m16 4-4 4-4-4" /><path d="m8 20 4-4 4 4" /></svg></span><b data-i18n="k551">冬<small>12月〜3月</small></b></div><ul><li data-i18n="k552"><em>12月</em>クリスマス会・冬休みプログラム</li><li data-i18n="k553"><em>1月</em>お正月あそび・書きぞめ</li><li data-i18n="k554"><em>2月</em>節分・買いものの練習</li><li data-i18n="k555"><em>3月</em>卒業・進級のお祝い・春休みプログラム</li></ul></div></div><h3 class="dw-h3" style="text-align:center;margin:52px 0 26px;font-family:var(--dw-mincho);font-size:21px;font-weight:600" data-i18n="k556">その他にも こんな取り組みを行っています</h3><div class="dw-icons" style="--n:4"><div><span class="dw-circle is-l is-w"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" /><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" /><path d="M2 21h20" /><path d="M7 8v3" /><path d="M12 8v3" /><path d="M17 8v3" /><path d="M7 4h.01" /><path d="M12 4h.01" /><path d="M17 4h.01" /></svg></span></span><h3 class="dw-h3" data-i18n="k557">毎月のお誕生日のお祝い</h3><p data-i18n="k558">みんなでお祝いします。</p></div><div><span class="dw-circle is-l is-w"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg></span></span><h3 class="dw-h3" data-i18n="k559">毎月の避難訓練</h3><p data-i18n="k560">災害に備えて、定期的に行っています。</p></div><div><span class="dw-circle is-l is-w"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" /><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" /><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" /><path d="M10 6h4" /><path d="M10 10h4" /><path d="M10 14h4" /><path d="M10 18h4" /></svg></span></span><h3 class="dw-h3" data-i18n="k561">学校・園との連携</h3><p data-i18n="k562">随時、学校や園と情報を共有します。</p></div><div><span class="dw-circle is-l is-w"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg></span></span><h3 class="dw-h3" data-i18n="k563">個別支援計画の見直し</h3><p data-i18n="k564">年2回、計画を見直します。</p></div></div><p class="dw-more" style="color:var(--dw-sub)" data-i18n="k565">行事は「参加できること」より「その子なりに関われること」を大事にしています。見ているだけの参加でもかまいません。</p></div></section><div class="dw-wrap"><p class="dw-note" style="padding-top:22px" data-i18n="k566">※ 時間はおおよその目安です。このページの流れと行事は、一般的な事業所の例をもとにした仮のものです。取材のときにうかがって、かみのてKIDS・かみのてSMILEの実際の内容に差し替えます。</p></div><section class="dw-cta"><div class="dw-cta-in"><div class="dw-cta-tx"><span class="dw-en">CONTACT</span><h2 class="dw-h" data-i18n="k511">まずは 見にきてください</h2><p data-i18n="k512">どんな場所で、どんなふうに過ごすのか。見ていただくのがいちばん分かりやすいです。</p><p data-i18n="k513">受給者証をお持ちでなくても、診断がまだでも、ご相談だけでかまいません。</p><div class="dw-cta-btns"><a class="dw-btn " href="contact.html"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg></span><span data-i18n="k458">見学・相談してみる</span><span aria-hidden="true">→</span></a><a class="dw-btn is-o" href="tel:0574663513"><span class="dw-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg></span><span data-i18n="k514">電話で相談する（0574-66-3513）</span></a></div></div><div class="dw-cta-photo"><img src="img/dw-reading.jpg" alt="イメージ写真（絵本のコーナー）" loading="lazy" decoding="async"></div></div></section><p class="dw-note" style="text-align:center;padding:18px 20px 26px;margin:0" data-i18n="k515">写真はイメージです</p>
+</main>
 
 <footer class="foot">
   <div class="wrap">
@@ -319,7 +198,7 @@
 </script>
 
 
-<script src="i18n.js"></script>
+<script src="i18n.js?v=20261015"></script>
 <script>
 // 一日の流れ：学校のある日／お休みの日の切り替え（矢印キーでも切り替えられる）
 (function () {
