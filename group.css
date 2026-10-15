@@ -1,0 +1,128 @@
+/* =====================================================================
+   グループのサイトとしてそろえる（2026-10-15）：保育園サイト（kaminote-design）と同じ決まりにする
+   各ページで最後に読む。style.css（もとの放デイの見た目）より優先する
+   ・字体：本文は Zen Kaku Gothic New、見出し（h1・h2）と大きな数字は Zen Old Mincho
+   ・色：文字＝墨、主＝深い緑、申し込みのボタン＝さんご、地＝クリームと白（保育園の design-system.css と同じ値）
+   ・ヘッダー：白い地・影・ロゴ42px・角ゴシックのメニュー・さんごの丸いボタン（保育園と同じ数値）
+   ・フッター：白い地・ロゴのマークと名前・3列
+   ・FV：保育園と同じ page-fv（画面いっぱいの写真・左を暗く・白い文字・上下を波で切る）＋光の演出（hero-calm）
+   ===================================================================== */
+:root {
+  --g-ink: #2f3430; --g-sub: #4b5149; --g-mute: #6b7068;
+  --g-green: #4f7f63; --g-green-d: #3d6a50; --g-green-bg: #eef3e8;
+  --g-coral: #e26b55; --g-coral-d: #d05a45; --g-coral-bg: #fbefe9;
+  --g-cream: #fbf8f1; --g-line: #e3e0d6;
+  --g-gothic: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  --g-mincho: "Zen Old Mincho", "Hiragino Mincho ProN", serif;
+  /* もとの放デイの色の名前を、保育園と同じ色に置き換える（主色のパステルグリーン --pg は顧客の要望なので残す） */
+  --pg-d: #4f7f63; --pg-deep: #3d6a50; --pg-soft: #eef3e8;
+  --coral: #e26b55; --coral-d: #d05a45; --coral-soft: #fbefe9;
+  --ink: #2f3430; --ink-soft: #6b7068; --line: #e3e0d6; --cream: #fbf8f1;
+}
+
+/* ---------- 字体 ---------- */
+body, body *:not(svg):not(svg *) { font-family: var(--g-gothic) !important; }
+html body :is(h1, h2), html body :is(h1, h2) *:not(svg):not(svg *),
+html body :is(.dw-num, .dw-tl time, .dw-vsteps .dw-vn, .dw-stats b, .dw-season-top b, .dw-sn, .dw-fv-page, .dw-card .dw-fv-page),
+html body :is(.dw-num, .dw-stats b, .dw-season-top b) * { font-family: var(--g-mincho) !important; }
+html body h2 .en, html body h2 small, html body .page-fv-eyebrow * { font-family: var(--g-gothic) !important; }
+body { background: var(--g-cream); color: var(--g-ink); }
+
+/* ---------- ヘッダー（保育園と同じ数値） ---------- */
+.head { background: #fff !important; box-shadow: 0 6px 18px rgba(0, 0, 0, .05) !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; border-bottom: 0 !important; color: #2f2b26; }
+.head .head-in { max-width: none !important; min-height: 59px; padding: 8px 22px !important; gap: 26px; }
+.head .brand { gap: 12px; }
+.head .brand .mark { height: 42px !important; width: auto !important; }
+.head .brand .name { font-size: 20px !important; font-weight: 700 !important; letter-spacing: .22em !important; line-height: 1.25 !important; color: #2f2b26 !important; }
+.head .brand .en { font-size: 9px !important; letter-spacing: .28em !important; line-height: 1.25 !important; color: #7b7169 !important; }
+.head .lang-btn { padding: 7px 10px !important; border: 1px solid #e9e3da !important; border-radius: 999px !important; background: transparent !important; color: var(--g-green-d) !important; font-size: 11.5px !important; font-weight: 700 !important; }
+.head .gnav { gap: 16px; }
+.head .gnav > a, .head .gdrop-t { font-size: 13.5px !important; font-weight: 400 !important; color: #2f2b26 !important; letter-spacing: normal !important; }
+.head .gnav a[aria-current="page"], .head .gdrop.is-cur > .gdrop-t { color: var(--g-green-d) !important; }
+.head .gdrop-m a { font-size: 13.5px !important; color: #2f2b26 !important; }
+.head .cta { align-items: center; min-height: 43px; padding: 10px 24px !important; border: 1px solid var(--g-coral) !important; border-radius: 999px !important; background: var(--g-coral) !important; color: #fff !important;
+  font-size: 14px !important; font-weight: 700 !important; letter-spacing: .05em !important; box-shadow: 0 8px 18px rgba(226, 107, 85, .22) !important; }
+.head .cta:hover { background: var(--g-coral-d) !important; border-color: var(--g-coral-d) !important; }
+.head .burger { border: 1px solid #e9e3da !important; border-radius: 10px !important; background: #fff !important; }
+.cta-in-menu { background: var(--g-coral) !important; color: #fff !important; }
+@media (max-width: 700px) {
+  .head .head-in { padding: 8px 10px !important; gap: 10px; }
+  .head .brand .name { font-size: 13px !important; letter-spacing: .1em !important; }
+  .head .brand .en { font-size: 7.5px !important; letter-spacing: .2em !important; }
+}
+/* トップのFVの「岐阜県可児市」：写真の上では白く */
+.page-fv .page-fv-eyebrow .hb-place { margin-left: 8px; padding-left: 10px; border-left: 1px solid rgba(255, 255, 255, .6); color: inherit !important; background: none !important; }
+@media (max-width: 700px) { .page-fv .page-fv-eyebrow .hb-place { border-left-color: var(--g-line); } }
+
+/* ---------- フッター（保育園と同じ） ---------- */
+body .foot { background: #fff !important; color: #2f3c4f !important; border-top: 1px solid #efe4d3; padding: 56px 0 28px !important; }
+body .foot a, body .foot h4, body .foot .brand .name { color: #2f3c4f !important; }
+body .foot .foot-addr, body .foot .brand .en, body .foot .copy, body .foot .copy span, body .foot .copy a { color: #5d6878 !important; }
+body .foot .copy { border-top: 1px solid #f1e9dd !important; }
+body .foot h4 { font-size: 13px !important; font-weight: 700 !important; letter-spacing: .1em !important; }
+body .foot li a { font-size: 13.5px !important; }
+body .foot .foot-addr { margin-top: 16px; font-size: 12.5px !important; line-height: 2 !important; }
+body .foot .brand { display: flex; align-items: center; gap: 8px; }
+body .foot .brand .mark { width: 72px; height: auto; }
+body .foot .brand .tx { display: block; }
+body .foot .brand .name { display: block; font-size: 20px !important; font-weight: 700 !important; letter-spacing: .22em !important; line-height: 1.25 !important; }
+body .foot .brand .en { display: block; font-size: 9px !important; letter-spacing: .28em !important; line-height: 1.25 !important; }
+body .foot .foot-sub { font-size: 12px; color: #8d857c !important; }
+
+/* ---------- FV（page-fv）：保育園の design-system.css と同じ色 ---------- */
+.page-fv { background: var(--g-green-bg) !important; font-family: var(--g-gothic); }
+.page-fv .page-fv-copy h1 { font-family: var(--g-mincho) !important; }
+.page-fv .page-fv-btn { gap: 10px; text-decoration: none; }
+.page-fv .page-fv-btn.main { background: var(--g-coral) !important; color: #fff !important; border: 1.5px solid var(--g-coral) !important; border-radius: 999px !important; box-shadow: 0 8px 18px rgba(226, 107, 85, .22) !important; font-weight: 700; }
+.page-fv .page-fv-btn.main:hover { background: var(--g-coral-d) !important; border-color: var(--g-coral-d) !important; filter: none; }
+.page-fv .page-fv-btn.sub { background: #fff !important; color: var(--g-green-d) !important; border: 1.5px solid var(--g-green) !important; border-radius: 999px !important; font-weight: 700; }
+@media (min-width: 701px) {
+  html body .page-fv .page-fv-copy .page-fv-btn.sub { background: transparent !important; color: #fff !important; border-color: rgba(255, 255, 255, .85) !important; }
+  html body .page-fv .page-fv-copy .page-fv-btn.sub:hover { background: rgba(255, 255, 255, .12) !important; }
+}
+@media (max-width: 700px) {
+  .page-fv .page-fv-edge.b { fill: var(--g-green-bg) !important; }
+  .page-fv .page-fv-copy h1, .page-fv .page-fv-lead, .page-fv .page-fv-sub { color: var(--g-ink) !important; }
+}
+.page-fv .page-fv-sub { font-family: var(--g-mincho) !important; }
+
+/* トップのFV：見出しを大きく、対象・事業所・言語の3つを写真の上に */
+.page-fv.is-top .page-fv-copy h1 { font-size: clamp(34px, 3.6vw, 52px); line-height: 1.5; }
+.page-fv.is-top .page-fv-copy h1 .l1 { display: block; }
+.page-fv.is-top .page-fv-copy h1 em { font-style: normal; color: #ffd9a8; }
+.page-fv .pfv-badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 0; padding: 0; list-style: none; }
+.page-fv .pfv-badges li { display: flex; flex-direction: column; padding: 8px 16px; border: 1px solid rgba(255, 255, 255, .7); border-radius: 12px; background: rgba(255, 255, 255, .12); color: #fff; line-height: 1.4; }
+.page-fv .pfv-badges b { font-size: 15px; color: #fff; }
+.page-fv .pfv-badges small { font-size: 11.5px; color: rgba(255, 255, 255, .88); }
+.page-fv .pfv-note { margin: 14px 0 0; font-size: 13px; color: rgba(255, 255, 255, .92); text-shadow: 0 2px 10px #071719aa; }
+@media (max-width: 700px) {
+  .page-fv.is-top .page-fv-copy h1 { font-size: clamp(26px, 7.4vw, 32px); color: var(--g-ink) !important; }
+  .page-fv.is-top .page-fv-copy h1 em { color: var(--g-coral-d); }
+  .page-fv .pfv-badges { justify-content: center; }
+  .page-fv .pfv-badges li { border-color: var(--g-line); background: #fff; color: var(--g-ink); }
+  .page-fv .pfv-badges b { color: var(--g-ink); }
+  .page-fv .pfv-badges small, .page-fv .pfv-note { color: var(--g-mute); text-shadow: none; }
+}
+
+/* ---------- 作り直した7ページ（dw-）の色を、保育園と同じ値に ---------- */
+.dw { --dw-ink: #2f3430; --dw-sub: #4b5149; --dw-mute: #6b7068; --dw-green: #4f7f63; --dw-deep: #3d6a50; --dw-pale: #eef3e8; --dw-pale2: #f5f7f0; --dw-cream: #fbf8f1; --dw-line: #e3e0d6; --dw-orange: #e26b55;
+  font-family: var(--g-gothic); }
+/* 主ボタン＝さんご、副ボタン＝白地に緑の枠（保育園と同じ2種類） */
+.dw .dw-btn { background: var(--g-coral); box-shadow: 0 8px 18px rgba(226, 107, 85, .22); }
+.dw .dw-btn:hover { background: var(--g-coral-d); }
+.dw .dw-btn.is-o { background: #fff; color: var(--g-green-d) !important; border: 1.5px solid var(--g-green); box-shadow: none; }
+.dw .dw-btn.is-o:hover { background: var(--g-green-bg); }
+.dw .dw-link { color: var(--g-green-d) !important; border-color: var(--g-green); }
+
+/* ---------- 作り直していない6ページ（もとの .sec）も、余白と見出しをそろえる ---------- */
+.sec { padding-top: 104px !important; padding-bottom: 104px !important; }
+@media (max-width: 760px) { .sec { padding-top: 64px !important; padding-bottom: 64px !important; } }
+.sec h2 { font-weight: 500 !important; letter-spacing: .06em; color: var(--g-ink); }
+.sec .eyebrow { color: var(--g-green-d) !important; }
+.btn-main, .d2-cta { background: var(--g-coral) !important; border-color: var(--g-coral) !important; color: #fff !important; }
+
+/* 多言語のページの箱：濃いパステルグリーンに白い文字をやめ、保育園と同じ淡い緑に墨の文字 */
+.multi { background: var(--g-green-bg) !important; color: var(--g-ink) !important; }
+.multi p, .multi .d2-langcap, .multi .d2-langnote { color: var(--g-sub) !important; }
+.multi strong { color: var(--g-green-d) !important; background: none !important; }
+.multi .langs span { background: #fff !important; color: var(--g-green-d) !important; border: 1px solid var(--g-line); }

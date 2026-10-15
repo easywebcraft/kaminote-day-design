@@ -8,16 +8,20 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='30' fill='%238ecfa5'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&family=Zen+Old+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=ec5845f1">
+<link rel="stylesheet" href="page-fv.css?v=20261015">
+<link rel="stylesheet" href="hero-calm.css?v=20261015">
+<link rel="stylesheet" href="site-motion.css?v=20261015">
+<link rel="stylesheet" href="group.css?v=20261015">
 <script>
-  // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
-  // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
-  document.documentElement.classList.add('anim');
-  // 保険: 下のJSが動かなかったときは、隠したままにしない
-  setTimeout(function () {
-    if (!window.__animReady) { document.documentElement.classList.remove('anim'); }
-  }, 4000);
+// スクロールの動き：ページを描く前に html.tm-on を付ける（保育園サイトと同じ仕組み）。
+// 「視差効果を減らす」がオンなら付けない。day-motion.js が4秒たっても読めなければ外して、普通に表示する
+(function () {
+  try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch (e) { return; }
+  var r = document.documentElement; r.classList.add('tm-on');
+  setTimeout(function () { if (!window.__tmReady) r.classList.remove('tm-on'); }, 4000);
+})();
 </script>
 </head>
 <body>
@@ -58,14 +62,25 @@
 
 
 
-<nav class="crumb"><a href="index.html" data-i18n="k126">トップ</a><span aria-hidden="true">›</span><span data-i18n="k004">支援の内容</span></nav>
+<section class="page-fv " style="--pfv-next:#fbf8f1">
+<div class="page-fv-bg"><img src="img/dw-blocks.jpg" alt="イメージ写真（積み木の置かれた机）" fetchpriority="high" decoding="async"></div>
+<svg class="page-fv-edge t" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V34q-70 40-150 6-70 34-170 4-80 44-190 2-90 40-200 6-80 36-180 2-90 42-200 4-80 38-180 6-70 34-170 4Z"/></svg>
+<svg class="page-fv-edge b" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100H1440V66q-70-40-150-6-70-34-170-4-80-44-190-2-90-40-200-6-80-36-180-2-90-42-200-4-80-38-180-6-70-34-170-4Z"/></svg>
+<div class="page-fv-copy">
+<nav class="page-fv-crumb" aria-label="パンくず"><a href="index.html" data-i18n="k126">トップ</a><span aria-hidden="true">›</span><span data-i18n="k004">支援の内容</span></nav>
+<p class="page-fv-eyebrow"><span data-i18n="k004">支援の内容</span> <small>SUPPORT</small></p>
+<h1><span data-i18n="k034">5つの領域を、</span><br><span class="g" data-i18n="k035">あそびと生活の中で。</span></h1>
+<p class="page-fv-lead" data-i18n="k036">国が定める5つの領域すべてを見ながら、そのお子さまに必要なところを厚く支援します。訓練の時間をつくるのではなく、あそびと毎日の生活の中に組み込んでいくのが基本です。</p>
+
+</div>
+</section>
 <section class="sec" id="support">
   <div class="wrap split">
-    <div class="ph-round"><span class="stockmark" data-i18n="k021">イメージ写真</span><img src="img/support.jpg" alt="積み木を積むこどもの手" loading="lazy"></div>
+    <div class="ph-round"><span class="stockmark" data-i18n="k021">イメージ写真</span><img src="img/dw-toys.jpg" alt="イメージ写真（おもちゃ）" loading="lazy"></div>
     <div>
-      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#8ecfa5"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="k004">支援の内容</span></span>
-      <h2><span data-i18n="k034">5つの領域を、</span><br><span class="g" data-i18n="k035">あそびと生活の中で。</span></h2>
-      <p class="lead" data-i18n="k036">国が定める5つの領域すべてを見ながら、そのお子さまに必要なところを厚く支援します。訓練の時間をつくるのではなく、あそびと毎日の生活の中に組み込んでいくのが基本です。</p>
+      
+      
+      
       <p class="d2-sub-h" data-i18n="k644">5つの領域</p>
       <ul class="d2-areas d2-areas-s">
         <li><span class="d2-ic">🌱</span><b data-i18n="k037">健康・生活</b></li>
@@ -93,11 +108,12 @@
 <!-- ============ 多言語での支援 ============ -->
 
 
+<a class="tm-spbar" href="contact.html"><i18n-t data-i18n="k458">見学・相談してみる</i18n-t><span aria-hidden="true">→</span></a>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="name" data-i18n="k002">かみのてKIDS・SMILE</div><div class="en">KAMINOTE KIDS &amp; SMILE</div>
+        <div class="brand"><img class="mark" src="img/logo-mark.png" width="516" height="276" alt=""><span class="tx"><span class="name" data-i18n="k002">かみのてKIDS・SMILE</span><span class="en">KAMINOTE KIDS &amp; SMILE</span></span></div>
         <div class="foot-addr" data-i18n="k107">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
       </div>
       <div>
@@ -116,7 +132,7 @@
       <div>
         <h4 data-i18n="k109">グループの事業</h4>
         <ul>
-          <li><a href="https://easywebcraft.github.io/kaminote-design/b/" data-i18n="k116">かみのて保育園</a><br><span style="font-size:12px;color:#9dafa4" data-i18n="k117">かみのて保育園・かみのて今渡保育園</span></li>
+          <li><a href="https://easywebcraft.github.io/kaminote-design/" data-i18n="k116">かみのて保育園</a><br><span class="foot-sub" data-i18n="k656">かみのて保育園・かみのて今渡保育園・ハンズオブガッド保育園</span></li>
           <li><a href="recruit.html" data-i18n="k008">採用情報</a></li>
           <li><a href="recruit-new.html" data-i18n="k127">新卒採用</a></li>
           <li><a href="recruit-mid.html" data-i18n="k128">中途採用</a></li>
@@ -234,6 +250,9 @@
 </script>
 
 
+<script src="lenis.min.js?v=1.1.20"></script>
+<script src="day-motion.js?v=20261015"></script>
+<script src="hero-calm.js?v=20261015"></script>
 <script src="i18n.js?v=20261015"></script>
 
 <script>
