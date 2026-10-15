@@ -10,10 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&family=Zen+Old+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=ec5845f1">
-<link rel="stylesheet" href="page-fv.css?v=20261015">
-<link rel="stylesheet" href="hero-calm.css?v=20261015">
 <link rel="stylesheet" href="site-motion.css?v=20261015">
-<link rel="stylesheet" href="group.css?v=20261015">
+<link rel="stylesheet" href="group.css?v=20261015b">
 <script>
 // スクロールの動き：ページを描く前に html.tm-on を付ける（保育園サイトと同じ仕組み）。
 // 「視差効果を減らす」がオンなら付けない。day-motion.js が4秒たっても読めなければ外して、普通に表示する
@@ -62,18 +60,7 @@
 
 
 
-<section class="page-fv " style="--pfv-next:#fbf8f1">
-<div class="page-fv-bg"><img src="img/dw-corner.jpg" alt="イメージ写真（小さな椅子と絵本）" fetchpriority="high" decoding="async"></div>
-<svg class="page-fv-edge t" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V34q-70 40-150 6-70 34-170 4-80 44-190 2-90 40-200 6-80 36-180 2-90 42-200 4-80 38-180 6-70 34-170 4Z"/></svg>
-<svg class="page-fv-edge b" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100H1440V66q-70-40-150-6-70-34-170-4-80-44-190-2-90-40-200-6-80-36-180-2-90-42-200-4-80-38-180-6-70-34-170-4Z"/></svg>
-<div class="page-fv-copy">
-<nav class="page-fv-crumb" aria-label="パンくず"><a href="index.html" data-i18n="k126">トップ</a><span aria-hidden="true">›</span><span data-i18n="k127">新卒採用</span></nav>
-<p class="page-fv-eyebrow"><span data-i18n="k127">新卒採用</span> <small>NEW GRADUATES</small></p>
-<h1><span data-i18n="k386">はじめの一歩を、</span><br><span data-i18n="k387">いっしょに</span></h1>
-<p class="page-fv-lead" data-i18n="k388">障がいのあるお子さんと関わった経験は、なくてかまいません。<br>はじめから分かっている人はいません。</p>
-
-</div>
-</section>
+<nav class="crumb"><a href="index.html" data-i18n="k126">トップ</a><span aria-hidden="true">›</span><span data-i18n="k127">新卒採用</span></nav>
 <!-- ============================================================
      新卒採用（かみのてKIDS・かみのてSMILE）
      保育園版（nursery-recruit-new.html）の放デイ版。
@@ -84,7 +71,11 @@
 
 <section class="sec" id="recruit-new">
   <div class="wrap">
-    
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="k127">新卒採用</span>
+      <h2><span data-i18n="k386">はじめの一歩を、</span><br class="x-br"><span data-i18n="k387">いっしょに</span><span class="en">NEW GRADUATES</span></h2>
+      <p data-i18n="k388">障がいのあるお子さんと関わった経験は、なくてかまいません。<br class="x-br">はじめから分かっている人はいません。</p>
+    </div>
     <ul class="x-points">
       <li>
         <span class="ic" aria-hidden="true">🔟</span>
@@ -332,7 +323,6 @@
 
 <script src="lenis.min.js?v=1.1.20"></script>
 <script src="day-motion.js?v=20261015"></script>
-<script src="hero-calm.js?v=20261015"></script>
 <script src="i18n.js?v=20261015"></script>
 
 <script>

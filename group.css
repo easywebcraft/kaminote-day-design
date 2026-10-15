@@ -126,3 +126,6 @@ body .foot .foot-sub { font-size: 12px; color: #8d857c !important; }
 .multi p, .multi .d2-langcap, .multi .d2-langnote { color: var(--g-sub) !important; }
 .multi strong { color: var(--g-green-d) !important; background: none !important; }
 .multi .langs span { background: #fff !important; color: var(--g-green-d) !important; border: 1px solid var(--g-line); }
+
+/* 下層ページのFV（dw-fv）の大きなひと言は明朝のまま（2026-10-15 FVを前の形に戻したとき） */
+html body :is(.dw-fv-catch, .dw-fv-sub), html body :is(.dw-fv-catch, .dw-fv-sub) *:not(svg):not(svg *) { font-family: var(--g-mincho) !important; font-weight: 500 !important; }
