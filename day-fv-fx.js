@@ -60,8 +60,6 @@
     start(h1);
     // 「できた」をふやす。の文字の終わりに置く（言語の切り替えや画面幅で長さが変わるので、そのたびに測り直す）
     var g = h1.querySelector('.g');
-    var bg = getComputedStyle(document.body).backgroundColor;
-    if (bg && bg !== 'rgba(0, 0, 0, 0)') h1.style.setProperty('--fx-bg', bg);
     var place = function () {
       if (!g) return;
       // 折り返したときは最後の行の終わり
