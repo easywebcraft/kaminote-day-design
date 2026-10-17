@@ -100,19 +100,27 @@
 .hero.is-sub .sub-sub { margin-top: 10px; font-weight: 700; color: #3d6a50; }
 
 /* ---------- トップのFV：写真を大きな楕円にして右半分を占める（2026-10-17・PCだけ） ----------
-   楕円の左端は文字の段の右端から少し離す（--fv-l は day-fv-fx.js が測って入れる）。右は画面の外へはみ出す */
+   直し（松本さん「右側が削れている、もっと左に、境目は透過で馴染ませて」）：
+   楕円は画面の内側に収め、左へ寄せる（左端は文字の段の端に少しかかる。--fv-l は day-fv-fx.js が測って入れる）。
+   ふちは外へ向かってだんだん透け、まわりのクリーム色になじむ（輪郭の線と影はやめた） */
 @media (min-width: 901px) {
   .hero:not(.is-sub) { min-height: 640px; }
-  .hero:not(.is-sub) .hero-photo { position: absolute; top: 22px; bottom: 26px; left: var(--fv-l, 54%); right: -12vw; width: auto; margin: 0; }
-  .hero:not(.is-sub) .hero-photo .blob { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 50%; }
+  .hero:not(.is-sub) .hero-photo { position: absolute; top: 6px; bottom: 6px; left: var(--fv-l, 46%); right: 1.5vw; width: auto; margin: 0; }
+  .hero:not(.is-sub) .hero-photo .blob { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; box-shadow: none;
+    -webkit-mask-image: radial-gradient(closest-side, #000 62%, rgba(0, 0, 0, .6) 80%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 62%, rgba(0, 0, 0, .6) 80%, transparent 100%); }
   .hero:not(.is-sub) .hero-scribble { display: none; }
-  /* 下の波を写真より前に出して、楕円の下を波で切る */
+  /* 下の波を写真より前に出す */
   .hero:not(.is-sub) .wave { position: relative; z-index: 3; }
-  /* 吹き出しは、見えている左側に */
-  .hero:not(.is-sub) .fx-b1 { top: 4%; left: 20%; right: auto; bottom: auto; }
-  .hero:not(.is-sub) .fx-b2 { top: 16%; left: 54%; right: auto; bottom: auto; }
-  .hero:not(.is-sub) .fx-b3 { top: 44%; left: -2%; right: auto; bottom: auto; }
-  .hero:not(.is-sub) .fx-b4 { bottom: 12%; left: 14%; right: auto; top: auto; }
-  .hero:not(.is-sub) .fx-b5 { bottom: 26%; left: 46%; right: auto; top: auto; }
-  .hero:not(.is-sub) :is(.fx-b2, .fx-b4)::after { left: 22%; right: auto; }
+  /* 「イメージ写真」の札は、透けたふちをさけて内側に */
+  .hero:not(.is-sub) .stockmark { top: 15% !important; left: 40% !important; }
+  /* 吹き出しは楕円の左右に散らす */
+  .hero:not(.is-sub) .fx-b1 { top: 9%; left: 26%; right: auto; bottom: auto; }
+  .hero:not(.is-sub) .fx-b2 { top: 20%; right: 9%; left: auto; bottom: auto; }
+  .hero:not(.is-sub) .fx-b3 { top: 46%; left: 16%; right: auto; bottom: auto; }
+  /* 楕円の左側の飾り（黄色い丸・点々）は、文字の段に重なるので出さない */
+  .hero:not(.is-sub) .hero-photo .il:nth-of-type(1), .hero:not(.is-sub) .hero-photo .il:nth-of-type(4) { display: none; }
+  .hero:not(.is-sub) .fx-b4 { bottom: 20%; right: 7%; left: auto; top: auto; }
+  .hero:not(.is-sub) .fx-b5 { bottom: 10%; left: 30%; right: auto; top: auto; }
+  .hero:not(.is-sub) :is(.fx-b2, .fx-b4)::after { left: auto; right: 22%; }
 }

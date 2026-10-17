@@ -36,13 +36,14 @@
     wave.setAttribute('fill', bgc);
   }
 
-  // トップのFV（PC）：楕円の写真の左端を、文字の段の右端から少し離した位置に（画面幅や言語で文字の段の幅が変わるため）
+  // トップのFV（PC）：楕円の写真の左端を、文字の段の右端に合わせる（画面幅や言語で文字の段の幅が変わるため）
+  // ふちが透けるので、少し文字の段にかかってよい（文字の下は、ほぼ透けた部分になる）
   var topHero = document.querySelector('.hero:not(.is-sub)');
   var txt = topHero && topHero.querySelector('.hero-txt');
   if (txt) {
     var fit = function () {
       var hr = topHero.getBoundingClientRect(), tr = txt.getBoundingClientRect();
-      topHero.style.setProperty('--fv-l', Math.round(Math.max(tr.right - hr.left + 28, hr.width * 0.5)) + 'px');
+      topHero.style.setProperty('--fv-l', Math.round(Math.max(tr.right - hr.left - 70, hr.width * 0.44)) + 'px');
     };
     fit();
     window.addEventListener('resize', fit);
