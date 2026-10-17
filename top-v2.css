@@ -226,3 +226,6 @@ html body .tv .tv-h { color: var(--dw-ink); }
 .tv-area, .tv-dcard, .tv-ocard, .tv-cases li { transition: translate .35s cubic-bezier(.3, .7, .3, 1); }
 @media (hover: hover) { :is(.tv-area, .tv-dcard, .tv-ocard, .tv-cases li):hover { translate: 0 -5px; } }
 @media (max-width: 640px) { .tv-area > .tv-ic { width: 56px; height: 56px; padding: 13px; } }
+
+/* トップのFVのことばの吹き出しは出さない（2026-10-17・松本さん「この演出削除して」。下層ページは出す） */
+.hero .fx-hello { display: none !important; }
