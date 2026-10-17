@@ -1,0 +1,35 @@
+/* =====================================================================
+   トップのFVの動きを足す（2026-10-17・トップだけで読む）。top-fv-motion.js とセット
+   C 「できた」に花丸を手描きで描く／A 楕円の写真がゆっくり寄って戻る／B 写真のまわりに色紙がひらひら舞う
+   最初の演出のあいだは止まり（day-intro.css の dy-hold）、終わってから動き出す
+   ===================================================================== */
+
+/* ---------- C 花丸 ---------- */
+.tf-maru { position: absolute; z-index: 3; pointer-events: none; overflow: visible; }
+.tf-maru path { fill: none; stroke: #e26b55; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; opacity: .85;
+  stroke-dasharray: 1; stroke-dashoffset: 1; }
+.tf-maru.is-draw path { transition: stroke-dashoffset 1.4s cubic-bezier(.45, .05, .35, 1); stroke-dashoffset: 0; }
+
+/* ---------- A 写真がゆっくり寄る ---------- */
+.hero:not(.is-sub) .hero-photo .blob img { animation: tf-ken 24s ease-in-out infinite alternate; transform-origin: 60% 50%; }
+@keyframes tf-ken { from { transform: scale(1) translateX(0); } to { transform: scale(1.09) translateX(-2%); } }
+
+/* ---------- B 色紙がひらひら ---------- */
+.tf-paper { position: absolute; inset: -6% -2% 0; overflow: hidden; pointer-events: none; z-index: 1; }
+.tf-paper i { position: absolute; top: -8%; left: var(--x); width: var(--w); height: calc(var(--w) * .7); background: var(--c); border-radius: 2px; opacity: .85;
+  animation: tf-fall var(--t) linear var(--d) infinite; }
+.tf-paper i.is-tri { height: var(--w); background: none; width: 0; border-left: calc(var(--w) * .55) solid transparent; border-right: calc(var(--w) * .55) solid transparent; border-bottom: var(--w) solid var(--c); border-radius: 0; }
+@keyframes tf-fall {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(18px, 30vh) rotate(110deg); }
+  50% { transform: translate(-14px, 60vh) rotate(200deg); }
+  75% { transform: translate(16px, 90vh) rotate(300deg); }
+  100% { transform: translate(-6px, 120vh) rotate(380deg); }
+}
+.hero:not(.is-sub) .fx-hello { z-index: 2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero:not(.is-sub) .hero-photo .blob img { animation: none; }
+  .tf-paper { display: none; }
+  .tf-maru path { stroke-dashoffset: 0; transition: none; }
+}
