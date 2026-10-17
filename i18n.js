@@ -668,7 +668,9 @@
   "k658": "集団支援",
   "k659": "家族支援",
   "k660": "かみのてで過ごす いつもの一日",
-  "k661": "一日の流れを見る"
+  "k661": "一日の流れを見る",
+  "k662": "で",
+  "k663": "「できた」をふやす"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1332,7 +1334,9 @@
   "k658": "Group support",
   "k659": "Family support",
   "k660": "An ordinary day at Kaminote",
-  "k661": "See the daily schedule"
+  "k661": "See the daily schedule",
+  "k662": ", ",
+  "k663": "more moments of “I did it”"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -1996,7 +2000,9 @@
   "k658": "Apoio em grupo",
   "k659": "Apoio à família",
   "k660": "Um dia comum na Kaminote",
-  "k661": "Ver a rotina do dia"
+  "k661": "Ver a rotina do dia",
+  "k662": ", ",
+  "k663": "mais momentos de «consegui»"
  }
 };
 
