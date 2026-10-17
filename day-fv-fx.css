@@ -72,3 +72,22 @@
   .fx-bubble { animation: none; }
   .fx-b1, .fx-b4 { opacity: 1; }
 }
+
+/* ---------- トップの丸い写真を大きく（2026-10-17） ----------
+   左の段は見出し「「できた」をふやす。」と芽が1行に入る幅だけにして、残りを写真に回す。
+   広い画面では写真を右へ少しはみ出させる（吹き出しが画面の端で切れない範囲） */
+@media (min-width: 901px) {
+  .hero-grid { grid-template-columns: minmax(470px, calc(12.2 * clamp(28px, 3.6vw, 50px))) minmax(0, 1fr); gap: 40px; }
+  .hero-photo { width: auto; justify-self: stretch; margin-right: calc(-1 * clamp(0px, (100vw - 1080px) / 2 - 40px, 140px)); }
+}
+@media (max-width: 900px) {
+  .hero-photo { width: 92%; }
+}
+/* 写真が画面の右端近くまで来る幅では、右側の吹き出しを内側へ。飾りの波線は写真に重なるので出さない */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .fx-b2 { right: 0; }
+  .fx-b4 { right: 2%; }
+}
+@media (max-width: 1100px) {
+  .hero-scribble { display: none; }
+}
