@@ -1,6 +1,6 @@
 /* トップのFVの動きを足す（2026-10-17・トップだけで読む）。top-fv-motion.css とセット。day-fv-fx.js のあとに読む */
 (function () {
-  var hero = document.querySelector('.hero:not(.is-sub)');
+  var hero = document.querySelector('.hero');
   if (!hero) return;
   var root = document.documentElement;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;

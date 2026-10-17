@@ -18,7 +18,7 @@
 /* ---------- A 写真のカメラワーク（はじめはゆっくり寄るだけだった） ---------- */
 /* カメラワーク（松本さん「カメラワーク追加して、退屈感を軽減したい」）：全体 → お皿 → 魚の絵 → 花の絵 → クレヨン → 全体を約36秒で1周。
    写真のふちから外が見えないよう、ずらす量は「(拡大率−1)÷(2×拡大率)」の内側に収める（1.2倍なら約8%） */
-.hero:not(.is-sub) .hero-photo .blob img { animation: tf-cam 36s infinite; transform-origin: 50% 50%; will-change: transform; }
+.hero .hero-photo .blob img { animation: tf-cam 36s infinite; transform-origin: 50% 50%; will-change: transform; }
 @keyframes tf-cam {
   0%, 6% { transform: scale(1.06) translate(0, 0); animation-timing-function: cubic-bezier(.45, 0, .25, 1); }
   20%, 25% { transform: scale(1.24) translate(1%, 7%); animation-timing-function: cubic-bezier(.45, 0, .25, 1); }      /* お皿（上の真ん中） */
@@ -40,10 +40,10 @@
   75% { transform: translate(16px, 90vh) rotate(300deg); }
   100% { transform: translate(-6px, 120vh) rotate(380deg); }
 }
-.hero:not(.is-sub) .fx-hello { z-index: 2; }
+.hero .fx-hello { z-index: 2; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero:not(.is-sub) .hero-photo .blob img { animation: none; }
+  .hero .hero-photo .blob img { animation: none; }
   .tf-paper { display: none; }
   .tf-ch, .g .tf-ch, .tf-w { animation: none !important; }
 }

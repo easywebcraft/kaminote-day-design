@@ -38,7 +38,7 @@
 
   // トップのFV（PC）：楕円の写真の左端を、文字の段の右端に合わせる（画面幅や言語で文字の段の幅が変わるため）
   // ふちが透けるので、少し文字の段にかかってよい（文字の下は、ほぼ透けた部分になる）
-  var topHero = document.querySelector('.hero:not(.is-sub)');
+  var topHero = document.querySelector('.hero');
   var txt = topHero && topHero.querySelector('.hero-txt');
   if (txt) {
     var fit = function () {
