@@ -1,0 +1,142 @@
+/* =====================================================================
+   放デイのトップをにぎやかに（2026-10-17）。トップだけで読む。day-top-lively.js とセット
+   A クレヨン5色で色分け／C 写真の形と後ろの色の丸／E ことばの帯／F チェックがポンと入る
+   G 一日の流れの線がのびる／H ご利用までの流れを点線でつなぐ／I さわると浮く・跳ねる／J 色の丸がふわふわ
+   動きは html.tm-on のとき（「視差効果を減らす」がオンなら付かない）だけ。色と形はいつでも
+   ===================================================================== */
+:root {
+  --c1: #c08a12; --c1-bg: #fdf1c7;   /* 黄 */
+  --c2: #2f7f9b; --c2-bg: #e2f2f7;   /* 水色 */
+  --c3: #d05a45; --c3-bg: #fbe3dc;   /* さんご */
+  --c4: #3d6a50; --c4-bg: #e3efe6;   /* 緑 */
+  --c5: #c95a7c; --c5-bg: #fbe4ec;   /* ピンク */
+}
+
+/* ---------- A 色分け（番号順に5色を回す） ---------- */
+.dw-points .dw-point:nth-child(5n+1), .dw-icons > div:nth-child(5n+1), .dw-steps li:nth-child(5n+1), .dw-nums li:nth-child(5n+1), .dw-tl li:nth-child(5n+1), .dw-checks li:nth-child(5n+1) { --c: var(--c1); --cb: var(--c1-bg); }
+.dw-points .dw-point:nth-child(5n+2), .dw-icons > div:nth-child(5n+2), .dw-steps li:nth-child(5n+2), .dw-nums li:nth-child(5n+2), .dw-tl li:nth-child(5n+2), .dw-checks li:nth-child(5n+2) { --c: var(--c2); --cb: var(--c2-bg); }
+.dw-points .dw-point:nth-child(5n+3), .dw-icons > div:nth-child(5n+3), .dw-steps li:nth-child(5n+3), .dw-nums li:nth-child(5n+3), .dw-tl li:nth-child(5n+3), .dw-checks li:nth-child(5n+3) { --c: var(--c3); --cb: var(--c3-bg); }
+.dw-points .dw-point:nth-child(5n+4), .dw-icons > div:nth-child(5n+4), .dw-steps li:nth-child(5n+4), .dw-nums li:nth-child(5n+4), .dw-tl li:nth-child(5n+4), .dw-checks li:nth-child(5n+4) { --c: var(--c4); --cb: var(--c4-bg); }
+.dw-points .dw-point:nth-child(5n+5), .dw-icons > div:nth-child(5n+5), .dw-steps li:nth-child(5n+5), .dw-nums li:nth-child(5n+5), .dw-tl li:nth-child(5n+5), .dw-checks li:nth-child(5n+5) { --c: var(--c5); --cb: var(--c5-bg); }
+
+html body .dw-points .dw-circle, html body .dw-steps .dw-circle { background: var(--cb) !important; }
+html body :is(.dw-points, .dw-steps, .dw-icons, .dw-checks) .dw-ic { color: var(--c) !important; }
+/* 5つの領域：アイコンを色の丸にのせる */
+html body .dw-icons > div .dw-ic { box-sizing: border-box; width: 72px; height: 72px; padding: 17px; border-radius: 50%; background: var(--cb); }
+@media (max-width: 700px) { html body .dw-icons > div .dw-ic { width: 56px; height: 56px; padding: 13px; } }
+html body .dw-steps .dw-sn, html body .dw-nums .dw-num { color: var(--c) !important; }
+html body .dw-tl li::before { background: var(--c) !important; }
+/* 事業所：上に色の線 */
+.dw-cards .dw-office:nth-child(1) { box-shadow: inset 0 5px 0 #f7c948, 0 10px 28px rgba(44, 90, 67, .07); }
+.dw-cards .dw-office:nth-child(2) { box-shadow: inset 0 5px 0 #8ec9dd, 0 10px 28px rgba(44, 90, 67, .07); }
+/* チェックは丸い地にのせる */
+html body .dw-checks .dw-ic { box-sizing: border-box; width: 28px; height: 28px; padding: 4px; margin-top: -1px; border-radius: 50%; background: var(--cb); }
+
+/* ---------- C 写真の形と後ろの色の丸（J ふわふわ） ---------- */
+.lv-ph { position: relative; isolation: isolate; }
+.lv-ph > .dw-photo { z-index: 1; box-shadow: 0 16px 36px rgba(47, 52, 48, .10); }
+.lv-dot { position: absolute; z-index: -1; border-radius: 50%; pointer-events: none; transform: translateY(calc(var(--py, 0) * 1px)); }
+.lv-dot.is-y { background: #f7c948; opacity: .55; }
+.lv-dot.is-s { background: #8ec9dd; opacity: .5; }
+.lv-dot.is-c { background: #f4a493; opacity: .45; }
+.lv-dot.is-g { background: #8ecfa5; opacity: .5; }
+.lv-dot.is-p { background: #f2b6c8; opacity: .55; }
+.lv-dot.is-ring { background: none; border: 3px dashed #8ecfa5; opacity: .8; }
+
+/* こんなことありませんか：丸みのある形 */
+#cases .lv-ph > .dw-photo { border-radius: 46% 54% 50% 50% / 52% 44% 56% 48%; }
+#cases .lv-ph > .dw-photo img { aspect-ratio: 1 / 1; }
+#cases .lv-dot:nth-of-type(1) { width: 34%; aspect-ratio: 1; right: -5%; top: -6%; }
+#cases .lv-dot:nth-of-type(2) { width: 18%; aspect-ratio: 1; left: -4%; bottom: 4%; }
+/* 大切にしていること：アーチの形 */
+#values .lv-ph > .dw-photo { border-radius: 999px 999px 26px 26px; }
+#values .lv-dot:nth-of-type(1) { width: 46%; aspect-ratio: 1; left: -9%; bottom: -6%; }
+#values .lv-dot:nth-of-type(2) { width: 22%; aspect-ratio: 1; right: -6%; top: 8%; }
+/* 学校のある日の放課後：大きい写真は葉っぱの形、小さい2枚は丸 */
+#day .dw-stack.is-grid { gap: 18px; }
+#day .dw-stack .lv-ph:first-child > .dw-photo { border-radius: 140px 26px 140px 26px; }
+#day .dw-stack .lv-ph:not(:first-child) { width: 82%; justify-self: center; }
+#day .dw-stack .lv-ph:not(:first-child) > .dw-photo { border-radius: 50%; }
+#day .dw-stack .lv-ph:not(:first-child) > .dw-photo img { aspect-ratio: 1 / 1; }
+#day .lv-dot:nth-of-type(1) { width: 30%; aspect-ratio: 1; right: -7%; top: -10%; }
+#day .lv-dot:nth-of-type(2) { width: 16%; aspect-ratio: 1; left: -5%; bottom: -4%; }
+/* 「イメージ写真」の札は、形で欠ける角をさけて下の真ん中に */
+.lv-ph > .dw-photo small { left: 50%; bottom: 7%; transform: translateX(-50%); white-space: nowrap; }
+
+@media (max-width: 700px) {
+  #day .dw-stack.is-grid { grid-template-columns: 1fr 1fr; }
+  #day .dw-stack .lv-ph:not(:first-child) { width: 92%; }
+  #day .dw-stack .lv-ph:first-child > .dw-photo { border-radius: 90px 22px 90px 22px; }
+}
+
+/* ---------- E ことばの帯 ---------- */
+.lv-marquee { overflow: hidden; margin: calc(-1 * clamp(24px, 4vw, 52px)) 0 clamp(36px, 5vw, 56px); padding: 6px 0; pointer-events: none; user-select: none; }
+.lv-track { display: flex; width: max-content; }
+.lv-track span { flex: none; padding: 0 .6em; font-family: var(--g-mincho, serif) !important; font-size: clamp(30px, 5vw, 64px); line-height: 1.3; letter-spacing: .04em; white-space: nowrap; }
+.lv-track span:nth-child(5n+1) { color: #e3a91f; }
+.lv-track span:nth-child(5n+2) { color: #5aa7c2; }
+.lv-track span:nth-child(5n+3) { color: #e07a64; }
+.lv-track span:nth-child(5n+4) { color: #6aa883; }
+.lv-track span:nth-child(5n+5) { color: #d97a98; }
+.lv-track i { flex: none; align-self: center; width: .5em; height: .5em; margin: 0 .2em; font-size: clamp(30px, 5vw, 64px); border-radius: 50%; background: #e7dcc4; opacity: .7; }
+
+/* ---------- H ご利用までの流れ：点線でつなぐ（5つが横に並ぶ幅だけ） ---------- */
+@media (min-width: 961px) {
+  .dw-steps { position: relative; }
+  .dw-steps::before { content: ""; position: absolute; left: 10%; right: 10%; top: 31px; border-top: 2.5px dashed #c9dccf; z-index: 0; }
+  .dw-steps li + li::before { display: none !important; }
+  .dw-steps .dw-circle { position: relative; z-index: 1; box-shadow: 0 0 0 8px #fff; }
+}
+
+/* ---------- I さわると浮く・跳ねる ---------- */
+.dw-card, .dw-point, .dw-icons > div, .dw-steps li { transition: translate .35s cubic-bezier(.3, .7, .3, 1), box-shadow .35s; }
+@media (hover: hover) {
+  .dw-cards .dw-card:hover { translate: 0 -6px; }
+  .dw-cards .dw-office:nth-child(1):hover { box-shadow: inset 0 5px 0 #f7c948, 0 18px 38px rgba(44, 90, 67, .13); }
+  .dw-cards .dw-office:nth-child(2):hover { box-shadow: inset 0 5px 0 #8ec9dd, 0 18px 38px rgba(44, 90, 67, .13); }
+  :is(.dw-point, .dw-icons > div, .dw-steps li):hover :is(.dw-circle, .dw-ic) { animation: lv-hop .6s cubic-bezier(.3, .7, .3, 1); }
+  .dw-icons > div:hover .dw-ic { animation: lv-hop .6s cubic-bezier(.3, .7, .3, 1); }
+}
+@keyframes lv-hop { 0%, 100% { translate: 0 0; } 35% { translate: 0 -9px; } 60% { translate: 0 1px; } 80% { translate: 0 -2px; } }
+
+/* ---------- 動き（html.tm-on のときだけ） ---------- */
+/* J 色の丸がふわふわ */
+html.tm-on .lv-dot { animation: lv-float 7s ease-in-out infinite; }
+html.tm-on .lv-dot:nth-of-type(2) { animation-duration: 9s; animation-delay: -3s; }
+@keyframes lv-float { 0%, 100% { translate: 0 0; } 50% { translate: 6px -12px; } }
+
+/* E 帯が流れる */
+html.tm-on .lv-track { animation: lv-run 46s linear infinite; }
+@keyframes lv-run { to { transform: translateX(-50%); } }
+
+/* F チェックがポンと入る（行が出てから少しあと） */
+html.tm-on .dw-checks li .dw-ic { scale: 0; }
+html.tm-on .dw-checks li.is-in .dw-ic { animation: lv-pop .55s cubic-bezier(.3, 1.6, .5, 1) calc(.45s + var(--d, 0) * .12s) forwards; }
+@keyframes lv-pop { to { scale: 1; } }
+
+/* G 一日の流れ：線が上からのび、点が順に灯る */
+html.tm-on .dw-tl::before { transform: scaleY(0); transform-origin: 50% 0; transition: transform 2.6s cubic-bezier(.4, .1, .3, 1) .2s; }
+html.tm-on .dw-tl.lv-in::before { transform: none; }
+html.tm-on .dw-tl li::before { scale: 0; }
+html.tm-on .dw-tl.lv-in li::before { animation: lv-pop .5s cubic-bezier(.3, 1.6, .5, 1) calc(.25s + var(--i, 0) * .42s) forwards; }
+
+/* H 点線が左からのびる */
+@media (min-width: 961px) {
+  html.tm-on .dw-steps::before { transform: scaleX(0); transform-origin: 0 50%; transition: transform 1.8s cubic-bezier(.4, .1, .3, 1) .3s; }
+  html.tm-on .dw-steps.lv-in::before { transform: none; }
+}
+
+/* 色の丸が画面の外へ出ても、横にずれないよう段で切る */
+#cases, #values, #day { overflow-x: clip; }
+
+/* 多言語の段の見出し：PCで「い」だけ次の行に落ちていたので、日本語のときは各行を1行に収める */
+@media (min-width: 961px) {
+  html[lang="ja"] #multi .dw-band .dw-h { white-space: nowrap; font-size: clamp(22px, 2.5vw, 32px) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lv-dot, .lv-track { animation: none !important; }
+  .lv-marquee { overflow-x: auto; }
+  :is(.dw-point, .dw-icons > div, .dw-steps li, .dw-card):hover :is(.dw-circle, .dw-ic) { animation: none !important; }
+  .dw-cards .dw-card:hover { translate: none; }
+}
