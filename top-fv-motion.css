@@ -15,9 +15,18 @@
 .tf-w { animation: tf-fade .8s ease calc(.25s + var(--i, 0) * .09s) both; }
 @keyframes tf-fade { from { opacity: 0; filter: blur(5px); } to { opacity: 1; filter: none; } }
 
-/* ---------- A 写真がゆっくり寄る ---------- */
-.hero:not(.is-sub) .hero-photo .blob img { animation: tf-ken 24s ease-in-out infinite alternate; transform-origin: 60% 50%; }
-@keyframes tf-ken { from { transform: scale(1) translateX(0); } to { transform: scale(1.09) translateX(-2%); } }
+/* ---------- A 写真のカメラワーク（はじめはゆっくり寄るだけだった） ---------- */
+/* カメラワーク（松本さん「カメラワーク追加して、退屈感を軽減したい」）：全体 → お皿 → 魚の絵 → 花の絵 → クレヨン → 全体を約36秒で1周。
+   写真のふちから外が見えないよう、ずらす量は「(拡大率−1)÷(2×拡大率)」の内側に収める（1.2倍なら約8%） */
+.hero:not(.is-sub) .hero-photo .blob img { animation: tf-cam 36s infinite; transform-origin: 50% 50%; will-change: transform; }
+@keyframes tf-cam {
+  0%, 6% { transform: scale(1.06) translate(0, 0); animation-timing-function: cubic-bezier(.45, 0, .25, 1); }
+  20%, 25% { transform: scale(1.24) translate(1%, 7%); animation-timing-function: cubic-bezier(.45, 0, .25, 1); }      /* お皿（上の真ん中） */
+  39%, 44% { transform: scale(1.24) translate(-8%, 3%); animation-timing-function: cubic-bezier(.45, 0, .25, 1); }     /* 魚の絵（右） */
+  58%, 63% { transform: scale(1.26) translate(-1%, -8%); animation-timing-function: cubic-bezier(.45, 0, .25, 1); }    /* 花の絵（下） */
+  77%, 82% { transform: scale(1.22) translate(8%, 1%); animation-timing-function: cubic-bezier(.45, 0, .25, 1); }      /* クレヨン（左） */
+  100% { transform: scale(1.06) translate(0, 0); }
+}
 
 /* ---------- B 色紙がひらひら ---------- */
 .tf-paper { position: absolute; inset: -6% -2% 0; overflow: hidden; pointer-events: none; z-index: 1; }
