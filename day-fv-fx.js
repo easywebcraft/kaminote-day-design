@@ -74,27 +74,7 @@
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
     if (g && window.MutationObserver) new MutationObserver(place).observe(g, { childList: true, characterData: true, subtree: true });
 
-    var photo = document.querySelector('.hero-photo');
-    if (photo) {
-      var hello = [
-        ['ja', 'こんにちは'],
-        ['en', 'Hello'],
-        ['tl', 'Kumusta'],
-        ['pt', 'Olá'],
-        ['ceb', 'Maayong adlaw']
-      ];
-      var box = document.createElement('div');
-      box.className = 'fx-hello';
-      box.setAttribute('aria-hidden', 'true');
-      hello.forEach(function (h, i) {
-        var b = document.createElement('span');
-        b.className = 'fx-bubble fx-b' + (i + 1);
-        b.lang = h[0];
-        b.textContent = h[1];
-        box.appendChild(b);
-      });
-      photo.appendChild(box);
-    }
+    // ことばの吹き出し（こんにちは・Hello など）は、全ページで出さないことにした（2026-10-18・松本さん「各ページのFVの吹き出し演出削除して」）
     return;
   }
 
