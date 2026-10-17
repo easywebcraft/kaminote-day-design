@@ -3,9 +3,12 @@
 (function () {
   var root = document.documentElement;
   var loader = document.querySelector('.dy-loader');
+  // 演出が終わってから、FVのコピー・写真・芽・吹き出しを動かし始める
+  // （穴が開き始めたときに動かすと、演出の後ろで登場がほぼ終わってしまうため・2026-10-17）
   function done() {
     root.classList.remove('dy-intro', 'dy-hold');
     if (loader) loader.remove();
+    window.dispatchEvent(new Event('dy-intro-open'));
     window.dispatchEvent(new Event('dy-intro-end'));
   }
   if (!loader || !root.classList.contains('dy-intro')) { if (loader) loader.remove(); return; }
@@ -27,9 +30,7 @@
     if (opened) return;
     opened = true;
     loader.classList.add('is-out');
-    root.classList.remove('dy-hold');      // 穴が広がるのに合わせて、FVが動き出す
-    window.dispatchEvent(new Event('dy-intro-open'));
-    setTimeout(done, 1800);
+    setTimeout(done, 1750);                // 穴が開ききったら（0.4秒待って1.35秒）終える
   }
   var timer = setTimeout(open, 3800);
   ['click', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {

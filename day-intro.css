@@ -43,5 +43,8 @@ html.dy-intro .dy-loader.is-out { -webkit-mask: radial-gradient(circle at 50% 50
 
 /* 演出のあいだは、FVの動き（芽・吹き出しなど）を止めておく */
 html.dy-hold .hero, html.dy-hold .hero * { animation-play-state: paused !important; }
+/* 「イメージ写真」の札と小さな飾りも、演出が終わってから写真と一緒に出す */
+.hero .stockmark, .hero .il { transition: opacity .9s ease .25s; }
+html.dy-hold .hero .stockmark, html.dy-hold .hero .il { opacity: 0 !important; transition: none; }
 
 @media (prefers-reduced-motion: reduce) { .dy-loader { display: none !important; } }
