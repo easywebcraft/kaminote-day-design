@@ -1,5 +1,5 @@
 /* =====================================================================
-   放デイのトップをにぎやかに（2026-10-17）。トップだけで読む。day-top-lively.js とセット
+   放デイをにぎやかに（2026-10-17）。はじめはトップだけ（day-top-lively）→ 同じ日に全ページで読むように。day-lively.js とセット
    A クレヨン5色で色分け／C 写真の形と後ろの色の丸／E ことばの帯／F チェックがポンと入る
    G 一日の流れの線がのびる／H ご利用までの流れを点線でつなぐ／I さわると浮く・跳ねる／J 色の丸がふわふわ
    動きは html.tm-on のとき（「視差効果を減らす」がオンなら付かない）だけ。色と形はいつでも
@@ -22,8 +22,10 @@
 html body .dw-points .dw-circle, html body .dw-steps .dw-circle { background: var(--cb) !important; }
 html body :is(.dw-points, .dw-steps, .dw-icons, .dw-checks) .dw-ic { color: var(--c) !important; }
 /* 5つの領域：アイコンを色の丸にのせる */
-html body .dw-icons > div .dw-ic { box-sizing: border-box; width: 72px; height: 72px; padding: 17px; border-radius: 50%; background: var(--cb); }
-@media (max-width: 700px) { html body .dw-icons > div .dw-ic { width: 56px; height: 56px; padding: 13px; } }
+html body .dw-icons > div > .dw-ic { box-sizing: border-box; width: 72px; height: 72px; padding: 17px; border-radius: 50%; background: var(--cb); }
+@media (max-width: 700px) { html body .dw-icons > div > .dw-ic { width: 56px; height: 56px; padding: 13px; } }
+/* もともと丸の中にあるアイコン（支援理念の「こんな姿を」など）は、丸そのものを色にする */
+html body .dw-icons .dw-circle { background: var(--cb) !important; }
 html body .dw-steps .dw-sn, html body .dw-nums .dw-num { color: var(--c) !important; }
 html body .dw-tl li::before { background: var(--c) !important; }
 /* 事業所：上に色の線 */
@@ -43,30 +45,34 @@ html body .dw-checks .dw-ic { box-sizing: border-box; width: 28px; height: 28px;
 .lv-dot.is-p { background: #f2b6c8; opacity: .55; }
 .lv-dot.is-ring { background: none; border: 3px dashed #8ecfa5; opacity: .8; }
 
-/* こんなことありませんか：丸みのある形 */
-#cases .lv-ph > .dw-photo { border-radius: 46% 54% 50% 50% / 52% 44% 56% 48%; }
-#cases .lv-ph > .dw-photo img { aspect-ratio: 1 / 1; }
-#cases .lv-dot:nth-of-type(1) { width: 34%; aspect-ratio: 1; right: -5%; top: -6%; }
-#cases .lv-dot:nth-of-type(2) { width: 18%; aspect-ratio: 1; left: -4%; bottom: 4%; }
-/* 大切にしていること：アーチの形 */
-#values .lv-ph > .dw-photo { border-radius: 999px 999px 26px 26px; }
-#values .lv-dot:nth-of-type(1) { width: 46%; aspect-ratio: 1; left: -9%; bottom: -6%; }
-#values .lv-dot:nth-of-type(2) { width: 22%; aspect-ratio: 1; right: -6%; top: 8%; }
-/* 学校のある日の放課後：大きい写真は葉っぱの形、小さい2枚は丸 */
-#day .dw-stack.is-grid { gap: 18px; }
-#day .dw-stack .lv-ph:first-child > .dw-photo { border-radius: 140px 26px 140px 26px; }
-#day .dw-stack .lv-ph:not(:first-child) { width: 82%; justify-self: center; }
-#day .dw-stack .lv-ph:not(:first-child) > .dw-photo { border-radius: 50%; }
-#day .dw-stack .lv-ph:not(:first-child) > .dw-photo img { aspect-ratio: 1 / 1; }
-#day .lv-dot:nth-of-type(1) { width: 30%; aspect-ratio: 1; right: -7%; top: -10%; }
-#day .lv-dot:nth-of-type(2) { width: 16%; aspect-ratio: 1; left: -5%; bottom: -4%; }
+/* 形は day-lively.js が写真ごとに付ける（全ページ共通・2026-10-17）
+   丸みのある形（is-blob）／縦長はアーチ（is-arch）／葉っぱの形（is-leaf）／3枚組の小さい2枚は丸（is-round） */
+.lv-ph.is-blob > .dw-photo { border-radius: 46% 54% 50% 50% / 52% 44% 56% 48%; }
+.lv-ph.is-blob > .dw-photo img { aspect-ratio: 1 / 1; }
+.lv-ph.is-blob .lv-dot:nth-of-type(1) { width: 34%; aspect-ratio: 1; right: -5%; top: -6%; }
+.lv-ph.is-blob .lv-dot:nth-of-type(2) { width: 18%; aspect-ratio: 1; left: -4%; bottom: 4%; }
+.lv-ph.is-arch > .dw-photo { border-radius: 999px 999px 26px 26px; }
+.lv-ph.is-arch .lv-dot:nth-of-type(1) { width: 46%; aspect-ratio: 1; left: -9%; bottom: -6%; }
+.lv-ph.is-arch .lv-dot:nth-of-type(2) { width: 22%; aspect-ratio: 1; right: -6%; top: 8%; }
+.lv-ph.is-leaf > .dw-photo { border-radius: 140px 26px 140px 26px; }
+.lv-ph.is-leaf .lv-dot:nth-of-type(1) { width: 30%; aspect-ratio: 1; right: -7%; top: -10%; }
+.lv-ph.is-leaf .lv-dot:nth-of-type(2) { width: 16%; aspect-ratio: 1; left: -5%; bottom: -4%; }
+.dw-stack.is-grid:has(> .lv-ph) { gap: 18px; }
+.lv-ph.is-round { width: 82%; justify-self: center; }
+.lv-ph.is-round > .dw-photo { border-radius: 50%; }
+.lv-ph.is-round > .dw-photo img { aspect-ratio: 1 / 1; }
+.lv-ph.is-soft > .dw-photo { border-radius: 26px 90px 26px 90px; }
 /* 「イメージ写真」の札は、形で欠ける角をさけて下の真ん中に */
 .lv-ph > .dw-photo small { left: 50%; bottom: 7%; transform: translateX(-50%); white-space: nowrap; }
+/* 色の丸が画面の外へ出ても、横にずれないよう段で切る */
+.lv-clip { overflow-x: clip; }
+/* もとからある丸い写真（ph-round）の飾りも、スマホで画面の外へ出ていたので段で切る */
+.sec:has(.ph-round) { overflow-x: clip; }
 
 @media (max-width: 700px) {
-  #day .dw-stack.is-grid { grid-template-columns: 1fr 1fr; }
-  #day .dw-stack .lv-ph:not(:first-child) { width: 92%; }
-  #day .dw-stack .lv-ph:first-child > .dw-photo { border-radius: 90px 22px 90px 22px; }
+  .dw-stack.is-grid:has(> .lv-ph.is-round) { grid-template-columns: 1fr 1fr; }
+  .lv-ph.is-round { width: 92%; }
+  .lv-ph.is-leaf > .dw-photo { border-radius: 90px 22px 90px 22px; }
 }
 
 /* ---------- E ことばの帯 ---------- */
@@ -126,8 +132,6 @@ html.tm-on .dw-tl.lv-in li::before { animation: lv-pop .5s cubic-bezier(.3, 1.6,
   html.tm-on .dw-steps.lv-in::before { transform: none; }
 }
 
-/* 色の丸が画面の外へ出ても、横にずれないよう段で切る */
-#cases, #values, #day { overflow-x: clip; }
 
 /* 多言語の段の見出し：PCで「い」だけ次の行に落ちていたので、日本語のときは各行を1行に収める */
 @media (min-width: 961px) {

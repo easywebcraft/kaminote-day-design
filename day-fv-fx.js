@@ -26,7 +26,17 @@
     else go();
   }
 
-  // トップ
+  // FVの下の波を、すぐ下の段の地の色にそろえる（下層ページは段の色がページごとにちがうため）
+  var wave = document.querySelector('.hero .wave path');
+  if (wave) {
+    var next = document.querySelector('.hero').nextElementSibling;
+    if (next && next.tagName === 'MAIN') next = next.firstElementChild;
+    var bgc = next && getComputedStyle(next).backgroundColor;
+    if (!bgc || bgc === 'rgba(0, 0, 0, 0)') bgc = getComputedStyle(document.body).backgroundColor;
+    wave.setAttribute('fill', bgc);
+  }
+
+  // トップと、トップと同じ組み立ての下層ページのFV
   var h1 = document.querySelector('.hero h1');
   if (h1) {
     var sp = sprout('is-top');

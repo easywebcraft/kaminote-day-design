@@ -1,34 +1,36 @@
-/* 放デイのトップをにぎやかに（2026-10-17）。day-top-lively.css とセット。day-motion.js のあとに読む */
+/* 放デイをにぎやかに（2026-10-17・全ページ）。day-lively.css とセット。day-motion.js のあとに読む */
 (function () {
   var motion = document.documentElement.classList.contains('tm-on') && 'IntersectionObserver' in window;
 
-  // C 写真を包んで、後ろに色の丸を2つ置く（写真そのものは day-motion.js の現れ方のまま）
-  var DOTS = { cases: ['is-y', 'is-s'], values: ['is-c', 'is-ring'], day: ['is-p', 'is-y'] };
-  var phs = [];
-  Object.keys(DOTS).forEach(function (id) {
-    var sec = document.getElementById(id);
-    if (!sec) return;
-    var figs = sec.querySelectorAll('figure.dw-photo');
-    figs.forEach(function (fig, i) {
-      var w = document.createElement('div');
-      w.className = 'lv-ph';
-      fig.parentNode.insertBefore(w, fig);
-      w.appendChild(fig);
-      // 一日の流れは写真が3枚あるので、色の丸は1枚目にだけ
-      if (id === 'day' && i > 0) return;
-      DOTS[id].forEach(function (c) {
-        var d = document.createElement('span');
-        d.className = 'lv-dot ' + c;
-        d.setAttribute('aria-hidden', 'true');
-        w.appendChild(d);
-      });
-      phs.push(w);
+  // C 本文の写真（左右に並ぶ段・3枚組）を包んで形を付け、後ろに色の丸を2つ置く
+  //   縦長はアーチ、ほかは「丸みのある形」と「葉っぱの形」を交互に。3枚組は1枚目が葉っぱ、残りは丸
+  //   写真そのものの現れ方は day-motion.js のまま
+  var DOTS = [['is-y', 'is-s'], ['is-c', 'is-ring'], ['is-p', 'is-y'], ['is-g', 'is-c'], ['is-s', 'is-p']];
+  var phs = [], n = 0, alt = 0;
+  document.querySelectorAll('.dw-split > figure.dw-photo, .dw-stack > figure.dw-photo').forEach(function (fig) {
+    var w = document.createElement('div');
+    var inStack = fig.parentElement.classList.contains('dw-stack');
+    var grid = inStack && fig.parentElement.classList.contains('is-grid');
+    var first = !inStack || fig === fig.parentElement.firstElementChild;
+    // 3枚組（横に並ぶ）の小さい2枚は丸、縦に並ぶときの2枚目からは角を丸めるだけ（丸にすると大きくなりすぎる）
+    var shape = inStack ? (first ? 'is-leaf' : grid ? 'is-round' : 'is-soft') : fig.classList.contains('is-tall') ? 'is-arch' : (alt++ % 2 ? 'is-leaf' : 'is-blob');
+    w.className = 'lv-ph ' + shape;
+    fig.parentNode.insertBefore(w, fig);
+    w.appendChild(fig);
+    var sec = w.closest('section');
+    if (sec) sec.classList.add('lv-clip');
+    if (!first) return;
+    DOTS[n++ % DOTS.length].forEach(function (c) {
+      var d = document.createElement('span');
+      d.className = 'lv-dot ' + c;
+      d.setAttribute('aria-hidden', 'true');
+      w.appendChild(d);
     });
+    phs.push(w);
   });
 
-  // E ことばの帯（多言語の段の上）。とぎれず流れるよう、同じ並びを2回つなぐ
-  var multi = document.getElementById('multi');
-  if (multi) {
+  // E ことばの帯（多言語の段の上）。とぎれず流れるよう、同じ並びをくり返す
+  document.querySelectorAll('[data-lv-marquee]').forEach(function (multi) {
     var words = ['こんにちは', 'Hello', 'Kumusta', 'Olá', 'Maayong adlaw'];
     var lang = ['ja', 'en', 'tl', 'pt', 'ceb'];
     var m = document.createElement('div');
@@ -47,7 +49,7 @@
     }
     m.appendChild(t);
     multi.insertBefore(m, multi.firstChild);
-  }
+  });
 
   // G 一日の流れの点に順番をつける
   document.querySelectorAll('.dw-tl').forEach(function (tl) {
