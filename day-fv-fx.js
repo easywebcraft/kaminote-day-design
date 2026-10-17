@@ -36,6 +36,19 @@
     wave.setAttribute('fill', bgc);
   }
 
+  // トップのFV（PC）：楕円の写真の左端を、文字の段の右端から少し離した位置に（画面幅や言語で文字の段の幅が変わるため）
+  var topHero = document.querySelector('.hero:not(.is-sub)');
+  var txt = topHero && topHero.querySelector('.hero-txt');
+  if (txt) {
+    var fit = function () {
+      var hr = topHero.getBoundingClientRect(), tr = txt.getBoundingClientRect();
+      topHero.style.setProperty('--fv-l', Math.round(Math.max(tr.right - hr.left + 28, hr.width * 0.5)) + 'px');
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  }
+
   // トップと、トップと同じ組み立ての下層ページのFV
   var h1 = document.querySelector('.hero h1');
   if (h1) {

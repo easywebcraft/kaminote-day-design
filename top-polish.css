@@ -1,0 +1,37 @@
+/* =====================================================================
+   トップの見せ方の仕上げ（2026-10-17・トップだけで読む）
+   試作（top-chic）から、松本さんが残すと決めた分だけ：
+   B 段の並びに緩急／H のうち「ボタンの矢印が伸びる」「文字のリンクの下線を左から引き直す」
+   大きな英字・番号と線・色を絞る・FVのコラージュ・マウスのそばの丸は却下（入れない）
+   ===================================================================== */
+
+/* ---------- B 段の並びに緩急 ---------- */
+/* 見出しは左そろえに（中央そろえの繰り返しをやめる）。下の線もオレンジの左寄せに統一 */
+.dw .dw-head.is-center { text-align: left; }
+.dw .dw-head.is-center .dw-h::after { margin: 16px 0 0; background: var(--dw-orange, #e26b55); }
+.dw .dw-more { text-align: left; }
+@media (min-width: 961px) {
+  /* 大切にしていること：アーチの写真を大きくし、上の段の境目をまたいで重ねる */
+  #values .dw-split { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; }
+  #values .lv-ph { margin-top: calc(-1 * clamp(110px, 12vw, 170px)); z-index: 2; }
+  /* 学校のある日の放課後：写真を画面の右端まで広げる */
+  #day .dw-split { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
+  #day .dw-stack { margin-right: min(0px, calc((1120px - 100vw) / 2)); }
+  /* 事業所：2枚目のカードを少し下げて、互い違いに */
+  #offices .dw-cards > :nth-child(2) { margin-top: 56px; margin-bottom: -56px; }
+  #offices { padding-bottom: calc(clamp(64px, 8vw, 104px) + 56px); }
+}
+
+/* ---------- H 細かい手ざわり（2つだけ） ---------- */
+/* ボタン・文字のリンク：乗せると矢印がすっと伸びる */
+:is(.dw-btn, .d2-textlink, .dw-link) > span[aria-hidden="true"] { display: inline-block; transition: transform .35s cubic-bezier(.3, .7, .3, 1); }
+:is(.dw-btn, .d2-textlink, .dw-link):hover > span[aria-hidden="true"] { transform: translateX(6px); }
+/* 文字のリンク：乗せると下線を左から引き直す */
+.dw .dw-link { border-bottom: 0; padding-bottom: 6px; background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; }
+.dw .dw-link:hover { animation: tp-line .55s cubic-bezier(.3, .7, .3, 1) forwards; }
+@keyframes tp-line { from { background-size: 0% 1px; } to { background-size: 100% 1px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.dw-btn, .d2-textlink, .dw-link) > span[aria-hidden="true"] { transition: none; }
+  .dw .dw-link:hover { animation: none; }
+}
