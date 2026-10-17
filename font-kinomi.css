@@ -1,0 +1,29 @@
+/* =====================================================================
+   字体を kinomihoikuen.com と同じ系統に（2026-10-17・全ページで最後に読む）
+   ・日本語：源柔ゴシック（参考サイトは派生版の源柔ゴシックX）。SIL Open Font License。
+     Fontsource の配布から、このサイトで使う文字だけに絞って fonts/ に置いた（作り直しは tmp の genjyuu_subset.py）
+   ・約物（、。「」など）：YakuHanJP（参考サイトと同じ。SIL OFL。jsDelivr から）
+   ・英字の小見出し：参考サイトの Mrs Eaves は有料（Adobe Fonts）なので、同じ Baskerville 系の Libre Baskerville に置きかえ
+   見出しは明朝をやめ、源柔ゴシックの太字に
+   ===================================================================== */
+@font-face { font-family: "GenJyuu Gothic"; font-weight: 400; font-display: swap; src: url(fonts/genjyuu-gothic-400.woff2) format("woff2"); }
+@font-face { font-family: "GenJyuu Gothic"; font-weight: 500; font-display: swap; src: url(fonts/genjyuu-gothic-500.woff2) format("woff2"); }
+@font-face { font-family: "GenJyuu Gothic"; font-weight: 700; font-display: swap; src: url(fonts/genjyuu-gothic-700.woff2) format("woff2"); }
+
+:root {
+  --g-gothic: YakuHanJP, "GenJyuu Gothic", "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", sans-serif;
+  --g-mincho: YakuHanJP, "GenJyuu Gothic", "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", sans-serif;
+  --dw-gothic: var(--g-gothic);
+  --dw-mincho: var(--g-gothic);
+  --g-en: "Libre Baskerville", "Times New Roman", serif;
+}
+.dw { --dw-gothic: var(--g-gothic); --dw-mincho: var(--g-gothic); }
+
+/* 見出し：明朝の細めの字から、源柔ゴシックの太字に */
+html body :is(h1, h2, .dw-h, .tv-h, .dw-fv-page, .tv-oname),
+html body :is(h1, h2, .dw-h, .tv-h) * { font-weight: 700 !important; }
+html body :is(.dw-num, .dw-tl time, .dw-sn) { font-style: normal !important; font-weight: 700 !important; }
+
+/* 英字の小見出し（OUR SUPPORT など）：Libre Baskerville */
+html body :is(.dw-en, .tv-en, .sub-crumb + .hero-badge .hb-place, .brand .en, .dy-en),
+html body :is(.dw-en, .tv-en) * { font-family: var(--g-en) !important; font-weight: 400 !important; letter-spacing: .14em !important; }

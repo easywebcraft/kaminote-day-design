@@ -561,3 +561,12 @@ Edge ヘッドレスで検証。横スクロールは 390 / 489 / 768 / 950 / 10
 - 2026-10-17 サブコピーを2行に（松本さんの指定）：「一人ひとりの個性と、成長のペースを大切に／小さな「できた」を一緒に育んでいきます。」（1行目の最後に「。」は付けない）。訳も合わせた（tmp の fv_lead2.py）
 - 2026-10-17 写真にカメラワーク（松本さん「TOPのFVの写真にカメラワーク追加して、退屈感を軽減したい」）：ゆっくり寄るだけの動きをやめ、全体 → お皿 → 魚の絵 → 花の絵 → クレヨン → 全体を約36秒で1周する動きに（top-fv-motion.css の tf-cam）。ふちから外が見えないよう、ずらす量は拡大率の内側に収めた
 - 2026-10-17 下層12ページのFVのデザインをトップと同じにした（松本さん「他のページのFVのデザインをTOPページと同じにして」）：day-fv-fx.*・top-fv-motion.* の「.hero:not(.is-sub)」（トップ専用）を「.hero」に変え、top-fv-motion を全ページで読む。楕円の写真・透けるふち・吹き出しの位置・カメラワーク・色紙・見出しの文字の動きがトップと同じに。見出しの文字の大きさだけは、文が長いので下層は少し小さいまま。下層は文が短く白い波が中ほどに出たので、FVを縦並びにして中身を真ん中に、波を一番下に（tmp の subfv_same.py）
+
+### 2026-10-17 字体を kinomihoikuen.com と同じ系統にした
+
+- 松本さん「フォントをこのサイトと同じにして https://kinomihoikuen.com/introduction/」から。参考サイトは 源柔ゴシックX（日本語）＋ YakuHanJP（約物）＋ Mrs Eaves（英字・Adobe Fonts）
+- 日本語：源柔ゴシック（SIL OFL。Fontsource の @fontsource/genjyuu-gothic から、このサイトで使う文字だけに絞って fonts/genjyuu-gothic-400/500/700.woff2 に。1本 約3.5MB→約180KB。ライセンスは fonts/LICENSE-GenJyuuGothic.txt）。参考サイトの「X」版は派生版で、細部が少しちがう
+- 文言を足したら、tmp の genjyuu_subset.py で字体ファイルを作り直すこと（入っていない字だけ別の字体になる）
+- 約物：YakuHanJP（jsDelivr）。英字の小見出し：Mrs Eaves は有料なので、同じ Baskerville 系の Libre Baskerville（Google Fonts）
+- font-kinomi.css を全ページの <head> の最後で読む。group.css の --g-gothic / --g-mincho を源柔ゴシックに差しかえ、見出しは明朝をやめて太字に（保育園サイトとは字体がそろわなくなった）
+- 同じ日、トップのサブコピーを「一人ひとりの個性と成長のペースに寄り添い、／あそびと日々の生活を通して、小さな「できた」を育みます。」に（tmp の fv_lead3.py）

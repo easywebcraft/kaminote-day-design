@@ -674,7 +674,8 @@
   "k664": "<em>「好き」から広がる</em>",
   "k665": "その子らしい未来",
   "k666": "一人ひとりの個性と、成長のペースを大切に。<br>かみのては、あそびや日々の生活を通して、<br>小さな「できた」を一緒に育んでいきます。",
-  "k667": "一人ひとりの個性と、成長のペースを大切に<br>小さな「できた」を一緒に育んでいきます。"
+  "k667": "一人ひとりの個性と、成長のペースを大切に<br>小さな「できた」を一緒に育んでいきます。",
+  "k668": "一人ひとりの個性と成長のペースに寄り添い、<br>あそびと日々の生活を通して、小さな「できた」を育みます。"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1344,7 +1345,8 @@
   "k665": "into a future truly their own",
   "k666": "We value each child's personality and pace of growth.<br>Through play and everyday life,<br>Kaminote nurtures small moments of “I did it” together with you.",
   "k664": "<em>Growing from what they love</em>",
-  "k667": "We value each child's personality and pace of growth,<br>nurturing small moments of “I did it” together with you."
+  "k667": "We value each child's personality and pace of growth,<br>nurturing small moments of “I did it” together with you.",
+  "k668": "We stay close to each child's personality and pace of growth,<br>nurturing small moments of “I did it” through play and everyday life."
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2014,7 +2016,8 @@
   "k665": "rumo a um futuro só seu",
   "k666": "Valorizamos a personalidade e o ritmo de crescimento de cada criança.<br>Por meio das brincadeiras e da vida cotidiana,<br>a Kaminote cultiva, junto com vocês, pequenos momentos de «consegui».",
   "k664": "<em>Crescendo a partir do que gostam</em>",
-  "k667": "Valorizamos a personalidade e o ritmo de crescimento de cada criança,<br>cultivando, junto com vocês, pequenos momentos de «consegui»."
+  "k667": "Valorizamos a personalidade e o ritmo de crescimento de cada criança,<br>cultivando, junto com vocês, pequenos momentos de «consegui».",
+  "k668": "Acompanhamos de perto a personalidade e o ritmo de crescimento de cada criança,<br>cultivando pequenos momentos de «consegui» por meio das brincadeiras e da vida cotidiana."
  }
 };
 
