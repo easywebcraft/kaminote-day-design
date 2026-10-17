@@ -105,7 +105,7 @@
    ふちは外へ向かってだんだん透け、まわりのクリーム色になじむ（輪郭の線と影はやめた） */
 @media (min-width: 901px) {
   /* 中身を高さの真ん中に、下の白い波はいつも一番下に（下層ページは文が短く、波が中ほどに出ていた・2026-10-17） */
-  .hero { min-height: 640px; display: flex; flex-direction: column; }
+  .hero { min-height: max(560px, calc(100svh - 65px)); display: flex; flex-direction: column; }
   .hero > .hero-grid { flex: 1 0 auto; width: 100%; box-sizing: border-box; align-content: center; }
   .hero > .wave { margin-top: auto; flex: none; }
   .hero .hero-photo { position: absolute; top: 6px; bottom: 6px; left: var(--fv-l, 46%); right: 1.5vw; width: auto; margin: 0; }
@@ -133,4 +133,19 @@
   .hero .fx-b4 { bottom: 22%; right: 6%; left: auto; top: auto; }
   .hero .fx-b5 { bottom: 10%; left: 52%; right: auto; top: auto; }
   .hero :is(.fx-b2, .fx-b4)::after { left: auto; right: 22%; }
+}
+
+/* FVを画面の高さいっぱいに（2026-10-17・全ページ・スマホとタブレットも）。中身は真ん中、下の白い波はいちばん下
+   ヘッダーの高さ：1141px以上は 65px、それ以下（メニューが開閉ボタン）は 59px */
+@media (min-width: 901px) and (max-width: 1140px) {
+  .hero { min-height: max(560px, calc(100svh - 59px)); }
+}
+@media (max-width: 900px) {
+  .hero { min-height: calc(100svh - 59px); display: flex; flex-direction: column; }
+  /* 文字のあとの残りの高さを、写真が使う（ページごとに文の長さがちがっても、ちょうど画面いっぱいに） */
+  .hero > .hero-grid { flex: 1 0 auto; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; }
+  .hero > .hero-grid > .hero-txt { flex: none; }
+  .hero > .hero-grid > .hero-photo { flex: 1 1 0; min-height: 180px; width: 100% !important; margin: 0 !important; justify-self: auto; }
+  .hero .hero-photo .blob { width: 100%; height: 100% !important; aspect-ratio: auto !important; }
+  .hero > .wave { margin-top: -24px; flex: none; }
 }
