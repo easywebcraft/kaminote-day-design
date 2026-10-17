@@ -2,10 +2,9 @@
    最初の演出（トップだけ・2026-10-17）。day-intro.js とセット
    保育園（ロゴがふわっと出て、画面全体が薄れて消える）と色・長さ・落ち着きはそろえ、手法を変えた：
    赤い手と青い手が左右から入る → 手のあいだに子どもたちの顔 → クレヨン5色の粒 → 名前
-   → 画面の真ん中から丸い穴がふんわり広がって、FVが見えてくる
+   → 手のマークがヘッダーのロゴの位置へ移り、幕が透けてFVへ（はじめは丸い穴が広がる形だった）
    html.dy-intro のときだけ出す（同じ閲覧中は1回／「視差効果を減らす」がオンなら出さない）
    ===================================================================== */
-@property --dy-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
 
 .dy-loader { display: none; }
 html.dy-intro, html.dy-intro body { overflow: hidden; }
@@ -34,12 +33,18 @@ html body .dy-loader .dy-name { margin: 24px 0 6px; font-family: var(--g-mincho,
 html body .dy-loader .dy-en { margin: 0; font-size: 11px; letter-spacing: .32em; color: #6b7068; opacity: 0; animation: dy-fade 1.2s ease 2.1s forwards; }
 @keyframes dy-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-/* 出ていく：中身が少し薄れ、画面の真ん中から丸い穴がふちをぼかして広がる */
-html.dy-intro .dy-loader.is-out { -webkit-mask: radial-gradient(circle at 50% 50%, transparent var(--dy-r), #000 calc(var(--dy-r) + 90px)); mask: radial-gradient(circle at 50% 50%, transparent var(--dy-r), #000 calc(var(--dy-r) + 90px));
-  animation: dy-open 1.35s cubic-bezier(.45, 0, .25, 1) .4s forwards; }
-/* 文字が消えてから穴を広げる（重なると、FVの文字と混ざって見えるため） */
-.dy-loader.is-out .dy-in { transition: opacity .4s ease, transform 1s ease; opacity: 0; transform: scale(1.05); }
-@keyframes dy-open { 0% { --dy-r: 0px; } 100% { --dy-r: 120vmax; } }
+/* 出ていく（2026-10-17 直し：丸い穴をやめ、トップへ途切れずにつなぐ）
+   ① 名前・英字・色の粒がすっと消える
+   ② 手のマークが小さくなりながらヘッダーのロゴの位置へ移って重なる（day-intro.js）
+   ③ その途中から、クリーム色の幕が透けていく（ページの地と同じ色なので境目が出ない）
+   ④ 幕が半分ほど透けたところで、FVのコピーと写真が出はじめる（day-intro.js） */
+html.dy-intro .dy-loader { transition: background-color .85s ease .45s; }
+html.dy-intro .dy-loader.is-out { background-color: rgba(251, 248, 241, 0); cursor: default; pointer-events: none; }
+html body .dy-loader.is-out :is(.dy-name, .dy-en) { animation: dy-gone .35s ease forwards; }
+.dy-loader.is-out .dy-dots { transition: opacity .35s ease; opacity: 0; }
+@keyframes dy-gone { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(-6px); } }
+/* 本物のヘッダーのロゴは、移ってきた手のマークと入れかわるまで隠しておく */
+html.dy-intro .head .brand .mark { opacity: 0; }
 
 /* 演出のあいだは、FVの動き（芽・吹き出しなど）を止めておく */
 html.dy-hold .hero, html.dy-hold .hero * { animation-play-state: paused !important; }

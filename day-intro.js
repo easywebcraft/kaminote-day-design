@@ -3,12 +3,19 @@
 (function () {
   var root = document.documentElement;
   var loader = document.querySelector('.dy-loader');
-  // 演出が終わってから、FVのコピー・写真・芽・吹き出しを動かし始める
-  // （穴が開き始めたときに動かすと、演出の後ろで登場がほぼ終わってしまうため・2026-10-17）
-  function done() {
-    root.classList.remove('dy-intro', 'dy-hold');
-    if (loader) loader.remove();
+  // FVのコピー・写真・芽・吹き出しを動かし始める。幕が半分ほど透けたところで
+  // （幕の後ろで始めると登場が見えずに終わり、幕が消えきってからだと、からっぽの間ができるため・2026-10-17）
+  var released = false;
+  function release() {
+    if (released) return;
+    released = true;
+    root.classList.remove('dy-hold');
     window.dispatchEvent(new Event('dy-intro-open'));
+  }
+  function done() {
+    release();
+    root.classList.remove('dy-intro');   // ヘッダーの本物のロゴが、移ってきた手のマークと入れかわる
+    if (loader) loader.remove();
     window.dispatchEvent(new Event('dy-intro-end'));
   }
   if (!loader || !root.classList.contains('dy-intro')) { if (loader) loader.remove(); return; }
@@ -30,7 +37,20 @@
     if (opened) return;
     opened = true;
     loader.classList.add('is-out');
-    setTimeout(done, 1750);                // 穴が開ききったら（0.4秒待って1.35秒）終える
+    // 手のマークを、ヘッダーのロゴの位置と大きさへ移す（同じ絵なので、そのまま重なる）
+    var mark = loader.querySelector('.dy-mark');
+    var target = document.querySelector('.head .brand .mark');
+    if (mark && target && mark.animate) {
+      var a = mark.getBoundingClientRect(), b = target.getBoundingClientRect();
+      if (a.width && b.width) {
+        var s = b.width / a.width;
+        var dx = (b.left + b.width / 2) - (a.left + a.width / 2), dy = (b.top + b.height / 2) - (a.top + a.height / 2);
+        mark.animate([{ transform: 'none' }, { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ')' }],
+          { duration: 1000, delay: 250, easing: 'cubic-bezier(.65, 0, .25, 1)', fill: 'forwards' });
+      }
+    }
+    setTimeout(release, 750);              // 幕が半分ほど透けたところ
+    setTimeout(done, 1300);                // 手のマークがロゴの位置に着いたら終える
   }
   var timer = setTimeout(open, 3800);
   ['click', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
