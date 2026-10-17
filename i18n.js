@@ -663,7 +663,12 @@
   "k653": "まずは相談する",
   "k654": "利用できるか、制度について聞いてみたい方",
   "k655": "<small>お電話でどうぞ（かみのてKIDS・かみのてSMILE 共通）</small><b>0574-66-3513</b>",
-  "k656": "かみのて保育園・かみのて今渡保育園・ハンズオブガッド保育園"
+  "k656": "かみのて保育園・かみのて今渡保育園・ハンズオブガッド保育園",
+  "k657": "個別支援",
+  "k658": "集団支援",
+  "k659": "家族支援",
+  "k660": "かみのてで過ごす いつもの一日",
+  "k661": "一日の流れを見る"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1322,7 +1327,12 @@
   "k653": "Just consult us",
   "k654": "For those who want to ask about eligibility or the system",
   "k655": "<small>By phone (Kaminote KIDS・Kaminote SMILE)</small><b>0574-66-3513</b>",
-  "k656": "Kaminote Nursery / Kaminote Imawatari Nursery / Hands of God Kindergarten"
+  "k656": "Kaminote Nursery / Kaminote Imawatari Nursery / Hands of God Kindergarten",
+  "k657": "Individual support",
+  "k658": "Group support",
+  "k659": "Family support",
+  "k660": "An ordinary day at Kaminote",
+  "k661": "See the daily schedule"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -1981,7 +1991,12 @@
   "k653": "Fazer uma consulta",
   "k654": "Para quem quer saber sobre o uso ou o sistema",
   "k655": "<small>Por telefone (Kaminote KIDS・Kaminote SMILE)</small><b>0574-66-3513</b>",
-  "k656": "Creche Kaminote / Creche Kaminote Imawatari / Creche Hands of God"
+  "k656": "Creche Kaminote / Creche Kaminote Imawatari / Creche Hands of God",
+  "k657": "Apoio individual",
+  "k658": "Apoio em grupo",
+  "k659": "Apoio à família",
+  "k660": "Um dia comum na Kaminote",
+  "k661": "Ver a rotina do dia"
  }
 };
 

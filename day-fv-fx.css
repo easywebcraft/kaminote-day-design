@@ -99,35 +99,4 @@
 .hero.is-sub h1 { font-size: clamp(26px, 3.1vw, 42px); }
 .hero.is-sub .sub-sub { margin-top: 10px; font-weight: 700; color: #3d6a50; }
 
-/* ---------- トップのFV：写真を大きな楕円にして右半分を占める（2026-10-17・PCだけ） ----------
-   直し（松本さん「右側が削れている、もっと左に、境目は透過で馴染ませて」）：
-   楕円は画面の内側に収め、左へ寄せる（左端は文字の段の端に少しかかる。--fv-l は day-fv-fx.js が測って入れる）。
-   ふちは外へ向かってだんだん透け、まわりのクリーム色になじむ（輪郭の線と影はやめた） */
-@media (min-width: 901px) {
-  .hero:not(.is-sub) { min-height: 640px; }
-  .hero:not(.is-sub) .hero-photo { position: absolute; top: 6px; bottom: 6px; left: var(--fv-l, 46%); right: 1.5vw; width: auto; margin: 0; }
-  /* 直し2（「もう少し楕円にして左に伸ばせる？」）：横長の楕円にして、左端を文字の段の中ほどまで伸ばす。
-     文字の下が読めるよう、ふちの丸い透けに「左から右へゆっくり濃くなる透け」を重ねる（2つの重なったところだけ見える） */
-  .hero:not(.is-sub) .hero-photo .blob { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; box-shadow: none;
-    -webkit-mask-image: radial-gradient(closest-side, #000 60%, rgba(0, 0, 0, .6) 80%, transparent 100%), linear-gradient(to right, transparent 0, rgba(0, 0, 0, .35) 22%, #000 48%);
-    -webkit-mask-composite: source-in;
-    mask-image: radial-gradient(closest-side, #000 60%, rgba(0, 0, 0, .6) 80%, transparent 100%), linear-gradient(to right, transparent 0, rgba(0, 0, 0, .35) 22%, #000 48%);
-    mask-composite: intersect; }
-  .hero:not(.is-sub) .hero-scribble { display: none; }
-  /* 写真が文字の段の下まで伸びるので、文字のまわりに地のクリーム色のぼかしを付けて読みやすく */
-  .hero:not(.is-sub) .hero-txt { position: relative; z-index: 2; }
-  .hero:not(.is-sub) :is(h1, .lead, .d2-cta-note, .d2-textlink) { text-shadow: 0 0 10px #fbf8f1, 0 0 18px #fbf8f1, 0 0 3px #fbf8f1; }
-  /* 下の波を写真より前に出す */
-  .hero:not(.is-sub) .wave { position: relative; z-index: 3; }
-  /* 「イメージ写真」の札は、透けたふちをさけて内側に */
-  .hero:not(.is-sub) .stockmark { top: 14% !important; left: 56% !important; }
-  /* 吹き出しは、写真がはっきり見える右寄りに散らす（文字の段に重ならないように） */
-  .hero:not(.is-sub) .fx-b1 { top: 8%; left: 46%; right: auto; bottom: auto; }
-  .hero:not(.is-sub) .fx-b2 { top: 22%; right: 8%; left: auto; bottom: auto; }
-  .hero:not(.is-sub) .fx-b3 { top: 48%; left: 44%; right: auto; bottom: auto; }
-  /* 楕円の左側の飾り（黄色い丸・点々）は、文字の段に重なるので出さない */
-  .hero:not(.is-sub) .hero-photo .il:nth-of-type(1), .hero:not(.is-sub) .hero-photo .il:nth-of-type(4) { display: none; }
-  .hero:not(.is-sub) .fx-b4 { bottom: 22%; right: 6%; left: auto; top: auto; }
-  .hero:not(.is-sub) .fx-b5 { bottom: 10%; left: 52%; right: auto; top: auto; }
-  .hero:not(.is-sub) :is(.fx-b2, .fx-b4)::after { left: auto; right: 22%; }
-}
+/* （トップのFVの楕円の写真の指定は、2026-10-17 のトップの作り直しで消した。新しいFVは top-v2.css） */

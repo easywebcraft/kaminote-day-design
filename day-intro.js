@@ -52,7 +52,7 @@
     setTimeout(release, 750);              // 幕が半分ほど透けたところ
     setTimeout(done, 1300);                // 手のマークがロゴの位置に着いたら終える
   }
-  var timer = setTimeout(open, 3800);
+  var timer = setTimeout(open, 2400);      // 2026-10-17 短くした（前は 3800）
   ['click', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
     window.addEventListener(ev, function () { clearTimeout(timer); open(); }, { once: true, passive: true });
   });

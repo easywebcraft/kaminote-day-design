@@ -1,0 +1,197 @@
+/* =====================================================================
+   トップの作り直し（2026-10-17・改善提案と改善イメージの画像から）。トップだけで読む
+   方針：ナチュラルで洗練された児童福祉施設のサイト。白を中心に、ところどころ淡いグリーン。装飾は少なめ、写真が主役
+   パレット：地 #FAFAF6／淡いグリーン #DDEBDD・#EFF5ED／アクセント #62836D／見出し #30483B／本文 #454C47／ベージュ #F4EFE5
+   ===================================================================== */
+.tv, .hero.is-tv { --tv-bg: #fafaf6; --tv-mint: #ddebdd; --tv-pale: #eff5ed; --tv-sage: #62836d; --tv-deep: #30483b; --tv-text: #454c47; --tv-beige: #f4efe5; --tv-line: #dfe6dc; }
+body:has(.tv) { background: #fafaf6; }
+.tv-wrap { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+
+/* ---------- 共通 ---------- */
+.tv-sec { padding-block: clamp(72px, 9vw, 116px); position: relative; }
+.tv-sec.is-white { background: #fff; }
+.tv-sec.is-pale { background: var(--tv-pale); }
+.tv-sec.is-beige { background: linear-gradient(180deg, var(--tv-beige), #faf7f1); }
+.tv-sec-tight { padding-block: clamp(48px, 6vw, 72px); }
+.tv-head { margin-bottom: clamp(32px, 4vw, 52px); }
+.tv-head.is-center { text-align: center; }
+.tv-en { display: block; margin-bottom: 10px; font-size: 12px; font-weight: 700; letter-spacing: .22em; color: var(--tv-sage); }
+html body .tv .tv-h { font-size: clamp(26px, 2.7vw, 36px); line-height: 1.55; color: var(--tv-deep); }
+.tv .tv-h::after { display: none !important; }
+.tv-h3 { margin: 0 0 8px; font-size: 16.5px; font-weight: 700; color: var(--tv-deep); line-height: 1.6; }
+.tv p { color: var(--tv-text); font-size: 15px; line-height: 1.9; }
+.tv-lead { max-width: 40em; }
+.tv-ic { display: inline-grid; place-items: center; width: 24px; height: 24px; flex: none; color: var(--tv-sage); }
+.tv-ic svg { width: 100%; height: 100%; }
+.tv-note { margin-top: 22px !important; font-size: 14px !important; }
+.tv-more { margin-top: clamp(32px, 4vw, 48px); text-align: center; }
+.tv-more.is-left { text-align: left; margin-top: 28px; }
+
+/* ボタン：落ち着いたグリーンの横長。乗せると矢印が伸びる */
+.tv-btn, .hero.is-tv .tv-btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 54px; padding: 0 32px; border-radius: 999px;
+  background: var(--tv-deep, #30483b); color: #fff !important; font-weight: 700; font-size: 15px; text-decoration: none; letter-spacing: .04em;
+  box-shadow: 0 8px 20px rgba(48, 72, 59, .18); transition: background .25s, transform .25s; }
+.tv-btn .tv-ic { color: #fff; width: 20px; height: 20px; }
+.tv-btn:hover { background: #3f5e4c; transform: translateY(-2px); }
+.tv-btn.is-o { background: #fff; color: var(--tv-deep) !important; border: 1.5px solid var(--tv-deep); box-shadow: none; }
+.tv-btn.is-o:hover { background: var(--tv-pale); }
+.tv-btn > span[aria-hidden="true"], .tv-link > span[aria-hidden="true"] { display: inline-block; transition: transform .35s cubic-bezier(.3, .7, .3, 1); }
+.tv-btn:hover > span[aria-hidden="true"], .tv-link:hover > span[aria-hidden="true"] { transform: translateX(6px); }
+.tv-link { display: inline-flex; align-items: center; gap: 10px; padding-bottom: 5px; color: var(--tv-deep) !important; font-weight: 700; font-size: 14px; text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat; }
+.tv-link:hover { animation: tv-line .55s cubic-bezier(.3, .7, .3, 1) forwards; }
+@keyframes tv-line { from { background-size: 0% 1px; } to { background-size: 100% 1px; } }
+
+/* ---------- FV ---------- */
+.hero.is-tv { position: relative; overflow: hidden; padding: 0; background: linear-gradient(180deg, #fafaf6 0%, #f3f7f1 100%); }
+.tv-fv-photo { position: absolute; top: 0; right: 0; bottom: 0; width: 60%; margin: 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, rgba(0, 0, 0, .55) 18%, #000 38%); mask-image: linear-gradient(to right, transparent 0, rgba(0, 0, 0, .55) 18%, #000 38%); }
+.tv-fv-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; display: block; }
+.hero.is-tv .tv-fv-photo .stockmark { top: auto !important; left: auto !important; right: 20px; bottom: 96px; }
+.tv-fv-in { position: relative; z-index: 2; padding: clamp(48px, 6vw, 84px) 0 clamp(96px, 9vw, 130px); min-height: clamp(560px, 46vw, 680px); display: flex; flex-direction: column; justify-content: center; }
+.tv-fv-in > * { max-width: 560px; }
+.tv-fv-pre { margin: 0 0 6px !important; font-family: var(--g-mincho, serif) !important; font-size: clamp(18px, 1.7vw, 22px) !important; font-weight: 500; letter-spacing: .08em; color: var(--tv-sage, #62836d) !important; }
+html body .hero.is-tv .tv-fv-h { margin: 0; font-family: var(--g-mincho, serif) !important; font-weight: 500; font-size: clamp(40px, 5vw, 68px); line-height: 1.3; letter-spacing: .06em; color: #30483b; }
+.hero.is-tv .tv-fv-lead { margin: 22px 0 0; color: #454c47; font-size: 15.5px; line-height: 2; font-weight: 500; text-shadow: 0 0 12px #fafaf6, 0 0 4px #fafaf6; }
+.tv-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 14px 26px; margin: 28px 0 0; padding: 0; }
+.tv-facts li { display: flex; align-items: center; gap: 10px; }
+.tv-facts .tv-ic { width: 34px; height: 34px; padding: 6px; border-radius: 50%; background: #fff; box-shadow: 0 4px 12px rgba(48, 72, 59, .08); }
+.tv-facts li > span { display: flex; flex-direction: column-reverse; line-height: 1.35; }
+.tv-facts b { font-size: 15px; color: #30483b; }
+.tv-facts small { font-size: 11.5px; color: #6b746e; letter-spacing: .04em; }
+.tv-fv-cta { margin: 32px 0 0 !important; }
+.hero.is-tv .wave { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 3; }
+/* 登場は控えめなフェードだけ（最初の演出があるときは、終わってから） */
+.tv-fv-in > * { animation: tv-in .9s ease both; }
+.tv-fv-in > :nth-child(2) { animation-delay: .1s; }
+.tv-fv-in > :nth-child(3) { animation-delay: .2s; }
+.tv-fv-in > :nth-child(4) { animation-delay: .3s; }
+.tv-fv-in > :nth-child(5) { animation-delay: .4s; }
+.tv-fv-photo { animation: tv-in 1.2s ease both; }
+@keyframes tv-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ---------- 3つの特徴：カードではなく区切り線の3列 ---------- */
+.tv-cols3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tv-col { padding: 8px clamp(18px, 3vw, 40px); text-align: center; }
+.tv-col + .tv-col { border-left: 1px solid var(--tv-line); }
+.tv-circle { display: inline-grid; place-items: center; width: 84px; height: 84px; margin-bottom: 18px; border-radius: 50%; background: var(--tv-pale); }
+.tv-circle .tv-ic { width: 36px; height: 36px; }
+
+/* ---------- こんなお悩み ---------- */
+.tv-cases { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.tv-cases li { display: flex; gap: 14px; align-items: flex-start; padding: 22px 22px; border-radius: 14px; background: #fff; box-shadow: 0 8px 22px rgba(48, 72, 59, .06);
+  font-size: 15px; line-height: 1.75; color: #30483b; font-weight: 500; }
+.tv-check { flex: none; display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--tv-pale); }
+.tv-check .tv-ic { width: 20px; height: 20px; }
+
+/* ---------- 支援の内容 ---------- */
+.tv-head-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 24px 48px; align-items: end; }
+.tv-head-row .tv-lead { margin: 0; }
+.tv-areas { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.tv-area { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 26px 16px 14px; border-radius: 14px; background: #fff; box-shadow: 0 8px 22px rgba(48, 72, 59, .06); }
+.tv-area > .tv-ic { width: 40px; height: 40px; margin-bottom: 14px; }
+.tv-area p { font-size: 13.5px !important; line-height: 1.8 !important; flex: 1; }
+.tv-area-ph { margin: 14px 0 0; width: 100%; border-radius: 10px; overflow: hidden; }
+.tv-area-ph img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; }
+.tv-methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(28px, 3.5vw, 44px); padding: 26px 8px; border-radius: 14px; background: rgba(255, 255, 255, .6); }
+.tv-method { padding: 4px clamp(16px, 2.6vw, 34px); }
+.tv-method + .tv-method { border-left: 1px solid var(--tv-line); }
+.tv-method .tv-h3 { margin-bottom: 4px; }
+.tv-method p { font-size: 14px !important; margin: 0; }
+
+/* ---------- 一日の流れ ---------- */
+.tv-day, .tv-off { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 2fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
+.tv-day-cards, .tv-off-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.tv-dcard, .tv-ocard { border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 10px 26px rgba(48, 72, 59, .08); }
+.tv-dcard figure, .tv-ocard figure { margin: 0; }
+.tv-dcard figure img, .tv-ocard figure img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; }
+.tv-dcard-b, .tv-ocard-b { padding: 22px 24px 24px; }
+.tv-tl { list-style: none; margin: 10px 0 0; padding: 0 0 0 14px; position: relative; }
+.tv-tl::before { content: ""; position: absolute; left: 3px; top: 10px; bottom: 10px; width: 1px; background: #c9d8cc; }
+.tv-tl li { position: relative; display: grid; grid-template-columns: 52px 1fr; gap: 10px; padding: 5px 0; font-size: 14px; color: var(--tv-text); }
+.tv-tl li::before { content: ""; position: absolute; left: -14px; top: 13px; width: 7px; height: 7px; border-radius: 50%; background: var(--tv-sage); }
+.tv-tl time { color: var(--tv-sage); font-weight: 700; font-variant-numeric: tabular-nums; }
+.tv-tl b { font-weight: 500; }
+
+/* ---------- 2つの事業所 ---------- */
+.tv-ocard-name { display: flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+.tv-ologo { width: 84px; height: auto; flex: none; }
+html body .tv .tv-oname { margin: 0; font-family: var(--g-mincho, serif) !important; font-size: 21px; font-weight: 500; color: var(--tv-deep); }
+.tv .tv-otype { margin: 2px 0 0 !important; font-size: 12.5px !important; color: var(--tv-sage) !important; font-weight: 700; line-height: 1.6 !important; }
+.tv-ofacts { list-style: none; margin: 0 0 16px; padding: 14px 0 0; border-top: 1px solid var(--tv-line); display: grid; gap: 6px; }
+.tv-ofacts li { display: flex; gap: 10px; font-size: 14px; color: var(--tv-text); line-height: 1.7; }
+.tv-ofacts .tv-ic { width: 18px; height: 18px; margin-top: 3px; }
+
+/* ---------- 多言語 ---------- */
+.tv-multi { display: grid; grid-template-columns: auto minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); align-items: center; padding: clamp(28px, 4vw, 48px); border-radius: 22px; background: var(--tv-mint); }
+.tv-globe { display: inline-grid; place-items: center; width: 92px; height: 92px; border-radius: 50%; background: #fff; }
+.tv-globe .tv-ic { width: 44px; height: 44px; }
+.tv-multi-tx p { margin: 10px 0 14px !important; }
+.tv-langs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+.tv-langs li { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 92px; height: 92px; border-radius: 50%; background: #fff; text-align: center; line-height: 1.3;
+  box-shadow: 0 6px 16px rgba(48, 72, 59, .07); }
+.tv-langs b { font-size: 14px; color: var(--tv-deep); }
+.tv-langs small { font-size: 10.5px; color: #6b746e; margin-top: 2px; }
+
+/* ---------- 今のまま使う段（ご利用までの流れ・よくあるご質問・見学のおさそい）を同じ色に ---------- */
+.tv .dw-sec.is-white { background: #fff; }
+.tv .dw-sec.is-pale2, .tv .dw-sec.is-pale { background: var(--tv-pale); }
+.tv .dw-circle { background: var(--tv-pale) !important; }
+.tv .dw-ic { color: var(--tv-sage) !important; }
+.tv .dw-sn, .tv .dw-num { color: var(--tv-sage) !important; }
+.tv .dw-btn { background: var(--tv-deep) !important; }
+.tv .dw-btn.is-o { background: #fff !important; color: var(--tv-deep) !important; border-color: var(--tv-deep) !important; }
+.tv .dw-head.is-center .dw-h::after, .tv .dw-head .dw-h::after { background: var(--tv-sage) !important; }
+.tv .dw-cta { background: var(--tv-beige); }
+
+/* ---------- 画面幅に合わせて ---------- */
+@media (max-width: 1100px) {
+  .tv-areas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tv-day, .tv-off { grid-template-columns: minmax(0, 1fr); }
+  .tv-multi { grid-template-columns: auto minmax(0, 1fr); }
+  .tv-langs { grid-column: 1 / -1; justify-content: flex-start; }
+}
+@media (max-width: 900px) {
+  .tv-fv-photo { position: relative; width: 100%; height: 300px; -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent 100%); mask-image: linear-gradient(to bottom, #000 60%, transparent 100%); }
+  .hero.is-tv .tv-fv-photo .stockmark { bottom: 70px; }
+  .tv-fv-in { min-height: 0; padding: 0 0 90px; margin-top: -40px; }
+  .tv-cols3, .tv-methods { grid-template-columns: minmax(0, 1fr); }
+  .tv-col + .tv-col, .tv-method + .tv-method { border-left: 0; border-top: 1px solid var(--tv-line); padding-top: 22px; margin-top: 18px; }
+  .tv-cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tv-head-row { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .tv-wrap { width: calc(100% - 40px); }
+  html body .hero.is-tv .tv-fv-h { font-size: clamp(34px, 10vw, 44px); }
+  .tv-fv-photo { height: 240px; }
+  .tv-facts { gap: 12px 18px; }
+  .tv-cases, .tv-day-cards, .tv-off-cards { grid-template-columns: minmax(0, 1fr); }
+  .tv-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tv-multi { grid-template-columns: minmax(0, 1fr); text-align: left; }
+  .tv-globe { width: 64px; height: 64px; }
+  .tv-langs li { width: 76px; height: 76px; }
+  .tv-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tv-fv-in > *, .tv-fv-photo { animation: none; }
+  .tv-link:hover { animation: none; }
+}
+
+/* ---------- 直し（2026-10-17・撮って確かめたあと） ---------- */
+/* FVの見出しが「ふや／す。」で折り返していたので、幅を広げて大きさを少し下げる。写真に少しかかるので、ぼかしを付けて読みやすく */
+.tv-fv-in > .tv-fv-h { max-width: 640px; }
+html body .hero.is-tv .tv-fv-h { font-size: clamp(36px, 4.2vw, 58px); text-shadow: 0 0 14px #fafaf6, 0 0 4px #fafaf6; }
+/* 一日の流れ・事業所：左の文字の段を広げ、見出しを少し小さく（「ありま／す」の折り返しをなくす） */
+@media (min-width: 1101px) { .tv-day, .tv-off { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); } }
+html body .tv :is(.tv-day-tx, .tv-off-tx) .tv-h { font-size: clamp(24px, 2.3vw, 30px); }
+/* 多言語：言語の丸を1列に5つ並べる */
+@media (min-width: 1101px) {
+  .tv-multi { grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.25fr); }
+  .tv-langs { flex-wrap: nowrap; gap: 8px; }
+  .tv-langs li { width: 84px; height: 84px; }
+}
+@media (max-width: 1100px) { .tv-langs { flex-wrap: wrap; } }
+/* 「その子のペースで、」の中の文字にも明朝を（サイト全体のゴシックの指定が中の文字に先にかかるため） */
+html body .hero.is-tv .tv-fv-pre, html body .hero.is-tv .tv-fv-pre * { font-family: var(--g-mincho, serif) !important; font-weight: 500 !important; }
+/* スマホ：FVの見出しを1行に（「ふや／す。」の折り返しをなくす）。上の直しの指定が後ろにあるので、ここで改めて */
+@media (max-width: 640px) { html body .hero.is-tv .tv-fv-h { font-size: 8.4vw; letter-spacing: .02em; } .tv-fv-in > .tv-fv-h { max-width: none; } }

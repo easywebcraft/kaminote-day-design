@@ -36,23 +36,9 @@
     wave.setAttribute('fill', bgc);
   }
 
-  // トップのFV（PC）：楕円の写真の左端を、文字の段の右端に合わせる（画面幅や言語で文字の段の幅が変わるため）
-  // ふちが透けるので、少し文字の段にかかってよい（文字の下は、ほぼ透けた部分になる）
-  var topHero = document.querySelector('.hero:not(.is-sub)');
-  var txt = topHero && topHero.querySelector('.hero-txt');
-  if (txt) {
-    var fit = function () {
-      var hr = topHero.getBoundingClientRect(), tr = txt.getBoundingClientRect();
-      // 直し2：左端を文字の段の中ほどまで伸ばす（左側は長く透けるので、文字の下はほぼ地の色）
-      topHero.style.setProperty('--fv-l', Math.round(Math.max(tr.right - hr.left - 260, hr.width * 0.3)) + 'px');
-    };
-    fit();
-    window.addEventListener('resize', fit);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  }
-
   // トップと、トップと同じ組み立ての下層ページのFV
-  var h1 = document.querySelector('.hero h1');
+  // 作り直したトップ（.is-tv）は、芽・吹き出し・波線を出さない（改善提案：装飾を減らし、動きは控えめに・2026-10-17）
+  var h1 = document.querySelector('.hero:not(.is-tv) h1');
   if (h1) {
     var sp = sprout('is-top');
     h1.appendChild(sp);
