@@ -44,7 +44,7 @@
     var fit = function () {
       var hr = topHero.getBoundingClientRect(), tr = txt.getBoundingClientRect();
       // 直し2：左端を文字の段の中ほどまで伸ばす（左側は長く透けるので、文字の下はほぼ地の色）
-      topHero.style.setProperty('--fv-l', Math.round(Math.max(tr.right - hr.left - 260, hr.width * 0.3)) + 'px');
+      topHero.style.setProperty('--fv-l', Math.round(Math.max(tr.right - hr.left - 400, hr.width * 0.22)) + 'px');
     };
     fit();
     window.addEventListener('resize', fit);

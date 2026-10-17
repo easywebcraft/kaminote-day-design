@@ -108,13 +108,13 @@
   .hero { min-height: max(560px, calc(100svh - 65px)); display: flex; flex-direction: column; }
   .hero > .hero-grid { flex: 1 0 auto; width: 100%; box-sizing: border-box; align-content: center; }
   .hero > .wave { margin-top: auto; flex: none; }
-  .hero .hero-photo { position: absolute; top: 6px; bottom: 6px; left: var(--fv-l, 46%); right: 1.5vw; width: auto; margin: 0; }
+  .hero .hero-photo { position: absolute; top: 0; bottom: 0; left: var(--fv-l, 40%); right: 1vw; width: auto; margin: 0; }
   /* 直し2（「もう少し楕円にして左に伸ばせる？」）：横長の楕円にして、左端を文字の段の中ほどまで伸ばす。
      文字の下が読めるよう、ふちの丸い透けに「左から右へゆっくり濃くなる透け」を重ねる（2つの重なったところだけ見える） */
   .hero .hero-photo .blob { width: 100%; height: 100%; aspect-ratio: auto; border-radius: 0; box-shadow: none;
-    -webkit-mask-image: radial-gradient(closest-side, #000 60%, rgba(0, 0, 0, .6) 80%, transparent 100%), linear-gradient(to right, transparent 0, rgba(0, 0, 0, .35) 22%, #000 48%);
+    -webkit-mask-image: radial-gradient(closest-side, #000 72%, rgba(0, 0, 0, .65) 88%, transparent 100%), linear-gradient(to right, transparent 0, rgba(0, 0, 0, .3) 24%, #000 50%);
     -webkit-mask-composite: source-in;
-    mask-image: radial-gradient(closest-side, #000 60%, rgba(0, 0, 0, .6) 80%, transparent 100%), linear-gradient(to right, transparent 0, rgba(0, 0, 0, .35) 22%, #000 48%);
+    mask-image: radial-gradient(closest-side, #000 72%, rgba(0, 0, 0, .65) 88%, transparent 100%), linear-gradient(to right, transparent 0, rgba(0, 0, 0, .3) 24%, #000 50%);
     mask-composite: intersect; }
   .hero .hero-scribble { display: none; }
   /* 写真が文字の段の下まで伸びるので、文字のまわりに地のクリーム色のぼかしを付けて読みやすく */
@@ -148,4 +148,9 @@
   .hero > .hero-grid > .hero-photo { flex: 1 1 0; min-height: 180px; width: 100% !important; margin: 0 !important; justify-self: auto; }
   .hero .hero-photo .blob { width: 100%; height: 100% !important; aspect-ratio: auto !important; }
   .hero > .wave { margin-top: -24px; flex: none; }
+}
+/* スマホ・タブレット：写真を左右の余白なしの画面幅いっぱいに（写真をもっと大きく・2026-10-17） */
+@media (max-width: 900px) {
+  .hero > .hero-grid > .hero-photo { width: auto !important; margin: 0 -24px !important; align-self: stretch; }
+  .hero > .hero-grid > .hero-txt { align-self: stretch; }
 }

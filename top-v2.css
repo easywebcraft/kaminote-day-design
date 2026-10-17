@@ -238,14 +238,10 @@ html body .tv .tv-h { color: var(--dw-ink); }
   body .hero .hero-actions { margin-top: 34px; }
 }
 @media (max-width: 900px) {
-  body .hero .hero-photo { width: min(100%, 620px); margin: 8px auto 0; justify-self: center; }
   body .hero .hero-photo .blob { aspect-ratio: 4 / 3; border-radius: 0; box-shadow: none;
-    -webkit-mask-image: radial-gradient(closest-side, #000 66%, rgba(0, 0, 0, .55) 84%, transparent 100%);
-    mask-image: radial-gradient(closest-side, #000 66%, rgba(0, 0, 0, .55) 84%, transparent 100%); }
+    -webkit-mask-image: radial-gradient(closest-side, #000 74%, rgba(0, 0, 0, .6) 89%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 74%, rgba(0, 0, 0, .6) 89%, transparent 100%); }
   body .hero .hero-photo .il:nth-of-type(1) { left: 2% !important; top: 6% !important; }
-}
-@media (max-width: 640px) {
-  body .hero .hero-photo { width: calc(100% + 24px); margin-left: -12px; }
 }
 /* タブレット：見出しが 28px と小さかったので、画面の広さに合わせて大きく */
 @media (min-width: 641px) and (max-width: 900px) {
