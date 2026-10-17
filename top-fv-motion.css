@@ -1,14 +1,19 @@
 /* =====================================================================
    トップのFVの動きを足す（2026-10-17・トップだけで読む）。top-fv-motion.js とセット
-   C 「できた」に花丸を手描きで描く／A 楕円の写真がゆっくり寄って戻る／B 写真のまわりに色紙がひらひら舞う
+   コピーが1文字ずつ弾んで出て、そのあと小さく跳ねる（はじめは「できた」に花丸だったが消した）／A 楕円の写真がゆっくり寄って戻る／B 写真のまわりに色紙がひらひら舞う
    最初の演出のあいだは止まり（day-intro.css の dy-hold）、終わってから動き出す
    ===================================================================== */
 
-/* ---------- C 花丸 ---------- */
-.tf-maru { position: absolute; z-index: 3; pointer-events: none; overflow: visible; }
-.tf-maru path { fill: none; stroke: #e26b55; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; opacity: .85;
-  stroke-dasharray: 1; stroke-dashoffset: 1; }
-.tf-maru.is-draw path { transition: stroke-dashoffset 1.4s cubic-bezier(.45, .05, .35, 1); stroke-dashoffset: 0; }
+/* ---------- コピーの動き（花丸の代わり・2026-10-17） ----------
+   出てくるとき：1文字ずつ弾むように順に（英語などは1単語ずつ）
+   出たあと：「「できた」をふやす。」の行が、数秒おきに左から順に小さく跳ねる */
+.tf-ch { display: inline-block; white-space: pre; animation: tf-in .7s cubic-bezier(.3, 1.45, .5, 1) calc(.25s + var(--i, 0) * .05s) both; }
+.g .tf-ch { animation: tf-in .7s cubic-bezier(.3, 1.45, .5, 1) calc(.25s + var(--i, 0) * .05s) both, tf-hop 6s ease-in-out calc(2.6s + var(--j, 0) * .07s) infinite; }
+@keyframes tf-in { from { opacity: 0; transform: translateY(.45em) rotate(-8deg) scale(.85); } to { opacity: 1; transform: none; } }
+@keyframes tf-hop { 0%, 9%, 100% { translate: 0 0; } 4% { translate: 0 -.14em; } }
+/* 英語など：箱にすると「pace」と「,」のあいだで折り返すので、箱にせず単語ごとににじみながら出す */
+.tf-w { animation: tf-fade .8s ease calc(.25s + var(--i, 0) * .09s) both; }
+@keyframes tf-fade { from { opacity: 0; filter: blur(5px); } to { opacity: 1; filter: none; } }
 
 /* ---------- A 写真がゆっくり寄る ---------- */
 .hero:not(.is-sub) .hero-photo .blob img { animation: tf-ken 24s ease-in-out infinite alternate; transform-origin: 60% 50%; }
@@ -31,5 +36,5 @@
 @media (prefers-reduced-motion: reduce) {
   .hero:not(.is-sub) .hero-photo .blob img { animation: none; }
   .tf-paper { display: none; }
-  .tf-maru path { stroke-dashoffset: 0; transition: none; }
+  .tf-ch, .g .tf-ch, .tf-w { animation: none !important; }
 }

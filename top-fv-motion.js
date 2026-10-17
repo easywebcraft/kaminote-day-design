@@ -25,61 +25,40 @@
     photo.appendChild(box);                     // 写真の上、吹き出し（z-index 2）の下
   }
 
-  // ---------- C 「できた」に花丸 ----------
+  // ---------- コピーの動き：見出しの文字を1文字ずつ（英語などは1単語ずつ）に分ける ----------
+  // 言語の切り替えで文字が書きかわったら、分け直す（花丸はやめた・2026-10-17）
   var h1 = hero.querySelector('h1');
-  var g = h1 && h1.querySelector('.g');
-  if (!g) return;
-  var NS = 'http://www.w3.org/2000/svg';
-  var svg = document.createElementNS(NS, 'svg');
-  svg.setAttribute('class', 'tf-maru');
-  svg.setAttribute('aria-hidden', 'true');
-  var path = document.createElementNS(NS, 'path');
-  path.setAttribute('pathLength', '1');
-  svg.appendChild(path);
-  h1.appendChild(svg);
-
-  // 花びらのある外まわり1周 → 内側へうず巻き1周半（手描きの花丸）
-  function maru(w, h) {
-    var cx = w / 2, cy = h / 2, d = '', steps = 220;
-    for (var k = 0; k <= steps; k++) {
-      var u = k / steps, th = -Math.PI / 2 + u * Math.PI * 2 * 2.5, rx, ry;
-      if (u < 0.4) {                               // 外まわり：花びら12枚
-        var bump = 1 + 0.07 * Math.sin(th * 12);
-        rx = (w / 2) * bump; ry = (h / 2) * bump;
-      } else {                                     // 内側へうず巻き
-        var s = 1 - (u - 0.4) / 0.6 * 0.55;
-        rx = (w / 2) * 0.86 * s; ry = (h / 2) * 0.86 * s;
-      }
-      var x = cx + rx * Math.cos(th), y = cy + ry * Math.sin(th);
-      d += (k ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
-    }
-    return d;
+  if (!h1 || reduce) return;
+  var busy = false;
+  function split() {
+    if (busy) return;
+    busy = true;
+    var nodes = [], tw = document.createTreeWalker(h1, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) { return n.parentNode.closest('.tf-ch, .tf-w, .fx-sprout, svg') || !n.data.trim() ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; }
+    }), n;
+    while ((n = tw.nextNode())) nodes.push(n);
+    var i = 0, j = 0;
+    nodes.forEach(function (t) {
+      var inG = !!t.parentNode.closest('.g');
+      var ja = /[\u3000-\u30ff\u4e00-\u9fff]/.test(t.data);
+      var parts = ja ? Array.from(t.data) : t.data.split(/(\s+)/);
+      var f = document.createDocumentFragment();
+      parts.forEach(function (ch) {
+        if (!ch) return;
+        if (!ja && /^\s+$/.test(ch)) { f.appendChild(document.createTextNode(ch)); return; }
+        var s = document.createElement('span');
+        // 日本語は1文字ずつ弾む箱（tf-ch）。英語などは折り返しを変えないよう、箱にせずにじみながら出す（tf-w）
+        s.className = ja ? 'tf-ch' : 'tf-w';
+        s.textContent = ch;
+        s.style.setProperty('--i', i++);
+        if (inG) s.style.setProperty('--j', j++);
+        f.appendChild(s);
+      });
+      t.parentNode.replaceChild(f, t);
+    });
+    busy = false;
   }
-
-  // 「できた」の3文字の位置を測って、そのまわりに置く（言語を切り替えて「できた」がないときは出さない）
-  function place() {
-    var tw = document.createTreeWalker(g, NodeFilter.SHOW_TEXT), node, hit = null;
-    while ((node = tw.nextNode())) { var i = node.data.indexOf('できた'); if (i >= 0) { hit = [node, i]; break; } }
-    if (!hit) { svg.style.display = 'none'; return; }
-    var r = document.createRange();
-    r.setStart(hit[0], hit[1]); r.setEnd(hit[0], hit[1] + 3);
-    var b = r.getBoundingClientRect(), hb = h1.getBoundingClientRect();
-    var w = b.width * 1.32, hh = b.height * 1.18;
-    svg.style.display = '';
-    svg.style.left = (b.left - hb.left - (w - b.width) / 2) + 'px';
-    svg.style.top = (b.top - hb.top - (hh - b.height) / 2) + 'px';
-    svg.setAttribute('width', w.toFixed(0));
-    svg.setAttribute('height', hh.toFixed(0));
-    svg.setAttribute('viewBox', '0 0 ' + w.toFixed(1) + ' ' + hh.toFixed(1));
-    path.setAttribute('d', maru(w, hh));
-  }
-  place();
-  addEventListener('resize', place);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
-  if (window.MutationObserver) new MutationObserver(place).observe(g, { childList: true, characterData: true, subtree: true });
-
-  // 芽が伸びて波線が引かれたあと（約3.6秒後）に描く。最初の演出があるときは、終わってから
-  function draw() { setTimeout(function () { place(); svg.classList.add('is-draw'); }, reduce ? 0 : 3600); }
-  if (root.classList.contains('dy-hold')) addEventListener('dy-intro-open', draw, { once: true });
-  else draw();
+  split();
+  if (window.MutationObserver) new MutationObserver(function () { if (!busy && h1.querySelector(':not(.tf-ch):not(.fx-sprout):not(svg):not(path)')) split(); })
+    .observe(h1, { childList: true, subtree: true, characterData: true });
 })();
