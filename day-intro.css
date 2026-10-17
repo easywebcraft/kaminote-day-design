@@ -1,0 +1,47 @@
+/* =====================================================================
+   最初の演出（トップだけ・2026-10-17）。day-intro.js とセット
+   保育園（ロゴがふわっと出て、画面全体が薄れて消える）と色・長さ・落ち着きはそろえ、手法を変えた：
+   赤い手と青い手が左右から入る → 手のあいだに子どもたちの顔 → クレヨン5色の粒 → 名前
+   → 画面の真ん中から丸い穴がふんわり広がって、FVが見えてくる
+   html.dy-intro のときだけ出す（同じ閲覧中は1回／「視差効果を減らす」がオンなら出さない）
+   ===================================================================== */
+@property --dy-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+.dy-loader { display: none; }
+html.dy-intro, html.dy-intro body { overflow: hidden; }
+html.dy-intro .dy-loader { display: flex; position: fixed; inset: 0; z-index: 9999; align-items: center; justify-content: center; background: #fbf8f1; cursor: pointer; }
+.dy-in { text-align: center; }
+
+/* 手のマーク：1枚の絵を3つに切って使う（左の赤い手／真ん中の顔／右の青い手） */
+.dy-mark { position: relative; width: min(190px, 46vw); aspect-ratio: 516 / 276; margin: 0 auto; }
+.dy-mark img { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; }
+.dy-mark .is-l { clip-path: inset(0 67% 0 0); transform-origin: 18% 90%; animation: dy-hand-l 1.15s cubic-bezier(.25, .8, .3, 1) .3s forwards; }
+.dy-mark .is-r { clip-path: inset(0 0 0 66%); transform-origin: 82% 90%; animation: dy-hand-r 1.15s cubic-bezier(.25, .8, .3, 1) .3s forwards; }
+.dy-mark .is-c { clip-path: inset(0 34% 0 33%); transform-origin: 50% 70%; animation: dy-kids .8s cubic-bezier(.3, 1.5, .5, 1) 1.3s forwards; }
+@keyframes dy-hand-l { 0% { opacity: 0; transform: translateX(-70%) rotate(-16deg); } 60% { opacity: 1; transform: translateX(4%) rotate(5deg); } 100% { opacity: 1; transform: none; } }
+@keyframes dy-hand-r { 0% { opacity: 0; transform: translateX(70%) rotate(16deg); } 60% { opacity: 1; transform: translateX(-4%) rotate(-5deg); } 100% { opacity: 1; transform: none; } }
+@keyframes dy-kids { 0% { opacity: 0; transform: scale(.55); } 100% { opacity: 1; transform: none; } }
+
+/* クレヨン5色の粒：真ん中から外へ広がって、そのままゆらゆら */
+.dy-dots { position: absolute; left: 50%; top: 55%; width: 0; height: 0; }
+.dy-dots i { position: absolute; width: var(--s, 12px); height: var(--s, 12px); margin: calc(var(--s, 12px) / -2); border-radius: 50%; background: var(--c); opacity: 0;
+  animation: dy-dot 1.1s cubic-bezier(.2, .8, .3, 1) calc(1.35s + var(--k, 0) * .05s) forwards, dy-bob 3s ease-in-out calc(2.5s + var(--k, 0) * .2s) infinite; }
+@keyframes dy-dot { 0% { opacity: 0; transform: translate(0, 0) scale(.3); } 100% { opacity: .9; transform: translate(var(--x), var(--y)) scale(1); } }
+@keyframes dy-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+
+/* 名前 */
+html body .dy-loader .dy-name { margin: 24px 0 6px; font-family: var(--g-mincho, serif) !important; font-weight: 600; font-size: clamp(22px, 3vw, 29px); letter-spacing: .16em; color: #2f3430; opacity: 0; animation: dy-fade 1.2s ease 1.75s forwards; }
+html body .dy-loader .dy-en { margin: 0; font-size: 11px; letter-spacing: .32em; color: #6b7068; opacity: 0; animation: dy-fade 1.2s ease 2.1s forwards; }
+@keyframes dy-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* 出ていく：中身が少し薄れ、画面の真ん中から丸い穴がふちをぼかして広がる */
+html.dy-intro .dy-loader.is-out { -webkit-mask: radial-gradient(circle at 50% 50%, transparent var(--dy-r), #000 calc(var(--dy-r) + 90px)); mask: radial-gradient(circle at 50% 50%, transparent var(--dy-r), #000 calc(var(--dy-r) + 90px));
+  animation: dy-open 1.35s cubic-bezier(.45, 0, .25, 1) .4s forwards; }
+/* 文字が消えてから穴を広げる（重なると、FVの文字と混ざって見えるため） */
+.dy-loader.is-out .dy-in { transition: opacity .4s ease, transform 1s ease; opacity: 0; transform: scale(1.05); }
+@keyframes dy-open { 0% { --dy-r: 0px; } 100% { --dy-r: 120vmax; } }
+
+/* 演出のあいだは、FVの動き（芽・吹き出しなど）を止めておく */
+html.dy-hold .hero, html.dy-hold .hero * { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) { .dy-loader { display: none !important; } }

@@ -20,7 +20,10 @@
 
   function start(el) {
     // 画面が描かれてから動かす（最初から見えている場所なので、読みこみ直後に1回だけ）
-    requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('is-grow'); }); });
+    var go = function () { requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add('is-grow'); }); }); };
+    // トップの最初の演出（day-intro.js）があるときは、開きはじめてから
+    if (document.documentElement.classList.contains('dy-hold')) window.addEventListener('dy-intro-open', go, { once: true });
+    else go();
   }
 
   // トップ
