@@ -94,15 +94,9 @@ html body .dw-checks .dw-ic { box-sizing: border-box; width: 28px; height: 28px;
   .dw-steps .dw-circle { position: relative; z-index: 1; box-shadow: 0 0 0 8px #fff; }
 }
 
-/* ---------- I さわると浮く・跳ねる ---------- */
-.dw-card, .dw-point, .dw-icons > div, .dw-steps li { transition: translate .35s cubic-bezier(.3, .7, .3, 1), box-shadow .35s; }
-@media (hover: hover) {
-  .dw-cards .dw-card:hover { translate: 0 -6px; }
-  .dw-cards .dw-office:nth-child(1):hover { box-shadow: inset 0 5px 0 #f7c948, 0 18px 38px rgba(44, 90, 67, .13); }
-  .dw-cards .dw-office:nth-child(2):hover { box-shadow: inset 0 5px 0 #8ec9dd, 0 18px 38px rgba(44, 90, 67, .13); }
-  :is(.dw-point, .dw-icons > div, .dw-steps li):hover :is(.dw-circle, .dw-ic) { animation: lv-hop .6s cubic-bezier(.3, .7, .3, 1); }
-  .dw-icons > div:hover .dw-ic { animation: lv-hop .6s cubic-bezier(.3, .7, .3, 1); }
-}
+/* ---------- I さわると浮く・跳ねる → やめた（2026-10-17）----------
+   松本さん「クリックできない箇所でカーソルを合わせると動くのをやめてほしい、クリックできると勘違いするから」。
+   カード・アイコンの丸は押せないので、乗せても動かさない（ボタン・文字のリンクの動きは残す） */
 @keyframes lv-hop { 0%, 100% { translate: 0 0; } 35% { translate: 0 -9px; } 60% { translate: 0 1px; } 80% { translate: 0 -2px; } }
 
 /* ---------- 動き（html.tm-on のときだけ） ---------- */

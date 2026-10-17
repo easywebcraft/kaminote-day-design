@@ -222,9 +222,7 @@ html body .tv .tv-h { color: var(--dw-ink); }
 .tv-dcard:nth-child(1) { box-shadow: inset 0 -5px 0 #f4a493, 0 10px 26px rgba(48, 72, 59, .08); }
 .tv-dcard:nth-child(2) { box-shadow: inset 0 -5px 0 #8ecfa5, 0 10px 26px rgba(48, 72, 59, .08); }
 .tv-multi { background: var(--dw-pale); }
-/* 写真のあるカード：乗せると少し浮く */
-.tv-area, .tv-dcard, .tv-ocard, .tv-cases li { transition: translate .35s cubic-bezier(.3, .7, .3, 1); }
-@media (hover: hover) { :is(.tv-area, .tv-dcard, .tv-ocard, .tv-cases li):hover { translate: 0 -5px; } }
+/* （カードに乗せると浮く動きは、押せると勘違いされるのでやめた・2026-10-17） */
 @media (max-width: 640px) { .tv-area > .tv-ic { width: 56px; height: 56px; padding: 13px; } }
 
 /* トップのFVのことばの吹き出しは出さない（2026-10-17・松本さん「この演出削除して」。下層ページは出す） */
