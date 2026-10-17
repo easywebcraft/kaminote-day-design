@@ -670,7 +670,10 @@
   "k660": "かみのてで過ごす いつもの一日",
   "k661": "一日の流れを見る",
   "k662": "で",
-  "k663": "「できた」をふやす"
+  "k663": "「できた」をふやす",
+  "k664": "<em>「好き」から広がる</em>",
+  "k665": "その子らしい未来",
+  "k666": "一人ひとりの個性と、成長のペースを大切に。<br>かみのては、あそびや日々の生活を通して、<br>小さな「できた」を一緒に育んでいきます。"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1336,7 +1339,10 @@
   "k660": "An ordinary day at Kaminote",
   "k661": "See the daily schedule",
   "k662": ", ",
-  "k663": "more moments of “I did it”"
+  "k663": "more moments of “I did it”",
+  "k665": "into a future truly their own",
+  "k666": "We value each child's personality and pace of growth.<br>Through play and everyday life,<br>Kaminote nurtures small moments of “I did it” together with you.",
+  "k664": "<em>Growing from what they love</em>"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2002,7 +2008,10 @@
   "k660": "Um dia comum na Kaminote",
   "k661": "Ver a rotina do dia",
   "k662": ", ",
-  "k663": "mais momentos de «consegui»"
+  "k663": "mais momentos de «consegui»",
+  "k665": "rumo a um futuro só seu",
+  "k666": "Valorizamos a personalidade e o ritmo de crescimento de cada criança.<br>Por meio das brincadeiras e da vida cotidiana,<br>a Kaminote cultiva, junto com vocês, pequenos momentos de «consegui».",
+  "k664": "<em>Crescendo a partir do que gostam</em>"
  }
 };
 
