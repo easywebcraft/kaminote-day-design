@@ -227,3 +227,28 @@ html body .tv .tv-h { color: var(--dw-ink); }
 
 /* トップのFVのことばの吹き出しは出さない（2026-10-17・松本さん「この演出削除して」。下層ページは出す） */
 .hero .fx-hello { display: none !important; }
+
+/* ---------- トップのFVのレイアウトを整える（2026-10-17・松本さん「TOPページのFVのレイアウトを最適にして」） ----------
+   ・PC：高さを「画面の高さ−ヘッダー」に合わせる（最小600・最大860px）。札を消して余白ができたので見出しを大きく
+   ・タブレット・スマホ：写真をPCと同じ横長の楕円にし、ふちを透けさせる。FVが最初の画面に収まる大きさに */
+@media (min-width: 901px) {
+  body .hero { min-height: clamp(600px, calc(100svh - 65px), 860px); }
+  html body .hero h1 { font-size: clamp(30px, 4.2vw, 62px); line-height: 1.45; }
+  body .hero .lead { font-size: clamp(15px, 1.15vw, 17px); margin-top: 22px; }
+  body .hero .hero-actions { margin-top: 34px; }
+}
+@media (max-width: 900px) {
+  body .hero .hero-photo { width: min(100%, 620px); margin: 8px auto 0; justify-self: center; }
+  body .hero .hero-photo .blob { aspect-ratio: 4 / 3; border-radius: 0; box-shadow: none;
+    -webkit-mask-image: radial-gradient(closest-side, #000 66%, rgba(0, 0, 0, .55) 84%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 66%, rgba(0, 0, 0, .55) 84%, transparent 100%); }
+  body .hero .hero-photo .il:nth-of-type(1) { left: 2% !important; top: 6% !important; }
+}
+@media (max-width: 640px) {
+  body .hero .hero-photo { width: calc(100% + 24px); margin-left: -12px; }
+}
+/* タブレット：見出しが 28px と小さかったので、画面の広さに合わせて大きく */
+@media (min-width: 641px) and (max-width: 900px) {
+  html body .hero h1 { font-size: clamp(34px, 5.6vw, 48px); line-height: 1.45; }
+  body .hero .lead { font-size: 16px; }
+}
