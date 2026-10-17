@@ -133,17 +133,6 @@ html body .tv .tv-oname { margin: 0; font-family: var(--g-mincho, serif) !import
 .tv-langs b { font-size: 14px; color: var(--tv-deep); }
 .tv-langs small { font-size: 10.5px; color: #6b746e; margin-top: 2px; }
 
-/* ---------- 今のまま使う段（ご利用までの流れ・よくあるご質問・見学のおさそい）を同じ色に ---------- */
-.tv .dw-sec.is-white { background: #fff; }
-.tv .dw-sec.is-pale2, .tv .dw-sec.is-pale { background: var(--tv-pale); }
-.tv .dw-circle { background: var(--tv-pale) !important; }
-.tv .dw-ic { color: var(--tv-sage) !important; }
-.tv .dw-sn, .tv .dw-num { color: var(--tv-sage) !important; }
-.tv .dw-btn { background: var(--tv-deep) !important; }
-.tv .dw-btn.is-o { background: #fff !important; color: var(--tv-deep) !important; border-color: var(--tv-deep) !important; }
-.tv .dw-head.is-center .dw-h::after, .tv .dw-head .dw-h::after { background: var(--tv-sage) !important; }
-.tv .dw-cta { background: var(--tv-beige); }
-
 /* ---------- 画面幅に合わせて ---------- */
 @media (max-width: 1100px) {
   .tv-areas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -195,3 +184,45 @@ html body .tv :is(.tv-day-tx, .tv-off-tx) .tv-h { font-size: clamp(24px, 2.3vw, 
 html body .hero.is-tv .tv-fv-pre, html body .hero.is-tv .tv-fv-pre * { font-family: var(--g-mincho, serif) !important; font-weight: 500 !important; }
 /* スマホ：FVの見出しを1行に（「ふや／す。」の折り返しをなくす）。上の直しの指定が後ろにあるので、ここで改めて */
 @media (max-width: 640px) { html body .hero.is-tv .tv-fv-h { font-size: 8.4vw; letter-spacing: .02em; } .tv-fv-in > .tv-fv-h { max-width: none; } }
+
+/* =====================================================================
+   デザインを戻す（2026-10-17・松本さん「デザイン面は戻して、寂しくなった」）
+   構成と中身は新しいまま。色合いは作り直す前のにぎやかな形に：クリームと淡いグリーンの地、さんご色のボタン、
+   見出しの下の短い線、クレヨン5色（黄・水色・さんご・緑・ピンク。day-lively.css の --c1〜--c5）
+   ===================================================================== */
+body:has(.tv) { background: #fbf8f1; }
+.tv-sec.is-pale { background: var(--dw-pale); }
+.tv-sec.is-beige { background: var(--dw-pale2); }
+.tv-en { color: var(--dw-green) !important; }
+html body .tv .tv-h { color: var(--dw-ink); }
+.tv .tv-head .tv-h::after { display: block !important; content: ""; width: 34px; height: 2px; margin-top: 16px; background: var(--dw-orange); }
+.tv .tv-head.is-center .tv-h::after { margin: 16px auto 0; background: var(--dw-green); }
+.tv .tv-h3 { color: var(--dw-ink); }
+.tv-btn { background: var(--g-coral, #e26b55); box-shadow: 0 8px 20px rgba(226, 107, 85, .28); }
+.tv-btn:hover { background: var(--g-coral-d, #d05a45); }
+.tv-btn.is-o { background: #fff; color: var(--dw-deep) !important; border-color: var(--dw-deep); }
+
+/* クレヨン5色を番号順に回す */
+:is(.tv-col, .tv-cases li, .tv-area, .tv-method, .tv-langs li, .tv-tl li):nth-child(5n+1) { --c: var(--c1); --cb: var(--c1-bg); }
+:is(.tv-col, .tv-cases li, .tv-area, .tv-method, .tv-langs li, .tv-tl li):nth-child(5n+2) { --c: var(--c2); --cb: var(--c2-bg); }
+:is(.tv-col, .tv-cases li, .tv-area, .tv-method, .tv-langs li, .tv-tl li):nth-child(5n+3) { --c: var(--c3); --cb: var(--c3-bg); }
+:is(.tv-col, .tv-cases li, .tv-area, .tv-method, .tv-langs li, .tv-tl li):nth-child(5n+4) { --c: var(--c4); --cb: var(--c4-bg); }
+:is(.tv-col, .tv-cases li, .tv-area, .tv-method, .tv-langs li, .tv-tl li):nth-child(5n+5) { --c: var(--c5); --cb: var(--c5-bg); }
+.tv-circle, .tv-check { background: var(--cb); }
+:is(.tv-col, .tv-cases li, .tv-area) .tv-ic { color: var(--c); }
+.tv-area > .tv-ic { box-sizing: border-box; width: 72px; height: 72px; padding: 17px; border-radius: 50%; background: var(--cb); }
+.tv-method .tv-h3 { display: flex; align-items: center; gap: 10px; }
+.tv-method .tv-h3::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--c); flex: none; }
+.tv-tl li::before { background: var(--c); }
+.tv-tl time { color: var(--c); }
+.tv-langs li { box-shadow: inset 0 0 0 3px var(--cb), 0 6px 16px rgba(48, 72, 59, .07); }
+.tv-langs b { color: var(--c); }
+.tv-off-cards > .tv-ocard:nth-child(1) { box-shadow: inset 0 5px 0 #f7c948, 0 10px 26px rgba(48, 72, 59, .08); }
+.tv-off-cards > .tv-ocard:nth-child(2) { box-shadow: inset 0 5px 0 #8ec9dd, 0 10px 26px rgba(48, 72, 59, .08); }
+.tv-dcard:nth-child(1) { box-shadow: inset 0 -5px 0 #f4a493, 0 10px 26px rgba(48, 72, 59, .08); }
+.tv-dcard:nth-child(2) { box-shadow: inset 0 -5px 0 #8ecfa5, 0 10px 26px rgba(48, 72, 59, .08); }
+.tv-multi { background: var(--dw-pale); }
+/* 写真のあるカード：乗せると少し浮く */
+.tv-area, .tv-dcard, .tv-ocard, .tv-cases li { transition: translate .35s cubic-bezier(.3, .7, .3, 1); }
+@media (hover: hover) { :is(.tv-area, .tv-dcard, .tv-ocard, .tv-cases li):hover { translate: 0 -5px; } }
+@media (max-width: 640px) { .tv-area > .tv-ic { width: 56px; height: 56px; padding: 13px; } }

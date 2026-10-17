@@ -53,10 +53,3 @@ html.dy-hold .hero, html.dy-hold .hero * { animation-play-state: paused !importa
 html.dy-hold .hero .stockmark, html.dy-hold .hero .il { opacity: 0 !important; transition: none; }
 
 @media (prefers-reduced-motion: reduce) { .dy-loader { display: none !important; } }
-
-/* 短くした（2026-10-17・改善提案「初回のローディング演出は短縮」）：手 0.1秒〜／顔 0.75秒〜／粒 0.8秒〜／名前 0.95秒〜。開き始めは 2.4秒（前は 3.8秒） */
-.dy-mark .is-l, .dy-mark .is-r { animation-duration: .85s; animation-delay: .1s; }
-.dy-mark .is-c { animation-duration: .6s; animation-delay: .75s; }
-.dy-dots i { animation-duration: .8s, 3s; animation-delay: calc(.8s + var(--k, 0) * .04s), calc(1.7s + var(--k, 0) * .2s); }
-html body .dy-loader .dy-name { animation-duration: .9s; animation-delay: .95s; }
-html body .dy-loader .dy-en { animation-duration: .9s; animation-delay: 1.15s; }
