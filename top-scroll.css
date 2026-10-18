@@ -1,0 +1,46 @@
+/* =====================================================================
+   トップの中身の段に動きを足す（2026-10-18・松本さん「TOPページにもっと動きをだして」・トップだけ）。top-scroll.js とセット
+   ・押せない所に「乗せると動く」は入れない（前の決まり）。動くのはスクロールと時間に合わせた動きだけ
+   1 線のアイコンが描かれる／2 カードの写真がスクロールで少しずれる（奥行き）／3 時間割の線がのびて点が灯る
+   4 言語の丸が順に出て地球がゆっくり回る／5 段の背景に淡い色の丸がただよう／6 事業所のロゴが一度はずむ
+   ===================================================================== */
+html.tm-on .ts-draw svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.1s cubic-bezier(.45, .05, .35, 1) calc(.15s + var(--d, 0) * .12s); }
+html.tm-on .ts-draw.is-on svg * { stroke-dashoffset: 0; }
+
+/* 2 写真の奥行き：写真を少し大きくして、スクロールに合わせて上下にずらす */
+.ts-par { overflow: hidden; }
+.ts-par img { transform: scale(1.14) translateY(calc(var(--py, 0) * 1px)); will-change: transform; }
+
+/* 3 時間割の線と点 */
+html.tm-on .tv-tl.ts-tl::before { transform: scaleY(0); transform-origin: 50% 0; transition: transform 1.6s cubic-bezier(.4, .1, .3, 1) .2s; }
+html.tm-on .tv-tl.ts-tl.is-on::before { transform: none; }
+html.tm-on .tv-tl.ts-tl li::before { scale: 0; }
+html.tm-on .tv-tl.ts-tl.is-on li::before { animation: ts-pop .5s cubic-bezier(.3, 1.6, .5, 1) calc(.3s + var(--i, 0) * .32s) forwards; }
+html.tm-on .tv-tl.ts-tl li > :not(time) { opacity: 0; translate: 8px 0; transition: opacity .6s ease, translate .6s ease; transition-delay: calc(.35s + var(--i, 0) * .32s); }
+html.tm-on .tv-tl.ts-tl.is-on li > :not(time) { opacity: 1; translate: 0 0; }
+@keyframes ts-pop { to { scale: 1; } }
+
+/* 4 言語の丸と地球 */
+html.tm-on .tv-langs.ts-pop li { scale: 0; }
+html.tm-on .tv-langs.ts-pop.is-on li { animation: ts-pop .6s cubic-bezier(.3, 1.6, .5, 1) calc(.2s + var(--i, 0) * .12s) forwards; }
+/* 地球：回すと線が斜めになって記号のように見えたので、ゆっくり上下にふわふわさせる */
+html.tm-on .tv-globe { animation: ts-bob 4s ease-in-out infinite; }
+@keyframes ts-bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+
+/* 5 段の背景にただよう色の丸 */
+.ts-bubbles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.ts-bubbles i { position: absolute; left: var(--x); top: var(--y); width: var(--s); aspect-ratio: 1; border-radius: 50%; background: var(--c); opacity: .28; filter: blur(1px);
+  animation: ts-drift var(--t) ease-in-out var(--d) infinite alternate; }
+@keyframes ts-drift { from { translate: 0 0; } to { translate: var(--dx) var(--dy); } }
+.ts-host { position: relative; isolation: isolate; }
+.ts-host > .tv-wrap { position: relative; z-index: 1; }
+
+/* 6 事業所のロゴが一度はずむ */
+html.tm-on .tv-ologo.ts-hop.is-on { animation: ts-hop 1s cubic-bezier(.3, 1.4, .5, 1) calc(.3s + var(--d, 0) * .2s) both; }
+@keyframes ts-hop { 0% { translate: 0 0; rotate: 0deg; } 35% { translate: 0 -10px; rotate: -6deg; } 65% { translate: 0 0; rotate: 4deg; } 100% { translate: 0 0; rotate: 0deg; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ts-bubbles { display: none; }
+  .ts-par img { transform: none; }
+  .tv-globe { animation: none !important; }
+}
