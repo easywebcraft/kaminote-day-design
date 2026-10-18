@@ -129,3 +129,18 @@ body .foot .foot-sub { font-size: 12px; color: #8d857c !important; }
 
 /* 下層ページのFV（dw-fv）の大きなひと言は明朝のまま（2026-10-15 FVを前の形に戻したとき） */
 html body :is(.dw-fv-catch, .dw-fv-sub), html body :is(.dw-fv-catch, .dw-fv-sub) *:not(svg):not(svg *) { font-family: var(--g-mincho) !important; font-weight: 500 !important; }
+
+/* =====================================================================
+   メニューにカーソルを合わせたとき（2026-10-18・松本さん「かみのて保育のように」）
+   保育園サイト（design-system.css）と同じ：文字が緑になり、緑の下線が左から伸びる。プルダウンの項目は淡い緑の地に
+   ・マウスのある端末だけ下線を伸ばす／「視差効果を減らす」がオンなら色の変化だけ
+   ===================================================================== */
+.head .gnav > a:hover, .head .gdrop-t:hover { color: var(--g-green-d) !important; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .head .gnav > a, .head .gdrop-t { background: linear-gradient(var(--g-green), var(--g-green)) left calc(100% - 2px) / 0 2px no-repeat;
+    transition: background-size .3s cubic-bezier(.22, .61, .36, 1), color .3s; }
+  .head .gnav > a:hover, .head .gdrop-t:hover { background-size: 100% 2px; }
+  .head .gdrop-m a { transition: background-color .3s, color .3s; }
+  .head .gdrop-m a:hover { color: var(--g-green-d) !important; background-color: var(--g-green-bg); }
+  .head .lang-btn:hover { background-color: var(--g-green-bg); }
+}
