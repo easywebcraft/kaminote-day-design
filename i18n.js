@@ -714,7 +714,16 @@
   "k704": "主な行事など",
   "k705": "年間の行事",
   "k706": "情報公表のページへ戻る",
-  "k707": "※ 支援プログラムの内容は、事業所からいただいてから掲載します。"
+  "k707": "※ 支援プログラムの内容は、事業所からいただいてから掲載します。",
+  "k708": "国境を越えて、<br>子どもたちへ",
+  "k709": "明",
+  "k710": "る",
+  "k711": "い",
+  "k712": "未",
+  "k713": "来",
+  "k714": "を",
+  "k715": "基本理念と運営方針",
+  "k716": "<i class=\"rb1\">明</i><i class=\"rb2\">る</i><i class=\"rb3\">い</i><i class=\"rb4\">未</i><i class=\"rb5\">来</i><i class=\"rb6\">を</i>"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1424,7 +1433,10 @@
   "k704": "Main events",
   "k705": "Events throughout the year",
   "k706": "Back to Public Information",
-  "k707": "* The support program will be posted once we receive it from the facilities."
+  "k707": "* The support program will be posted once we receive it from the facilities.",
+  "k708": "Across borders,<br>a bright future",
+  "k715": "Our Philosophy and Policies",
+  "k716": "<i class=\"rb1\">for</i> <i class=\"rb4\">every</i> <i class=\"rb5\">child</i>"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2134,7 +2146,10 @@
   "k704": "Principais eventos",
   "k705": "Eventos ao longo do ano",
   "k706": "Voltar às Informações Públicas",
-  "k707": "* O programa de apoio será publicado assim que recebermos das unidades."
+  "k707": "* O programa de apoio será publicado assim que recebermos das unidades.",
+  "k708": "Além das fronteiras,<br>um futuro brilhante",
+  "k715": "Nossa Filosofia e Diretrizes",
+  "k716": "<i class=\"rb1\">para</i> <i class=\"rb2\">as</i> <i class=\"rb4\">crianças</i>"
  }
 };
 
