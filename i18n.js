@@ -754,7 +754,8 @@
   "k744": "見学・体験を受け付けています<small>仮の見出し</small>",
   "k745": "※お知らせは掲載イメージです",
   "k746": "かみのての「いま」を<br>おとどけします",
-  "k747": "行事のご案内や大切なお知らせなど、かみのてKIDS・かみのてSMILEの「いま」をお伝えします。"
+  "k747": "行事のご案内や大切なお知らせなど、かみのてKIDS・かみのてSMILEの「いま」をお伝えします。",
+  "k748": "ホームページをリニューアルしました"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1498,7 +1499,8 @@
   "k747": "Event information, important notices, and the latest from Kaminote KIDS and Kaminote SMILE.",
   "k741": "Our website is now open<small>Sample headline</small>",
   "k742": "Opening days during winter break<small>Sample headline</small>",
-  "k744": "Visits and trial sessions are welcome<small>Sample headline</small>"
+  "k744": "Visits and trial sessions are welcome<small>Sample headline</small>",
+  "k748": "Our website has been renewed"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2242,7 +2244,8 @@
   "k747": "Informações sobre eventos, avisos importantes e as novidades da Kaminote KIDS e da Kaminote SMILE.",
   "k741": "Nosso site foi lançado<small>Título provisório</small>",
   "k742": "Dias de funcionamento nas férias de inverno<small>Título provisório</small>",
-  "k744": "Aceitamos visitas e sessões de experiência<small>Título provisório</small>"
+  "k744": "Aceitamos visitas e sessões de experiência<small>Título provisório</small>",
+  "k748": "Nosso site foi renovado"
  }
 };
 
