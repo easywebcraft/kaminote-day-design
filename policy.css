@@ -34,3 +34,6 @@ html body .hero h1.rinen-h1, html body .hero h1.rinen-h1 *:not(svg):not(svg *) {
 .hero h1.rinen-h1 .g { color: #23306b; }
 .hero h1.rinen-h1 .rb1 { color: #e2337a; } .hero h1.rinen-h1 .rb2 { color: #f07d1f; } .hero h1.rinen-h1 .rb3 { color: #2f9a3a; }
 .hero h1.rinen-h1 .rb4 { color: #2c8ad8; } .hero h1.rinen-h1 .rb5 { color: #7a4fc0; } .hero h1.rinen-h1 .rb6 { color: #3b3f8f; }
+/* 理念の見出しには波線と芽を付けない（2026-10-22 ご依頼） */
+html body .hero h1.rinen-h1 .g { background: none !important; padding-bottom: 0 !important; }
+html body .hero h1.rinen-h1 .fx-sprout { display: none !important; }
