@@ -744,7 +744,8 @@
   "k734": "児童発達支援管理責任者の要件（所定の実務経験と研修の修了）を満たす方。<br>要件を満たしているか分からない方も、ご相談ください。",
   "k735": "土曜・日曜・祝日／年間休日120日以上",
   "k736": "<b>児童発達支援管理責任者の要件を満たしているか分からない、という段階でもかまいません。</b> これまでのご経歴をうかがえば、こちらで確かめられます。",
-  "k737": "はい。放課後等デイサービスでは、下校の時間に合わせて学校までお迎えに上がります。<b>未就学のお子さん（児童発達支援）の送迎の範囲は、ご相談ください。</b>"
+  "k737": "はい。放課後等デイサービスでは、下校の時間に合わせて学校までお迎えに上がります。<b>未就学のお子さん（児童発達支援）の送迎の範囲は、ご相談ください。</b>",
+  "k738": "基本理念を詳しく見る"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1478,7 +1479,8 @@
   "k734": "Applicants who meet the requirements for a child development support manager (the required work experience and completed training).<br>If you are not sure whether you qualify, please ask us.",
   "k735": "Saturdays, Sundays and public holidays / 120+ days off a year",
   "k736": "<b>It is fine if you are not yet sure whether you meet the requirements for a child development support manager.</b> Tell us about your career so far and we can check for you.",
-  "k737": "Yes. For the after-school day service, we pick children up at school when classes end. <b>For preschool children (child development support), please ask us about the transportation area.</b>"
+  "k737": "Yes. For the after-school day service, we pick children up at school when classes end. <b>For preschool children (child development support), please ask us about the transportation area.</b>",
+  "k738": "Read more about our philosophy"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2212,7 +2214,8 @@
   "k734": "Pessoas que atendem aos requisitos de gestor(a) responsável pelo apoio ao desenvolvimento infantil (experiência prática exigida e treinamento concluído).<br>Se não tiver certeza se atende, consulte-nos.",
   "k735": "Sábados, domingos e feriados / mais de 120 dias de folga por ano",
   "k736": "<b>Tudo bem se ainda não tiver certeza se atende aos requisitos de gestor(a) responsável.</b> Conte-nos sua trajetória e verificaremos para você.",
-  "k737": "Sim. No serviço após a escola, buscamos as crianças na escola no horário de saída. <b>Para crianças em idade pré-escolar (apoio ao desenvolvimento infantil), consulte-nos sobre a área de transporte.</b>"
+  "k737": "Sim. No serviço após a escola, buscamos as crianças na escola no horário de saída. <b>Para crianças em idade pré-escolar (apoio ao desenvolvimento infantil), consulte-nos sobre a área de transporte.</b>",
+  "k738": "Saiba mais sobre nossa filosofia"
  }
 };
 

@@ -24,7 +24,7 @@ html body :is(.dw-points, .dw-steps, .dw-icons, .dw-checks) .dw-ic { color: var(
 /* 5つの領域：アイコンを色の丸にのせる */
 html body .dw-icons > div > .dw-ic { box-sizing: border-box; width: 72px; height: 72px; padding: 17px; border-radius: 50%; background: var(--cb); }
 @media (max-width: 700px) { html body .dw-icons > div > .dw-ic { width: 56px; height: 56px; padding: 13px; } }
-/* もともと丸の中にあるアイコン（支援理念の「こんな姿を」など）は、丸そのものを色にする */
+/* もともと丸の中にあるアイコン（基本理念の「こんな姿を」など）は、丸そのものを色にする */
 html body .dw-icons .dw-circle { background: var(--cb) !important; }
 html body .dw-steps .dw-sn, html body .dw-nums .dw-num { color: var(--c) !important; }
 html body .dw-tl li::before { background: var(--c) !important; }
