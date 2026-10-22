@@ -1,0 +1,21 @@
+/* =====================================================================
+   お知らせ（2026-10-23）：保育園サイトのお知らせと同じ形
+   トップは新着の一覧＋「お知らせ一覧を見る」、news.html は一覧ページ
+   ===================================================================== */
+.nw-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.nw-head .dw-head { margin-bottom: 0; }
+.nw-list { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid var(--dw-line); }
+.nw-list li { border-bottom: 1px solid var(--dw-line); }
+.nw-list a { display: grid; grid-template-columns: 120px 88px minmax(0, 1fr); align-items: center; gap: 16px; padding: 22px 8px; color: var(--dw-ink); text-decoration: none; transition: background-color .3s ease, padding .3s ease; }
+.nw-list time { font-size: 14.5px; letter-spacing: .06em; color: var(--dw-sub); font-variant-numeric: tabular-nums; }
+.nw-list em { justify-self: start; padding: 2px 12px; border: 1px solid var(--g-coral, #e26b55); border-radius: 3px; color: var(--g-coral-d, #d05a45); font-style: normal; font-size: 12px; letter-spacing: .06em; }
+.nw-list em.is-event { border-color: var(--dw-green); color: var(--dw-deep); }
+.nw-list span { font-size: 15.5px; }
+.nw-list small { margin-left: 8px; font-size: 11.5px; color: var(--dw-mute); }
+.nw-note { margin: 14px 0 0 !important; font-size: 12.5px; color: var(--dw-mute) !important; }
+@media (hover: hover) { .nw-list a:hover { background: var(--dw-pale2); padding-left: 16px; } }
+@media (max-width: 640px) {
+  .nw-list a { grid-template-columns: auto 1fr; gap: 8px 14px; padding: 18px 4px; }
+  .nw-list span { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { .nw-list a { transition: none; } }

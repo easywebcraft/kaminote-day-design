@@ -745,7 +745,16 @@
   "k735": "土曜・日曜・祝日／年間休日120日以上",
   "k736": "<b>児童発達支援管理責任者の要件を満たしているか分からない、という段階でもかまいません。</b> これまでのご経歴をうかがえば、こちらで確かめられます。",
   "k737": "はい。放課後等デイサービスでは、下校の時間に合わせて学校までお迎えに上がります。<b>未就学のお子さん（児童発達支援）の送迎の範囲は、ご相談ください。</b>",
-  "k738": "基本理念を詳しく見る"
+  "k738": "基本理念を詳しく見る",
+  "k739": "お知らせ",
+  "k740": "お知らせ一覧を見る",
+  "k741": "ホームページを公開しました<small>仮の見出し</small>",
+  "k742": "冬休み中の営業日のご案内<small>仮の見出し</small>",
+  "k743": "行事",
+  "k744": "見学・体験を受け付けています<small>仮の見出し</small>",
+  "k745": "※お知らせは掲載イメージです",
+  "k746": "かみのての「いま」を<br>おとどけします",
+  "k747": "行事のご案内や大切なお知らせなど、かみのてKIDS・かみのてSMILEの「いま」をお伝えします。"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1480,7 +1489,16 @@
   "k735": "Saturdays, Sundays and public holidays / 120+ days off a year",
   "k736": "<b>It is fine if you are not yet sure whether you meet the requirements for a child development support manager.</b> Tell us about your career so far and we can check for you.",
   "k737": "Yes. For the after-school day service, we pick children up at school when classes end. <b>For preschool children (child development support), please ask us about the transportation area.</b>",
-  "k738": "Read more about our philosophy"
+  "k738": "Read more about our philosophy",
+  "k739": "News",
+  "k740": "See all news",
+  "k743": "Event",
+  "k745": "* These news items are samples.",
+  "k746": "News from<br>Kaminote",
+  "k747": "Event information, important notices, and the latest from Kaminote KIDS and Kaminote SMILE.",
+  "k741": "Our website is now open<small>Sample headline</small>",
+  "k742": "Opening days during winter break<small>Sample headline</small>",
+  "k744": "Visits and trial sessions are welcome<small>Sample headline</small>"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2215,7 +2233,16 @@
   "k735": "Sábados, domingos e feriados / mais de 120 dias de folga por ano",
   "k736": "<b>Tudo bem se ainda não tiver certeza se atende aos requisitos de gestor(a) responsável.</b> Conte-nos sua trajetória e verificaremos para você.",
   "k737": "Sim. No serviço após a escola, buscamos as crianças na escola no horário de saída. <b>Para crianças em idade pré-escolar (apoio ao desenvolvimento infantil), consulte-nos sobre a área de transporte.</b>",
-  "k738": "Saiba mais sobre nossa filosofia"
+  "k738": "Saiba mais sobre nossa filosofia",
+  "k739": "Notícias",
+  "k740": "Ver todas as notícias",
+  "k743": "Evento",
+  "k745": "* Estas notícias são exemplos.",
+  "k746": "Novidades<br>da Kaminote",
+  "k747": "Informações sobre eventos, avisos importantes e as novidades da Kaminote KIDS e da Kaminote SMILE.",
+  "k741": "Nosso site foi lançado<small>Título provisório</small>",
+  "k742": "Dias de funcionamento nas férias de inverno<small>Título provisório</small>",
+  "k744": "Aceitamos visitas e sessões de experiência<small>Título provisório</small>"
  }
 };
 
