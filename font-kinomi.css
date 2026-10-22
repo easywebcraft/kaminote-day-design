@@ -27,3 +27,21 @@ html body :is(.dw-num, .dw-tl time, .dw-sn) { font-style: normal !important; fon
 /* 英字の小見出し（OUR SUPPORT など）：Libre Baskerville */
 html body :is(.dw-en, .tv-en, .sub-crumb + .hero-badge .hb-place, .brand .en, .dy-en),
 html body :is(.dw-en, .tv-en) * { font-family: var(--g-en) !important; font-weight: 400 !important; letter-spacing: .14em !important; }
+
+/* =====================================================================
+   字体を事業所の「基本理念」PDFに合わせて明朝に（2026-10-23）
+   PDFは見出しも本文も太めの明朝なので、全ページの日本語を Zen Old Mincho に。
+   約物は明朝用の YakuHanMP。画面で細く見えないよう、本文は 500、見出しは 700
+   ===================================================================== */
+:root, .dw {
+  --g-gothic: YakuHanMP, "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --g-mincho: var(--g-gothic);
+  --dw-gothic: var(--g-gothic);
+  --dw-mincho: var(--g-gothic);
+}
+body { font-weight: 500; }
+/* 明朝は字幅が広く、スマホで「コミュニケーション」がカードからはみ出すので、絵を上・文字を下に */
+@media (max-width: 480px) {
+  html body .d2-areas-s li { flex-direction: column; text-align: center; padding: 14px 8px; gap: 8px; }
+  html body .d2-areas-s b { font-size: 14px; letter-spacing: 0; }
+}
