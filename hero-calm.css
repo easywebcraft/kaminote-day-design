@@ -12,8 +12,9 @@
    写真そのものが十分に大きく写っているので、奥行きの分だけの拡大（scale）はしない */
 
 @keyframes hc-breathe {
-  from { transform: scale(1.04) translate(-1%, 1%); }
-  to { transform: scale(1.16) translate(1.5%, -1.5%); }
+  /* 寄りすぎて写真の全体が見えなかったので弱めた（2026-10-26。最大 1.16 倍 → 1.06 倍） */
+  from { transform: scale(1) translate(-1%, 1%); }
+  to { transform: scale(1.06) translate(1%, -1%); }
 }
 
 /* 光の筋：右上から斜めに差す、白くやわらかい帯。左の文字のあたりには届かないようにする */
