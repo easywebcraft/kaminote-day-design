@@ -978,8 +978,13 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
    かみのてKIDS の外観はいただいた縦長の写真のまま置いている。どの形の枠でも、建物と入口・看板が入る高さに合わせる */
 img[src$="kids-exterior.jpg"]{object-position:50% 65% !important}
 img[src$="smile-exterior.jpg"]{object-position:50% 58% !important}
-/* top-fv-motion.css の寄る動き（tf-cam）はTOPの写真の絵柄に合わせたもの。外観写真では寄りすぎて建物が切れるので止める */
-.hero .hero-photo .blob img[src$="kids-exterior.jpg"]{animation:none !important;transform:none !important}
 /* 縦長の写真（2026-10-26 差し替え）。大縄が切れないよう上寄り、ホットケーキは手元と顔が入る高さ */
 img[src$="act-rope.jpg"]{object-position:50% 25% !important}
 img[src$="act-pancake.jpg"]{object-position:50% 45% !important}
+
+/* 一番上の写真のカメラワーク（2026-10-26。保育園サイトと同じ動き）
+   前の tf-cam は昔のTOP写真の絵柄（お皿・魚の絵など）に合わせて1.24倍まで寄っていたので、どの写真でも頭や建物が切れていた。
+   ゆっくり寄りながら斜めに流す動きに替える。拡大は1.02〜1.08倍、寄る中心は上寄り。動きを減らす設定では動かさない */
+@keyframes tn-cam{0%{transform:scale(1.02) translate(-1.5%,.5%)}100%{transform:scale(1.08) translate(1.5%,-1%)}}
+html body .hero .hero-photo .blob img{animation:tn-cam 16s ease-in-out infinite alternate both !important;transform-origin:50% 30% !important}
+@media (prefers-reduced-motion:reduce){html body .hero .hero-photo .blob img{animation:none !important;transform:none !important}}
