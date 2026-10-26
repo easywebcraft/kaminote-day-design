@@ -977,5 +977,6 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 /* 施設の写真の見せる位置（2026-10-26）
    かみのてKIDS の外観はいただいた縦長の写真のまま置いている。どの形の枠でも、建物と入口・看板が入る高さに合わせる */
 img[src$="kids-exterior.jpg"]{object-position:50% 65% !important}
+img[src$="smile-exterior.jpg"]{object-position:50% 58% !important}
 /* top-fv-motion.css の寄る動き（tf-cam）はTOPの写真の絵柄に合わせたもの。外観写真では寄りすぎて建物が切れるので止める */
 .hero .hero-photo .blob img[src$="kids-exterior.jpg"]{animation:none !important;transform:none !important}
