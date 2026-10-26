@@ -980,3 +980,6 @@ img[src$="kids-exterior.jpg"]{object-position:50% 65% !important}
 img[src$="smile-exterior.jpg"]{object-position:50% 58% !important}
 /* top-fv-motion.css の寄る動き（tf-cam）はTOPの写真の絵柄に合わせたもの。外観写真では寄りすぎて建物が切れるので止める */
 .hero .hero-photo .blob img[src$="kids-exterior.jpg"]{animation:none !important;transform:none !important}
+/* 縦長の写真（2026-10-26 差し替え）。大縄が切れないよう上寄り、ホットケーキは手元と顔が入る高さ */
+img[src$="act-rope.jpg"]{object-position:50% 25% !important}
+img[src$="act-pancake.jpg"]{object-position:50% 45% !important}
