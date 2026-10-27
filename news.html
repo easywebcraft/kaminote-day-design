@@ -30,6 +30,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&display=swap">
 <link rel="stylesheet" href="news.css?v=20261023">
 <link rel="stylesheet" href="font-kinomi.css?v=20261017">
+<link rel="stylesheet" href="day-tune.css?v=2">
 </head>
 <body>
 
@@ -49,12 +50,13 @@
     <div class="lang">
     <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="true">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-      <span data-i18n="k122">言語</span>
+      <span>言語 / Language</span>
     </button>
     <div class="lang-menu" hidden>
       <button type="button" data-lang="ja">日本語</button>
       <button type="button" data-lang="en">English</button>
       <button type="button" data-lang="pt">Português</button>
+      <p class="lang-note">このサイトの表示：日本語・English・Português<br>スタッフの対応言語：日本語・英語・タガログ語・ビサヤ語・ポルトガル語</p>
     </div>
   </div>
     <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false"><i18n-t data-i18n="k456">かみのてについて</i18n-t><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="philosophy.html" data-i18n="k685">基本理念</a><a href="support.html" data-i18n="k004">支援の内容</a><a href="program.html" data-i18n="k082">支援プログラム</a></div></div><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false"><i18n-t data-i18n="k457">ご利用について</i18n-t><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="life.html" data-i18n="k124">一日の流れ</a><a href="offices.html" data-i18n="k005">事業所案内</a><a href="use.html" data-i18n="k006">ご利用案内</a><a href="faq.html" data-i18n="k125">よくあるご質問</a></div></div><a href="news.html" aria-current="page" data-i18n="k739">お知らせ</a><a href="disclosure.html" data-i18n="k007">情報公表</a><a href="recruit.html" data-i18n="k008">採用情報</a></nav>
@@ -62,7 +64,7 @@
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
-<section class="hero is-sub">
+<section class="hero is-sub is-compact">
   <div class="wrap hero-grid">
     <div class="hero-txt">
       <nav class="sub-crumb" aria-label="パンくず"><a href="index.html" data-i18n="k126">トップ</a><span aria-hidden="true">›</span><span data-i18n="k739">お知らせ</span></nav>
@@ -87,7 +89,7 @@
 <section class="dw-sec is-white" id="news"><div class="dw-wrap">
       <div class="dw-head"><span class="dw-en">NEWS</span><h2 class="dw-h" data-i18n="k739">お知らせ</h2></div>
       <ul class="nw-list">
-        <li><a href="#n1" id="n1"><time datetime="2026-10-23">2026.10.23</time><em data-i18n="k739">お知らせ</em><span data-i18n="k748">ホームページをリニューアルしました</span></a></li>
+        <li><div class="nw-row" id="n1"><time datetime="2026-10-23">2026.10.23</time><em data-i18n="k739">お知らせ</em><span data-i18n="k748">ホームページをリニューアルしました</span></div></li>
       </ul>
 </div></section>
 </main>
@@ -98,7 +100,7 @@
     <div class="foot-grid">
       <div>
         <div class="brand"><img class="mark" src="img/logo-mark.png" width="516" height="276" alt=""><span class="tx"><span class="name" data-i18n="k002">かみのてKIDS・SMILE</span><span class="en">KAMINOTE KIDS &amp; SMILE</span></span></div>
-        <div class="foot-addr" data-i18n="k107">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
+        <div class="foot-addr foot-desk"><b>ご相談・見学の窓口</b>（かみのてKIDS・かみのてSMILE 共通）<br><a href="tel:0574663513">TEL 0574-66-3513</a></div><div class="foot-addr foot-corp"><b>運営会社</b>　株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511（本社）</div>
       </div>
       <div>
         <h4 data-i18n="k108">サービスについて</h4>
@@ -123,7 +125,7 @@
         </ul>
       </div>
     </div>
-    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k112">プライバシーポリシー</a></div>
+    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><span class="foot-pending">プライバシーポリシー（準備中）</span></div>
   </div>
 </footer>
 
