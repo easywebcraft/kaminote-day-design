@@ -162,3 +162,10 @@ figure.dw-cta-photo { position: relative; margin: 0; }
   .dw-table-wrap { position: relative; background: linear-gradient(to left, rgba(0,0,0,.08), transparent 18px) right / 18px 100% no-repeat; }
   .dw-table-wrap::after { content: "← 横にずらすと SMILE が見られます"; display: block; padding: 8px 4px 0; font-size: 12px; color: var(--dt-sub); }
 }
+
+/* ---------- 絵文字のアイコンを、線のアイコン（色付きの丸）にそろえる（2026-10-28） ----------
+   トップや一日の流れと同じ線の絵。色は day-lively.css の5色（--c1〜--c5）を1つずつ使う */
+html body .ic-line { display: inline-grid; place-items: center; flex: none; border-radius: 50%; background: var(--cb, #e8f5ec) !important; color: var(--c, #3f8a5c); font-size: 0; }
+html body .ic-line svg { display: block; width: 50%; height: 50%; }
+html body .cur-c .ic-line { display: grid; width: 56px; height: 56px; margin: 0 0 12px; }
+html body .x-points .ic-line { width: 44px; height: 44px; }
