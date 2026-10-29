@@ -215,3 +215,5 @@ html body .x-points .ic-line { width: 44px; height: 44px; }
   .dw-vsteps.is-icon li { grid-template-columns: 56px 48px minmax(0, 1fr); gap: 0 12px; }
   .dw-vsteps.is-icon .dw-circle { width: 48px; height: 48px; }
 }
+/* 見出しを語のまとまりで折り返す（スマホで「ステ／ップ」と切れないように） */
+.dt-nw { display: inline-block; }

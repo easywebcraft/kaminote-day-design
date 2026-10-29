@@ -855,7 +855,9 @@
   "k845": "※ 基本理念・運営方針・管理者のごあいさつは、事業所からいただいたものです。目ざす姿は、これまでにうかがったお話から組んだ仮の案です。",
   "k846": "まずは見にきてください",
   "k847": "5つの領域を",
-  "k848": "あそびと生活の中で"
+  "k848": "あそびと生活の中で",
+  "k849": "ご利用開始までの",
+  "k850": "5つのステップ"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1658,7 +1660,9 @@
   "k845": "* The basic philosophy, operating policy and the manager's message were provided by the facility. “Our goals” is a provisional draft based on what we have heard so far.",
   "k846": "Please come and see us first",
   "k847": "The five areas",
-  "k848": "through play and daily life"
+  "k848": "through play and daily life",
+  "k849": "Getting started in ",
+  "k850": "five steps"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2461,7 +2465,9 @@
   "k845": "* A filosofia básica, a política de funcionamento e a mensagem da gestão foram fornecidas pelo estabelecimento. “Nossos objetivos” é um rascunho provisório baseado no que ouvimos até agora.",
   "k846": "Primeiro, venha conhecer",
   "k847": "As cinco áreas",
-  "k848": "na brincadeira e no dia a dia"
+  "k848": "na brincadeira e no dia a dia",
+  "k849": "Começar em ",
+  "k850": "cinco etapas"
  }
 };
 
