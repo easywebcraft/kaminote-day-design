@@ -201,3 +201,17 @@ html body .x-points .ic-line { width: 44px; height: 44px; }
 .dt-sign { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; margin-top: 26px !important; color: var(--dt-ink); font-weight: 700; font-size: 14px; }
 .dt-sign img { width: 200px; height: auto; }
 @media (max-width: 760px) { .dt-sign img { width: 170px; } }
+
+/* ご利用案内「ご利用開始までの5つのステップ」：写真は上に大きく1枚、各ステップは線のアイコン（2026-10-30） */
+.dt-flow-ph { max-width: 960px; margin: 0 auto 34px; }
+.dt-flow-ph img { aspect-ratio: 21 / 8; object-position: center 62%; }
+.dw-vsteps.is-icon { max-width: 820px; margin: 0 auto; }
+.dw-vsteps.is-icon::before { left: 122px; }
+.dw-vsteps.is-icon li { grid-template-columns: 72px 64px minmax(0, 1fr); }
+.dw-vsteps.is-icon .dw-circle { position: relative; z-index: 1; background: #fff; box-shadow: 0 0 0 6px var(--dw-pale2); }
+@media (max-width: 700px) {
+  .dt-flow-ph img { aspect-ratio: 4 / 3; }
+  .dw-vsteps.is-icon::before { left: 92px; }
+  .dw-vsteps.is-icon li { grid-template-columns: 56px 48px minmax(0, 1fr); gap: 0 12px; }
+  .dw-vsteps.is-icon .dw-circle { width: 48px; height: 48px; }
+}
