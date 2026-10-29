@@ -852,7 +852,10 @@
   "k842": "事業所の正式な支援プログラム（5領域活動プログラム）です。",
   "k843": "<b>情報公表</b>",
   "k844": "支援プログラム・自己評価結果・保護者評価の公表です。",
-  "k845": "※ 基本理念・運営方針・管理者のごあいさつは、事業所からいただいたものです。目ざす姿は、これまでにうかがったお話から組んだ仮の案です。"
+  "k845": "※ 基本理念・運営方針・管理者のごあいさつは、事業所からいただいたものです。目ざす姿は、これまでにうかがったお話から組んだ仮の案です。",
+  "k846": "まずは見にきてください",
+  "k847": "5つの領域を",
+  "k848": "あそびと生活の中で"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the centre details are quoted from the current website. Text and photos will be replaced.",
@@ -1652,7 +1655,10 @@
   "k842": "The facility's official support program (activity program for the five areas).",
   "k843": "<b>Public information</b>",
   "k844": "Publication of our support program, self-evaluation results and parent evaluations.",
-  "k845": "* The basic philosophy, operating policy and the manager's message were provided by the facility. “Our goals” is a provisional draft based on what we have heard so far."
+  "k845": "* The basic philosophy, operating policy and the manager's message were provided by the facility. “Our goals” is a provisional draft based on what we have heard so far.",
+  "k846": "Please come and see us first",
+  "k847": "The five areas",
+  "k848": "through play and daily life"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações das unidades foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2452,7 +2458,10 @@
   "k842": "O programa de apoio oficial do estabelecimento (programa de atividades das cinco áreas).",
   "k843": "<b>Informações públicas</b>",
   "k844": "Publicação do programa de apoio, dos resultados da autoavaliação e da avaliação dos pais.",
-  "k845": "* A filosofia básica, a política de funcionamento e a mensagem da gestão foram fornecidas pelo estabelecimento. “Nossos objetivos” é um rascunho provisório baseado no que ouvimos até agora."
+  "k845": "* A filosofia básica, a política de funcionamento e a mensagem da gestão foram fornecidas pelo estabelecimento. “Nossos objetivos” é um rascunho provisório baseado no que ouvimos até agora.",
+  "k846": "Primeiro, venha conhecer",
+  "k847": "As cinco áreas",
+  "k848": "na brincadeira e no dia a dia"
  }
 };
 
