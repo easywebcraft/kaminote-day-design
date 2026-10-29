@@ -195,3 +195,8 @@ html body .x-points .ic-line { width: 44px; height: 44px; }
   .pg-area-h { font-size: 19px; }
   .pg-list li { font-size: 14.5px; }
 }
+
+/* 2026-10-29 管理者のサイン（philosophy.html）。肩書きの下に、行書の名前を画像で（衡山毛筆フォント行書・商用/ロゴ利用自由） */
+.dt-sign { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; margin-top: 26px !important; color: var(--dt-ink); font-weight: 700; font-size: 14px; }
+.dt-sign img { width: 200px; height: auto; }
+@media (max-width: 760px) { .dt-sign img { width: 170px; } }
