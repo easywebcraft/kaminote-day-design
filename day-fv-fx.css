@@ -154,3 +154,14 @@
   .hero > .hero-grid > .hero-photo { width: auto !important; margin: 0 -24px !important; align-self: stretch; }
   .hero > .hero-grid > .hero-txt { align-self: stretch; }
 }
+
+/* ---------- 下層ページのFVの見出しを、トップのFVと同じ見た目に（2026-10-31・松本さん「各ページのTOPの見た目をFVと同じデザインにして」） ----------
+   紺の明朝（太字）・波線と芽なし。トップの「明るい未来を」のクレヨン6色は下層には付けない（2026-10-31・松本さん「FV以外のページの文字の虹色は外して」）。
+   大きさはトップより一回り小さい：トップと同じ 62px だと「安心してご相談ください」（11文字）が「さい」だけ次の行に落ちたので、11文字が1行に収まる大きさにした */
+html body .hero.is-sub h1, html body .hero.is-sub h1 *:not(svg):not(svg *) { font-family: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif !important; font-weight: 900; }
+html body .hero.is-sub h1 { letter-spacing: .04em; color: #23306b; }
+html body .hero.is-sub h1 :is(.l1, .g) { color: #23306b; }
+html body .hero.is-sub h1 .g { background: none !important; padding-bottom: 0 !important; }
+html body .hero.is-sub h1 .fx-sprout { display: none !important; }
+@media (min-width: 901px) { html body .hero.is-sub h1 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.5; } }
+@media (min-width: 641px) and (max-width: 900px) { html body .hero.is-sub h1 { font-size: clamp(34px, 5.6vw, 48px); line-height: 1.45; } }
